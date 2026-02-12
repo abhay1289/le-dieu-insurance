@@ -26,7 +26,9 @@ const NavBar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-[0.16,1,0.3,1] ${scrolled ? 'bg-white/90 backdrop-blur-xl py-4 shadow-sm border-b border-gray-100' : 'bg-white py-6 border-b border-gray-50'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-[0.16,1,0.3,1] ${scrolled
+        ? 'bg-white/90 backdrop-blur-xl py-4 shadow-sm border-b border-gray-100'
+        : 'bg-white py-6 border-b border-gray-50'
         }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">

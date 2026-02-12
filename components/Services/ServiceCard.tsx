@@ -16,11 +16,15 @@ interface ServiceCardProps {
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
+  const [isActive, setIsActive] = React.useState(false);
+
   return (
     <motion.div
       initial="initial"
       whileHover="active"
-      whileTap="active"
+      animate={isActive ? "active" : "initial"}
+      onClick={() => setIsActive(!isActive)}
+
       variants={{
         hidden: { opacity: 0, y: 50 },
         visible: { opacity: 1, y: 0 }
