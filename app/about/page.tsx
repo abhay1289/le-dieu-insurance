@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import NavBar from '@/components/NavBar/NavBar';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/PageHero';
@@ -30,286 +30,207 @@ const staggerContainer = {
 };
 
 const milestones = [
-    { year: "2003", title: "Founded & IRDA Licensed", description: "Established as a Direct Insurance Broking Firm, licensed by the Insurance Regulatory and Development Authority of India." },
-    { year: "2008", title: "Corporate Portfolio Expansion", description: "Expanded services to serve large industrial houses, power projects, and infrastructure developments across India." },
-    { year: "2013", title: "Pan-India Operations", description: "Established nationwide presence with corporate offices in Bhopal and Delhi, serving clients across all major Indian states." },
-    { year: "2018", title: "Digital Transformation", description: "Adopted advanced risk analytics and digital policy management platforms to enhance client service delivery." },
-    { year: "2023", title: "Two Decades of Excellence", description: "Celebrated 20 years of trusted insurance broking, with 10,000+ families and businesses protected nationwide." },
+    { year: "2003", title: "Inception & Licensing", description: "Le Dieu established as a Direct Insurance Broking Firm with full IRDA licensing, setting a new standard for transparency." },
+    { year: "2008", title: "Corporate Expansion", description: "Rapid expansion into large industrial sectors, securing mandates for power projects and infrastructure developments." },
+    { year: "2013", title: "Pan-India Presence", description: "Established strategic corporate offices in Bhopal and New Delhi, extending service delivery across all major Indian states." },
+    { year: "2018", title: "Digital Evolution", description: "Integration of advanced risk analytics and digital policy management systems to offer real-time insights to clients." },
+    { year: "2023", title: "20 Years of Trust", description: "Celebrating two decades of excellence, protecting over 10,000 families and businesses with claims settled exceeding ₹500 Cr." },
 ];
 
 const values = [
-    { icon: "🛡️", title: "Trust & Integrity", description: "Every recommendation we make is guided by transparency and your best interests, never by commission." },
-    { icon: "🎯", title: "Client-Centric Approach", description: "We design coverage around your unique risk profile — not what suits insurers, but what protects you." },
-    { icon: "⚡", title: "Claims Excellence", description: "Our dedicated claims team ensures swift, hassle-free settlements — our strongest competitive advantage." },
-    { icon: "🏢", title: "Industry Expertise", description: "Deep domain knowledge across manufacturing, infrastructure, healthcare, hospitality, and corporate sectors." },
+    { icon: "🛡️", title: "Unwavering Integrity", description: "We operate with radical transparency. Your best interest is our only interest—commission never dictates our counsel." },
+    { icon: "🎯", title: "Precision Tailoring", description: "We reject off-the-shelf policies. Every solution is architected around your unique risk profile and business DNA." },
+    { icon: "⚡", title: "Claims Velocity", description: "A dedicated claims division that fights for your settlement. We measure success by the speed and fairness of your recovery." },
+    { icon: "🏢", title: "Sector Mastery", description: "Deep, specialized knowledge across manufacturing, infrastructure, and corporate risk landscapes." },
 ];
 
 const stats = [
     { number: "20+", label: "Years of Excellence" },
-    { number: "10,000+", label: "Clients Protected" },
-    { number: "21+", label: "Partner Insurers" },
+    { number: "10k+", label: "Clients Protected" },
+    { number: "21+", label: "Insurer Partners" },
     { number: "₹500Cr+", label: "Claims Settled" },
 ];
 
 export default function AboutPage() {
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"]
+    });
+
     return (
         <SmoothScroll>
-            <div className="min-h-screen bg-white">
+            <div ref={containerRef} className="min-h-screen bg-primary text-white selection:bg-accent selection:text-white">
                 <ScrollProgress />
                 <NavBar />
 
                 <PageHero
-                    title="About Le Dieu Insurance"
-                    subtitle="India's trusted IRDA-licensed insurance broker since 2003 — delivering tailored risk management, policy placement, and claims excellence for businesses and families nationwide."
+                    title="About Le Dieu"
+                    subtitle="Architecting resilience for India's most ambitious enterprises since 2003."
                     breadcrumb="About Us"
                     backgroundImage="/images/about-team.png"
                 />
 
-                {/* Mission & Vision Section */}
-                <section className="py-16 md:py-32 bg-white overflow-hidden">
-                    <div className="container mx-auto px-6 md:px-12">
-                        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-                            {/* Left - Label & Heading */}
+                {/* Strategic Vision Section - Dark Premium Layout */}
+                <section className="relative py-24 md:py-40 bg-primary overflow-hidden">
+                    {/* Ambient Background Elements */}
+                    <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-accent-green/5 rounded-full blur-[100px] pointer-events-none" />
+
+                    <div className="container mx-auto px-6 md:px-12 relative z-10">
+                        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                            {/* Typography */}
                             <motion.div
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{ once: true }}
                                 variants={staggerContainer}
                             >
-                                <motion.div
-                                    variants={fadeUpVariants}
-                                    className="flex items-center gap-4 mb-4 md:mb-8"
-                                >
-                                    <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Who We Are</span>
+                                <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mb-8">
+                                    <div className="h-px w-8 bg-accent"></div>
+                                    <span className="text-xs font-bold tracking-[0.3em] text-accent uppercase">Our Identity</span>
                                 </motion.div>
 
-                                <div className="overflow-hidden mb-6">
-                                    <motion.h2
-                                        variants={textRevealVariants}
-                                        className="text-primary text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter leading-[0.95]"
-                                    >
-                                        Protecting India&apos;s
-                                    </motion.h2>
+                                <div className="space-y-4 mb-10">
+                                    <div className="overflow-hidden">
+                                        <motion.h2 variants={textRevealVariants} className="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-white">
+                                            Beyond
+                                        </motion.h2>
+                                    </div>
+                                    <div className="overflow-hidden">
+                                        <motion.h2 variants={textRevealVariants} className="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-accent to-white">
+                                            Insurance.
+                                        </motion.h2>
+                                    </div>
                                 </div>
-                                <div className="overflow-hidden">
-                                    <motion.h2
-                                        variants={textRevealVariants}
-                                        className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter leading-[0.95]"
-                                    >
-                                        Businesses Since 2003
-                                    </motion.h2>
-                                </div>
-                            </motion.div>
 
-                            {/* Right - Content */}
-                            <motion.div
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                variants={staggerContainer}
-                                className="space-y-6"
-                            >
-                                <motion.p variants={fadeUpVariants} className="text-gray-600 text-lg leading-relaxed">
-                                    Le Dieu Insurance Brokers Pvt. Ltd. is a leading IRDA-licensed direct insurance broking firm in India, serving mid-to-large corporates, SMEs, and retail clients with end-to-end risk management and insurance solutions.
-                                </motion.p>
-                                <motion.p variants={fadeUpVariants} className="text-gray-500 leading-relaxed">
-                                    Our valued clients include large and prestigious industrial houses, power projects, infrastructure developments, road and civil engineering projects, the hospitality industry, hospitals, and corporate enterprises across India. With a dedicated team of insurance professionals, risk engineers, chartered accountants, and MBAs, we deliver tailor-made policies that are cost-effective yet provide the widest coverage for indemnification.
-                                </motion.p>
-                                <motion.p variants={fadeUpVariants} className="text-gray-500 leading-relaxed">
-                                    Our expertise in claims settlement has created deep satisfaction among our existing clients — and we consider this our strongest competitive advantage. We leverage our PAN India network and deep market knowledge to negotiate optimal coverage from 21+ insurance companies, ensuring you receive protection that truly reflects your risk profile.
+                                <motion.p variants={fadeUpVariants} className="text-xl text-white/70 leading-relaxed max-w-lg mb-8 font-light border-l border-white/10 pl-6">
+                                    Le Dieu Insurance Brokers is not just an intermediary; we are your strategic risk partners. Licensed by IRDA since 2003, we bridge the gap between complex enterprise risks and optimal financial protection.
                                 </motion.p>
 
-                                <motion.div variants={fadeUpVariants} className="pt-4">
+                                <motion.div variants={fadeUpVariants}>
                                     <a
                                         href="/contact"
-                                        className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-accent hover:text-primary transition-all duration-300 shadow-lg shadow-primary/10"
+                                        className="inline-flex items-center gap-4 group cursor-pointer"
                                     >
-                                        Schedule a Consultation
-                                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 8h14M9 2l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                        <div className="w-12 h-12 rounded-full border border-accent/30 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all duration-300">
+                                            <svg className="w-4 h-4 text-accent group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                                        </div>
+                                        <span className="text-sm font-bold uppercase tracking-widest text-white group-hover:text-accent transition-colors">Start the dialogue</span>
                                     </a>
                                 </motion.div>
                             </motion.div>
+
+                            {/* Statistical Excellence - Glass Cards */}
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+                                className="grid gap-6"
+                            >
+                                <motion.div variants={fadeUpVariants} className="p-8 rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-accent/30 transition-colors duration-500">
+                                    <h3 className="text-white/50 text-xs font-bold uppercase tracking-widest mb-4">Market Leadership</h3>
+                                    <p className="text-white text-lg leading-relaxed">
+                                        Serving prestigious industrial houses, power projects, and infrastructure giants with a philosophy of <span className="text-accent">zero compromise</span> on coverage quality.
+                                    </p>
+                                </motion.div>
+                                <motion.div variants={fadeUpVariants} className="grid grid-cols-2 gap-6">
+                                    {stats.map((stat, i) => (
+                                        <div key={i} className="p-6 rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-colors duration-500">
+                                            <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
+                                            <div className="text-white/40 text-[10px] uppercase font-bold tracking-wider">{stat.label}</div>
+                                        </div>
+                                    ))}
+                                </motion.div>
+                            </motion.div>
                         </div>
                     </div>
                 </section>
 
-                {/* Stats Bar */}
-                <section className="py-0 bg-white">
+                {/* Bento Grid Values Section */}
+                <section className="py-24 md:py-32 bg-black/20 relative">
                     <div className="container mx-auto px-6 md:px-12">
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
-                            variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-                            className="grid grid-cols-2 md:grid-cols-4 bg-primary rounded-[2rem] md:rounded-[2.5rem] overflow-hidden"
+                            className="mb-20 text-center max-w-3xl mx-auto"
                         >
-                            {stats.map((stat, i) => (
-                                <motion.div
-                                    key={i}
-                                    variants={fadeUpVariants}
-                                    className={`p-8 md:p-12 text-center ${i < stats.length - 1 ? 'border-b md:border-b-0 md:border-r border-white/10' : ''}`}
-                                >
-                                    <div className="text-3xl md:text-5xl font-bold text-white tracking-tighter mb-2">{stat.number}</div>
-                                    <div className="text-white/50 text-[10px] md:text-xs font-bold uppercase tracking-[0.15em]">{stat.label}</div>
-                                </motion.div>
-                            ))}
-                        </motion.div>
-                    </div>
-                </section>
-
-                {/* Core Values */}
-                <section className="py-16 md:py-32 bg-white overflow-hidden">
-                    <div className="container mx-auto px-6 md:px-12">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={staggerContainer}
-                            className="text-center mb-12 md:mb-20"
-                        >
-                            <motion.div variants={fadeUpVariants} className="flex items-center justify-center gap-4 mb-4 md:mb-8">
-                                <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Our Foundation</span>
-                            </motion.div>
-                            <div className="overflow-hidden">
-                                <motion.h2
-                                    variants={textRevealVariants}
-                                    className="text-primary text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter"
-                                >
-                                    Built on Values That Matter
-                                </motion.h2>
-                            </div>
+                            <motion.h2 variants={fadeUpVariants} className="text-3xl md:text-5xl font-bold tracking-tighter mb-6 text-white">The Principles That Drive Us</motion.h2>
+                            <motion.p variants={fadeUpVariants} className="text-white/60 text-lg">Foundation of trust built over two decades of unwavering service.</motion.p>
                         </motion.div>
 
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
-                            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-                        >
-                            {values.map((value, i) => (
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {values.map((val, i) => (
                                 <motion.div
                                     key={i}
-                                    variants={fadeUpVariants}
-                                    className="group relative bg-gray-50 hover:bg-primary rounded-[1.5rem] p-8 md:p-10 transition-all duration-500 cursor-pointer overflow-hidden"
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                    className="group relative p-8 rounded-3xl bg-gradient-to-b from-white/10 to-transparent border border-white/5 hover:border-accent/40 transition-all duration-500 overflow-hidden"
                                 >
-                                    <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 group-hover:bg-accent/10 rounded-full blur-[40px] transition-all duration-500" />
+                                    <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/5 transition-colors duration-500" />
                                     <div className="relative z-10">
-                                        <div className="text-4xl mb-6">{value.icon}</div>
-                                        <h3 className="text-primary group-hover:text-white text-lg font-bold tracking-tight mb-3 transition-colors duration-500">{value.title}</h3>
-                                        <p className="text-gray-500 group-hover:text-white/70 text-sm leading-relaxed transition-colors duration-500">{value.description}</p>
+                                        <div className="text-4xl mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">{val.icon}</div>
+                                        <h3 className="text-xl font-bold text-white mb-4 group-hover:text-accent transition-colors">{val.title}</h3>
+                                        <p className="text-sm text-white/50 leading-relaxed group-hover:text-white/80 transition-colors">{val.description}</p>
                                     </div>
                                 </motion.div>
                             ))}
-                        </motion.div>
+                        </div>
                     </div>
                 </section>
 
-                {/* Timeline Section */}
-                <section className="py-16 md:py-32 bg-gray-50 overflow-hidden">
+                {/* Cinematic Timeline */}
+                <section className="py-24 md:py-40 bg-primary relative overflow-hidden">
                     <div className="container mx-auto px-6 md:px-12">
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
-                            variants={staggerContainer}
-                            className="text-center mb-12 md:mb-20"
+                            className="mb-24 md:mb-32"
                         >
-                            <motion.div variants={fadeUpVariants} className="flex items-center justify-center gap-4 mb-4 md:mb-8">
-                                <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Our Journey</span>
+                            <motion.h2 variants={textRevealVariants} className="text-4xl md:text-8xl font-bold tracking-tighter text-white/10">TIMELINE</motion.h2>
+                            <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mt-[-2rem] md:mt-[-4rem] ml-2">
+                                <div className="h-px w-12 bg-accent"></div>
+                                <span className="text-accent font-bold tracking-[0.3em] uppercase">Milestones</span>
                             </motion.div>
-                            <div className="overflow-hidden">
-                                <motion.h2
-                                    variants={textRevealVariants}
-                                    className="text-primary text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter"
-                                >
-                                    Milestones of Excellence
-                                </motion.h2>
-                            </div>
                         </motion.div>
 
-                        <div className="max-w-4xl mx-auto">
+                        <div className="relative max-w-4xl mx-auto">
+                            {/* Central Line */}
+                            <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent transform md:-translate-x-1/2" />
+
                             {milestones.map((milestone, i) => (
                                 <motion.div
                                     key={i}
-                                    initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
-                                    className="relative flex gap-6 md:gap-10 mb-8 md:mb-12 last:mb-0"
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                    className={`relative flex items-center gap-10 md:gap-20 mb-20 last:mb-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                                 >
-                                    {/* Connector Line */}
-                                    {i !== milestones.length - 1 && (
-                                        <div className="absolute left-[2rem] md:left-[2.5rem] top-[4rem] bottom-[-2rem] md:bottom-[-3rem] w-px bg-gradient-to-b from-primary/20 to-transparent z-0" />
-                                    )}
+                                    {/* Spacer for desktop alignment */}
+                                    <div className="hidden md:block flex-1" />
 
-                                    {/* Year Badge */}
-                                    <div className="flex-shrink-0 relative z-10">
-                                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm md:text-base tracking-tight shadow-lg shadow-primary/20 border-4 border-gray-50">
-                                            {milestone.year}
-                                        </div>
+                                    {/* Node */}
+                                    <div className="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-primary border border-accent flex items-center justify-center shadow-[0_0_20px_rgba(34,197,94,0.3)]">
+                                        <div className="w-2 h-2 rounded-full bg-accent" />
                                     </div>
 
                                     {/* Content */}
-                                    <div className="flex-1 bg-white rounded-[1.5rem] p-6 md:p-8 border border-gray-100 hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 transition-all duration-500 relative z-10">
-                                        <h3 className="text-primary text-lg md:text-xl font-bold tracking-tight mb-2">{milestone.title}</h3>
-                                        <p className="text-gray-500 text-sm leading-relaxed">{milestone.description}</p>
+                                    <div className="flex-1 pl-4 md:pl-0">
+                                        <div className="group relative p-8 rounded-2xl bg-white/[0.02] border border-white/10 hover:bg-white/[0.04] hover:border-accent/30 transition-all duration-500">
+                                            <div className="text-accent text-xs font-bold uppercase tracking-widest mb-2">{milestone.year}</div>
+                                            <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">{milestone.title}</h3>
+                                            <p className="text-white/60 text-sm leading-relaxed">{milestone.description}</p>
+                                        </div>
                                     </div>
                                 </motion.div>
                             ))}
                         </div>
-                    </div>
-                </section>
-
-                {/* IRDA License Section */}
-                <section className="py-16 md:py-32 bg-white overflow-hidden">
-                    <div className="container mx-auto px-6 md:px-12">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={staggerContainer}
-                            className="bg-gradient-to-br from-primary via-primary to-primary/95 rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 relative overflow-hidden"
-                        >
-                            <div className="absolute top-0 right-0 w-[40%] h-[40%] bg-accent/10 rounded-full blur-[100px]" />
-                            <div className="absolute bottom-0 left-0 w-[30%] h-[30%] bg-accent/5 rounded-full blur-[80px]" />
-
-                            <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-                                <div>
-                                    <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mb-6">
-                                        <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Regulatory Compliance</span>
-                                    </motion.div>
-                                    <motion.h2 variants={fadeUpVariants} className="text-white text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter leading-[1.1] mb-6">
-                                        IRDA Licensed Since 2003
-                                    </motion.h2>
-                                    <motion.p variants={fadeUpVariants} className="text-white/70 text-lg leading-relaxed mb-8">
-                                        Licensed by the Insurance Regulatory and Development Authority (IRDA) as a Direct Insurance Broking Firm, Le Dieu Insurance operates with full regulatory compliance. Our license ensures that every policy recommendation is backed by statutory oversight, giving you complete confidence in our advice and service delivery.
-                                    </motion.p>
-                                    <motion.div variants={fadeUpVariants} className="flex flex-wrap gap-4">
-                                        <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-6 py-3 text-white text-xs font-bold uppercase tracking-wider">
-                                            ✓ IRDA Licensed
-                                        </div>
-                                        <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-6 py-3 text-white text-xs font-bold uppercase tracking-wider">
-                                            ✓ PAN India Coverage
-                                        </div>
-                                        <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-6 py-3 text-white text-xs font-bold uppercase tracking-wider">
-                                            ✓ 21+ Insurers
-                                        </div>
-                                    </motion.div>
-                                </div>
-
-                                <motion.div variants={fadeUpVariants} className="flex justify-center">
-                                    <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2rem] p-10 md:p-12 text-center max-w-sm">
-                                        <div className="text-7xl md:text-8xl font-bold text-accent tracking-tighter mb-2">20+</div>
-                                        <div className="text-white/80 text-lg font-medium mb-6">Years of Trusted Service</div>
-                                        <div className="h-px bg-white/10 mb-6" />
-                                        <p className="text-white/50 text-sm leading-relaxed">
-                                            Serving India&apos;s top industrial houses, infrastructure projects, and corporate enterprises with unwavering commitment.
-                                        </p>
-                                    </div>
-                                </motion.div>
-                            </div>
-                        </motion.div>
                     </div>
                 </section>
 

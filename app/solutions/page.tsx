@@ -8,100 +8,85 @@ import PageHero from '@/components/PageHero';
 import ScrollProgress from '@/components/ScrollProgress/ScrollProgress';
 import SmoothScroll from '@/components/SmoothScroll';
 
-const textRevealVariants = {
-    hidden: { y: "100%" },
-    visible: {
-        y: 0,
-        transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-    },
-};
-
-const fadeUpVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
-};
-
-const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.15, delayChildren: 0.1 },
-    },
-};
-
 const industryCategories = [
-    { id: "all", label: "All Industries" },
-    { id: "manufacturing", label: "Manufacturing" },
+    { id: "all", label: "All Sectors" },
+    { id: "manufacturing", label: "Industrial" },
     { id: "infrastructure", label: "Infrastructure" },
     { id: "corporate", label: "Corporate" },
-    { id: "energy", label: "Energy & Power" },
+    { id: "specialized", label: "Specialized" },
 ];
 
 const industrySolutions = [
     {
         category: "manufacturing",
-        icon: "🏭",
-        title: "Manufacturing & Industrial",
-        description: "Comprehensive risk coverage for factories, plants, and production facilities — including fire, machinery breakdown, loss of profit, and workmen compensation.",
-        coverages: ["Fire & Allied Perils", "Machinery Breakdown", "Loss of Profit", "Workmen Compensation", "Product Liability"],
+        title: "Heavy Industries",
+        subtitle: "Zero-Downtime Protection",
+        description: "For factories where every second of downtime costs millions. We cover machinery, assets, and profit continuity.",
+        coverages: ["Industrial All Risk", "Loss of Profit", "Machinery Breakdown"],
+        gradient: "from-orange-500/20 to-red-500/20"
     },
     {
         category: "infrastructure",
-        icon: "🏗️",
-        title: "Infrastructure & Construction",
-        description: "End-to-end project insurance for roads, bridges, buildings, and civil engineering works — from Contractor All Risk to Erection All Risk coverage.",
-        coverages: ["Contractor All Risk (CAR)", "Erection All Risk (EAR)", "Contractor Plant & Machinery", "Third-Party Liability", "Advance Loss of Profit"],
+        title: "Mega Projects",
+        subtitle: "Foundation to Finish",
+        description: "End-to-end coverage for roads, bridges, and civil engineering marvels. Protecting against delays, damage, and third-party liabilities.",
+        coverages: ["Contractor's All Risk", "Advance Loss of Profits", "Third Party Liability"],
+        gradient: "from-blue-500/20 to-cyan-500/20"
     },
     {
-        category: "energy",
-        icon: "⚡",
-        title: "Power & Energy Projects",
-        description: "Specialized insurance solutions for power plants, renewable energy installations, and energy infrastructure — handling complex risk profiles unique to the sector.",
-        coverages: ["Power Plant Insurance", "Business Interruption", "Machinery Breakdown", "Environmental Liability", "Equipment Electronic"],
-    },
-    {
-        category: "corporate",
-        icon: "🏢",
-        title: "Corporate & SME Solutions",
-        description: "Tailored risk management for corporate offices, commercial establishments, and medium-scale enterprises — balancing cost efficiency with maximum protection.",
-        coverages: ["Fire & Burglary", "Fidelity Guarantee", "Directors & Officers", "Professional Indemnity", "Cyber Liability"],
+        category: "specialized",
+        title: "Power & Energy",
+        subtitle: "Grid Reliability",
+        description: "Specialized risk transfer for thermal, solar, and hydro power plants facing unique environmental and operational threats.",
+        coverages: ["Mega Risk Policies", "Business Interruption", "Terrorism Cover"],
+        gradient: "from-yellow-400/20 to-amber-500/20"
     },
     {
         category: "corporate",
-        icon: "🏥",
-        title: "Healthcare & Hospitals",
-        description: "Specialized coverage for hospitals, clinics, and healthcare institutions — including professional liability, equipment insurance, and employee health benefits.",
-        coverages: ["Professional Liability", "Medical Equipment", "Fire & Allied Perils", "Employee Health Benefits", "Cyber Security"],
+        title: "Corporate Fleet",
+        subtitle: "Executive Liability",
+        description: "Protecting the decision-makers and the balance sheet. From D&O to Cyber, we shield the organization's brain.",
+        coverages: ["Directors & Officers", "Cyber Liability", "Errors & Omissions"],
+        gradient: "from-purple-500/20 to-indigo-500/20"
+    },
+    {
+        category: "specialized",
+        title: "Healthcare",
+        subtitle: "Clinical Excellence",
+        description: "Coverage for hospitals handling delicate lives. Medical malpractice and equipment protection protocols.",
+        coverages: ["Medical Malpractice", "Equipment Breakdown", "Public Liability"],
+        gradient: "from-emerald-500/20 to-green-500/20"
     },
     {
         category: "corporate",
-        icon: "🏨",
-        title: "Hospitality & Hotels",
-        description: "Comprehensive protection for the hotel and hospitality industry — covering property, liability, employee benefits, and guest-related risks.",
-        coverages: ["Property All Risk", "Public Liability", "Money Insurance", "Stock Deterioration", "Business Interruption"],
+        title: "Hospitality",
+        subtitle: "Guest Assurance",
+        description: "Protecting properties, guests, and reputation. Comprehensive covers for 5-star chains and resorts.",
+        coverages: ["Property All Risk", "Guest Liability", "Fidelity Guarantee"],
+        gradient: "from-pink-500/20 to-rose-500/20"
     },
 ];
 
 const processSteps = [
     {
         step: "01",
-        title: "Risk Discovery",
-        description: "We conduct thorough on-site assessments and detailed interviews to map every risk exposure your business faces — visible and hidden.",
+        title: "Discovery",
+        description: "Deep-dive workshops to unearth hidden exposure vectors.",
     },
     {
         step: "02",
-        title: "Gap Analysis",
-        description: "Our experts analyze your existing coverage against identified risks, revealing gaps that leave your business vulnerable.",
+        title: "Analysis",
+        description: "Quantitative stress-testing of your current risk portfolio.",
     },
     {
         step: "03",
-        title: "Solution Design",
-        description: "We design a customized insurance portfolio, negotiating with 21+ insurers to secure the most cost-effective, comprehensive coverage.",
+        title: "Design",
+        description: "Architecting a bespoke transfer mechanism with 21+ insurers.",
     },
     {
         step: "04",
-        title: "Implementation & Support",
-        description: "From policy placement to claims management and renewals — we provide continuous, hands-on support throughout the policy lifecycle.",
+        title: "Execution",
+        description: "Seamless policy placement and SLA-backed service delivery.",
     },
 ];
 
@@ -114,254 +99,113 @@ export default function SolutionsPage() {
 
     return (
         <SmoothScroll>
-            <div className="min-h-screen bg-white">
+            <div className="min-h-screen bg-black text-white selection:bg-accent selection:text-white">
                 <ScrollProgress />
                 <NavBar />
 
                 <PageHero
-                    title="Industry Solutions"
-                    subtitle="Tailored insurance and risk management solutions designed for India's most demanding industries — from manufacturing to infrastructure, healthcare to hospitality."
+                    title="Solutions"
+                    subtitle="Bespoke risk transfer mechanisms for the industries that power India's economy."
                     breadcrumb="Solutions"
                     backgroundImage="/images/service-business.png"
                 />
 
-                {/* How We Work Process */}
-                <section className="py-16 md:py-32 bg-white overflow-hidden">
-                    <div className="container mx-auto px-6 md:px-12">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={staggerContainer}
-                            className="mb-12 md:mb-20"
-                        >
-                            <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mb-4 md:mb-8">
-                                <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Our Process</span>
-                            </motion.div>
-                            <div className="overflow-hidden">
-                                <motion.h2
-                                    variants={textRevealVariants}
-                                    className="text-primary text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter leading-[0.95]"
-                                >
-                                    How We Protect
-                                </motion.h2>
-                            </div>
-                            <div className="overflow-hidden">
-                                <motion.h2
-                                    variants={textRevealVariants}
-                                    className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter leading-[0.95]"
-                                >
-                                    Your Business
-                                </motion.h2>
-                            </div>
-                        </motion.div>
-
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
-                            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-                        >
-                            {processSteps.map((step, i) => (
-                                <motion.div
-                                    key={i}
-                                    variants={fadeUpVariants}
-                                    className="relative bg-gray-50 rounded-[1.5rem] p-8 md:p-10 group hover:bg-primary transition-all duration-500 cursor-pointer overflow-hidden"
-                                >
-                                    <div className="absolute top-0 right-0 w-20 h-20 bg-accent/5 group-hover:bg-accent/10 rounded-full blur-[40px] transition-all duration-500" />
-                                    <div className="relative z-10">
-                                        <div className="text-5xl md:text-6xl font-bold text-gray-200/60 group-hover:text-white/10 tracking-tighter leading-none mb-6 transition-colors duration-500">
-                                            {step.step}
-                                        </div>
-                                        <h3 className="text-primary group-hover:text-white text-xl font-bold tracking-tight mb-3 transition-colors duration-500">
-                                            {step.title}
-                                        </h3>
-                                        <p className="text-gray-500 group-hover:text-white/70 text-sm leading-relaxed transition-colors duration-500">
-                                            {step.description}
-                                        </p>
-                                    </div>
-
-                                    {/* Connector line on desktop */}
-                                    {i < processSteps.length - 1 && (
-                                        <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-gray-200 z-20" />
-                                    )}
-                                </motion.div>
-                            ))}
-                        </motion.div>
-                    </div>
-                </section>
-
-                {/* Industry Solutions with Filter */}
-                <section className="py-16 md:py-32 bg-gray-50 overflow-hidden">
-                    <div className="container mx-auto px-6 md:px-12">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={staggerContainer}
-                            className="text-center mb-12 md:mb-20"
-                        >
-                            <motion.div variants={fadeUpVariants} className="flex items-center justify-center gap-4 mb-4 md:mb-8">
-                                <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Industry Expertise</span>
-                            </motion.div>
-                            <div className="overflow-hidden">
-                                <motion.h2
-                                    variants={textRevealVariants}
-                                    className="text-primary text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter"
-                                >
-                                    Solutions by Industry
-                                </motion.h2>
-                            </div>
-                        </motion.div>
-
-                        {/* Filter Tabs */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                            className="flex flex-wrap justify-center gap-2 md:gap-3 mb-12"
-                        >
+                {/* Filters */}
+                <section className="pt-24 pb-12 bg-black sticky top-0 md:relative z-30 border-b border-white/5 md:border-none">
+                    <div className="container mx-auto px-6 flex justify-center overflow-x-auto no-scrollbar pb-4 md:pb-0">
+                        <div className="flex bg-white/5 p-1 rounded-full backdrop-blur-md border border-white/10">
                             {industryCategories.map((cat) => (
                                 <button
                                     key={cat.id}
                                     onClick={() => setActiveCategory(cat.id)}
-                                    className={`relative px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 z-10 ${activeCategory === cat.id ? 'text-white' : 'text-gray-500 hover:text-primary'
+                                    className={`relative px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 z-10 whitespace-nowrap ${activeCategory === cat.id ? 'text-black' : 'text-white/60 hover:text-white'
                                         }`}
                                 >
                                     {activeCategory === cat.id && (
                                         <motion.span
                                             layoutId="activeTab"
-                                            className="absolute inset-0 bg-primary rounded-full shadow-lg shadow-primary/20 -z-10"
+                                            className="absolute inset-0 bg-accent rounded-full shadow-[0_0_20px_rgba(34,197,94,0.4)] -z-10"
                                             transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                                         />
                                     )}
                                     {cat.label}
                                 </button>
                             ))}
-                        </motion.div>
-
-                        {/* Solutions Grid */}
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <AnimatePresence mode="wait">
-                                {filteredSolutions.map((solution, i) => (
-                                    <motion.div
-                                        key={solution.title}
-                                        initial={{ opacity: 0, y: 30 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -20 }}
-                                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
-                                        className="group bg-white hover:bg-primary rounded-[1.5rem] p-8 md:p-10 transition-all duration-500 cursor-pointer border border-gray-100 hover:border-transparent overflow-hidden relative"
-                                    >
-                                        <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 group-hover:bg-accent/10 rounded-full blur-[50px] transition-all duration-500" />
-                                        <div className="relative z-10">
-                                            <div className="text-4xl mb-6">{solution.icon}</div>
-                                            <h3 className="text-primary group-hover:text-white text-xl font-bold tracking-tight mb-3 transition-colors duration-500">
-                                                {solution.title}
-                                            </h3>
-                                            <p className="text-gray-500 group-hover:text-white/70 text-sm leading-relaxed mb-6 transition-colors duration-500">
-                                                {solution.description}
-                                            </p>
-
-                                            <div className="space-y-2">
-                                                {solution.coverages.map((coverage, ci) => (
-                                                    <div
-                                                        key={ci}
-                                                        className="flex items-center gap-2 text-xs font-medium text-gray-400 group-hover:text-white/50 transition-colors duration-500"
-                                                    >
-                                                        <div className="w-1 h-1 rounded-full bg-accent" />
-                                                        {coverage}
-                                                    </div>
-                                                ))}
-                                            </div>
-
-                                            <div className="mt-8 flex items-center gap-2 text-accent font-bold text-xs uppercase tracking-wider opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-                                                View Solutions
-                                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </AnimatePresence>
                         </div>
                     </div>
                 </section>
 
-                {/* Why Choose Our Solutions */}
-                <section className="py-16 md:py-32 bg-white overflow-hidden">
+                {/* Solutions Grid */}
+                <section className="py-12 md:py-24 bg-black relative min-h-[80vh]">
                     <div className="container mx-auto px-6 md:px-12">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={staggerContainer}
-                            className="bg-gradient-to-br from-primary via-primary to-primary/95 rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 relative overflow-hidden"
-                        >
-                            <div className="absolute top-0 right-0 w-[40%] h-[40%] bg-accent/10 rounded-full blur-[100px]" />
-                            <div className="absolute bottom-0 left-0 w-[30%] h-[30%] bg-accent/5 rounded-full blur-[80px]" />
+                        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <AnimatePresence mode="popLayout">
+                                {filteredSolutions.map((solution, i) => (
+                                    <motion.div
+                                        layout
+                                        key={solution.title}
+                                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                                        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                                        transition={{ duration: 0.4, ease: "easeOut" }}
+                                        className="group relative h-[400px] rounded-3xl bg-[#0B1C15] border border-white/5 overflow-hidden hover:border-accent/40 transition-colors duration-500"
+                                    >
+                                        {/* Hover Gradient Bloom */}
+                                        <div className={`absolute inset-0 bg-gradient-to-br ${solution.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-xl`} />
 
-                            <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-                                <div>
-                                    <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mb-6">
-                                        <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">The Le Dieu Advantage</span>
-                                    </motion.div>
-                                    <motion.h2 variants={fadeUpVariants} className="text-white text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter leading-[1.1] mb-6">
-                                        Why India&apos;s Top Businesses Trust Us
-                                    </motion.h2>
-                                    <motion.p variants={fadeUpVariants} className="text-white/70 text-lg leading-relaxed mb-8">
-                                        Post-liberalization, India&apos;s general insurance market moved to free pricing (detariffing), allowing insurers to price policies based on risk quality. As your broker, we leverage this to negotiate optimal coverage at the most competitive premiums from 21+ insurers.
-                                    </motion.p>
-                                </div>
-
-                                <motion.div variants={fadeUpVariants} className="space-y-4">
-                                    {[
-                                        { stat: "21+", label: "Insurance Partners", desc: "Access to all major general insurance companies" },
-                                        { stat: "PAN", label: "India Coverage", desc: "Nationwide service delivery and support" },
-                                        { stat: "24/7", label: "Claims Support", desc: "Round-the-clock dedicated claims assistance" },
-                                        { stat: "100%", label: "Client Retention", desc: "Industry-leading client satisfaction rate" },
-                                    ].map((item, i) => (
-                                        <div key={i} className="flex items-center gap-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5">
-                                            <div className="text-2xl md:text-3xl font-bold text-accent tracking-tighter min-w-[80px]">{item.stat}</div>
+                                        <div className="relative h-full p-8 flex flex-col justify-between z-10">
                                             <div>
-                                                <div className="text-white font-bold text-sm">{item.label}</div>
-                                                <div className="text-white/50 text-xs">{item.desc}</div>
+                                                <div className="text-accent text-[10px] font-bold uppercase tracking-[0.2em] mb-4 border w-fit px-2 py-1 rounded-full border-accent/20 bg-accent/5">{solution.category}</div>
+                                                <h3 className="text-3xl font-bold text-white mb-2">{solution.title}</h3>
+                                                <p className="text-white/40 font-mono text-xs uppercase tracking-widest mb-6">{solution.subtitle}</p>
+                                                <p className="text-white/70 leading-relaxed text-sm">{solution.description}</p>
+                                            </div>
+
+                                            <div>
+                                                <div className="h-px w-full bg-white/10 mb-6 group-hover:bg-accent/30 transition-colors" />
+                                                <div className="flex flex-wrap gap-2">
+                                                    {solution.coverages.map((c, ci) => (
+                                                        <span key={ci} className="text-[10px] font-bold uppercase text-white/40 group-hover:text-white transition-colors bg-white/5 px-2 py-1 rounded">
+                                                            {c}
+                                                        </span>
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
-                                    ))}
-                                </motion.div>
-                            </div>
+
+                                        {/* Hover Arrow */}
+                                        <div className="absolute top-8 right-8 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-2 group-hover:translate-y-0 text-accent">
+                                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </AnimatePresence>
                         </motion.div>
                     </div>
                 </section>
 
-                {/* Bottom CTA */}
-                <section className="py-16 md:py-20 bg-gray-50">
-                    <div className="container mx-auto px-6 md:px-12 text-center">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={staggerContainer}
-                        >
-                            <motion.h2 variants={fadeUpVariants} className="text-primary text-3xl md:text-4xl font-bold tracking-tighter mb-4">
-                                Need a Custom Industry Solution?
-                            </motion.h2>
-                            <motion.p variants={fadeUpVariants} className="text-gray-500 text-lg mb-8 max-w-xl mx-auto">
-                                Our risk engineers will design a tailored insurance package for your specific industry requirements.
-                            </motion.p>
-                            <motion.div variants={fadeUpVariants}>
-                                <a
-                                    href="/contact"
-                                    className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-accent hover:text-primary transition-all duration-300 shadow-lg shadow-primary/10 active:scale-95"
-                                >
-                                    Get a Custom Quote
-                                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 8h14M9 2l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                                </a>
-                            </motion.div>
-                        </motion.div>
+                {/* Cyberpunk Process Steps */}
+                <section className="py-24 md:py-32 bg-[#0B1C15] border-t border-white/5">
+                    <div className="container mx-auto px-6 md:px-12">
+                        <div className="mb-20 text-center">
+                            <span className="text-accent text-xs font-bold uppercase tracking-[0.3em]">The Protocol</span>
+                            <h2 className="text-4xl md:text-6xl font-bold text-white mt-4 tracking-tighter">Engagement Lifecycle</h2>
+                        </div>
+
+                        <div className="grid md:grid-cols-4 gap-8 relative">
+                            {/* Connecting Line (Desktop) */}
+                            <div className="hidden md:block absolute top-[28px] left-0 right-0 h-px bg-gradient-to-r from-accent/0 via-accent/30 to-accent/0" />
+
+                            {processSteps.map((step, i) => (
+                                <div key={i} className="relative group">
+                                    <div className="w-14 h-14 rounded-full bg-[#0B1C15] border border-accent/20 group-hover:border-accent group-hover:bg-accent group-hover:text-black text-white flex items-center justify-center font-bold text-xl transition-all duration-500 relative z-10 mb-8 mx-auto md:mx-0 shadow-[0_0_30px_rgba(0,0,0,0.5)] group-hover:shadow-[0_0_30px_rgba(34,197,94,0.4)]">
+                                        {step.step}
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white mb-4 text-center md:text-left">{step.title}</h3>
+                                    <p className="text-white/50 text-sm leading-relaxed text-center md:text-left">{step.description}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </section>
 

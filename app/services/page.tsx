@@ -1,308 +1,180 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import NavBar from '@/components/NavBar/NavBar';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/PageHero';
 import ScrollProgress from '@/components/ScrollProgress/ScrollProgress';
 import SmoothScroll from '@/components/SmoothScroll';
 
-const textRevealVariants = {
-    hidden: { y: "100%" },
-    visible: {
-        y: 0,
-        transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-    },
-};
-
-const fadeUpVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
-};
-
-const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.15, delayChildren: 0.1 },
-    },
-};
-
 const coreServices = [
     {
-        number: "01",
-        title: "Risk Management",
-        subtitle: "Systematic Risk Identification & Evaluation",
-        description: "Risk management is a systematic process for the comprehensive identification and evaluation of loss exposures faced by an organization or individual. We select and administer the most appropriate techniques for treating such exposures — from avoidance and retention to loss prevention and transfer through insurance.",
-        features: ["Risk Avoidance Strategies", "Loss Prevention Programs", "Loss Reduction Analysis", "Contractual Risk Transfer", "Insurance Risk Transfer", "Retention Planning"],
-        accent: "from-accent to-green-600",
+        id: "01",
+        title: "Risk Engineering",
+        subtitle: "Precision Identification.",
+        description: "We don't just insure; we engineer resilience. Our risk management protocols involve a forensic auditing of your operational landscape to identify vulnerabilities before they manifest as losses.",
+        features: ["Forensic Risk Audits", "Loss Prevention Architecture", "Contractual Liability Analysis"],
+        color: "bg-[#0B1C15]",
+        accent: "text-emerald-400"
     },
     {
-        number: "02",
-        title: "Policy Placement",
-        subtitle: "Value-Based Coverage Across 21+ Insurers",
-        description: "Policy Placement is a rigorous, multi-step process involving risk profiling, comprehensive policy analysis, portfolio rationalization, requests for quotations from 21+ insurance companies, negotiation for value-based coverage, evaluation and recommendation of quotes, final policy placement, and thorough policy scrutiny.",
-        features: ["GAP Analysis Process", "Risk Profiling", "Policy Analysis", "Portfolio Rationalization", "RFQ & Negotiation", "Quotation Evaluation", "Policy Scrutiny"],
-        accent: "from-blue-500 to-cyan-500",
+        id: "02",
+        title: "Strategic Placement",
+        subtitle: "Market Leverage.",
+        description: "Leveraging two decades of relationships with 21+ insurers to architect coverage that defies standard market limitations. we negotiate from a position of data-backed strength.",
+        features: ["GAP Analysis", "Portfolio Rationalization", "Competitive Bidding"],
+        color: "bg-[#0F2920]",
+        accent: "text-cyan-400"
     },
     {
-        number: "03",
-        title: "Portfolio Management",
-        subtitle: "End-to-End Policy Administration",
-        description: "Portfolio Management begins as soon as your policy is scrutinized and approved. We assist you in claim settlements, administer all endorsements and amendments, track renewals, and undertake the renewal process with equal rigor as the initial placement — ensuring continuous, uninterrupted coverage protection.",
-        features: ["Policy Administration", "Insurance Information Programs", "Claim Management", "Endorsement Tracking", "Renewal Management", "Coverage Optimization"],
-        accent: "from-purple-500 to-violet-500",
+        id: "03",
+        title: "Claims Advocacy",
+        subtitle: "Relentless Defense.",
+        description: "The true test of insurance. We manage the entire claims lifecycle, from notification to settlement, ensuring technical nuances are interpreted in your favor.",
+        features: ["24/7 Crisis Response", "Settlement Negotiation", "Technical Arbitration"],
+        color: "bg-[#14362A]",
+        accent: "text-indigo-400"
     },
 ];
 
 const specializedServices = [
-    { icon: "⚡", title: "Energy Audit", description: "Comprehensive energy assessment of industrial operations to identify efficiency opportunities, reduce costs, and optimize your insurability profile." },
-    { icon: "🛡️", title: "Safety Review", description: "Detailed safety assessment of workplace environments, processes, and equipment to minimize risk exposure and improve compliance with industry standards." },
-    { icon: "🌿", title: "Environmental Audit", description: "Thorough environmental compliance review ensuring your operations meet regulatory requirements and minimize ecological liability risks." },
-    { icon: "⚙️", title: "Process Audit", description: "In-depth analysis of operational processes to identify vulnerabilities, streamline workflows, and reduce the likelihood of insurable incidents." },
-    { icon: "📋", title: "Claim Consultancy", description: "Expert guidance through the claims process, ensuring maximum claim recovery with minimal delays. Our dedicated team handles documentation and negotiations on your behalf." },
+    { icon: "⚡", title: "Energy Audit", description: "Optimizing consumption patterns to reduce operational overhead." },
+    { icon: "🛡️", title: "Safety Protocol", description: "Workplace safety compliance ensuring zero-incident environments." },
+    { icon: "🌿", title: "Eco-Compliance", description: "Navigating the complex landscape of environmental liability." },
+    { icon: "⚙️", title: "Process Optimization", description: "Streamlining workflows to mitigate business interruption risks." },
+    { icon: "📋", title: "Claims Recovery", description: "Maximizing settlement value through technical expertise." },
 ];
 
 const insuranceTypes = [
-    "Fire & Earthquake", "Machinery Breakdown", "Loss of Profit", "Burglary & Money",
-    "Fidelity Guarantee", "Marine & Transit", "Health & PA", "Workmen Compensation",
-    "Motor Vehicle", "Credit Insurance", "Professional Liability", "Directors & Officers",
-    "Kidnap & Ransom", "CAR & EAR", "Stock Deterioration", "Electronic Equipment",
-    "Contractor Plant", "Travel Insurance", "Cyber Liability", "Product Liability",
+    "Fire & Earthquake", "Industrial All Risk", "Marine Cargo", "Public Liability",
+    "Cyber Security", "Directors & Officers", "Trade Credit", "Group Health",
+    "Engineering (CAR/EAR)", "Workmen's Comp"
 ];
 
+const Card = ({ card, index, range, targetScale, progress }: any) => {
+    const scale = useTransform(progress, range, [1, targetScale]);
+
+    return (
+        <div className="h-screen flex items-center justify-center sticky top-0">
+            <motion.div
+                style={{ scale, top: `calc(-5vh + ${index * 25}px)` }}
+                className={`relative flex flex-col w-[90vw] md:w-[1000px] h-[60vh] md:h-[500px] rounded-[2rem] p-8 md:p-16 border border-white/10 overflow-hidden transform-gpu origin-top ${card.color}`}
+            >
+                {/* Background Glow */}
+                <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+
+                <div className="flex flex-col md:flex-row h-full gap-8 md:gap-16">
+                    <div className="w-full md:w-[40%] flex flex-col justify-between">
+                        <div className={`text-6xl md:text-8xl font-bold font-mono opacity-20 ${card.accent}`}>{card.id}</div>
+                        <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 leading-tight">{card.title}</h2>
+                    </div>
+
+                    <div className="w-full md:w-[60%] flex flex-col justify-between">
+                        <div>
+                            <p className={`text-lg md:text-xl font-medium mb-6 ${card.accent}`}>{card.subtitle}</p>
+                            <p className="text-white/70 text-base md:text-lg leading-relaxed">{card.description}</p>
+                        </div>
+
+                        <div className="mt-8 flex flex-wrap gap-3">
+                            {card.features.map((f: string, i: number) => (
+                                <span key={i} className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-xs text-white/60 uppercase tracking-wider">
+                                    {f}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </motion.div>
+        </div>
+    )
+}
+
 export default function ServicesPage() {
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ['start start', 'end end']
+    });
+
     return (
         <SmoothScroll>
-            <div className="min-h-screen bg-white">
+            <div className="bg-black min-h-screen text-white">
                 <ScrollProgress />
                 <NavBar />
 
                 <PageHero
-                    title="Our Services"
-                    subtitle="Comprehensive insurance broking, risk management, and claims excellence — tailored for India's leading industries and enterprises."
+                    title="Expertise"
+                    subtitle="De-risking the future for India's industrial giants through precision engineering and strategic transfer."
                     breadcrumb="Services"
                     backgroundImage="/images/service-risk-new.jpg"
                 />
 
-                {/* Core Services */}
-                <section className="py-16 md:py-32 bg-white overflow-hidden">
-                    <div className="container mx-auto px-6 md:px-12">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={staggerContainer}
-                            className="mb-12 md:mb-20"
-                        >
-                            <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mb-4 md:mb-8">
-                                <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Core Services</span>
-                            </motion.div>
-                            <div className="overflow-hidden">
-                                <motion.h2
-                                    variants={textRevealVariants}
-                                    className="text-primary text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter leading-[0.95]"
-                                >
-                                    End-to-End Insurance
-                                </motion.h2>
+                {/* Stacking Cards Section */}
+                <div ref={containerRef} className="relative mt-[10vh] mb-[10vh]">
+                    <div className="container mx-auto px-6 mb-20 md:mb-32 text-center">
+                        <span className="text-accent text-xs font-bold uppercase tracking-[0.3em] block mb-6">Our Methodology</span>
+                        <h2 className="text-4xl md:text-7xl font-bold tracking-tighter text-white">The Protection Matrix.</h2>
+                    </div>
+
+                    {coreServices.map((service, i) => {
+                        const targetScale = 1 - ((coreServices.length - i) * 0.05);
+                        return <Card key={i} index={i} card={service} range={[i * .25, 1]} targetScale={targetScale} progress={scrollYProgress} />
+                    })}
+                </div>
+
+                {/* Specialized Services - Grid */}
+                <section className="py-24 md:py-32 bg-[#0B1C15] relative overflow-hidden">
+                    <div className="container mx-auto px-6 md:px-12 relative z-10">
+                        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+                            <div>
+                                <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter mb-4">Specialized Audits</h2>
+                                <p className="text-white/50 max-w-md">Technical assessments designed to optimize operational efficiency and insurability.</p>
                             </div>
-                            <div className="overflow-hidden">
-                                <motion.h2
-                                    variants={textRevealVariants}
-                                    className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter leading-[0.95]"
-                                >
-                                    Broking Solutions
-                                </motion.h2>
-                            </div>
-                        </motion.div>
+                            <div className="h-px w-full md:w-auto md:flex-1 bg-white/10 mb-2 md:mx-12" />
+                            <div className="text-accent font-mono text-sm">05 MODULES</div>
+                        </div>
 
-                        {/* Detailed Service Cards */}
-                        <div className="space-y-8 md:space-y-12">
-                            {coreServices.map((service, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 60 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
-                                    className="group relative bg-gray-50 hover:bg-primary rounded-[2rem] md:rounded-[2.5rem] p-8 md:p-12 lg:p-16 transition-all duration-700 overflow-hidden cursor-pointer"
-                                >
-                                    <div className={`absolute top-0 right-0 w-[40%] h-[50%] bg-gradient-to-br ${service.accent} opacity-5 group-hover:opacity-10 rounded-full blur-[80px] transition-opacity duration-700`} />
-
-                                    <div className="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-                                        <div>
-                                            <div className="text-8xl md:text-9xl font-bold text-gray-200/50 group-hover:text-white/10 tracking-tighter leading-none mb-6 transition-colors duration-700">
-                                                {service.number}
-                                            </div>
-                                            <h3 className="text-primary group-hover:text-white text-3xl md:text-4xl font-bold tracking-tighter mb-3 transition-colors duration-700">
-                                                {service.title}
-                                            </h3>
-                                            <p className="text-accent text-sm font-bold uppercase tracking-wider mb-6">
-                                                {service.subtitle}
-                                            </p>
-                                            <p className="text-gray-500 group-hover:text-white/70 leading-relaxed transition-colors duration-700">
-                                                {service.description}
-                                            </p>
-                                        </div>
-
-                                        <div>
-                                            <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 group-hover:text-white/40 mb-6 transition-colors duration-700">
-                                                Key Capabilities
-                                            </div>
-                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                                {service.features.map((feature, fi) => (
-                                                    <div
-                                                        key={fi}
-                                                        className="flex items-center gap-3 bg-white group-hover:bg-white/10 rounded-xl px-4 py-3 transition-all duration-500"
-                                                    >
-                                                        <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
-                                                        <span className="text-primary group-hover:text-white text-sm font-medium transition-colors duration-500">
-                                                            {feature}
-                                                        </span>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </motion.div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5">
+                            {specializedServices.map((service, i) => (
+                                <div key={i} className="group relative p-10 bg-[#0B1C15] hover:bg-[#0F2920] transition-colors duration-500">
+                                    <div className="text-4xl mb-6 opacity-50 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0">{service.icon}</div>
+                                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">{service.title}</h3>
+                                    <p className="text-sm text-white/50 group-hover:text-white/70 transition-colors leading-relaxed">{service.description}</p>
+                                </div>
                             ))}
+                            {/* Empty filler for grid if needed, or join us card */}
+                            <div className="group relative p-10 bg-[#0B1C15] hover:bg-accent transition-colors duration-500 flex flex-col justify-center items-center text-center cursor-pointer">
+                                <h3 className="text-xl font-bold text-white mb-2">Need Custom Analysis?</h3>
+                                <p className="text-sm text-white/50 group-hover:text-white/90 mb-6">Contact our risk engineers.</p>
+                                <div className="w-10 h-10 rounded-full border border-white/20 group-hover:bg-white group-hover:text-accent flex items-center justify-center transition-all">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                {/* Specialized Services */}
-                <section className="py-16 md:py-32 bg-gray-50 overflow-hidden">
-                    <div className="container mx-auto px-6 md:px-12">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={staggerContainer}
-                            className="text-center mb-12 md:mb-20"
-                        >
-                            <motion.div variants={fadeUpVariants} className="flex items-center justify-center gap-4 mb-4 md:mb-8">
-                                <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Specialized Services</span>
-                            </motion.div>
-                            <div className="overflow-hidden">
-                                <motion.h2
-                                    variants={textRevealVariants}
-                                    className="text-primary text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter"
-                                >
-                                    Engineering & Audit Excellence
-                                </motion.h2>
-                            </div>
-                        </motion.div>
-
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-                            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-                        >
-                            {specializedServices.map((service, i) => (
-                                <motion.div
-                                    key={i}
-                                    variants={fadeUpVariants}
-                                    className={`group relative bg-white hover:bg-primary rounded-[1.5rem] p-8 md:p-10 transition-all duration-500 cursor-pointer overflow-hidden border border-gray-100 hover:border-transparent ${i >= 3 ? 'lg:col-span-1' : ''}`}
-                                >
-                                    <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 group-hover:bg-accent/10 rounded-full blur-[40px] transition-all duration-500" />
-                                    <div className="relative z-10">
-                                        <div className="text-4xl mb-6">{service.icon}</div>
-                                        <h3 className="text-primary group-hover:text-white text-xl font-bold tracking-tight mb-3 transition-colors duration-500">{service.title}</h3>
-                                        <p className="text-gray-500 group-hover:text-white/70 text-sm leading-relaxed transition-colors duration-500">{service.description}</p>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </motion.div>
+                {/* Ticker / Marquee for Coverage Types */}
+                <section className="py-24 bg-black border-t border-white/5">
+                    <div className="container mx-auto px-6 mb-12">
+                        <span className="text-accent text-xs font-bold uppercase tracking-[0.3em]">Comprehensive Scope</span>
                     </div>
-                </section>
-
-                {/* Insurance Coverage Types */}
-                <section className="py-16 md:py-32 bg-white overflow-hidden">
-                    <div className="container mx-auto px-6 md:px-12">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={staggerContainer}
-                            className="text-center mb-12 md:mb-20"
-                        >
-                            <motion.div variants={fadeUpVariants} className="flex items-center justify-center gap-4 mb-4 md:mb-8">
-                                <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Coverage Types</span>
-                            </motion.div>
-                            <div className="overflow-hidden">
-                                <motion.h2
-                                    variants={textRevealVariants}
-                                    className="text-primary text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter"
-                                >
-                                    Comprehensive Insurance Portfolio
-                                </motion.h2>
-                            </div>
-                            <motion.p variants={fadeUpVariants} className="text-gray-500 text-lg max-w-2xl mx-auto mt-6">
-                                From fire and marine to cyber liability and directors&apos; insurance — we cover every risk your business faces.
-                            </motion.p>
-                        </motion.div>
-
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={{ visible: { transition: { staggerChildren: 0.03 } } }}
-                            className="flex flex-wrap justify-center gap-3 md:gap-4"
-                        >
-                            {insuranceTypes.map((type, i) => (
-                                <motion.div
-                                    key={i}
-                                    variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } } }}
-                                    className="bg-gray-50 hover:bg-primary hover:text-white text-primary border border-gray-100 hover:border-transparent rounded-full px-5 py-3 text-sm font-medium tracking-tight transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-primary/10"
-                                >
+                    <div className="relative flex overflow-x-hidden">
+                        <div className="py-12 animate-marquee whitespace-nowrap flex gap-12 md:gap-24">
+                            {[...insuranceTypes, ...insuranceTypes].map((type, i) => (
+                                <span key={i} className="text-4xl md:text-6xl font-bold text-white/20 hover:text-white/80 transition-colors cursor-default uppercase">
                                     {type}
-                                </motion.div>
+                                </span>
                             ))}
-                        </motion.div>
-                    </div>
-                </section>
-
-                {/* CTA Section */}
-                <section className="py-16 md:py-32 bg-white overflow-hidden">
-                    <div className="container mx-auto px-6 md:px-12">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={staggerContainer}
-                            className="bg-gradient-to-br from-primary via-primary to-primary/95 rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 text-center relative overflow-hidden"
-                        >
-                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[40%] bg-accent/10 rounded-full blur-[100px]" />
-
-                            <div className="relative z-10">
-                                <motion.div variants={fadeUpVariants} className="flex items-center justify-center gap-4 mb-6">
-                                    <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Get Protected Today</span>
-                                </motion.div>
-                                <motion.h2 variants={fadeUpVariants} className="text-white text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter leading-[1.1] mb-6 max-w-3xl mx-auto">
-                                    Ready to Optimize Your Insurance Portfolio?
-                                </motion.h2>
-                                <motion.p variants={fadeUpVariants} className="text-white/60 text-lg max-w-xl mx-auto mb-10">
-                                    Let our expert team conduct a comprehensive risk assessment and recommend the optimal coverage for your business.
-                                </motion.p>
-                                <motion.div variants={fadeUpVariants} className="flex flex-wrap justify-center gap-4">
-                                    <a
-                                        href="/contact"
-                                        className="bg-accent text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-accent-hover transition-all duration-300 shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30 active:scale-95"
-                                    >
-                                        Request a Consultation
-                                    </a>
-                                    <a
-                                        href="tel:+919899062737"
-                                        className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-white/20 transition-all duration-300"
-                                    >
-                                        Call +91 98990 62737
-                                    </a>
-                                </motion.div>
-                            </div>
-                        </motion.div>
+                        </div>
+                        <div className="absolute top-0 py-12 animate-marquee2 whitespace-nowrap flex gap-12 md:gap-24">
+                            {[...insuranceTypes, ...insuranceTypes].map((type, i) => (
+                                <span key={i} className="text-4xl md:text-6xl font-bold text-white/20 hover:text-white/80 transition-colors cursor-default uppercase">
+                                    {type}
+                                </span>
+                            ))}
+                        </div>
                     </div>
                 </section>
 
