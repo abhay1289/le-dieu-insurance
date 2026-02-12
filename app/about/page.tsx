@@ -1,7 +1,39 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionTemplate, useMotionValue } from 'framer-motion';
+
+function SpotlightCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+
+    function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+        const { left, top } = currentTarget.getBoundingClientRect();
+        mouseX.set(clientX - left);
+        mouseY.set(clientY - top);
+    }
+
+    return (
+        <div
+            className={`group relative border border-white/10 bg-black/40 overflow-hidden ${className}`}
+            onMouseMove={handleMouseMove}
+        >
+            <motion.div
+                className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition duration-300 group-hover:opacity-100"
+                style={{
+                    background: useMotionTemplate`
+                        radial-gradient(
+                            650px circle at ${mouseX}px ${mouseY}px,
+                            rgba(34, 197, 94, 0.15),
+                            transparent 80%
+                        )
+                    `,
+                }}
+            />
+            {children}
+        </div>
+    );
+}
 import NavBar from '@/components/NavBar/NavBar';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/PageHero';
@@ -148,17 +180,21 @@ export default function AboutPage() {
                     </div>
                 </section>
 
-                {/* Bento Grid Values Section */}
-                <section className="py-24 md:py-32 bg-black/20 relative">
-                    <div className="container mx-auto px-6 md:px-12">
+                {/* Bento Grid Values Section - Interactive Spotlight */}
+                <section className="py-24 md:py-32 bg-black relative overflow-hidden">
+                    {/* Dark Grid Background */}
+                    <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:6rem_6rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+
+                    <div className="container mx-auto px-6 md:px-12 relative z-10">
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
                             className="mb-20 text-center max-w-3xl mx-auto"
                         >
-                            <motion.h2 variants={fadeUpVariants} className="text-3xl md:text-5xl font-bold tracking-tighter mb-6 text-white">The Principles That Drive Us</motion.h2>
-                            <motion.p variants={fadeUpVariants} className="text-white/60 text-lg">Foundation of trust built over two decades of unwavering service.</motion.p>
+                            <motion.span variants={fadeUpVariants} className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Our Philosophy</motion.span>
+                            <motion.h2 variants={fadeUpVariants} className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 text-white">The Principles That Drive Us</motion.h2>
+                            <motion.p variants={fadeUpVariants} className="text-white/40 text-lg decoration-clone">Foundation of trust built over two decades of unwavering service.</motion.p>
                         </motion.div>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -169,14 +205,17 @@ export default function AboutPage() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                    className="group relative p-8 rounded-3xl bg-gradient-to-b from-white/10 to-transparent border border-white/5 hover:border-accent/40 transition-all duration-500 overflow-hidden"
+                                    className="h-full"
                                 >
-                                    <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/5 transition-colors duration-500" />
-                                    <div className="relative z-10">
-                                        <div className="text-4xl mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">{val.icon}</div>
-                                        <h3 className="text-xl font-bold text-white mb-4 group-hover:text-accent transition-colors">{val.title}</h3>
-                                        <p className="text-sm text-white/50 leading-relaxed group-hover:text-white/80 transition-colors">{val.description}</p>
-                                    </div>
+                                    <SpotlightCard className="h-full p-8 rounded-3xl bg-white/[0.03] hover:bg-white/[0.06] transition-colors border-white/5">
+                                        <div className="relative z-10 h-full flex flex-col">
+                                            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-3xl mb-6 text-white group-hover:scale-110 group-hover:bg-accent group-hover:text-black group-hover:border-accent transition-all duration-500 shadow-lg">
+                                                {val.icon}
+                                            </div>
+                                            <h3 className="text-xl font-bold text-white mb-4 group-hover:text-accent transition-colors">{val.title}</h3>
+                                            <p className="text-sm text-white/50 leading-relaxed group-hover:text-white/80 transition-colors flex-grow">{val.description}</p>
+                                        </div>
+                                    </SpotlightCard>
                                 </motion.div>
                             ))}
                         </div>
