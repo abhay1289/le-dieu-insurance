@@ -60,14 +60,7 @@ const Services = () => {
             </motion.div>
 
             <div className="mb-2">
-              <div className="overflow-hidden py-2">
-                <motion.h2
-                  variants={textRevealVariants}
-                  className="text-primary text-4xl sm:text-6xl md:text-8xl font-bold tracking-tighter leading-[1.1]"
-                >
-                  Specialized
-                </motion.h2>
-              </div>
+
               <div className="overflow-hidden py-2">
                 <motion.div variants={textRevealVariants} className="flex flex-col">
                   <span className="text-primary text-4xl sm:text-5xl md:text-[73px] font-bold tracking-tighter leading-[0.9]">Risk Engineering</span>

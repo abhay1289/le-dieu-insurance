@@ -6,19 +6,17 @@ const FeatureCard = ({ icon, title, desc, index }: { icon: React.ReactNode, titl
    const [isActive, setIsActive] = React.useState(false);
 
    return (
-
       <motion.div
          initial="initial"
          whileHover="active"
-         animate={isActive ? "active" : "initial"}
+         animate={isActive ? "active" : undefined}
          onClick={() => setIsActive(!isActive)}
-
          variants={{
             hidden: { opacity: 0, y: 30 },
             visible: { opacity: 1, y: 0 }
          }}
          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as any }}
-         className="bg-white p-10 md:p-12 border-r border-b border-gray-100 last:border-r-0 hover:bg-gray-50/50 transition-colors duration-500 group relative overflow-hidden cursor-pointer"
+         className="bg-white p-6 md:p-10 lg:p-12 border-r border-b border-gray-100 last:border-r-0 hover:bg-gray-50/50 transition-colors duration-500 group relative overflow-hidden cursor-pointer"
       >
          {/* Green left border expansion */}
          <motion.div

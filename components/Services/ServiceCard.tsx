@@ -22,8 +22,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
     <motion.div
       initial="initial"
       whileHover="active"
-      animate={isActive ? "active" : "initial"}
+      animate={isActive ? "active" : undefined}
       onClick={() => setIsActive(!isActive)}
+
 
       variants={{
         hidden: { opacity: 0, y: 50 },
@@ -56,9 +57,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 flex flex-col justify-between h-full p-10 lg:p-14 transition-all duration-500">
+      <div className="relative z-10 flex flex-col justify-between h-full p-6 md:p-10 lg:p-14 transition-all duration-500">
 
         {/* Top Section */}
+
         <div className="flex justify-between items-start">
           <div className="flex flex-col gap-6">
             <motion.span
