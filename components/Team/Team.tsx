@@ -39,8 +39,8 @@ const Team = () => {
     <section id="team" className="py-16 md:py-32 bg-[#FAFBFB] relative overflow-hidden">
 
       {/* Premium Background Decor */}
-      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-black/5 rounded-full blur-[120px] -z-10"></div>
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-black/5 rounded-full blur-[100px] -z-10"></div>
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px] -z-10"></div>
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -z-10"></div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
 
@@ -113,7 +113,7 @@ const Team = () => {
           className="mt-12 md:mt-20 p-6 md:p-8 bg-white border border-gray-100 rounded-[1.5rem] md:rounded-[2.5rem] flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-8 shadow-sm hover:shadow-xl transition-all duration-500 group"
         >
           <div className="flex items-center gap-6">
-            <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
             </div>
             <div>
@@ -125,7 +125,7 @@ const Team = () => {
           <div className="hidden lg:block h-px w-32 bg-gray-100"></div>
 
           <div className="flex gap-4">
-            <a href="#contact" className="px-8 py-4 bg-black text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-neutral-800 transition-colors">
+            <a href="#contact" className="px-8 py-4 bg-primary text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent transition-colors">
               Connect With Leadership
             </a>
             <button className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors">

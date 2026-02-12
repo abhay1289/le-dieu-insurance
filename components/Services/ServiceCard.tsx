@@ -75,7 +75,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
             <motion.div
               variants={{
                 initial: { backgroundColor: 'rgba(255,255,255,0.1)', borderColor: 'rgba(255,255,255,0.1)', color: '#ffffff' },
-                active: { backgroundColor: '#ffffff', borderColor: '#ffffff', color: '#000000' }
+                active: { backgroundColor: '#86EFAC', borderColor: '#86EFAC', color: '#0B1C15' }
               }}
               className="w-14 h-14 rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-500 border"
             >
@@ -86,7 +86,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
           <motion.div
             variants={{
               initial: { backgroundColor: 'transparent', borderColor: 'rgba(255,255,255,0.2)', color: '#ffffff' },
-              active: { backgroundColor: '#ffffff', borderColor: '#ffffff', color: '#000000' }
+              active: { backgroundColor: '#86EFAC', borderColor: '#86EFAC', color: '#0B1C15' }
             }}
             className="w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-500"
           >
@@ -115,7 +115,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
             <motion.h3
               variants={{
                 initial: { color: '#ffffff' },
-                active: { color: '#ffffff' }
+                active: { color: '#86EFAC' }
               }}
               className="text-4xl lg:text-5xl font-light mb-2 transition-colors duration-500 leading-[1.1] tracking-tight"
             >
@@ -141,7 +141,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
               <motion.span
                 variants={{
                   initial: { color: '#ffffff', borderColor: 'rgba(255,255,255,0.3)' },
-                  active: { color: '#ffffff', borderColor: '#ffffff' }
+                  active: { color: '#86EFAC', borderColor: '#86EFAC' }
                 }}
                 className="text-xs font-bold uppercase tracking-widest border-b pb-1 transition-all duration-500"
               >

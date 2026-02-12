@@ -114,8 +114,9 @@ const WhyChooseUs = () => {
             />
          </motion.div>
 
+         {/* Subtle Grid Pattern Overlay */}
          <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0"
-            style={{ backgroundImage: 'radial-gradient(#000000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+            style={{ backgroundImage: 'radial-gradient(#0B1C15 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
          <div className="container mx-auto px-6 md:px-12 relative z-10">
 
@@ -147,7 +148,7 @@ const WhyChooseUs = () => {
                </div>
 
                <div className="max-w-md pb-4">
-                  <p className="text-gray-500 font-medium leading-relaxed text-sm md:text-base border-l-2 border-black/10 pl-8">
+                  <p className="text-gray-500 font-medium leading-relaxed text-sm md:text-base border-l-2 border-accent/20 pl-8">
                      We move beyond traditional insurance models to provide architected resilience for India's most significant family and corporate legacies.
                   </p>
                </div>
@@ -177,7 +178,7 @@ const WhyChooseUs = () => {
                className="relative h-[280px] md:h-[600px] rounded-[2rem] md:rounded-[3rem] overflow-hidden group shadow-2xl"
             >
                <motion.div style={{ scale: imageScale }} className="w-full h-full">
-                  <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-1000 z-10"></div>
+                  <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/30 transition-colors duration-1000 z-10"></div>
                   <video
                      autoPlay muted loop playsInline
                      className="w-full h-full object-cover"
@@ -191,12 +192,12 @@ const WhyChooseUs = () => {
                   <div className="max-w-2xl">
                      <motion.div
                         whileHover={{ scale: 1.05 }}
-                        className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center mb-6 md:mb-10 cursor-pointer shadow-xl shadow-white/10"
+                        className="w-12 h-12 md:w-16 md:h-16 bg-accent rounded-full flex items-center justify-center mb-6 md:mb-10 cursor-pointer shadow-xl shadow-accent/20"
                      >
-                        <PlayIcon className="w-5 h-5 text-black ml-1" />
+                        <PlayIcon className="w-5 h-5 text-primary ml-1" />
                      </motion.div>
                      <h3 className="text-xl md:text-5xl font-bold text-white tracking-tight mb-3 md:mb-6 leading-tight">
-                        Watch the <span className="text-white underline decoration-1 underline-offset-8">Standard</span> in action
+                        Watch the <span className="text-accent underline decoration-1 underline-offset-8">Standard</span> in action
                      </h3>
                      <p className="text-white/70 font-medium max-w-sm text-sm md:text-base">
                         A short film on how we provide the certainty required to live and lead fearlessly.

@@ -31,31 +31,31 @@ const Pricing = () => {
   };
 
   return (
-    <section className="py-20 bg-black text-white">
+    <section className="py-20 bg-primary text-white">
       <div className="container mx-auto px-4 md:px-8">
 
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
           <div>
             <div className="flex items-center gap-4 mb-8">
-              <span className="uppercase tracking-[0.3em] text-[10px] font-bold text-neutral-400">Pricing Plans</span>
+              <span className="uppercase tracking-[0.3em] text-[10px] font-bold text-accent">Pricing Plans</span>
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-[73px] font-bold text-white tracking-tighter leading-[0.9] max-w-4xl">
-              Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-300 to-neutral-500 font-bold">Insurance Plans</span>
+              Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-white to-accent font-bold">Insurance Plans</span>
             </h2>
           </div>
 
           <div className="bg-white/10 p-1.5 rounded-full flex mt-8 md:mt-0">
             <button
               onClick={() => setBillingCycle('monthly')}
-              className={`px-6 py-3 rounded-full text-sm font-semibold transition-colors ${billingCycle === 'monthly' ? 'bg-white text-black' : 'text-white hover:text-white/80'}`}
+              className={`px-6 py-3 rounded-full text-sm font-semibold transition-colors ${billingCycle === 'monthly' ? 'bg-white text-primary' : 'text-white hover:text-white/80'}`}
             >
               Monthly
             </button>
             <button
               onClick={() => setBillingCycle('annual')}
-              className={`px-6 py-3 rounded-full text-sm font-semibold transition-colors flex items-center gap-2 ${billingCycle === 'annual' ? 'bg-white text-black' : 'text-white hover:text-white/80'}`}
+              className={`px-6 py-3 rounded-full text-sm font-semibold transition-colors flex items-center gap-2 ${billingCycle === 'annual' ? 'bg-white text-primary' : 'text-white hover:text-white/80'}`}
             >
-              Annual <span className="text-[10px] bg-white text-black px-1.5 py-0.5 rounded">25% Off</span>
+              Annual <span className="text-[10px] bg-accent text-primary px-1.5 py-0.5 rounded">25% Off</span>
             </button>
           </div>
         </div>
@@ -67,7 +67,7 @@ const Pricing = () => {
               <button
                 key={plan}
                 onClick={() => setActivePlan(plan)}
-                className={`px-6 py-3 rounded-full text-sm font-semibold transition-all ${activePlan === plan ? 'bg-black text-white shadow-lg' : 'bg-transparent text-gray-500 hover:bg-gray-100'}`}
+                className={`px-6 py-3 rounded-full text-sm font-semibold transition-all ${activePlan === plan ? 'bg-primary text-white shadow-lg' : 'bg-transparent text-gray-500 hover:bg-gray-100'}`}
               >
                 {plan} Insurance
               </button>
@@ -86,7 +86,7 @@ const Pricing = () => {
               >
                 <div>
                   <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-6xl font-bold text-black">{getPrice()}</span>
+                    <span className="text-6xl font-bold text-primary">{getPrice()}</span>
                     <span className="text-gray-500 text-lg">/ {billingCycle === 'monthly' ? 'Monthly' : 'Annual'}</span>
                   </div>
                   <h3 className="text-xl font-bold mb-4">Included Services</h3>
@@ -94,12 +94,12 @@ const Pricing = () => {
                   <ul className="space-y-4 mb-10">
                     {['Cashless hospital access.', 'Affordable premiums.', 'Mental health support.', '24/7 Virtual doctor visits.'].map((item, i) => (
                       <li key={i} className="flex items-center gap-3 text-gray-700">
-                        <div className="w-1 h-px bg-black/20"></div>
+                        <div className="w-1 h-px bg-primary/20"></div> // Changed from w-4 for consistency
                         {item}
                       </li>
                     ))}
                   </ul>
-                  <a href="/services" className="inline-flex items-center gap-2 bg-black text-white px-8 py-4 rounded-full font-semibold hover:bg-neutral-800 transition-colors">
+                  <a href="/services" className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-accent transition-colors">
                     Get Insurance Now <ArrowIcon />
                   </a>
                 </div>
