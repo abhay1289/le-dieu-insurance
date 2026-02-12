@@ -66,12 +66,13 @@ const Hero = () => {
           </motion.div>
         </AnimatePresence>
 
-        {/* Premium Overlays - Pure black gradients, no green */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/80 z-10" />
+        {/* Premium Overlays - Subtle dark gradient for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/90 md:from-black/65 md:via-black/45 md:to-black/85 z-10" />
       </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-20 h-full flex flex-col justify-center">
-        <div className="grid lg:grid-cols-2 gap-12 items-center h-full pt-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full pt-32 md:pt-20 pb-16 md:pb-0">
+
 
           {/* Left Content */}
           <motion.div
@@ -93,12 +94,12 @@ const Hero = () => {
             </div>
 
             {/* Masked Text Reveal Animation */}
-            <div className="mb-8">
+            <div className="mb-6 md:mb-8">
               <div className="overflow-hidden">
                 <motion.h1
                   variants={textRevealVariants}
-                  className="text-white tracking-tight drop-shadow-lg block font-bold"
-                  style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', lineHeight: '1.1' }}
+                  className="text-white tracking-tight drop-shadow-lg block font-bold leading-[1.1] md:leading-[1.1]"
+                  style={{ fontSize: 'clamp(2.5rem, 9vw, 5rem)' }}
                 >
                   Protecting Your
                 </motion.h1>
@@ -106,15 +107,15 @@ const Hero = () => {
               <div className="overflow-hidden">
                 <motion.h1
                   variants={textRevealVariants}
-                  className="font-bold text-white block"
-                  style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', lineHeight: '1.1' }}
+                  className="font-bold text-white block leading-[1.1] md:leading-[1.1]"
+                  style={{ fontSize: 'clamp(2.5rem, 9vw, 5rem)' }}
                 >
                   Future & Legacy
                 </motion.h1>
               </div>
             </div>
 
-            <div className="overflow-hidden mb-12">
+            <div className="overflow-hidden mb-8 md:mb-12">
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as any } } }}
                 className="text-white/90 text-lg md:text-xl leading-relaxed max-w-xl font-light drop-shadow-md"
