@@ -194,7 +194,7 @@ export default function ContactPage() {
                                                 required
                                                 value={formData.name}
                                                 onChange={handleChange}
-                                                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-primary text-sm font-medium placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all"
+                                                className="w-full bg-gray-50 hover:bg-white focus:bg-white border border-gray-200 rounded-xl px-5 py-4 text-primary text-sm font-medium placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all shadow-sm focus:shadow-lg focus:shadow-accent/5"
                                                 placeholder="Enter your name"
                                             />
                                         </div>
@@ -207,7 +207,7 @@ export default function ContactPage() {
                                                 required
                                                 value={formData.email}
                                                 onChange={handleChange}
-                                                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-primary text-sm font-medium placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all"
+                                                className="w-full bg-gray-50 hover:bg-white focus:bg-white border border-gray-200 rounded-xl px-5 py-4 text-primary text-sm font-medium placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all shadow-sm focus:shadow-lg focus:shadow-accent/5"
                                                 placeholder="your@email.com"
                                             />
                                         </div>
@@ -222,7 +222,7 @@ export default function ContactPage() {
                                                 type="tel"
                                                 value={formData.phone}
                                                 onChange={handleChange}
-                                                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-primary text-sm font-medium placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all"
+                                                className="w-full bg-gray-50 hover:bg-white focus:bg-white border border-gray-200 rounded-xl px-5 py-4 text-primary text-sm font-medium placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all shadow-sm focus:shadow-lg focus:shadow-accent/5"
                                                 placeholder="+91 XXXXX XXXXX"
                                             />
                                         </div>
@@ -234,7 +234,7 @@ export default function ContactPage() {
                                                 type="text"
                                                 value={formData.company}
                                                 onChange={handleChange}
-                                                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-primary text-sm font-medium placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all"
+                                                className="w-full bg-gray-50 hover:bg-white focus:bg-white border border-gray-200 rounded-xl px-5 py-4 text-primary text-sm font-medium placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all shadow-sm focus:shadow-lg focus:shadow-accent/5"
                                                 placeholder="Your company"
                                             />
                                         </div>
@@ -268,7 +268,7 @@ export default function ContactPage() {
                                             rows={5}
                                             value={formData.message}
                                             onChange={handleChange}
-                                            className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-primary text-sm font-medium placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all resize-none"
+                                            className="w-full bg-gray-50 hover:bg-white focus:bg-white border border-gray-200 rounded-xl px-5 py-4 text-primary text-sm font-medium placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all resize-none shadow-sm focus:shadow-lg focus:shadow-accent/5"
                                             placeholder="Tell us about your insurance requirements..."
                                         />
                                     </div>
@@ -314,6 +314,20 @@ export default function ContactPage() {
                                             <p className="text-gray-500 group-hover:text-white/70 text-sm leading-relaxed mb-4 transition-colors duration-500">
                                                 {office.address}
                                             </p>
+
+                                            <div className="mb-6">
+                                                <a
+                                                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(office.address)}`}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-accent border-b border-accent/20 pb-0.5 hover:border-accent transition-all"
+                                                >
+                                                    View on Map
+                                                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                    </svg>
+                                                </a>
+                                            </div>
 
                                             <div className="space-y-2">
                                                 <div className="flex items-center gap-3">

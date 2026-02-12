@@ -238,15 +238,20 @@ export default function AboutPage() {
                                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
                                     className="relative flex gap-6 md:gap-10 mb-8 md:mb-12 last:mb-0"
                                 >
+                                    {/* Connector Line */}
+                                    {i !== milestones.length - 1 && (
+                                        <div className="absolute left-[2rem] md:left-[2.5rem] top-[4rem] bottom-[-2rem] md:bottom-[-3rem] w-px bg-gradient-to-b from-primary/20 to-transparent z-0" />
+                                    )}
+
                                     {/* Year Badge */}
-                                    <div className="flex-shrink-0">
-                                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm md:text-base tracking-tight shadow-lg shadow-primary/20">
+                                    <div className="flex-shrink-0 relative z-10">
+                                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm md:text-base tracking-tight shadow-lg shadow-primary/20 border-4 border-gray-50">
                                             {milestone.year}
                                         </div>
                                     </div>
 
                                     {/* Content */}
-                                    <div className="flex-1 bg-white rounded-[1.5rem] p-6 md:p-8 border border-gray-100 hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 transition-all duration-500">
+                                    <div className="flex-1 bg-white rounded-[1.5rem] p-6 md:p-8 border border-gray-100 hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 transition-all duration-500 relative z-10">
                                         <h3 className="text-primary text-lg md:text-xl font-bold tracking-tight mb-2">{milestone.title}</h3>
                                         <p className="text-gray-500 text-sm leading-relaxed">{milestone.description}</p>
                                     </div>

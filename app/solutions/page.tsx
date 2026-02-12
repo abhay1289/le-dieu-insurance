@@ -227,11 +227,16 @@ export default function SolutionsPage() {
                                 <button
                                     key={cat.id}
                                     onClick={() => setActiveCategory(cat.id)}
-                                    className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${activeCategory === cat.id
-                                        ? 'bg-primary text-white shadow-lg shadow-primary/20'
-                                        : 'bg-white text-gray-500 hover:text-primary border border-gray-200 hover:border-primary/20'
+                                    className={`relative px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 z-10 ${activeCategory === cat.id ? 'text-white' : 'text-gray-500 hover:text-primary'
                                         }`}
                                 >
+                                    {activeCategory === cat.id && (
+                                        <motion.span
+                                            layoutId="activeTab"
+                                            className="absolute inset-0 bg-primary rounded-full shadow-lg shadow-primary/20 -z-10"
+                                            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                        />
+                                    )}
                                     {cat.label}
                                 </button>
                             ))}
@@ -269,6 +274,13 @@ export default function SolutionsPage() {
                                                         {coverage}
                                                     </div>
                                                 ))}
+                                            </div>
+
+                                            <div className="mt-8 flex items-center gap-2 text-accent font-bold text-xs uppercase tracking-wider opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+                                                View Solutions
+                                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                </svg>
                                             </div>
                                         </div>
                                     </motion.div>
