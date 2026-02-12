@@ -181,9 +181,16 @@ export default function AboutPage() {
                 </section>
 
                 {/* Bento Grid Values Section - Interactive Spotlight */}
-                <section className="py-24 md:py-32 bg-black relative overflow-hidden">
-                    {/* Dark Grid Background */}
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:6rem_6rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+                <section className="py-24 md:py-32 relative overflow-hidden bg-black">
+                    {/* Image Background */}
+                    <div className="absolute inset-0">
+                        <img
+                            src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2664&auto=format&fit=crop"
+                            alt="Background"
+                            className="w-full h-full object-cover opacity-30 filter brightness-[0.4]"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                    </div>
 
                     <div className="container mx-auto px-6 md:px-12 relative z-10">
                         <motion.div
