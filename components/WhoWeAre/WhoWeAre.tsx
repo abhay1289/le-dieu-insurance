@@ -30,20 +30,20 @@ const WhoWeAre = () => {
   const yOffset = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
   return (
-    <section id="about" ref={containerRef} className="py-24 md:py-32 bg-white overflow-hidden relative">
+    <section id="about" ref={containerRef} className="py-16 md:py-32 bg-white overflow-hidden relative">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
 
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-20">
 
           {/* Left Column: Heading & Image */}
           <div className="lg:col-span-7 relative flex flex-col">
-            <div className="mb-10">
+            <div className="mb-6 md:mb-10">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
-                className="flex items-center gap-4 mb-8"
+                className="flex items-center gap-4 mb-4 md:mb-8"
               >
 
                 <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Who We Are</span>
@@ -99,7 +99,7 @@ const WhoWeAre = () => {
                 }
               }}
             >
-              <div className="overflow-hidden mb-8">
+              <div className="overflow-hidden mb-6 md:mb-8">
                 <motion.p
                   variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
                   transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any }}
@@ -112,7 +112,7 @@ const WhoWeAre = () => {
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any }}
-                className="text-gray-500 leading-relaxed text-sm font-medium mb-12"
+                className="text-gray-500 leading-relaxed text-sm font-medium mb-8 md:mb-12"
               >
                 Licensed by the IRDA, we combine deep market knowledge with a client-centric approach. Our team of skilled surveyors and insurance professionals ensures your coverage is optimized for protection, ensuring you get the indemnification you deserve—not just what suits the insurers.
               </motion.p>
@@ -130,7 +130,7 @@ const WhoWeAre = () => {
                 variants={{
                   visible: { transition: { staggerChildren: 0.08 } }
                 }}
-                className="grid grid-cols-2 gap-x-8 gap-y-12 mt-12 border-t border-gray-100 pt-10"
+                className="grid grid-cols-2 gap-x-8 gap-y-8 md:gap-y-12 mt-8 md:mt-12 border-t border-gray-100 pt-8 md:pt-10"
               >
                 <StatItem number="20+" text="Years in Business" />
                 <StatItem number="21+" text="Insurance Partners" />

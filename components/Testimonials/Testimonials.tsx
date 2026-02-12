@@ -56,15 +56,15 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ name, role, quote, im
 
 const Testimonials = () => {
   return (
-    <section className="py-24 md:py-32 bg-white overflow-hidden border-t border-gray-100">
-      <div className="container mx-auto px-6 md:px-12 mb-10">
+    <section className="py-16 md:py-32 bg-white overflow-hidden border-t border-gray-100">
+      <div className="container mx-auto px-6 md:px-12 mb-6 md:mb-10">
         <div className="flex flex-col items-center justify-center text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any }}
-            className="flex items-center gap-4 mb-8"
+            className="flex items-center gap-4 mb-4 md:mb-8"
           >
 
             <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Voices of Trust</span>

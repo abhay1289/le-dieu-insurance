@@ -36,7 +36,7 @@ const teamMembers: TeamMember[] = [
 
 const Team = () => {
   return (
-    <section id="team" className="py-24 md:py-32 bg-[#FAFBFB] relative overflow-hidden">
+    <section id="team" className="py-16 md:py-32 bg-[#FAFBFB] relative overflow-hidden">
 
       {/* Premium Background Decor */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px] -z-10"></div>
@@ -45,7 +45,7 @@ const Team = () => {
       <div className="container mx-auto px-6 md:px-12 relative z-10">
 
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 gap-12">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 md:mb-20 gap-6 md:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -57,7 +57,7 @@ const Team = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="flex items-center gap-4 mb-8"
+              className="flex items-center gap-4 mb-4 md:mb-8"
             >
 
               <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Board of Directors</span>
@@ -82,7 +82,7 @@ const Team = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-xs lg:text-right pb-4"
+            className="max-w-xs lg:text-right pb-4 mt-6 lg:mt-0"
           >
             <p className="text-gray-500 leading-relaxed text-sm font-medium">
               A collective of world-class strategists and industry titans dedicated to securing your family's future across generations.
@@ -110,7 +110,7 @@ const Team = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-20 p-8 bg-white border border-gray-100 rounded-[2.5rem] flex flex-col md:flex-row justify-between items-start md:items-center gap-8 shadow-sm hover:shadow-xl transition-all duration-500 group"
+          className="mt-12 md:mt-20 p-6 md:p-8 bg-white border border-gray-100 rounded-[1.5rem] md:rounded-[2.5rem] flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-8 shadow-sm hover:shadow-xl transition-all duration-500 group"
         >
           <div className="flex items-center gap-6">
             <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-accent group-hover:scale-110 transition-transform">

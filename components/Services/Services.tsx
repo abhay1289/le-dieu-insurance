@@ -40,11 +40,11 @@ const textRevealVariants = {
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 md:py-32 bg-white overflow-hidden">
+    <section id="services" className="py-16 md:py-32 bg-white overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
 
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 gap-12 border-b border-gray-100 pb-8">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-8 md:mb-10 gap-6 md:gap-12 border-b border-gray-100 pb-6 md:pb-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -53,7 +53,7 @@ const Services = () => {
           >
             <motion.div
               variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any } } }}
-              className="flex items-center gap-4 mb-8"
+              className="flex items-center gap-4 mb-4 md:mb-8"
             >
 
               <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Our Expertise</span>
@@ -75,7 +75,7 @@ const Services = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any, delay: 0.3 }}
-            className="mb-4"
+            className="mb-4 mt-8 lg:mt-0"
           >
             <a href="#services" className="group flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:text-accent transition-all">
               <span className="border-b border-gray-200 group-hover:border-accent pb-1">View All Solutions</span>

@@ -44,7 +44,7 @@ const ValueCard = ({ title, desc, icon, index }: { title: string, desc: string, 
 
 const CompanyHistory = () => {
   return (
-    <section className="py-24 md:py-40 bg-[#F2F4F3] relative overflow-hidden">
+    <section className="py-16 md:py-40 bg-[#F2F4F3] relative overflow-hidden">
 
       {/* Background Image & Gradient */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -63,7 +63,7 @@ const CompanyHistory = () => {
       <div className="container mx-auto px-4 md:px-8 relative z-10">
 
         {/* Header Section */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 mb-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 mb-12 md:mb-24 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -115,7 +115,7 @@ const CompanyHistory = () => {
         </div>
 
         {/* Mission & Values */}
-        <div className="grid lg:grid-cols-12 gap-12">
+        <div className="grid lg:grid-cols-12 gap-8 md:gap-12">
           <div className="lg:col-span-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 
 const Footer = () => {
    return (
-      <footer className="bg-primary text-white pt-32 pb-12 overflow-hidden relative">
+      <footer className="bg-primary text-white pt-16 md:pt-32 pb-12 overflow-hidden relative">
          <div className="container mx-auto px-6 md:px-12 relative z-10">
 
 
 
             {/* Middle Section */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 mb-16 md:mb-32">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 mb-12 md:mb-32">
                {/* Brand Column */}
 
                <motion.div

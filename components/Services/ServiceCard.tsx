@@ -31,7 +31,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
         visible: { opacity: 1, y: 0 }
       }}
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any }}
-      className="group relative h-[500px] lg:h-[650px] bg-white overflow-hidden border-r border-b border-gray-200 last:border-r-0 lg:border-b-0 hover:z-10 cursor-pointer"
+      className="group relative h-[400px] md:h-[500px] lg:h-[650px] bg-white overflow-hidden border-r border-b border-gray-200 last:border-r-0 lg:border-b-0 hover:z-10 cursor-pointer"
     >
       {/* Interaction Layer - Background Image */}
       <div className="absolute inset-0 z-0 transition-opacity duration-700 ease-in-out">
@@ -137,7 +137,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
               </p>
             </motion.div>
 
-            <div className="pt-2">
+            <div className="pt-6">
               <motion.span
                 variants={{
                   initial: { color: '#ffffff', borderColor: 'rgba(255,255,255,0.3)' },

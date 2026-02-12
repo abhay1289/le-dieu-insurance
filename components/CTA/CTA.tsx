@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 
 const CTA = () => {
   return (
-    <section id="contact" className="py-24 md:py-32 bg-[#FAFBFB]">
+    <section id="contact" className="py-16 md:py-32 bg-[#FAFBFB]">
       <div className="container mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.98, y: 30 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any }}
-          className="bg-primary rounded-[3rem] p-10 md:p-16 text-center relative overflow-hidden shadow-2xl"
+          className="bg-primary rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 text-center relative overflow-hidden shadow-2xl"
         >
           <div className="relative z-10 max-w-4xl mx-auto">
             <motion.div
@@ -19,12 +19,12 @@ const CTA = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any, delay: 0.1 }}
-              className="flex items-center justify-center gap-4 mb-8"
+              className="flex items-center justify-center gap-4 mb-4 md:mb-8"
             >
               <span className="uppercase tracking-[0.3em] text-[10px] font-bold text-accent">Start Your Journey</span>
             </motion.div>
 
-            <div className="overflow-hidden mb-12 py-2">
+            <div className="overflow-hidden mb-8 md:mb-12 py-2">
               <motion.h2
                 initial={{ y: "100%" }}
                 whileInView={{ y: 0 }}

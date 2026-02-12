@@ -35,7 +35,7 @@ const FeatureCard = ({ icon, title, desc, index }: { icon: React.ReactNode, titl
                active: { backgroundColor: '#86EFAC', borderColor: '#86EFAC', rotate: 6 }
             }}
             transition={{ duration: 0.5 }}
-            className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 border"
+            className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 md:mb-8 border"
          >
             <motion.div
                variants={{
@@ -60,7 +60,7 @@ const FeatureCard = ({ icon, title, desc, index }: { icon: React.ReactNode, titl
                active: { width: '100%' }
             }}
             transition={{ duration: 0.5 }}
-            className="h-[2px] bg-accent mt-8"
+            className="h-[2px] bg-accent mt-6 md:mt-8"
          />
       </motion.div>
    );
@@ -100,7 +100,7 @@ const WhyChooseUs = () => {
    ];
 
    return (
-      <section ref={containerRef} className="py-24 md:py-32 bg-white relative overflow-hidden">
+      <section ref={containerRef} className="py-16 md:py-32 bg-white relative overflow-hidden">
 
          {/* Premium Background Image with Parallax */}
          <motion.div
@@ -121,13 +121,13 @@ const WhyChooseUs = () => {
          <div className="container mx-auto px-6 md:px-12 relative z-10">
 
             {/* Editorial Section Header */}
-            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 gap-10">
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 md:mb-20 gap-6 md:gap-10">
                <div className="max-w-3xl">
                   <motion.div
                      initial={{ opacity: 0, x: -20 }}
                      whileInView={{ opacity: 1, x: 0 }}
                      viewport={{ once: true }}
-                     className="flex items-center gap-4 mb-8"
+                     className="flex items-center gap-4 mb-4 md:mb-8"
                   >
 
                      <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Institutional Grade</span>
@@ -162,7 +162,7 @@ const WhyChooseUs = () => {
                variants={{
                   visible: { transition: { staggerChildren: 0.1 } }
                }}
-               className="grid md:grid-cols-2 lg:grid-cols-4 border-l border-t border-gray-100 mb-20 shadow-[0_40px_100px_rgba(0,0,0,0.02)] rounded-[2rem] overflow-hidden"
+               className="grid md:grid-cols-2 lg:grid-cols-4 border-l border-t border-gray-100 mb-12 md:mb-20 shadow-[0_40px_100px_rgba(0,0,0,0.02)] rounded-[2rem] overflow-hidden"
             >
                {features.map((feature, index) => (
                   <FeatureCard key={index} {...feature} index={index} />
@@ -175,7 +175,7 @@ const WhyChooseUs = () => {
                whileInView={{ opacity: 1, scale: 1, y: 0 }}
                viewport={{ once: true }}
                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] as any }}
-               className="relative h-[400px] md:h-[600px] rounded-[3rem] overflow-hidden group shadow-2xl"
+               className="relative h-[280px] md:h-[600px] rounded-[2rem] md:rounded-[3rem] overflow-hidden group shadow-2xl"
             >
                <motion.div style={{ scale: imageScale }} className="w-full h-full">
                   <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/30 transition-colors duration-1000 z-10"></div>
@@ -188,18 +188,18 @@ const WhyChooseUs = () => {
                   </video>
                </motion.div>
 
-               <div className="absolute inset-0 z-20 p-12 md:p-20 flex flex-col justify-end">
+               <div className="absolute inset-0 z-20 p-6 md:p-20 flex flex-col justify-end">
                   <div className="max-w-2xl">
                      <motion.div
                         whileHover={{ scale: 1.05 }}
-                        className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-10 cursor-pointer shadow-xl shadow-accent/20"
+                        className="w-12 h-12 md:w-16 md:h-16 bg-accent rounded-full flex items-center justify-center mb-6 md:mb-10 cursor-pointer shadow-xl shadow-accent/20"
                      >
                         <PlayIcon className="w-5 h-5 text-primary ml-1" />
                      </motion.div>
-                     <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
+                     <h3 className="text-xl md:text-5xl font-bold text-white tracking-tight mb-3 md:mb-6 leading-tight">
                         Watch the <span className="text-accent underline decoration-1 underline-offset-8">Standard</span> in action
                      </h3>
-                     <p className="text-white/70 font-medium max-w-sm">
+                     <p className="text-white/70 font-medium max-w-sm text-sm md:text-base">
                         A short film on how we provide the certainty required to live and lead fearlessly.
                      </p>
                   </div>

@@ -81,7 +81,7 @@ const Hero = () => {
             variants={containerVariants}
             className="max-w-3xl"
           >
-            <div className="overflow-hidden mb-8">
+            <div className="overflow-hidden mb-4 md:mb-8">
               <motion.div
                 variants={textRevealVariants}
                 className="inline-flex items-center gap-3 px-4 py-2 bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-full"
@@ -94,7 +94,7 @@ const Hero = () => {
             </div>
 
             {/* Masked Text Reveal Animation */}
-            <div className="mb-6 md:mb-8">
+            <div className="mb-4 md:mb-8">
               <div className="overflow-hidden">
                 <motion.h1
                   variants={textRevealVariants}
@@ -115,7 +115,7 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="overflow-hidden mb-8 md:mb-12">
+            <div className="overflow-hidden mb-6 md:mb-12">
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as any } } }}
                 className="text-white/90 text-lg md:text-xl leading-relaxed max-w-xl font-light drop-shadow-md"
@@ -126,7 +126,7 @@ const Hero = () => {
 
             <motion.div
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.7 } } }}
-              className="flex flex-wrap items-center gap-6"
+              className="flex flex-wrap items-center gap-4 md:gap-6"
             >
               <a href="/get-started" className="h-14 px-8 bg-accent text-white rounded-full font-semibold text-lg hover:bg-accent-hover active:scale-95 active:shadow-none transition-all flex items-center gap-2 hover:scale-105 transform duration-300 shadow-[0_0_20px_rgba(134,239,172,0.3)]">
 
