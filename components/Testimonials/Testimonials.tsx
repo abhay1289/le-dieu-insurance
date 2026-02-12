@@ -67,7 +67,7 @@ const Testimonials = () => {
             className="flex items-center gap-4 mb-4 md:mb-8"
           >
 
-            <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Voices of Trust</span>
+            <span className="text-[10px] font-bold tracking-[0.3em] text-gray-500 uppercase">Voices of Trust</span>
           </motion.div>
 
           <div className="overflow-hidden py-2">
@@ -78,7 +78,7 @@ const Testimonials = () => {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as any }}
               className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[0.9]"
             >
-              <span className="text-primary tracking-tighter">Client</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent">Perspectives</span>
+              <span className="text-primary tracking-tighter">Client</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-gray-800 to-gray-500">Perspectives</span>
             </motion.h2>
           </div>
         </div>

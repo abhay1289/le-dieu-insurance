@@ -56,7 +56,7 @@ const Services = () => {
               className="flex items-center gap-4 mb-4 md:mb-8"
             >
 
-              <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Our Expertise</span>
+              <span className="text-[10px] font-bold tracking-[0.3em] text-gray-500 uppercase">Our Expertise</span>
             </motion.div>
 
             <div className="mb-2">
@@ -64,7 +64,7 @@ const Services = () => {
               <div className="overflow-hidden py-2">
                 <motion.div variants={textRevealVariants} className="flex flex-col">
                   <span className="text-primary text-4xl sm:text-5xl md:text-[73px] font-bold tracking-tighter leading-[0.9]">Risk Engineering</span>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent text-4xl sm:text-5xl md:text-[73px] font-bold tracking-tighter leading-[0.9]">Insurance Solutions</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-gray-800 to-gray-500 text-4xl sm:text-5xl md:text-[73px] font-bold tracking-tighter leading-[0.9]">Insurance Solutions</span>
                 </motion.div>
               </div>
             </div>
@@ -77,8 +77,8 @@ const Services = () => {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any, delay: 0.3 }}
             className="mb-4 mt-8 lg:mt-0"
           >
-            <a href="#services" className="group flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:text-accent transition-all">
-              <span className="border-b border-gray-200 group-hover:border-accent pb-1">View All Solutions</span>
+            <a href="#services" className="group flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:text-black transition-all">
+              <span className="border-b border-gray-200 group-hover:border-black pb-1">View All Solutions</span>
               <ArrowIcon className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
             </a>
           </motion.div>
