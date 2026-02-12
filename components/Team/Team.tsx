@@ -59,7 +59,7 @@ const Team = () => {
               viewport={{ once: true }}
               className="flex items-center gap-4 mb-8"
             >
-              <div className="w-12 h-[1px] bg-primary/20"></div>
+
               <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Board of Directors</span>
             </motion.div>
 

@@ -21,9 +21,7 @@ const CTA = () => {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any, delay: 0.1 }}
               className="flex items-center justify-center gap-4 mb-8"
             >
-              <div className="w-12 h-[1px] bg-white/20"></div>
               <span className="uppercase tracking-[0.3em] text-[10px] font-bold text-accent">Start Your Journey</span>
-              <div className="w-12 h-[1px] bg-white/20"></div>
             </motion.div>
 
             <div className="overflow-hidden mb-12 py-2">

@@ -45,7 +45,7 @@ const WhoWeAre = () => {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
                 className="flex items-center gap-4 mb-8"
               >
-                <div className="w-12 h-[1px] bg-primary/20"></div>
+
                 <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Who We Are</span>
               </motion.div>
 
