@@ -7,17 +7,19 @@ import Footer from '@/components/Footer/Footer';
 import ScrollProgress from '@/components/ScrollProgress/ScrollProgress';
 import SmoothScroll from '@/components/SmoothScroll';
 
+import { ArrowIcon } from '@/utils/icons';
+
 // --- Sophisticated Animation Variants ---
 const fadeUp = {
     initial: { opacity: 0, y: 40 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] }
+    transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as any }
 };
 
 const textMask = {
     initial: { y: "100%" },
     animate: { y: 0 },
-    transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] }
+    transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as any }
 };
 
 // --- Components ---
@@ -65,7 +67,7 @@ const AboutHero = () => {
                             variants={textMask}
                             initial="initial"
                             animate="animate"
-                            transition={{ ...textMask.transition, delay: 0.1 }}
+                            transition={{ ...textMask.transition, delay: 0.1 } as any}
                             className="text-[12vw] md:text-[8vw] font-bold text-transparent bg-clip-text bg-gradient-to-r from-white/80 via-white to-white/40 leading-none tracking-tighter"
                         >
                             RESILIENCE.
