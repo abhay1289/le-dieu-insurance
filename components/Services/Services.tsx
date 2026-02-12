@@ -44,7 +44,7 @@ const Services = () => {
       <div className="container mx-auto px-6 md:px-12">
 
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-12 border-b border-gray-100 pb-8">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 gap-12 border-b border-gray-100 pb-8">
           <motion.div
             initial="hidden"
             whileInView="visible"

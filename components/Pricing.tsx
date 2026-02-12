@@ -37,7 +37,6 @@ const Pricing = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16">
           <div>
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-[1px] bg-white/20"></div>
               <span className="uppercase tracking-[0.3em] text-[10px] font-bold text-accent">Pricing Plans</span>
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-[73px] font-bold text-white tracking-tighter leading-[0.9] max-w-4xl">

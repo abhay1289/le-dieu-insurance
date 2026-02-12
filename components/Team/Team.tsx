@@ -45,7 +45,7 @@ const Team = () => {
       <div className="container mx-auto px-6 md:px-12 relative z-10">
 
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-end mb-20 gap-12">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 gap-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}

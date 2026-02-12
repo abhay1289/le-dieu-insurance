@@ -95,7 +95,7 @@ const WhyChooseUs = () => {
                      viewport={{ once: true }}
                      className="flex items-center gap-4 mb-8"
                   >
-                     <div className="w-12 h-[1px] bg-accent/30"></div>
+
                      <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Institutional Grade</span>
                   </motion.div>
 

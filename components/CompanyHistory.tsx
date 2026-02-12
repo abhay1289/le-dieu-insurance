@@ -71,7 +71,7 @@ const CompanyHistory = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-[1px] bg-primary/20"></div>
+
               <span className="uppercase tracking-[0.3em] text-[10px] font-bold text-accent">Our Legacy</span>
             </div>
             <h2 className="text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[0.9] mb-8">
@@ -131,7 +131,7 @@ const CompanyHistory = () => {
                 </p>
               </div>
               <div className="mt-8 relative z-10">
-                <div className="w-12 h-1 bg-accent mb-4"></div>
+
                 <div className="italic font-medium text-white/60">Alexander Le Dieu, Founder</div>
               </div>
 

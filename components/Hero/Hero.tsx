@@ -127,7 +127,7 @@ const Hero = () => {
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.7 } } }}
               className="flex flex-wrap items-center gap-6"
             >
-              <a href="/get-started" className="h-14 px-8 bg-accent text-primary rounded-full font-semibold text-lg hover:bg-accent-hover transition-all flex items-center gap-2 hover:scale-105 transform duration-300 shadow-[0_0_20px_rgba(134,239,172,0.3)]">
+              <a href="/get-started" className="h-14 px-8 bg-accent text-white rounded-full font-semibold text-lg hover:bg-accent-hover transition-all flex items-center gap-2 hover:scale-105 transform duration-300 shadow-[0_0_20px_rgba(134,239,172,0.3)]">
                 Get Protected <ArrowIcon className="w-4 h-4" />
               </a>
 
