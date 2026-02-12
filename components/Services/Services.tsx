@@ -9,7 +9,7 @@ const servicesData: ServiceItem[] = [
     title: "Risk Management",
     description: "Systematic identification and evaluation of loss exposures using the most appropriate techniques for treating risks.",
     icon: OfferIcon1,
-    image: "/images/multicultural-professional-businesspeople-working-2026-01-08-08-08-44-utc.jpg"
+    image: "/images/service-risk-new.jpg"
   },
   {
     id: 'policy-placement',
