@@ -110,7 +110,7 @@ const Team = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-20 p-8 bg-white border border-gray-100 rounded-[2.5rem] flex flex-col md:flex-row justify-between items-center gap-8 shadow-sm hover:shadow-xl transition-all duration-500 group"
+          className="mt-20 p-8 bg-white border border-gray-100 rounded-[2.5rem] flex flex-col md:flex-row justify-between items-start md:items-center gap-8 shadow-sm hover:shadow-xl transition-all duration-500 group"
         >
           <div className="flex items-center gap-6">
             <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-accent group-hover:scale-110 transition-transform">

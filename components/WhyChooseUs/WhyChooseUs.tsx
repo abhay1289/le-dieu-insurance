@@ -5,28 +5,59 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const FeatureCard = ({ icon, title, desc, index }: { icon: React.ReactNode, title: string, desc: string, index: number }) => {
    return (
       <motion.div
+         initial="initial"
+         whileHover="active"
+         whileTap="active"
          variants={{
             hidden: { opacity: 0, y: 30 },
             visible: { opacity: 1, y: 0 }
          }}
          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as any }}
-         className="bg-white p-10 md:p-12 border-r border-b border-gray-100 last:border-r-0 hover:bg-gray-50/50 transition-colors duration-500 group relative overflow-hidden"
+         className="bg-white p-10 md:p-12 border-r border-b border-gray-100 last:border-r-0 hover:bg-gray-50/50 transition-colors duration-500 group relative overflow-hidden cursor-pointer"
       >
-         <div className="absolute top-0 left-0 w-1 h-0 bg-accent group-hover:h-full transition-all duration-700"></div>
-         <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center mb-8 border border-gray-100 group-hover:bg-accent group-hover:border-accent transition-all duration-500 transform group-hover:rotate-6">
-            <div className="text-primary group-hover:text-white transition-colors duration-500">
+         {/* Green left border expansion */}
+         <motion.div
+            variants={{
+               initial: { height: 0 },
+               active: { height: '100%' }
+            }}
+            transition={{ duration: 0.7 }}
+            className="absolute top-0 left-0 w-1 bg-accent"
+         ></motion.div>
+
+         {/* Icon Container */}
+         <motion.div
+            variants={{
+               initial: { backgroundColor: '#F9FAFB', borderColor: '#F3F4F6', rotate: 0 },
+               active: { backgroundColor: '#86EFAC', borderColor: '#86EFAC', rotate: 6 }
+            }}
+            transition={{ duration: 0.5 }}
+            className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 border"
+         >
+            <motion.div
+               variants={{
+                  initial: { color: '#0B1C15' },
+                  active: { color: '#ffffff' }
+               }}
+               className="transition-colors duration-500"
+            >
                {icon}
-            </div>
-         </div>
+            </motion.div>
+         </motion.div>
+
          <h3 className="text-2xl font-bold text-primary mb-4 tracking-tight">{title}</h3>
          <p className="text-gray-500 leading-relaxed font-medium text-sm md:text-base">
             {desc}
          </p>
+
+         {/* Bottom accent line expansion */}
          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: '40px' }}
-            viewport={{ once: true }}
-            className="h-[2px] bg-accent mt-8 transition-all duration-500 group-hover:w-full"
+            variants={{
+               initial: { width: '40px' },
+               active: { width: '100%' }
+            }}
+            transition={{ duration: 0.5 }}
+            className="h-[2px] bg-accent mt-8"
          />
       </motion.div>
    );

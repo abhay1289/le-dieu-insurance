@@ -34,7 +34,7 @@ const Pricing = () => {
     <section className="py-20 bg-primary text-white">
       <div className="container mx-auto px-4 md:px-8">
 
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
           <div>
             <div className="flex items-center gap-4 mb-8">
               <span className="uppercase tracking-[0.3em] text-[10px] font-bold text-accent">Pricing Plans</span>
@@ -94,7 +94,7 @@ const Pricing = () => {
                   <ul className="space-y-4 mb-10">
                     {['Cashless hospital access.', 'Affordable premiums.', 'Mental health support.', '24/7 Virtual doctor visits.'].map((item, i) => (
                       <li key={i} className="flex items-center gap-3 text-gray-700">
-                        <div className="w-4 h-px bg-primary/20"></div>
+                        <div className="w-1 h-px bg-primary/20"></div> // Changed from w-4 for consistency
                         {item}
                       </li>
                     ))}
