@@ -60,10 +60,10 @@ const NavBar = () => {
           >
             {[
               { text: "Home", href: "/" },
-              { text: "About Us", href: "#about" },
-              { text: "Services", href: "#services" },
-              { text: "Team", href: "#team" },
-              { text: "Contact", href: "#contact" }
+              { text: "About Us", href: "/about" },
+              { text: "Services", href: "/services" },
+              { text: "Solutions", href: "/solutions" },
+              { text: "Contact", href: "/contact" }
             ].map((link, i) => (
               <motion.div
                 key={i}
@@ -141,10 +141,10 @@ const NavBar = () => {
               <div className="flex flex-col gap-2">
                 {[
                   { text: 'Home', href: '/' },
-                  { text: 'About Us', href: '#about' },
-                  { text: 'Services', href: '#services' },
-                  { text: 'Team', href: '#team' },
-                  { text: 'Contact', href: '#contact' }
+                  { text: 'About Us', href: '/about' },
+                  { text: 'Services', href: '/services' },
+                  { text: 'Solutions', href: '/solutions' },
+                  { text: 'Contact', href: '/contact' }
                 ].map((item) => (
                   <a
                     key={item.text}
