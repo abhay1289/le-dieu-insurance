@@ -71,11 +71,11 @@ export default function AboutPage() {
                     backgroundImage="/images/about-team.png"
                 />
 
-                {/* Strategic Vision Section - Dark Premium Layout */}
-                <section className="relative py-24 md:py-40 bg-primary overflow-hidden">
+                {/* Strategic Vision Section - White Layout */}
+                <section className="relative py-24 md:py-40 bg-white overflow-hidden">
                     {/* Ambient Background Elements */}
                     <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-accent-green/5 rounded-full blur-[100px] pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-gray-100 rounded-full blur-[100px] pointer-events-none" />
 
                     <div className="container mx-auto px-6 md:px-12 relative z-10">
                         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -93,18 +93,18 @@ export default function AboutPage() {
 
                                 <div className="space-y-4 mb-10">
                                     <div className="overflow-hidden">
-                                        <motion.h2 variants={textRevealVariants} className="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-white">
+                                        <motion.h2 variants={textRevealVariants} className="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-primary">
                                             Beyond
                                         </motion.h2>
                                     </div>
                                     <div className="overflow-hidden">
-                                        <motion.h2 variants={textRevealVariants} className="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-accent to-white">
+                                        <motion.h2 variants={textRevealVariants} className="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
                                             Insurance.
                                         </motion.h2>
                                     </div>
                                 </div>
 
-                                <motion.p variants={fadeUpVariants} className="text-xl text-white/70 leading-relaxed max-w-lg mb-8 font-light border-l border-white/10 pl-6">
+                                <motion.p variants={fadeUpVariants} className="text-xl text-gray-500 leading-relaxed max-w-lg mb-8 font-light border-l border-gray-200 pl-6">
                                     Le Dieu Insurance Brokers is not just an intermediary; we are your strategic risk partners. Licensed by IRDA since 2003, we bridge the gap between complex enterprise risks and optimal financial protection.
                                 </motion.p>
 
@@ -113,10 +113,10 @@ export default function AboutPage() {
                                         href="/contact"
                                         className="inline-flex items-center gap-4 group cursor-pointer"
                                     >
-                                        <div className="w-12 h-12 rounded-full border border-accent/30 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all duration-300">
-                                            <svg className="w-4 h-4 text-accent group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                                        <div className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all duration-300">
+                                            <svg className="w-4 h-4 text-primary group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                                         </div>
-                                        <span className="text-sm font-bold uppercase tracking-widest text-white group-hover:text-accent transition-colors">Start the dialogue</span>
+                                        <span className="text-sm font-bold uppercase tracking-widest text-primary group-hover:text-accent transition-colors">Start the dialogue</span>
                                     </a>
                                 </motion.div>
                             </motion.div>
@@ -129,17 +129,17 @@ export default function AboutPage() {
                                 variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
                                 className="grid gap-6"
                             >
-                                <motion.div variants={fadeUpVariants} className="p-8 rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-accent/30 transition-colors duration-500">
-                                    <h3 className="text-white/50 text-xs font-bold uppercase tracking-widest mb-4">Market Leadership</h3>
-                                    <p className="text-white text-lg leading-relaxed">
-                                        Serving prestigious industrial houses, power projects, and infrastructure giants with a philosophy of <span className="text-accent">zero compromise</span> on coverage quality.
+                                <motion.div variants={fadeUpVariants} className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-accent/30 transition-colors duration-500 shadow-sm hover:shadow-md">
+                                    <h3 className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-4">Market Leadership</h3>
+                                    <p className="text-primary text-lg leading-relaxed">
+                                        Serving prestigious industrial houses, power projects, and infrastructure giants with a philosophy of <span className="text-accent font-medium">zero compromise</span> on coverage quality.
                                     </p>
                                 </motion.div>
                                 <motion.div variants={fadeUpVariants} className="grid grid-cols-2 gap-6">
                                     {stats.map((stat, i) => (
-                                        <div key={i} className="p-6 rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-colors duration-500">
-                                            <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
-                                            <div className="text-white/40 text-[10px] uppercase font-bold tracking-wider">{stat.label}</div>
+                                        <div key={i} className="p-6 rounded-3xl bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-md transition-all duration-500">
+                                            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.number}</div>
+                                            <div className="text-gray-400 text-[10px] uppercase font-bold tracking-wider">{stat.label}</div>
                                         </div>
                                     ))}
                                 </motion.div>
