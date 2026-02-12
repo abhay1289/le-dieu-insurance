@@ -15,8 +15,8 @@ const coreServices = [
         subtitle: "Precision Identification.",
         description: "We don't just insure; we engineer resilience. Our risk management protocols involve a forensic auditing of your operational landscape to identify vulnerabilities before they manifest as losses.",
         features: ["Forensic Risk Audits", "Loss Prevention Architecture", "Contractual Liability Analysis"],
-        color: "bg-[#0B1C15]",
-        accent: "text-emerald-400"
+        color: "bg-neutral-900",
+        accent: "text-white/50"
     },
     {
         id: "02",
@@ -24,8 +24,8 @@ const coreServices = [
         subtitle: "Market Leverage.",
         description: "Leveraging two decades of relationships with 21+ insurers to architect coverage that defies standard market limitations. we negotiate from a position of data-backed strength.",
         features: ["GAP Analysis", "Portfolio Rationalization", "Competitive Bidding"],
-        color: "bg-[#0F2920]",
-        accent: "text-cyan-400"
+        color: "bg-neutral-900",
+        accent: "text-white/50"
     },
     {
         id: "03",
@@ -33,8 +33,8 @@ const coreServices = [
         subtitle: "Relentless Defense.",
         description: "The true test of insurance. We manage the entire claims lifecycle, from notification to settlement, ensuring technical nuances are interpreted in your favor.",
         features: ["24/7 Crisis Response", "Settlement Negotiation", "Technical Arbitration"],
-        color: "bg-[#14362A]",
-        accent: "text-indigo-400"
+        color: "bg-neutral-900",
+        accent: "text-white/50"
     },
 ];
 
@@ -113,7 +113,7 @@ export default function ServicesPage() {
                 {/* Stacking Cards Section */}
                 <div ref={containerRef} className="relative mt-[10vh] mb-[10vh]">
                     <div className="container mx-auto px-6 mb-20 md:mb-32 text-center">
-                        <span className="text-accent text-xs font-bold uppercase tracking-[0.3em] block mb-6">Our Methodology</span>
+                        <span className="text-white/60 text-xs font-bold uppercase tracking-[0.3em] block mb-6">Our Methodology</span>
                         <h2 className="text-4xl md:text-7xl font-bold tracking-tighter text-white">The Protection Matrix.</h2>
                     </div>
 
@@ -124,7 +124,16 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Specialized Services - Grid */}
-                <section className="py-24 md:py-32 bg-[#0B1C15] relative overflow-hidden">
+                <section className="py-24 md:py-32 relative overflow-hidden bg-black">
+                    <div className="absolute inset-0">
+                        <img
+                            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2670&auto=format&fit=crop"
+                            alt="Industrial Engineering"
+                            className="w-full h-full object-cover opacity-20 filter grayscale brightness-50"
+                        />
+                        <div className="absolute inset-0 bg-black/90" />
+                    </div>
+
                     <div className="container mx-auto px-6 md:px-12 relative z-10">
                         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
                             <div>
@@ -132,22 +141,22 @@ export default function ServicesPage() {
                                 <p className="text-white/50 max-w-md">Technical assessments designed to optimize operational efficiency and insurability.</p>
                             </div>
                             <div className="h-px w-full md:w-auto md:flex-1 bg-white/10 mb-2 md:mx-12" />
-                            <div className="text-accent font-mono text-sm">05 MODULES</div>
+                            <div className="text-white/60 font-mono text-sm">05 MODULES</div>
                         </div>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5">
                             {specializedServices.map((service, i) => (
-                                <div key={i} className="group relative p-10 bg-[#0B1C15] hover:bg-[#0F2920] transition-colors duration-500">
+                                <div key={i} className="group relative p-10 bg-white/5 hover:bg-white/10 transition-colors duration-500">
                                     <div className="text-4xl mb-6 opacity-50 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0">{service.icon}</div>
-                                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">{service.title}</h3>
+                                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-white transition-colors">{service.title}</h3>
                                     <p className="text-sm text-white/50 group-hover:text-white/70 transition-colors leading-relaxed">{service.description}</p>
                                 </div>
                             ))}
                             {/* Empty filler for grid if needed, or join us card */}
-                            <div className="group relative p-10 bg-[#0B1C15] hover:bg-accent transition-colors duration-500 flex flex-col justify-center items-center text-center cursor-pointer">
-                                <h3 className="text-xl font-bold text-white mb-2">Need Custom Analysis?</h3>
-                                <p className="text-sm text-white/50 group-hover:text-white/90 mb-6">Contact our risk engineers.</p>
-                                <div className="w-10 h-10 rounded-full border border-white/20 group-hover:bg-white group-hover:text-accent flex items-center justify-center transition-all">
+                            <div className="group relative p-10 bg-white/5 hover:bg-white transition-colors duration-500 flex flex-col justify-center items-center text-center cursor-pointer">
+                                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-black">Need Custom Analysis?</h3>
+                                <p className="text-sm text-white/50 group-hover:text-black/80 mb-6">Contact our risk engineers.</p>
+                                <div className="w-10 h-10 rounded-full border border-white/20 group-hover:bg-black group-hover:text-white flex items-center justify-center transition-all">
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                                 </div>
                             </div>
@@ -155,10 +164,9 @@ export default function ServicesPage() {
                     </div>
                 </section>
 
-                {/* Ticker / Marquee for Coverage Types */}
                 <section className="py-24 bg-black border-t border-white/5">
                     <div className="container mx-auto px-6 mb-12">
-                        <span className="text-accent text-xs font-bold uppercase tracking-[0.3em]">Comprehensive Scope</span>
+                        <span className="text-white/60 text-xs font-bold uppercase tracking-[0.3em]">Comprehensive Scope</span>
                     </div>
                     <div className="relative flex overflow-x-hidden">
                         <div className="py-12 animate-marquee whitespace-nowrap flex gap-12 md:gap-24">

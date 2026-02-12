@@ -34,7 +34,7 @@ const containerVariants = {
 
 const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, breadcrumb, backgroundImage }) => {
     return (
-        <section className="relative min-h-[50vh] md:min-h-[60vh] w-full overflow-hidden bg-primary flex items-end">
+        <section className="relative min-h-[50vh] md:min-h-[60vh] w-full overflow-hidden bg-black flex items-end">
             {/* Background Image */}
             {backgroundImage && (
                 <div className="absolute inset-0 z-0">
@@ -44,9 +44,9 @@ const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, breadcrumb, backgr
                         transition={{ duration: 8, ease: "linear" }}
                         src={backgroundImage}
                         alt=""
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover opacity-60"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/40 z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 z-10" />
                 </div>
             )}
 

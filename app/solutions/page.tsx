@@ -99,7 +99,7 @@ export default function SolutionsPage() {
 
     return (
         <SmoothScroll>
-            <div className="min-h-screen bg-black text-white selection:bg-accent selection:text-white">
+            <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black">
                 <ScrollProgress />
                 <NavBar />
 
@@ -124,7 +124,7 @@ export default function SolutionsPage() {
                                     {activeCategory === cat.id && (
                                         <motion.span
                                             layoutId="activeTab"
-                                            className="absolute inset-0 bg-accent rounded-full shadow-[0_0_20px_rgba(34,197,94,0.4)] -z-10"
+                                            className="absolute inset-0 bg-white rounded-full shadow-[0_0_20px_rgba(255,255,255,0.4)] -z-10"
                                             transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                                         />
                                     )}
@@ -148,21 +148,21 @@ export default function SolutionsPage() {
                                         animate={{ opacity: 1, scale: 1, y: 0 }}
                                         exit={{ opacity: 0, scale: 0.9, y: 20 }}
                                         transition={{ duration: 0.4, ease: "easeOut" }}
-                                        className="group relative h-[400px] rounded-3xl bg-[#0B1C15] border border-white/5 overflow-hidden hover:border-accent/40 transition-colors duration-500"
+                                        className="group relative h-[400px] rounded-3xl bg-neutral-900 border border-white/5 overflow-hidden hover:border-white/40 transition-colors duration-500"
                                     >
                                         {/* Hover Gradient Bloom */}
                                         <div className={`absolute inset-0 bg-gradient-to-br ${solution.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-xl`} />
 
                                         <div className="relative h-full p-8 flex flex-col justify-between z-10">
                                             <div>
-                                                <div className="text-accent text-[10px] font-bold uppercase tracking-[0.2em] mb-4 border w-fit px-2 py-1 rounded-full border-accent/20 bg-accent/5">{solution.category}</div>
+                                                <div className="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] mb-4 border w-fit px-2 py-1 rounded-full border-white/20 bg-white/5">{solution.category}</div>
                                                 <h3 className="text-3xl font-bold text-white mb-2">{solution.title}</h3>
                                                 <p className="text-white/40 font-mono text-xs uppercase tracking-widest mb-6">{solution.subtitle}</p>
                                                 <p className="text-white/70 leading-relaxed text-sm">{solution.description}</p>
                                             </div>
 
                                             <div>
-                                                <div className="h-px w-full bg-white/10 mb-6 group-hover:bg-accent/30 transition-colors" />
+                                                <div className="h-px w-full bg-white/10 mb-6 group-hover:bg-white/30 transition-colors" />
                                                 <div className="flex flex-wrap gap-2">
                                                     {solution.coverages.map((c, ci) => (
                                                         <span key={ci} className="text-[10px] font-bold uppercase text-white/40 group-hover:text-white transition-colors bg-white/5 px-2 py-1 rounded">
@@ -174,7 +174,7 @@ export default function SolutionsPage() {
                                         </div>
 
                                         {/* Hover Arrow */}
-                                        <div className="absolute top-8 right-8 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-2 group-hover:translate-y-0 text-accent">
+                                        <div className="absolute top-8 right-8 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-2 group-hover:translate-y-0 text-white">
                                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                                         </div>
                                     </motion.div>
@@ -185,16 +185,25 @@ export default function SolutionsPage() {
                 </section>
 
                 {/* Cyberpunk Process Steps */}
-                <section className="py-24 md:py-32 bg-[#0B1C15] border-t border-white/5">
-                    <div className="container mx-auto px-6 md:px-12">
+                <section className="py-24 md:py-32 relative overflow-hidden bg-black border-t border-white/5">
+                    <div className="absolute inset-0">
+                        <img
+                            src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2670&auto=format&fit=crop"
+                            alt="Strategy"
+                            className="w-full h-full object-cover opacity-20 filter grayscale brightness-50"
+                        />
+                        <div className="absolute inset-0 bg-black/90" />
+                    </div>
+
+                    <div className="container mx-auto px-6 md:px-12 relative z-10">
                         <div className="mb-20 text-center">
-                            <span className="text-accent text-xs font-bold uppercase tracking-[0.3em]">The Protocol</span>
+                            <span className="text-white/60 text-xs font-bold uppercase tracking-[0.3em]">The Protocol</span>
                             <h2 className="text-4xl md:text-6xl font-bold text-white mt-4 tracking-tighter">Engagement Lifecycle</h2>
                         </div>
 
                         <div className="grid md:grid-cols-4 gap-8 relative">
                             {/* Connecting Line (Desktop) */}
-                            <div className="hidden md:block absolute top-[28px] left-0 right-0 h-px bg-gradient-to-r from-accent/0 via-accent/30 to-accent/0" />
+                            <div className="hidden md:block absolute top-[28px] left-0 right-0 h-px bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
 
                             {processSteps.map((step, i) => (
                                 <div key={i} className="relative group">

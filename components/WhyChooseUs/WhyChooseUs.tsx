@@ -25,21 +25,21 @@ const FeatureCard = ({ icon, title, desc, index }: { icon: React.ReactNode, titl
                active: { height: '100%' }
             }}
             transition={{ duration: 0.7 }}
-            className="absolute top-0 left-0 w-1 bg-accent"
+            className="absolute top-0 left-0 w-1 bg-black"
          ></motion.div>
 
          {/* Icon Container */}
          <motion.div
             variants={{
                initial: { backgroundColor: '#F9FAFB', borderColor: '#F3F4F6', rotate: 0 },
-               active: { backgroundColor: '#86EFAC', borderColor: '#86EFAC', rotate: 6 }
+               active: { backgroundColor: '#000000', borderColor: '#000000', rotate: 6 }
             }}
             transition={{ duration: 0.5 }}
             className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 md:mb-8 border"
          >
             <motion.div
                variants={{
-                  initial: { color: '#0B1C15' },
+                  initial: { color: '#000000' },
                   active: { color: '#ffffff' }
                }}
                className="transition-colors duration-500"
@@ -48,7 +48,7 @@ const FeatureCard = ({ icon, title, desc, index }: { icon: React.ReactNode, titl
             </motion.div>
          </motion.div>
 
-         <h3 className="text-2xl font-bold text-primary mb-4 tracking-tight">{title}</h3>
+         <h3 className="text-2xl font-bold text-black mb-4 tracking-tight">{title}</h3>
          <p className="text-gray-500 leading-relaxed font-medium text-sm md:text-base">
             {desc}
          </p>
@@ -60,7 +60,7 @@ const FeatureCard = ({ icon, title, desc, index }: { icon: React.ReactNode, titl
                active: { width: '100%' }
             }}
             transition={{ duration: 0.5 }}
-            className="h-[2px] bg-accent mt-6 md:mt-8"
+            className="h-[2px] bg-black mt-6 md:mt-8"
          />
       </motion.div>
    );
@@ -130,7 +130,7 @@ const WhyChooseUs = () => {
                      className="flex items-center gap-4 mb-4 md:mb-8"
                   >
 
-                     <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Institutional Grade</span>
+                     <span className="text-[10px] font-bold tracking-[0.3em] text-gray-500 uppercase">Institutional Grade</span>
                   </motion.div>
 
                   <div className="overflow-hidden">
@@ -139,7 +139,7 @@ const WhyChooseUs = () => {
                         whileInView={{ y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any }}
-                        className="text-5xl md:text-[84px] font-bold text-primary tracking-tighter leading-[0.85] mb-6"
+                        className="text-5xl md:text-[84px] font-bold text-black tracking-tighter leading-[0.85] mb-6"
                      >
                         Redefining <br />
                         <span className="text-gray-300">Certainty</span>
