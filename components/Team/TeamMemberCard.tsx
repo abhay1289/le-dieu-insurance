@@ -38,7 +38,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, index }) => {
 
           {/* Info Card - Glassmorphism */}
           <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-3xl overflow-hidden group/info">
-            <div className="absolute inset-0 bg-accent/20 transition-transform duration-700 transform translate-y-0 lg:translate-y-full lg:group-hover/info:translate-y-0"></div>
+            <div className="absolute inset-0 bg-white/20 transition-transform duration-700 transform translate-y-0 lg:translate-y-full lg:group-hover/info:translate-y-0"></div>
 
             <div className="relative z-10">
               <div className="flex justify-between items-start mb-4">

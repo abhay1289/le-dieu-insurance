@@ -88,7 +88,7 @@ const NavBar = () => {
         >
           <a
             href="/get-started"
-            className="bg-primary text-white px-8 py-3.5 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-accent hover:text-primary transition-all duration-300 shadow-lg shadow-primary/5 active:bg-accent active:text-primary active:scale-95 active:shadow-none"
+            className="bg-black text-white px-8 py-3.5 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-neutral-900 transition-all duration-300 shadow-lg shadow-black/5 active:bg-neutral-800 active:scale-95 active:shadow-none"
           >
             Get Started
           </a>
@@ -149,11 +149,11 @@ const NavBar = () => {
                   <a
                     key={item.text}
                     href={item.href}
-                    className="text-4xl font-bold text-primary tracking-tight py-5 border-b border-gray-50 flex justify-between items-center group active:text-accent transition-colors"
+                    className="text-4xl font-bold text-black tracking-tight py-5 border-b border-gray-50 flex justify-between items-center group active:text-neutral-600 transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.text}
-                    <ArrowIcon className="w-5 h-5 -rotate-45 opacity-20 group-active:opacity-100 group-active:text-accent transition-all" />
+                    <ArrowIcon className="w-5 h-5 -rotate-45 opacity-20 group-active:opacity-100 group-active:text-neutral-600 transition-all" />
                   </a>
                 ))}
               </div>
@@ -161,7 +161,7 @@ const NavBar = () => {
               <div className="mt-12">
                 <a
                   href="/get-started"
-                  className="block w-full py-5 bg-primary text-white rounded-2xl font-bold text-center text-sm uppercase tracking-widest shadow-xl shadow-primary/10 active:scale-95 transition-transform"
+                  className="block w-full py-5 bg-black text-white rounded-2xl font-bold text-center text-sm uppercase tracking-widest shadow-xl shadow-black/10 active:scale-95 transition-transform"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Request a Consultation
@@ -177,7 +177,7 @@ const NavBar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </header >
   );
 };
 

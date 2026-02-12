@@ -1,293 +1,212 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useMotionTemplate, useMotionValue } from 'framer-motion';
-
-function SpotlightCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-
-    function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-        const { left, top } = currentTarget.getBoundingClientRect();
-        mouseX.set(clientX - left);
-        mouseY.set(clientY - top);
-    }
-
-    return (
-        <div
-            className={`group relative border border-white/10 bg-black/40 overflow-hidden ${className}`}
-            onMouseMove={handleMouseMove}
-        >
-            <motion.div
-                className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition duration-300 group-hover:opacity-100"
-                style={{
-                    background: useMotionTemplate`
-                        radial-gradient(
-                            650px circle at ${mouseX}px ${mouseY}px,
-                            rgba(255, 255, 255, 0.1),
-                            transparent 80%
-                        )
-                    `,
-                }}
-            />
-            {children}
-        </div>
-    );
-}
+import { motion, useScroll, useTransform } from 'framer-motion';
 import NavBar from '@/components/NavBar/NavBar';
 import Footer from '@/components/Footer/Footer';
-import PageHero from '@/components/PageHero';
 import ScrollProgress from '@/components/ScrollProgress/ScrollProgress';
 import SmoothScroll from '@/components/SmoothScroll';
+import { ArrowIcon } from '@/utils/icons';
 
-const textRevealVariants = {
-    hidden: { y: "100%" },
-    visible: {
-        y: 0,
-        transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-    },
+// --- Components ---
+
+const AboutHero = () => {
+    return (
+        <section className="relative min-h-[90vh] flex flex-col justify-center px-6 md:px-12 pt-32 bg-black overflow-hidden">
+            {/* Background Texture */}
+            <div className="absolute inset-0 opacity-20">
+                <img
+                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2670&auto=format&fit=crop"
+                    alt="Corporate Architecture"
+                    className="w-full h-full object-cover grayscale"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
+            </div>
+
+            <div className="relative z-10 max-w-6xl mx-auto w-full">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                >
+                    <span className="text-white/60 text-xs font-bold uppercase tracking-[0.3em] mb-6 block border-l border-white/20 pl-4">
+                        Our Narrative
+                    </span>
+                    <h1 className="text-6xl md:text-[100px] font-bold text-white leading-[0.9] tracking-tighter mb-10">
+                        Architects of <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-400 to-gray-800">Certainty.</span>
+                    </h1>
+                </motion.div>
+
+                <div className="grid md:grid-cols-2 gap-12 mt-12 md:mt-24 border-t border-white/10 pt-12">
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.2 }}
+                        className="text-white/80 text-lg md:text-xl font-light leading-relaxed"
+                    >
+                        At Le Dieu, we don't just sell insurance; we engineer resilience. For over three decades, we have been the silent force behind India's most ambitious industrial feats, turning catastrophic risk into calculated strategy.
+                    </motion.p>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.4 }}
+                        className="flex flex-col justify-between"
+                    >
+                        <div className="flex gap-12 text-white/40 font-mono text-sm">
+                            <div>
+                                <div className="block text-white text-2xl font-bold mb-1">2003</div>
+                                <span>Established</span>
+                            </div>
+                            <div>
+                                <div className="block text-white text-2xl font-bold mb-1">₹50B+</div>
+                                <span>Assets Protected</span>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </div>
+        </section>
+    );
 };
 
-const fadeUpVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
-};
-
-const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.15, delayChildren: 0.1 },
-    },
-};
-
-const milestones = [
-    { year: "2003", title: "Inception & Licensing", description: "Le Dieu established as a Direct Insurance Broking Firm with full IRDA licensing, setting a new standard for transparency." },
-    { year: "2008", title: "Corporate Expansion", description: "Rapid expansion into large industrial sectors, securing mandates for power projects and infrastructure developments." },
-    { year: "2013", title: "Pan-India Presence", description: "Established strategic corporate offices in Bhopal and New Delhi, extending service delivery across all major Indian states." },
-    { year: "2018", title: "Digital Evolution", description: "Integration of advanced risk analytics and digital policy management systems to offer real-time insights to clients." },
-    { year: "2023", title: "20 Years of Trust", description: "Celebrating two decades of excellence, protecting over 10,000 families and businesses with claims settled exceeding ₹500 Cr." },
-];
-
-const values = [
-    { icon: "🛡️", title: "Unwavering Integrity", description: "We operate with radical transparency. Your best interest is our only interest—commission never dictates our counsel." },
-    { icon: "🎯", title: "Precision Tailoring", description: "We reject off-the-shelf policies. Every solution is architected around your unique risk profile and business DNA." },
-    { icon: "⚡", title: "Claims Velocity", description: "A dedicated claims division that fights for your settlement. We measure success by the speed and fairness of your recovery." },
-    { icon: "🏢", title: "Sector Mastery", description: "Deep, specialized knowledge across manufacturing, infrastructure, and corporate risk landscapes." },
-];
-
-const stats = [
-    { number: "20+", label: "Years of Excellence" },
-    { number: "10k+", label: "Clients Protected" },
-    { number: "21+", label: "Insurer Partners" },
-    { number: "₹500Cr+", label: "Claims Settled" },
-];
-
-export default function AboutPage() {
+const ImageRevealSection = () => {
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start start", "end end"]
+        offset: ["start end", "end start"]
     });
+    const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
 
     return (
+        <section ref={containerRef} className="py-0 min-h-screen bg-neutral-900 relative overflow-hidden flex items-center">
+            <div className="absolute inset-0 z-0">
+                <motion.div style={{ y }} className="w-full h-[120%]">
+                    <img
+                        src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2671&auto=format&fit=crop"
+                        alt="Industrial Focus"
+                        className="w-full h-full object-cover grayscale opacity-40"
+                    />
+                </motion.div>
+            </div>
+
+            <div className="container mx-auto px-6 md:px-12 relative z-10 grid md:grid-cols-2 gap-20 items-center">
+                <div className=" md:pr-12">
+                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight leading-none">
+                        Precision in <br />Every Policy.
+                    </h2>
+                    <p className="text-white/60 text-lg leading-relaxed mb-8">
+                        We believe that generic insurance is a liability. Our methodology involves deep-dive forensic audits of your operational risks, allowing us to craft bespoke coverage that fits your enterprise like a glove.
+                    </p>
+                    <ul className="space-y-4 border-t border-white/10 pt-8">
+                        {['Forensic Risk Audits', 'Claims Advocacy', 'Gap Analysis'].map((item, i) => (
+                            <li key={i} className="flex items-center text-white/80">
+                                <span className="w-1.5 h-1.5 bg-white rounded-full mr-4" />
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                {/* Visual Empty Space to let bg shine or add specific graphic */}
+                <div className="hidden md:block h-[600px] border-l border-white/10 ml-auto" />
+            </div>
+        </section>
+    );
+}
+
+const ValuesGrid = () => {
+    const values = [
+        {
+            title: "Integrity",
+            desc: "Unwavering transparency in every transaction. We sit on your side of the table, always.",
+            icon: "I"
+        },
+        {
+            title: "Precision",
+            desc: "Data-backed risk assessment that leaves no room for ambiguity or surprise clauses.",
+            icon: "P"
+        },
+        {
+            title: "Evolution",
+            desc: "Dynamic policy restructuring that adapts as your business scales and markets shift.",
+            icon: "E"
+        }
+    ];
+
+    return (
+        <section className="bg-black py-32 px-6 md:px-12 border-t border-white/10">
+            <div className="container mx-auto">
+                <div className="mb-20">
+                    <span className="text-white/40 text-xs font-bold uppercase tracking-widest pl-4 border-l border-white/20">Our DNA</span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mt-6">The Principles That Guide Us</h2>
+                </div>
+
+                <div className="grid md:grid-cols-3 border-t border-l border-white/10">
+                    {values.map((val, i) => (
+                        <div key={i} className="group p-12 border-r border-b border-white/10 hover:bg-neutral-900 transition-colors duration-500 relative">
+                            <div className="text-white/20 font-mono text-6xl font-bold absolute top-8 right-8 group-hover:text-white/10 transition-colors">
+                                {val.icon}
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-6 group-hover:translate-x-2 transition-transform duration-300">{val.title}</h3>
+                            <p className="text-white/50 leading-relaxed text-sm group-hover:text-white/70 transition-colors">
+                                {val.desc}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+const LeadershipSection = () => {
+    return (
+        <section className="py-32 bg-white text-black relative">
+            <div className="container mx-auto px-6 md:px-12">
+                <div className="max-w-4xl mb-24">
+                    <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 text-black">
+                        Led by <span className="text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-600">Visionaries.</span>
+                    </h2>
+                    <p className="text-gray-500 text-xl font-light max-w-2xl">
+                        Our leadership team combines decades of industry authority with forward-thinking risk strategies.
+                    </p>
+                </div>
+
+                {/* Minimal List Layout */}
+                <div className="space-y-0 border-t border-black/10">
+                    {[
+                        { name: "Dharampal Rupal", role: "Chairman", desc: "Driving strategic direction since 1990." },
+                        { name: "Ashar Husain", role: "Vice President", desc: "Expert in complex industrial risk audits." },
+                        { name: "Deepak Simhal", role: "Managing Partner", desc: "Specialist in claims resolution and advocacy." }
+                    ].map((leader, i) => (
+                        <div key={i} className="grid md:grid-cols-12 gap-8 py-12 border-b border-black/10 items-center hover:bg-gray-50 transition-colors group">
+                            <div className="md:col-span-1 text-xs font-mono text-gray-400">0{i + 1}</div>
+                            <div className="md:col-span-4 text-3xl font-bold tracking-tight">{leader.name}</div>
+                            <div className="md:col-span-3 text-sm font-bold uppercase tracking-widest text-gray-500">{leader.role}</div>
+                            <div className="md:col-span-4 text-gray-600 font-medium group-hover:text-black transition-colors">{leader.desc}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    )
+}
+
+// --- Main Page Component ---
+
+export default function AboutPage() {
+    return (
         <SmoothScroll>
-            <div ref={containerRef} className="min-h-screen bg-black text-white selection:bg-white selection:text-black">
+            <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black">
                 <ScrollProgress />
                 <NavBar />
 
-                <PageHero
-                    title="About Le Dieu"
-                    subtitle="Architecting resilience for India's most ambitious enterprises since 2003."
-                    breadcrumb="About Us"
-                    backgroundImage="/images/about-team.png"
-                />
-
-                {/* Strategic Vision Section - White Layout */}
-                <section className="relative py-24 md:py-40 bg-white overflow-hidden">
-                    {/* Ambient Background Elements */}
-                    <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-gray-100 rounded-full blur-[100px] pointer-events-none" />
-
-                    <div className="container mx-auto px-6 md:px-12 relative z-10">
-                        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                            {/* Typography */}
-                            <motion.div
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                variants={staggerContainer}
-                            >
-                                <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mb-8">
-                                    <div className="h-px w-8 bg-black"></div>
-                                    <span className="text-xs font-bold tracking-[0.3em] text-black uppercase">Our Identity</span>
-                                </motion.div>
-
-                                <div className="space-y-4 mb-10">
-                                    <div className="overflow-hidden">
-                                        <motion.h2 variants={textRevealVariants} className="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-primary">
-                                            Beyond
-                                        </motion.h2>
-                                    </div>
-                                    <div className="overflow-hidden">
-                                        <motion.h2 variants={textRevealVariants} className="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-500">
-                                            Insurance.
-                                        </motion.h2>
-                                    </div>
-                                </div>
-
-                                <motion.p variants={fadeUpVariants} className="text-xl text-gray-500 leading-relaxed max-w-lg mb-8 font-light border-l border-gray-200 pl-6">
-                                    Le Dieu Insurance Brokers is not just an intermediary; we are your strategic risk partners. Licensed by IRDA since 2003, we bridge the gap between complex enterprise risks and optimal financial protection.
-                                </motion.p>
-
-                                <motion.div variants={fadeUpVariants}>
-                                    <a
-                                        href="/contact"
-                                        className="inline-flex items-center gap-4 group cursor-pointer"
-                                    >
-                                        <div className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-black group-hover:border-black transition-all duration-300">
-                                            <svg className="w-4 h-4 text-primary group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                                        </div>
-                                        <span className="text-sm font-bold uppercase tracking-widest text-primary group-hover:text-black transition-colors">Start the dialogue</span>
-                                    </a>
-                                </motion.div>
-                            </motion.div>
-
-                            {/* Statistical Excellence - Glass Cards */}
-                            <motion.div
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-                                className="grid gap-6"
-                            >
-                                <motion.div variants={fadeUpVariants} className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-accent/30 transition-colors duration-500 shadow-sm hover:shadow-md">
-                                    <h3 className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-4">Market Leadership</h3>
-                                    <p className="text-primary text-lg leading-relaxed">
-                                        Serving prestigious industrial houses, power projects, and infrastructure giants with a philosophy of <span className="text-black font-medium">zero compromise</span> on coverage quality.
-                                    </p>
-                                </motion.div>
-                                <motion.div variants={fadeUpVariants} className="grid grid-cols-2 gap-6">
-                                    {stats.map((stat, i) => (
-                                        <div key={i} className="p-6 rounded-3xl bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-md transition-all duration-500">
-                                            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.number}</div>
-                                            <div className="text-gray-400 text-[10px] uppercase font-bold tracking-wider">{stat.label}</div>
-                                        </div>
-                                    ))}
-                                </motion.div>
-                            </motion.div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Bento Grid Values Section - Interactive Spotlight */}
-                <section className="py-24 md:py-32 relative overflow-hidden bg-black">
-                    {/* Image Background */}
-                    <div className="absolute inset-0">
-                        <img
-                            src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2664&auto=format&fit=crop"
-                            alt="Background"
-                            className="w-full h-full object-cover opacity-30 filter brightness-[0.4]"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                    </div>
-
-                    <div className="container mx-auto px-6 md:px-12 relative z-10">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            className="mb-20 text-center max-w-3xl mx-auto"
-                        >
-                            <motion.span variants={fadeUpVariants} className="text-white text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Our Philosophy</motion.span>
-                            <motion.h2 variants={fadeUpVariants} className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 text-white">The Principles That Drive Us</motion.h2>
-                            <motion.p variants={fadeUpVariants} className="text-white/40 text-lg decoration-clone">Foundation of trust built over two decades of unwavering service.</motion.p>
-                        </motion.div>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {values.map((val, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                    className="h-full"
-                                >
-                                    <SpotlightCard className="h-full p-8 rounded-3xl bg-white/[0.03] hover:bg-white/[0.06] transition-colors border-white/5">
-                                        <div className="relative z-10 h-full flex flex-col">
-                                            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-3xl mb-6 text-white group-hover:scale-110 group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-500 shadow-lg">
-                                                {val.icon}
-                                            </div>
-                                            <h3 className="text-xl font-bold text-white mb-4 group-hover:text-white transition-colors">{val.title}</h3>
-                                            <p className="text-sm text-white/50 leading-relaxed group-hover:text-white/80 transition-colors flex-grow">{val.description}</p>
-                                        </div>
-                                    </SpotlightCard>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                {/* Cinematic Timeline */}
-                <section className="py-24 md:py-40 relative overflow-hidden bg-black">
-                    <div className="absolute inset-0">
-                        <img
-                            src="https://images.unsplash.com/photo-1548613053-220e75372333?q=80&w=2676&auto=format&fit=crop"
-                            alt="Indian Construction Growth"
-                            className="w-full h-full object-cover opacity-20 filter grayscale brightness-50"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
-                    </div>
-
-                    <div className="container mx-auto px-6 md:px-12 relative z-10">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            className="mb-24 md:mb-32"
-                        >
-                            <motion.h2 variants={textRevealVariants} className="text-4xl md:text-8xl font-bold tracking-tighter text-white/10">TIMELINE</motion.h2>
-                            <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mt-[-2rem] md:mt-[-4rem] ml-2">
-                                <div className="h-px w-12 bg-white"></div>
-                                <span className="text-white font-bold tracking-[0.3em] uppercase">Milestones</span>
-                            </motion.div>
-                        </motion.div>
-
-                        <div className="relative max-w-4xl mx-auto">
-                            {/* Central Line */}
-                            <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent transform md:-translate-x-1/2" />
-
-                            {milestones.map((milestone, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                    className={`relative flex items-center gap-10 md:gap-20 mb-20 last:mb-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-                                >
-                                    {/* Spacer for desktop alignment */}
-                                    <div className="hidden md:block flex-1" />
-
-                                    {/* Node */}
-                                    <div className="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-black border border-white flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-                                        <div className="w-2 h-2 rounded-full bg-white" />
-                                    </div>
-
-                                    {/* Content */}
-                                    <div className="flex-1 pl-4 md:pl-0">
-                                        <div className="group relative p-8 rounded-2xl bg-white/[0.02] border border-white/10 hover:bg-white/[0.04] hover:border-white/30 transition-all duration-500">
-                                            <div className="text-white text-xs font-bold uppercase tracking-widest mb-2">{milestone.year}</div>
-                                            <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-white transition-colors">{milestone.title}</h3>
-                                            <p className="text-white/60 text-sm leading-relaxed">{milestone.description}</p>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <main>
+                    <AboutHero />
+                    <ImageRevealSection />
+                    <ValuesGrid />
+                    <LeadershipSection />
+                </main>
 
                 <Footer />
             </div>

@@ -128,14 +128,14 @@ const Hero = () => {
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.7 } } }}
               className="flex flex-wrap items-center gap-4 md:gap-6"
             >
-              <a href="/get-started" className="h-14 px-8 bg-accent text-white rounded-full font-semibold text-lg hover:bg-accent-hover active:scale-95 active:shadow-none transition-all flex items-center gap-2 hover:scale-105 transform duration-300 shadow-[0_0_20px_rgba(134,239,172,0.3)]">
+              <a href="/get-started" className="h-14 px-8 bg-white text-black rounded-full font-semibold text-lg hover:bg-neutral-200 active:scale-95 active:shadow-none transition-all flex items-center gap-2 hover:scale-105 transform duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
 
                 Get Protected <ArrowIcon className="w-4 h-4" />
               </a>
 
-              <a href="/services" className="group flex items-center gap-2 text-white text-lg font-medium hover:text-accent active:text-accent-green transition-colors px-4">
+              <a href="/services" className="group flex items-center gap-2 text-white text-lg font-medium hover:text-neutral-300 active:text-neutral-400 transition-colors px-4">
 
-                <span className="border-b border-white/30 pb-1 group-hover:border-accent transition-colors">Our Services</span>
+                <span className="border-b border-white/30 pb-1 group-hover:border-white transition-colors">Our Services</span>
                 <ArrowIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </motion.div>
@@ -151,7 +151,7 @@ const Hero = () => {
             {/* Main Glass Card */}
             <div className="relative bg-white/5 backdrop-blur-2xl border border-white/10 p-10 rounded-[2.5rem] w-[380px] overflow-hidden shadow-2xl">
               {/* Internal Glow */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-full blur-[60px]"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-[60px]"></div>
 
               <div className="relative z-10">
                 <div className="flex justify-between items-start mb-4">
@@ -171,8 +171,8 @@ const Hero = () => {
                     ))}
                   </div>
                   <div className="text-right">
-                    <div className="text-accent font-bold text-sm">Top Rated</div>
-                    <div className="flex gap-1 text-accent text-xs">
+                    <div className="text-white font-bold text-sm">Top Rated</div>
+                    <div className="flex gap-1 text-white text-xs">
                       {'★★★★★'}
                     </div>
                   </div>
@@ -191,7 +191,7 @@ const Hero = () => {
             key={i}
             onClick={() => setCurrentImage(i)}
             className={`h-1.5 rounded-full transition-all duration-500 ease-out ${i === currentImage
-              ? 'w-12 bg-accent shadow-[0_0_10px_rgba(134,239,172,0.5)]'
+              ? 'w-12 bg-white shadow-[0_0_10px_rgba(255,255,255,0.3)]'
               : 'w-2 bg-white/20 hover:bg-white/40'
               }`}
             aria-label={`Go to slide ${i + 1}`}
