@@ -81,13 +81,7 @@ const WhoWeAre = () => {
               </motion.div>
 
               {/* Floating Badge */}
-              <motion.div
-                style={{ y: yOffset }}
-                className="absolute bottom-10 right-10 bg-black/30 backdrop-blur-md border border-white/20 p-6 rounded-3xl text-white hidden md:block"
-              >
-                <div className="text-3xl font-bold">PAN INDIA</div>
-                <div className="text-xs uppercase tracking-widest opacity-80">Presence</div>
-              </motion.div>
+
             </motion.div>
           </div>
 
