@@ -224,25 +224,27 @@ export default function SolutionsPage() {
                                                     <div className="relative grid lg:grid-cols-2 gap-12 md:gap-20 pt-16 pb-12">
 
                                                         {/* Left Column: Strategic Narrative */}
-                                                        <div>
-                                                            <motion.div
-                                                                initial={{ opacity: 0, x: -20 }}
-                                                                animate={{ opacity: 1, x: 0 }}
-                                                                transition={{ delay: 0.3 }}
-                                                                className="flex items-center gap-4 mb-10"
-                                                            >
-                                                                <span className="h-[2px] w-12 bg-accent" />
-                                                                <span className="text-accent text-[12px] font-bold uppercase tracking-[0.5em]">{solution.subtitle}</span>
-                                                            </motion.div>
+                                                        <div className="flex flex-col justify-between h-full">
+                                                            <div>
+                                                                <motion.div
+                                                                    initial={{ opacity: 0, x: -20 }}
+                                                                    animate={{ opacity: 1, x: 0 }}
+                                                                    transition={{ delay: 0.3 }}
+                                                                    className="flex items-center gap-4 mb-10"
+                                                                >
+                                                                    <span className="h-[2px] w-12 bg-accent" />
+                                                                    <span className="text-accent text-[12px] font-bold uppercase tracking-[0.5em]">{solution.subtitle}</span>
+                                                                </motion.div>
 
-                                                            <motion.h3
-                                                                initial={{ opacity: 0, y: 20 }}
-                                                                animate={{ opacity: 1, y: 0 }}
-                                                                transition={{ delay: 0.4 }}
-                                                                className="text-xl md:text-3xl text-primary font-bold leading-[1.1] mb-10 tracking-tight max-w-lg"
-                                                            >
-                                                                {solution.description}
-                                                            </motion.h3>
+                                                                <motion.h3
+                                                                    initial={{ opacity: 0, y: 20 }}
+                                                                    animate={{ opacity: 1, y: 0 }}
+                                                                    transition={{ delay: 0.4 }}
+                                                                    className="text-xl md:text-3xl text-primary font-bold leading-[1.1] mb-10 tracking-tight max-w-lg"
+                                                                >
+                                                                    {solution.description}
+                                                                </motion.h3>
+                                                            </div>
 
                                                             <motion.div
                                                                 initial={{ opacity: 0 }}
@@ -251,7 +253,7 @@ export default function SolutionsPage() {
                                                                 className="grid grid-cols-1 md:grid-cols-2 gap-8"
                                                             >
                                                                 {solution.features.map((feature, fi) => (
-                                                                    <div key={fi} className="p-8 rounded-[2rem] bg-gray-50 border border-gray-100 hover:border-accent/30 hover:bg-white transition-all duration-500 group/item shadow-sm hover:shadow-xl">
+                                                                    <div key={fi} className="p-8 rounded-[3rem] bg-gray-50 border border-gray-100 hover:border-accent/30 hover:bg-white transition-all duration-500 group/item shadow-sm hover:shadow-xl">
                                                                         <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-3xl mb-6 group-hover/item:scale-110 group-hover/item:bg-primary group-hover/item:text-white transition-all duration-500 shadow-sm">
                                                                             {feature.icon}
                                                                         </div>
