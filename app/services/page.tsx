@@ -121,12 +121,12 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                 {/* Content layout */}
                 <div className="relative z-10 h-full flex flex-col md:flex-row">
                     {/* Left — Content */}
-                    <div className="w-full md:w-[60%] h-[60%] md:h-full flex flex-col justify-between p-7 md:p-10 lg:p-12">
+                    <div className="w-full md:w-[60%] h-[60%] md:h-full flex flex-col justify-between p-5 md:p-10 lg:p-12">
                         <div className="flex flex-col h-full justify-center">
-                            <div className="flex items-center gap-3 mb-6">
+                            <div className="flex items-center gap-3 mb-2 md:mb-6">
                                 <span className="text-accent text-sm font-extrabold uppercase tracking-[0.3em]">{card.subtitle}</span>
                             </div>
-                            <h2 className="text-2xl sm:text-3xl md:text-[2.5rem] font-bold text-white leading-[1.1] tracking-tight mb-8">
+                            <h2 className="text-2xl sm:text-3xl md:text-[2.5rem] font-bold text-white leading-[1.1] tracking-tight mb-2 md:mb-8">
                                 {card.title}
                             </h2>
                             <p className="text-white text-sm md:text-xl leading-relaxed font-medium max-w-2xl">
