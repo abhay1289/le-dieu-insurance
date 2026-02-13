@@ -252,7 +252,7 @@ export default function AboutPage() {
                             <img
                                 src="/images/indian-family-sitting-on-sofa-looking-at-camera-2026-01-07-00-48-21-utc.jpeg"
                                 alt="Indian family at home - Le Dieu Protection"
-                                className="w-full h-full object-cover opacity-[0.05] grayscale"
+                                className="w-full h-full object-cover opacity-[0.15]"
                             />
                         </motion.div>
                     </div>
