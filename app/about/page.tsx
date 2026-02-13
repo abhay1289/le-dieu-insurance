@@ -14,8 +14,10 @@ function SpotlightCard({ children, className = "", color = "rgba(255, 255, 255, 
     }
 
     return (
-        <div
-            className={`group relative overflow-hidden rounded-[2.5rem] border border-gray-100 bg-white p-1 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] ${className}`}
+        <motion.div
+            whileHover={{ y: -8, scale: 1.01 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className={`group relative overflow-hidden rounded-[2.5rem] border border-gray-100 bg-white p-1 transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)] hover:border-accent/40 ${className}`}
             onMouseMove={handleMouseMove}
         >
             <motion.div
@@ -33,7 +35,7 @@ function SpotlightCard({ children, className = "", color = "rgba(255, 255, 255, 
             <div className="relative z-10 h-full">
                 {children}
             </div>
-        </div>
+        </motion.div>
     );
 }
 
@@ -260,7 +262,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* Bento Grid Values Section - Premium Architecture */}
-                <section ref={philosophyRef} className="py-20 md:py-32 relative overflow-hidden bg-white">
+                <section ref={philosophyRef} className="py-16 md:py-20 relative overflow-hidden bg-white">
                     {/* Parallax Background Image */}
                     <div className="absolute inset-0 pointer-events-none overflow-hidden">
                         <motion.div
@@ -280,7 +282,7 @@ export default function AboutPage() {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
-                            className="mb-16 text-center max-w-4xl mx-auto"
+                            className="mb-12 text-center max-w-4xl mx-auto"
                         >
                             <motion.div variants={fadeUpVariants} className="flex items-center justify-center gap-4 mb-6">
                                 <span className="h-px w-8 bg-accent/30" />
@@ -296,7 +298,7 @@ export default function AboutPage() {
                             </motion.p>
                         </motion.div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[280px]">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[250px]">
                             {values.map((val, i) => (
                                 <motion.div
                                     key={i}
