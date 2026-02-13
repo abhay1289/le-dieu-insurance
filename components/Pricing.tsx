@@ -74,13 +74,13 @@ const Pricing = () => {
           <div className="bg-gray-100 p-1.5 rounded-full flex mt-8 md:mt-0 border border-gray-200">
             <button
               onClick={() => setBillingCycle('monthly')}
-              className={`px-6 py-3 rounded-full text-sm font-semibold transition-colors ${billingCycle === 'monthly' ? 'bg-accent text-primary shadow-lg' : 'text-primary hover:text-primary/80'}`}
+              className={`px-6 py-3 rounded-full text-sm font-semibold transition-colors ${billingCycle === 'monthly' ? 'bg-accent text-white shadow-lg' : 'text-primary hover:text-primary/80'}`}
             >
               Monthly
             </button>
             <button
               onClick={() => setBillingCycle('annual')}
-              className={`px-6 py-3 rounded-full text-sm font-semibold transition-colors flex items-center gap-2 ${billingCycle === 'annual' ? 'bg-accent text-primary shadow-lg' : 'text-primary hover:text-primary/80'}`}
+              className={`px-6 py-3 rounded-full text-sm font-semibold transition-colors flex items-center gap-2 ${billingCycle === 'annual' ? 'bg-accent text-white shadow-lg' : 'text-primary hover:text-primary/80'}`}
             >
               Annual <span className="text-[10px] bg-primary text-white px-1.5 py-0.5 rounded">25% Off</span>
             </button>
@@ -94,7 +94,7 @@ const Pricing = () => {
               <button
                 key={plan}
                 onClick={() => setActivePlan(plan)}
-                className={`px-6 py-3 rounded-full text-sm font-semibold transition-all ${activePlan === plan ? 'bg-accent text-primary shadow-lg' : 'bg-transparent text-gray-500 hover:bg-gray-100'}`}
+                className={`px-6 py-3 rounded-full text-sm font-semibold transition-all ${activePlan === plan ? 'bg-accent text-white shadow-lg' : 'bg-transparent text-gray-500 hover:bg-gray-100'}`}
               >
                 {plan} Insurance
               </button>

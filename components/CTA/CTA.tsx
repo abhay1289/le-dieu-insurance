@@ -43,7 +43,7 @@ const CTA = () => {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any, delay: 0.4 }}
               className="flex flex-col sm:flex-row justify-center gap-6"
             >
-              <a href="#team" className="bg-accent text-black px-10 py-5 rounded-full font-bold text-sm tracking-wide hover:bg-accent-hover transition-colors flex items-center justify-center gap-3 hover:scale-105 transform duration-300 shadow-lg">
+              <a href="#team" className="bg-accent text-white px-10 py-5 rounded-full font-bold text-sm tracking-wide hover:bg-accent-hover transition-colors flex items-center justify-center gap-3 hover:scale-105 transform duration-300 shadow-lg">
                 Chat With Advisor <ArrowIcon className="w-3 h-3" />
               </a>
               <a href="#contact" className="bg-transparent border border-gray-200 text-primary px-10 py-5 rounded-full font-bold text-sm tracking-wide hover:bg-gray-50 transition-all flex items-center justify-center gap-3">
