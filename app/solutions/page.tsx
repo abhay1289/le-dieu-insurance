@@ -140,29 +140,6 @@ const industrySolutions = [
     },
 ];
 
-const processSteps = [
-    {
-        step: "01",
-        title: "Discovery",
-        description: "Deep-dive workshops to unearth hidden exposure vectors.",
-    },
-    {
-        step: "02",
-        title: "Analysis",
-        description: "Quantitative stress-testing of your current risk portfolio.",
-    },
-    {
-        step: "03",
-        title: "Design",
-        description: "Architecting a bespoke transfer mechanism with 21+ insurers.",
-    },
-    {
-        step: "04",
-        title: "Execution",
-        description: "Seamless policy placement and SLA-backed service delivery.",
-    },
-];
-
 export default function SolutionsPage() {
     const [activeCategory, setActiveCategory] = useState<string | null>("manufacturing");
 
@@ -307,63 +284,6 @@ export default function SolutionsPage() {
                                     </div>
                                 );
                             })}
-                        </div>
-                    </div>
-                </section>
-
-                {/* Engagement Protocol */}
-                <section className="py-24 md:py-40 bg-white border-t border-gray-100 relative overflow-hidden">
-                    {/* Ambient Glows */}
-                    <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
-                    <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
-
-                    <div className="container mx-auto px-6 md:px-12 relative z-10">
-                        <div className="mb-24 text-center max-w-3xl mx-auto">
-                            <motion.span
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                className="text-accent text-[11px] font-bold uppercase tracking-[0.4em]"
-                            >
-                                The Protocol
-                            </motion.span>
-                            <motion.h2
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.1 }}
-                                className="text-5xl md:text-7xl font-bold text-primary mt-6 tracking-tighter leading-[0.9]"
-                            >
-                                Engagement <br className="hidden md:block" />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-gray-400">Lifecycle</span>
-                            </motion.h2>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative">
-
-                            {processSteps.map((step, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                    className="relative group text-center md:text-left"
-                                >
-                                    <div className="w-20 h-20 rounded-3xl bg-white border border-gray-100 group-hover:border-primary group-hover:bg-primary group-hover:text-white text-primary flex items-center justify-center font-bold text-2xl transition-all duration-700 relative z-10 mb-10 mx-auto md:mx-0 shadow-sm group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] group-hover:-translate-y-2">
-                                        {step.step}
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-primary mb-4 tracking-tight group-hover:text-primary transition-colors">{step.title}</h3>
-                                    <p className="text-slate-600 text-base leading-tight font-semibold">
-                                        {step.description}
-                                    </p>
-
-                                    {/* Mobile/Tablet Step Indicator Line */}
-                                    {i < processSteps.length - 1 && (
-                                        <div className="lg:hidden w-px h-12 bg-gray-100 mx-auto md:mx-0 mt-8" />
-                                    )}
-                                </motion.div>
-                            ))}
                         </div>
                     </div>
                 </section>
