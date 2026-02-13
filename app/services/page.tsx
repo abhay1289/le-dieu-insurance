@@ -84,12 +84,6 @@ const coreServices = [
     },
 ];
 
-const insuranceTypes = [
-    "Fire & Earthquake", "Industrial All Risk", "Marine Cargo", "Public Liability",
-    "Cyber Security", "Directors & Officers", "Trade Credit", "Group Health",
-    "Engineering (CAR/EAR)", "Workmen's Comp"
-];
-
 const Card = ({ card, index, range, targetScale, progress }: any) => {
     const scale = useTransform(progress, range, [1, targetScale]);
     const mouseX = useMotionValue(0);
@@ -212,8 +206,8 @@ export default function ServicesPage() {
                 />
 
                 {/* Stacking Cards Section */}
-                <div ref={containerRef} className="relative mt-[10vh] mb-[10vh]">
-                    <div className="container mx-auto px-6 mb-20 md:mb-32 text-center">
+                <div ref={containerRef} className="relative mt-[5vh] mb-0">
+                    <div className="container mx-auto px-6 mb-16 md:mb-24 text-center">
                         <span className="text-primary text-xs font-bold uppercase tracking-[0.3em] block mb-6">Our Services</span>
                         <h2 className="text-4xl md:text-7xl font-bold tracking-tighter text-primary">The Protection Matrix.</h2>
                     </div>
@@ -224,37 +218,14 @@ export default function ServicesPage() {
                     })}
                 </div>
 
-                {/* Ticker / Marquee for Coverage Types */}
-                <section className="py-24 bg-white border-t border-gray-100">
-                    <div className="container mx-auto px-6 mb-12">
-                        <span className="text-primary text-xs font-bold uppercase tracking-[0.3em]">Comprehensive Scope</span>
-                    </div>
-                    <div className="relative flex overflow-x-hidden">
-                        <div className="py-12 animate-marquee whitespace-nowrap flex gap-12 md:gap-24">
-                            {[...insuranceTypes, ...insuranceTypes].map((type, i) => (
-                                <span key={i} className="text-4xl md:text-6xl font-bold text-gray-100 hover:text-primary transition-colors cursor-default uppercase">
-                                    {type}
-                                </span>
-                            ))}
-                        </div>
-                        <div className="absolute top-0 py-12 animate-marquee2 whitespace-nowrap flex gap-12 md:gap-24">
-                            {[...insuranceTypes, ...insuranceTypes].map((type, i) => (
-                                <span key={i} className="text-4xl md:text-6xl font-bold text-gray-100 hover:text-primary transition-colors cursor-default uppercase">
-                                    {type}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
                 {/* How We Work — Process Section */}
-                <section className="py-20 md:py-32 bg-white relative overflow-hidden">
+                <section className="py-20 md:py-28 bg-white relative overflow-hidden">
                     <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
                         style={{ backgroundImage: 'radial-gradient(#0B1C15 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
                     <div className="container mx-auto px-6 md:px-12 relative z-10">
 
-                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 md:mb-24 gap-6">
+                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-14 md:mb-20 gap-6">
                             <div className="max-w-2xl">
                                 <motion.div
                                     initial={{ opacity: 0, x: -20 }}
@@ -317,72 +288,6 @@ export default function ServicesPage() {
                                         transition={{ duration: 0.5 }}
                                         className="h-[2px] bg-accent mt-8"
                                     />
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                {/* By The Numbers — Stats Section */}
-                <section className="py-20 md:py-32 bg-primary relative overflow-hidden">
-                    <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
-                        style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-                    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
-                    <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-white/3 rounded-full blur-[120px] pointer-events-none" />
-
-                    <div className="container mx-auto px-6 md:px-12 relative z-10">
-
-                        <div className="text-center mb-16 md:mb-24">
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                className="flex items-center justify-center gap-4 mb-6"
-                            >
-                                <span className="h-px w-8 bg-accent/30" />
-                                <span className="text-accent text-[10px] font-bold uppercase tracking-[0.4em]">By The Numbers</span>
-                                <span className="h-px w-8 bg-accent/30" />
-                            </motion.div>
-                            <motion.h2
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                className="text-4xl md:text-[64px] font-bold text-white tracking-tighter leading-[0.9]"
-                            >
-                                Two Decades of<br />
-                                <span className="text-white/30">Measured Impact</span>
-                            </motion.h2>
-                        </div>
-
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                            {[
-                                { value: "20+", label: "Years of Excellence", detail: "Since 2003" },
-                                { value: "21+", label: "Insurer Partners", detail: "Pan-India Network" },
-                                { value: "₹500Cr+", label: "Claims Settled", detail: "Full Recovery" },
-                                { value: "99%", label: "Retention Rate", detail: "Client Loyalty" },
-                            ].map((stat, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                    className="group text-center p-8 md:p-10 rounded-[2rem] border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10 transition-all duration-500"
-                                >
-                                    <div className="overflow-hidden mb-3">
-                                        <motion.div
-                                            initial={{ y: "100%" }}
-                                            whileInView={{ y: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 + i * 0.1 }}
-                                            className="text-4xl md:text-6xl font-bold text-white tracking-tighter"
-                                        >
-                                            {stat.value}
-                                        </motion.div>
-                                    </div>
-                                    <div className="text-white/50 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">{stat.label}</div>
-                                    <div className="text-accent/60 text-[9px] font-bold uppercase tracking-[0.2em]">{stat.detail}</div>
                                 </motion.div>
                             ))}
                         </div>
