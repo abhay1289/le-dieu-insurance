@@ -110,10 +110,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
           </motion.div>
 
           <div className="pt-2 md:pt-6">
-            <a href="/services" className="inline-block">
+            <a href="/solutions" className="inline-block">
               <motion.span
                 variants={{
-                  initial: { color: '#ffffff', borderColor: 'rgba(255,255,255,0.3)' },
+                  initial: { color: '#ffffff', borderColor: '#ffffff' },
                   active: { color: '#ffffff', borderColor: '#ffffff' }
                 }}
                 className="text-xs font-bold uppercase tracking-widest border-b pb-1 transition-all duration-500"
