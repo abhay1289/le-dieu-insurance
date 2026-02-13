@@ -8,6 +8,8 @@ import CTA from '@/components/CTA/CTA';
 import PageHero from '@/components/PageHero';
 import ScrollProgress from '@/components/ScrollProgress/ScrollProgress';
 import SmoothScroll from '@/components/SmoothScroll';
+import PageTransition from '@/components/PageTransition';
+import AnimatedCounter from '@/components/AnimatedCounter';
 
 const textRevealVariants = {
     hidden: { y: "100%" },
@@ -134,6 +136,7 @@ export default function ContactPage() {
 
     return (
         <SmoothScroll>
+            <PageTransition>
             <div className="min-h-screen bg-white text-primary selection:bg-primary selection:text-white">
                 <ScrollProgress />
                 <NavBar />
@@ -333,7 +336,7 @@ export default function ContactPage() {
                                             { value: "21+", label: "Insurer Partners" },
                                         ].map((stat, i) => (
                                             <div key={i} className="p-5 rounded-2xl bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-md hover:border-accent/20 transition-all duration-500 text-center">
-                                                <div className="text-2xl font-bold text-primary tracking-tighter mb-1">{stat.value}</div>
+                                                <AnimatedCounter value={stat.value} className="text-2xl font-bold text-primary tracking-tighter mb-1 block" />
                                                 <div className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em]">{stat.label}</div>
                                             </div>
                                         ))}
@@ -420,6 +423,7 @@ export default function ContactPage() {
                 <CTA />
                 <Footer />
             </div>
+            </PageTransition>
         </SmoothScroll>
     );
 }

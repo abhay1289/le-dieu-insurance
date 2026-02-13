@@ -72,3 +72,43 @@ body {
   scrollbar-width: none;
   /* Firefox */
 }
+
+/* Premium scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #22c55e;
+}
+
+/* Smooth focus outlines */
+*:focus-visible {
+  outline: 2px solid #22c55e;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Selection */
+::selection {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Image reveal mask */
+.reveal-mask {
+  clip-path: inset(100% 0 0 0);
+  animation: revealMask 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes revealMask {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}

@@ -8,6 +8,7 @@ import CTA from '@/components/CTA/CTA';
 import PageHero from '@/components/PageHero';
 import ScrollProgress from '@/components/ScrollProgress/ScrollProgress';
 import SmoothScroll from '@/components/SmoothScroll';
+import PageTransition from '@/components/PageTransition';
 
 const coreServices = [
     {
@@ -172,6 +173,7 @@ export default function ServicesPage() {
 
     return (
         <SmoothScroll>
+            <PageTransition>
             <div className="bg-white min-h-screen text-primary">
                 <ScrollProgress />
                 <NavBar />
@@ -292,6 +294,7 @@ export default function ServicesPage() {
                 <CTA />
                 <Footer />
             </div>
+            </PageTransition>
         </SmoothScroll>
     );
 }

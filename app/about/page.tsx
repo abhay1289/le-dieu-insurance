@@ -64,6 +64,9 @@ import PageHero from '@/components/PageHero';
 import ScrollProgress from '@/components/ScrollProgress/ScrollProgress';
 import SmoothScroll from '@/components/SmoothScroll';
 import FAQ from '@/components/FAQ/FAQ';
+import PageTransition from '@/components/PageTransition';
+import AnimatedCounter from '@/components/AnimatedCounter';
+import TextReveal from '@/components/TextReveal';
 
 const textRevealVariants = {
     hidden: { y: "100%" },
@@ -134,6 +137,7 @@ export default function AboutPage() {
 
     return (
         <SmoothScroll>
+            <PageTransition>
             <div ref={containerRef} className="min-h-screen bg-white text-primary selection:bg-primary selection:text-white">
                 <ScrollProgress />
                 <NavBar />
@@ -206,7 +210,7 @@ export default function AboutPage() {
                                 <motion.div variants={fadeUpVariants} className="grid grid-cols-2 gap-4 md:gap-6">
                                     {stats.map((stat, i) => (
                                         <div key={i} className="p-5 md:p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-md hover:border-accent/20 transition-all duration-500 text-center sm:text-left">
-                                            <div className="text-3xl md:text-4xl font-bold text-primary mb-1 tracking-tighter">{stat.number}</div>
+                                            <AnimatedCounter value={stat.number} className="text-3xl md:text-4xl font-bold text-primary mb-1 tracking-tighter block" />
                                             <div className="text-gray-400 text-[10px] uppercase font-bold tracking-[0.2em]">{stat.label}</div>
                                         </div>
                                     ))}
@@ -300,6 +304,7 @@ export default function AboutPage() {
                 <CTA />
                 <Footer />
             </div>
+            </PageTransition>
         </SmoothScroll>
     );
 }

@@ -13,10 +13,12 @@ import CTA from '@/components/CTA/CTA';
 import Footer from '@/components/Footer/Footer';
 import ScrollProgress from '@/components/ScrollProgress/ScrollProgress';
 import SmoothScroll from '@/components/SmoothScroll';
+import PageTransition from '@/components/PageTransition';
 
 export default function Home() {
   return (
     <SmoothScroll>
+      <PageTransition>
       <div className="min-h-screen bg-white">
         <ScrollProgress />
         <NavBar />
@@ -32,6 +34,7 @@ export default function Home() {
         </main>
         <Footer />
       </div>
+      </PageTransition>
     </SmoothScroll>
   );
 }
