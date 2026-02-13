@@ -101,7 +101,7 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                 <div className="flex flex-col md:flex-row h-full">
 
                     {/* Left — Image Panel */}
-                    <div className="relative w-full md:w-[45%] h-[35%] md:h-full overflow-hidden">
+                    <div className="relative w-full md:w-[45%] h-[35%] md:h-full overflow-hidden bg-primary">
                         <div className="absolute inset-0">
                             <img
                                 src={card.image}
@@ -109,58 +109,72 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                                 className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover/card:scale-110"
                             />
                         </div>
-                        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-black/10" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/40 to-primary/20" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-primary/20" />
 
-                        {/* Stat block on image */}
+                        {/* Stat block */}
                         <div className="absolute top-6 left-6 md:top-10 md:left-10 z-10">
-                            <div className="text-white/90 text-3xl md:text-5xl font-bold tracking-tighter leading-none">{card.stat.value}</div>
-                            <div className="text-white/50 text-[10px] font-bold uppercase tracking-[0.3em] mt-1">{card.stat.label}</div>
+                            <div className="flex items-center gap-3 mb-2">
+                                <span className="h-[2px] w-6 bg-accent" />
+                                <span className="text-accent text-[10px] font-bold uppercase tracking-[0.3em]">{card.stat.label}</span>
+                            </div>
+                            <div className="text-white text-4xl md:text-5xl font-bold tracking-tighter leading-none">{card.stat.value}</div>
                         </div>
 
-                        {/* Subtitle label on image */}
-                        <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 z-10">
+                        {/* Subtitle on image */}
+                        <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 z-10">
                             <div className="flex items-center gap-3">
                                 <span className="h-[2px] w-10 bg-accent" />
-                                <span className="text-white/80 text-[10px] font-bold uppercase tracking-[0.4em]">{card.subtitle}</span>
+                                <span className="text-white/70 text-[10px] font-bold uppercase tracking-[0.4em]">{card.subtitle}</span>
                             </div>
                         </div>
                     </div>
 
                     {/* Right — Content Panel */}
-                    <div className="relative w-full md:w-[55%] h-[65%] md:h-full">
+                    <div className="relative w-full md:w-[55%] h-[65%] md:h-full bg-white">
 
-                        {/* Accent top edge */}
-                        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accent via-accent/40 to-transparent md:hidden" />
-                        <div className="hidden md:block absolute top-0 bottom-0 left-0 w-[2px] bg-gradient-to-b from-accent via-accent/20 to-transparent" />
+                        {/* Accent left border */}
+                        <div className="hidden md:block absolute top-0 bottom-0 left-0 w-[3px] bg-gradient-to-b from-accent via-accent/30 to-transparent" />
 
-                        <div className="h-full flex flex-col justify-between p-7 md:p-11 lg:p-12">
+                        <div className="h-full flex flex-col p-7 md:pl-12 md:pr-11 md:py-10 lg:pl-14 lg:pr-12 lg:py-12">
 
-                            {/* Header zone */}
-                            <div>
-                                <h2 className="text-2xl sm:text-3xl md:text-[2.25rem] font-bold text-primary leading-[1.1] tracking-tight mb-5 md:mb-6">
+                            {/* Top — Title block */}
+                            <div className="mb-auto">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <span className="text-accent text-[10px] font-bold uppercase tracking-[0.3em]">Service {card.id}</span>
+                                </div>
+                                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary leading-[1.05] tracking-tighter mb-5">
                                     {card.title}
                                 </h2>
-                                <div className="h-[1px] w-full bg-gray-100 mb-5 md:mb-6" />
-                                <p className="text-gray-500 text-[13.5px] md:text-[14.5px] leading-[1.8] font-medium">
+                                <div className="h-[1px] bg-gradient-to-r from-gray-200 via-gray-100 to-transparent" />
+                            </div>
+
+                            {/* Middle — Description */}
+                            <div className="py-5 md:py-6">
+                                <p className="text-gray-500 text-sm md:text-[15px] leading-relaxed font-medium">
                                     {card.description}
                                 </p>
                             </div>
 
-                            {/* Feature Tags */}
-                            <div className="flex flex-wrap items-center gap-2 pt-5 md:pt-6">
-                                {card.features.map((f: string, i: number) => (
-                                    <span
-                                        key={i}
-                                        className="px-4 py-[7px] rounded-full border border-gray-200 bg-gray-50/80 text-[10px] text-gray-400 uppercase tracking-[0.15em] font-bold hover:border-primary hover:text-primary hover:bg-white transition-all duration-300 cursor-default"
-                                    >
-                                        {f}
+                            {/* Bottom — Tags + Counter */}
+                            <div className="mt-auto">
+                                <div className="h-[1px] bg-gradient-to-r from-gray-200 via-gray-100 to-transparent mb-5" />
+                                <div className="flex items-end justify-between gap-4">
+                                    <div className="flex flex-wrap gap-2">
+                                        {card.features.map((f: string, i: number) => (
+                                            <span
+                                                key={i}
+                                                className="px-3.5 py-1.5 rounded-full border border-gray-200 text-[10px] text-gray-400 uppercase tracking-[0.12em] font-bold hover:border-primary hover:text-primary hover:bg-gray-50 transition-all duration-300 cursor-default"
+                                            >
+                                                {f}
+                                            </span>
+                                        ))}
+                                    </div>
+                                    <span className="hidden md:flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 group-hover/card:text-accent transition-colors duration-500 shrink-0">
+                                        <span className="h-[1px] w-5 bg-current" />
+                                        {card.id} / 08
                                     </span>
-                                ))}
-                                <span className="ml-auto hidden md:flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 group-hover/card:text-accent transition-colors duration-500">
-                                    <span className="h-[1px] w-6 bg-current" />
-                                    {card.id} / 08
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </div>
