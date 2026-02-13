@@ -146,7 +146,7 @@ export default function SolutionsPage() {
                     />
 
                     {/* Section Header */}
-                    <section className="pt-16 md:pt-32 pb-0 bg-white relative overflow-hidden">
+                    <section className="pt-10 md:pt-20 pb-0 bg-white relative overflow-hidden">
                         <div className="container mx-auto px-6 md:px-12 relative z-10">
                             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-16 md:mb-24">
                                 <div className="max-w-2xl">
@@ -186,7 +186,7 @@ export default function SolutionsPage() {
                     </section>
 
                     {/* Premium Vertical Accordion Solutions */}
-                    <section ref={sectionRef} className="pb-24 md:pb-32 bg-white relative overflow-hidden">
+                    <section ref={sectionRef} className="pb-12 md:pb-24 bg-white relative overflow-hidden">
                         {/* Parallax background decoration */}
                         <motion.div
                             style={{ y: bgY }}
@@ -249,7 +249,7 @@ export default function SolutionsPage() {
                                                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                                                         className="overflow-hidden"
                                                     >
-                                                        <div className="relative grid lg:grid-cols-2 gap-8 md:gap-20 pt-8 md:pt-16 pb-8 md:pb-12">
+                                                        <div className="relative grid lg:grid-cols-2 gap-8 md:gap-12 pt-8 md:pt-16 pb-8 md:pb-12">
 
                                                             {/* Left Column */}
                                                             <div className="flex flex-col justify-between h-full">

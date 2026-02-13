@@ -101,7 +101,7 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
             <motion.div
                 style={{ scale, top: `calc(-5vh + ${index * 25}px)` }}
                 onMouseMove={handleMouseMove}
-                className="relative w-[92vw] md:w-[1200px] h-[55vh] md:h-[440px] rounded-2xl overflow-hidden transform-gpu origin-top bg-primary group/card transition-all duration-700 shadow-[0_1px_3px_rgba(0,0,0,0.1),0_20px_60px_rgba(0,0,0,0.12)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.1),0_30px_80px_rgba(0,0,0,0.18)]"
+                className="relative w-[92vw] md:w-[1200px] h-[65vh] md:h-[580px] rounded-2xl overflow-hidden transform-gpu origin-top bg-primary group/card transition-all duration-700 shadow-[0_1px_3px_rgba(0,0,0,0.1),0_20px_60px_rgba(0,0,0,0.12)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.1),0_30px_80px_rgba(0,0,0,0.18)]"
             >
                 {/* Cursor glow */}
                 <motion.div
@@ -124,7 +124,6 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                     <div className="w-full md:w-[55%] h-[68%] md:h-full flex flex-col justify-between p-7 md:p-10 lg:p-12">
                         <div>
                             <div className="flex items-center gap-3 mb-5">
-                                <span className="w-7 h-[1.5px] bg-accent" />
                                 <span className="text-accent text-sm font-extrabold uppercase tracking-[0.3em]">{card.subtitle}</span>
                             </div>
                             <h2 className="text-2xl sm:text-3xl md:text-[2rem] font-bold text-white leading-[1.2] tracking-tight mb-5">
