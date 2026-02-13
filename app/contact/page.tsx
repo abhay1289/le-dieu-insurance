@@ -162,13 +162,12 @@ export default function ContactPage() {
                             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8">
                                 <div className="max-w-2xl">
                                     <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mb-6">
-                                        <div className="h-px w-8 bg-primary" />
-                                        <span className="text-[10px] font-bold tracking-[0.3em] text-primary uppercase">Reach Out</span>
+                                        <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Reach Out</span>
                                     </motion.div>
                                     <div className="overflow-hidden">
                                         <motion.h2
                                             variants={textRevealVariants}
-                                            className="text-4xl sm:text-5xl md:text-[72px] font-bold text-primary tracking-tighter leading-[0.9]"
+                                            className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[0.9]"
                                         >
                                             How Can We<br />
                                             <span className="text-gray-300">Help You?</span>
@@ -356,8 +355,7 @@ export default function ContactPage() {
                                     viewport={{ once: true }}
                                     className="flex items-center gap-4 mb-6"
                                 >
-                                    <div className="h-px w-8 bg-primary" />
-                                    <span className="text-[10px] font-bold tracking-[0.3em] text-primary uppercase">Our Offices</span>
+                                    <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Our Offices</span>
                                 </motion.div>
                                 <div className="overflow-hidden">
                                     <motion.h2
@@ -365,7 +363,7 @@ export default function ContactPage() {
                                         whileInView={{ y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                        className="text-4xl sm:text-5xl md:text-[72px] font-bold text-primary tracking-tighter leading-[0.9]"
+                                        className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[0.9]"
                                     >
                                         Visit Us
                                     </motion.h2>

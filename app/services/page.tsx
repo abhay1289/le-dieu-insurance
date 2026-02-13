@@ -186,8 +186,8 @@ export default function ServicesPage() {
                 {/* Stacking Cards Section */}
                 <div ref={containerRef} className="relative mt-0 mb-0">
                     <div className="container mx-auto px-6 mb-0 text-center">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary block mb-6">Our Services</span>
-                        <h2 className="text-4xl sm:text-5xl md:text-[72px] font-bold tracking-tighter text-primary leading-[0.9]">The Protection Matrix.</h2>
+                        <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent block mb-6">Our Services</span>
+                        <h2 className="text-4xl sm:text-5xl md:text-[73px] font-bold tracking-tighter text-primary leading-[0.9]">The Protection Matrix.</h2>
                     </div>
 
                     {coreServices.map((service, i) => {
@@ -208,8 +208,7 @@ export default function ServicesPage() {
                                     viewport={{ once: true }}
                                     className="flex items-center gap-4 mb-6"
                                 >
-                                    <div className="h-px w-8 bg-primary" />
-                                    <span className="text-[10px] font-bold tracking-[0.3em] text-primary uppercase">How We Work</span>
+                                    <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">How We Work</span>
                                 </motion.div>
                                 <div className="overflow-hidden">
                                     <motion.h2
@@ -217,7 +216,7 @@ export default function ServicesPage() {
                                         whileInView={{ y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                        className="text-4xl sm:text-5xl md:text-[72px] font-bold text-primary tracking-tighter leading-[0.9]"
+                                        className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[0.9]"
                                     >
                                         From Discovery<br />
                                         <span className="text-gray-300">to Defense</span>

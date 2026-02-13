@@ -115,8 +115,7 @@ const WhyChooseUs = () => {
          </motion.div>
 
          {/* Subtle Grid Pattern Overlay */}
-         <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0"
-            style={{ backgroundImage: 'radial-gradient(#0B1C15 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+         <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0" />
 
          <div className="container mx-auto px-6 md:px-12 relative z-10">
 

@@ -187,8 +187,7 @@ export default function SolutionsPage() {
                                     viewport={{ once: true }}
                                     className="flex items-center gap-4 mb-6"
                                 >
-                                    <div className="h-px w-8 bg-primary" />
-                                    <span className="text-[10px] font-bold tracking-[0.3em] text-primary uppercase">Industry Solutions</span>
+                                    <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Industry Solutions</span>
                                 </motion.div>
                                 <div className="overflow-hidden">
                                     <motion.h2
@@ -196,7 +195,7 @@ export default function SolutionsPage() {
                                         whileInView={{ y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                        className="text-4xl sm:text-5xl md:text-[72px] font-bold text-primary tracking-tighter leading-[0.9]"
+                                        className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[0.9]"
                                     >
                                         Sector-Specific<br />
                                         <span className="text-gray-300">Expertise</span>
@@ -348,8 +347,7 @@ export default function SolutionsPage() {
                                     viewport={{ once: true }}
                                     className="flex items-center gap-4 mb-6"
                                 >
-                                    <div className="h-px w-8 bg-primary" />
-                                    <span className="text-[10px] font-bold tracking-[0.3em] text-primary uppercase">The Protocol</span>
+                                    <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">The Protocol</span>
                                 </motion.div>
                                 <div className="overflow-hidden">
                                     <motion.h2
@@ -357,7 +355,7 @@ export default function SolutionsPage() {
                                         whileInView={{ y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                        className="text-4xl sm:text-5xl md:text-[72px] font-bold text-primary tracking-tighter leading-[0.9]"
+                                        className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[0.9]"
                                     >
                                         Engagement<br />
                                         <span className="text-gray-300">Lifecycle</span>
