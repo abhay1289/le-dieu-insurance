@@ -250,8 +250,8 @@ export default function AboutPage() {
                             className="absolute inset-x-0 -top-[20%] -bottom-[20%]"
                         >
                             <img
-                                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
-                                alt="Modern Architecture"
+                                src="/images/indian-family-sitting-on-sofa-looking-at-camera-2026-01-07-00-48-21-utc.jpeg"
+                                alt="Indian family at home - Le Dieu Protection"
                                 className="w-full h-full object-cover opacity-[0.05] grayscale"
                             />
                         </motion.div>
