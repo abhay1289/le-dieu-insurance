@@ -97,13 +97,7 @@ const staggerContainer = {
     },
 };
 
-const milestones = [
-    { year: "2003", title: "Inception & Licensing", description: "Le Dieu established as a Direct Insurance Broking Firm with full IRDA licensing, setting a new standard for transparency." },
-    { year: "2008", title: "Corporate Expansion", description: "Rapid expansion into large industrial sectors, securing mandates for power projects and infrastructure developments." },
-    { year: "2013", title: "Pan-India Presence", description: "Established strategic corporate offices in Bhopal and New Delhi, extending service delivery across all major Indian states." },
-    { year: "2018", title: "Digital Evolution", description: "Integration of advanced risk analytics and digital policy management systems to offer real-time insights to clients." },
-    { year: "2023", title: "20 Years of Trust", description: "Celebrating two decades of excellence, protecting over 10,000 families and businesses with claims settled exceeding ₹500 Cr." },
-];
+
 
 const values = [
     {
@@ -331,56 +325,7 @@ export default function AboutPage() {
                     </div>
                 </section>
 
-                {/* Cinematic Timeline */}
-                <section className="py-24 md:py-40 bg-white relative overflow-hidden border-t border-gray-100">
-                    <div className="container mx-auto px-6 md:px-12">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            className="mb-24 md:mb-32"
-                        >
-                            <motion.h2 variants={textRevealVariants} className="text-4xl md:text-8xl font-bold tracking-tighter text-gray-100">TIMELINE</motion.h2>
-                            <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mt-[-2rem] md:mt-[-4rem] ml-2">
-                                <div className="h-px w-12 bg-primary"></div>
-                                <span className="text-primary font-bold tracking-[0.3em] uppercase">Milestones</span>
-                            </motion.div>
-                        </motion.div>
 
-                        <div className="relative max-w-4xl mx-auto">
-                            {/* Central Line */}
-                            <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent transform md:-translate-x-1/2" />
-
-                            {milestones.map((milestone, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                    className={`relative flex items-center gap-10 md:gap-20 mb-20 last:mb-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-                                >
-                                    {/* Spacer for desktop alignment */}
-                                    <div className="hidden md:block flex-1" />
-
-                                    {/* Node */}
-                                    <div className="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-white border border-primary flex items-center justify-center shadow-sm">
-                                        <div className="w-2 h-2 rounded-full bg-primary" />
-                                    </div>
-
-                                    {/* Content */}
-                                    <div className="flex-1 pl-4 md:pl-0">
-                                        <div className="group relative p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:bg-white hover:border-primary/30 transition-all duration-500 shadow-sm hover:shadow-xl">
-                                            <div className="text-primary text-xs font-bold uppercase tracking-widest mb-2">{milestone.year}</div>
-                                            <h3 className="text-2xl font-bold text-primary mb-3 group-hover:text-primary transition-colors">{milestone.title}</h3>
-                                            <p className="text-gray-500 text-sm leading-relaxed">{milestone.description}</p>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
 
                 <FAQ />
                 <Footer />
