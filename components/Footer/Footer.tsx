@@ -107,7 +107,7 @@ const Footer = () => {
                   transition={{ duration: 1 }}
                   className="text-center font-heading font-extrabold text-[15vw] sm:text-[18vw] leading-none tracking-tighter"
                >
-                  <span className="relative inline-block text-white/[0.06] bg-clip-text">
+                  <span className="relative inline-block text-white/[0.06] bg-clip-text hover:text-white/[0.15] transition-colors duration-500">
                      Le Dieu
                      <motion.span
                         className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent bg-[length:200%_100%] bg-clip-text text-transparent"
@@ -126,7 +126,7 @@ const Footer = () => {
             <div className="flex flex-col items-center justify-center text-white/40 text-[10px] sm:text-[11px] uppercase tracking-widest gap-2 relative z-10 font-bold text-center">
                <div>Copyright © 2027 Le Dieu Insurance All Right Reserved</div>
                <div>
-                  Designed by <a href="https://brandingyou.co.in/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-accent transition-colors">Branding You</a>
+                  Designed by <a href="https://brandingyou.co.in/" target="_blank" rel="noopener noreferrer" className="text-white transition-colors">Branding You</a>
                </div>
             </div>
 
