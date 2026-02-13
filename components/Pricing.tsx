@@ -64,9 +64,9 @@ const Pricing = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
           <div>
             <div className="flex items-center gap-4 mb-8">
-              <span className="uppercase tracking-[0.3em] text-xs font-bold text-accent">Pricing Plans</span>
+              <span className="text-sm font-extrabold tracking-[0.3em] text-accent uppercase">Pricing Plans</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-[64px] font-heading font-extrabold text-primary tracking-tight leading-[0.9] max-w-4xl">
+            <h2 className="text-4xl sm:text-5xl md:text-[64px] font-heading font-extrabold text-primary tracking-tight leading-[1.15] max-w-4xl">
               Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent font-bold">Insurance Plans</span>
             </h2>
           </div>
@@ -116,7 +116,7 @@ const Pricing = () => {
                     <span className="text-6xl font-bold text-primary">{getPrice()}</span>
                     <span className="text-gray-500 text-lg">/ {billingCycle === 'monthly' ? 'Monthly' : 'Annual'}</span>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Included Services</h3>
+                  <h3 className="text-3xl font-bold text-primary mb-4 tracking-tight">Included Services</h3>
                   <p className="text-gray-600 mb-8">{planDetails[activePlan].description}</p>
                   <ul className="space-y-4 mb-10">
                     {planDetails[activePlan].services.map((item, i) => (

@@ -17,7 +17,7 @@ const BlogCard = ({ category, title, summary, author, date, img, authorImg }: an
       </div>
     </div>
 
-    <h3 className="text-2xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">
+    <h3 className="text-3xl font-bold text-primary mb-3 tracking-tight group-hover:text-accent transition-colors">
       {title}
     </h3>
     <p className="text-gray-600 mb-6 line-clamp-2">

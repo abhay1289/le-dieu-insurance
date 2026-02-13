@@ -85,7 +85,7 @@ function OfficeCard({ office, index }: { office: typeof offices[0]; index: numbe
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent pointer-events-none" />
                 <div className="absolute top-4 left-4">
-                    <span className="bg-white/90 backdrop-blur-sm text-accent text-[9px] font-bold uppercase tracking-[0.3em] px-3 py-1.5 rounded-full border border-accent/20">{office.label}</span>
+                    <span className="bg-white/90 backdrop-blur-sm text-accent text-xs font-extrabold uppercase tracking-[0.3em] px-3 py-1.5 rounded-full border border-accent/20">{office.label}</span>
                 </div>
             </div>
 
