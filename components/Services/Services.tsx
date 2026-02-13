@@ -63,8 +63,8 @@ const Services = () => {
 
               <div className="overflow-hidden py-2">
                 <motion.div variants={textRevealVariants} className="flex flex-col">
-                  <span className="text-primary text-4xl sm:text-5xl md:text-[73px] font-bold tracking-tighter leading-[1.1]">Risk Engineering</span>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent text-4xl sm:text-5xl md:text-[73px] font-bold tracking-tighter leading-[1.1]">Insurance Solutions</span>
+                  <span className="text-primary text-4xl sm:text-5xl md:text-[64px] font-bold tracking-tighter leading-[1.15]">Risk Engineering</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent text-4xl sm:text-5xl md:text-[64px] font-bold tracking-tighter leading-[1.15]">Insurance Solutions</span>
                 </motion.div>
               </div>
             </div>

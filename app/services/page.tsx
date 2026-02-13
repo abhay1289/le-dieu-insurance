@@ -127,7 +127,7 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                                 <span className="w-7 h-[1.5px] bg-accent" />
                                 <span className="text-accent text-xs font-bold uppercase tracking-[0.3em]">{card.subtitle}</span>
                             </div>
-                            <h2 className="text-2xl sm:text-3xl md:text-[2.2rem] font-bold text-white leading-[1.1] tracking-tight mb-5">
+                            <h2 className="text-2xl sm:text-3xl md:text-[2.2rem] font-bold text-white leading-[1.15] tracking-tight mb-5">
                                 {card.title}
                             </h2>
                             <p className="text-white/55 text-[13px] md:text-[13.5px] leading-[1.8] font-medium max-w-lg">
@@ -200,7 +200,7 @@ export default function ServicesPage() {
                                 whileInView={{ y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                                className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[1.1]"
+                                className="text-4xl sm:text-5xl md:text-[64px] font-bold text-primary tracking-tighter leading-[1.15]"
                             >
                                 The Protection<br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent font-bold">Matrix.</span>
@@ -234,7 +234,7 @@ export default function ServicesPage() {
                                         whileInView={{ y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                        className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[1.1]"
+                                        className="text-4xl sm:text-5xl md:text-[64px] font-bold text-primary tracking-tighter leading-[1.15]"
                                     >
                                         From Discovery<br />
                                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent">to Defense</span>

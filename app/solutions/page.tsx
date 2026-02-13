@@ -164,7 +164,7 @@ export default function SolutionsPage() {
                                         whileInView={{ y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                                        className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[1.1]"
+                                        className="text-4xl sm:text-5xl md:text-[64px] font-bold text-primary tracking-tighter leading-[1.15]"
                                     >
                                         Sector-Specific<br />
                                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent font-bold">Risk Architecture</span>
@@ -259,13 +259,7 @@ export default function SolutionsPage() {
                                                                     transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                                                                     className="flex items-center gap-4 mb-8"
                                                                 >
-                                                                    <motion.span
-                                                                        initial={{ scaleX: 0 }}
-                                                                        animate={{ scaleX: 1 }}
-                                                                        transition={{ delay: 0.3, duration: 0.6 }}
-                                                                        className="h-[2px] w-12 bg-accent origin-left"
-                                                                    />
-                                                                    <span className="text-accent text-xs font-bold uppercase tracking-[0.3em]">{solution.subtitle}</span>
+                                                                    <span className="text-white text-xs font-bold uppercase tracking-[0.3em]">{solution.subtitle}</span>
                                                                 </motion.div>
 
                                                                 <motion.h3
@@ -330,8 +324,7 @@ export default function SolutionsPage() {
                                                                         className="absolute bottom-8 left-8 right-8"
                                                                     >
                                                                         <div className="flex items-center gap-3 mb-3">
-                                                                            <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                                                                            <span className="text-accent text-[9px] font-bold uppercase tracking-[0.3em]">{solution.subtitle}</span>
+                                                                            <span className="text-white text-[9px] font-bold uppercase tracking-[0.3em]">{solution.subtitle}</span>
                                                                         </div>
                                                                         <h4 className="text-2xl md:text-3xl font-bold text-white tracking-tighter">
                                                                             {solution.title}

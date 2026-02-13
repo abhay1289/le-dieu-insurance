@@ -55,7 +55,7 @@ const WhoWeAre = () => {
                   whileInView={{ y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as any }}
-                  className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[1.1]"
+                  className="text-4xl sm:text-5xl md:text-[64px] font-bold text-primary tracking-tighter leading-[1.15]"
                 >
                   Trusted Insurance <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent font-bold relative z-10 block">

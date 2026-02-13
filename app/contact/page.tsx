@@ -170,7 +170,7 @@ export default function ContactPage() {
                                     <div className="overflow-hidden">
                                         <motion.h2
                                             variants={textRevealVariants}
-                                            className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[1.1]"
+                                            className="text-4xl sm:text-5xl md:text-[64px] font-bold text-primary tracking-tighter leading-[1.15]"
                                         >
                                             How Can We<br />
                                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent">Help You?</span>
@@ -366,7 +366,7 @@ export default function ContactPage() {
                                         whileInView={{ y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                        className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[1.1]"
+                                        className="text-4xl sm:text-5xl md:text-[64px] font-bold text-primary tracking-tighter leading-[1.15]"
                                     >
                                         Visit Us
                                     </motion.h2>
@@ -411,7 +411,6 @@ export default function ContactPage() {
                             className="absolute bottom-8 left-6 md:left-12 bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-lg border border-gray-100 max-w-xs"
                         >
                             <div className="flex items-center gap-3 mb-2">
-                                <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                                 <span className="text-accent text-xs font-bold uppercase tracking-[0.3em]">Pan-India Coverage</span>
                             </div>
                             <p className="text-primary text-sm font-bold tracking-tight">Bhopal · New Delhi</p>
