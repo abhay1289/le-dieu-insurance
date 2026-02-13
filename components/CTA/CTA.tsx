@@ -20,7 +20,7 @@ const CTA = () => {
       <div className="container mx-auto px-6 md:px-12">
         <motion.div
           style={{ scale: cardScale }}
-          className="bg-white rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 text-center relative overflow-hidden shadow-2xl border border-gray-100"
+          className="bg-white rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 text-center relative overflow-hidden border border-gray-100"
         >
           <div className="relative z-10 max-w-4xl mx-auto">
             <motion.div
@@ -53,7 +53,7 @@ const CTA = () => {
               className="flex flex-col sm:flex-row justify-center gap-6"
             >
               <Magnetic strength={0.2}>
-                <a href="#team" className="bg-accent text-white px-10 py-5 rounded-full font-bold text-sm tracking-wide hover:bg-accent-hover transition-all flex items-center justify-center gap-3 hover:scale-105 transform duration-300 shadow-lg shadow-accent/20 hover:shadow-accent/40">
+                <a href="#team" className="bg-accent text-white px-10 py-5 rounded-full font-bold text-sm tracking-wide hover:bg-accent-hover transition-all flex items-center justify-center gap-3 hover:scale-105 transform duration-300">
                   Chat With Advisor <ArrowIcon className="w-3 h-3" />
                 </a>
               </Magnetic>

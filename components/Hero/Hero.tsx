@@ -116,7 +116,7 @@ const Hero = () => {
             <div className="overflow-hidden mb-5 md:mb-8">
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as any } } }}
-                className="text-white/90 text-lg md:text-xl leading-relaxed max-w-xl font-light drop-shadow-md"
+                className="text-white/90 text-lg md:text-xl leading-relaxed max-w-xl font-medium"
               >
                 Your Trusted Partner for finding the right insurance solutions.
               </motion.p>
@@ -126,7 +126,7 @@ const Hero = () => {
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.7 } } }}
               className="flex flex-wrap items-center gap-4 md:gap-6"
             >
-              <a href="/about" className="h-14 px-8 bg-accent text-white rounded-full font-semibold text-lg hover:bg-accent-hover active:scale-95 active:shadow-none transition-all flex items-center gap-2 hover:scale-105 transform duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+              <a href="/about" className="h-14 px-8 bg-accent text-white rounded-full font-semibold text-lg hover:bg-accent-hover active:scale-95 transition-all flex items-center gap-2 hover:scale-105 transform duration-300">
                 Learn More <ArrowIcon className="w-4 h-4" />
               </a>
             </motion.div>

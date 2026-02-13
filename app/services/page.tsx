@@ -184,7 +184,7 @@ export default function ServicesPage() {
 
                 {/* Stacking Cards Section */}
                 <div ref={containerRef} className="relative">
-                    <div className="container mx-auto px-6 md:px-12 pt-16 md:pt-32 pb-8 md:pb-12">
+                    <div className="container mx-auto px-6 md:px-12 pt-12 md:pt-20 pb-6 md:pb-10">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -207,7 +207,6 @@ export default function ServicesPage() {
                             </motion.h2>
                         </div>
                     </div>
-
                     {coreServices.map((service, i) => {
                         const targetScale = 1 - ((coreServices.length - i) * 0.03);
                         return <Card key={i} index={i} card={service} range={[i * (1 / coreServices.length), 1]} targetScale={targetScale} progress={scrollYProgress} />

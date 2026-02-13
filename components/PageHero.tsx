@@ -28,7 +28,7 @@ const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, breadcrumb, backgr
     return (
         <section
             ref={heroRef}
-            className="relative h-[50vh] sm:h-[50vh] md:h-[55vh] lg:h-[60vh] w-full overflow-hidden bg-primary"
+            className="relative h-[55vh] sm:h-[55vh] md:h-[60vh] lg:h-[65vh] w-full overflow-hidden bg-primary"
         >
             {/* === PARALLAX BACKGROUND === */}
             {backgroundImage && (
