@@ -129,7 +129,7 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                             <h2 className="text-2xl sm:text-3xl md:text-[2rem] font-bold text-white leading-[1.2] tracking-tight mb-5">
                                 {card.title}
                             </h2>
-                            <p className="text-white/60 text-[13.5px] md:text-[14px] leading-[1.6] font-medium max-w-lg">
+                            <p className="text-white text-[13.5px] md:text-[14px] leading-[1.6] font-medium max-w-lg">
                                 {card.description}
                             </p>
                         </div>
@@ -151,7 +151,7 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                         </div>
                         <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 z-10 text-right">
                             <div className="text-white text-4xl md:text-5xl font-bold tracking-tighter leading-none mb-1">{card.stat.value}</div>
-                            <div className="text-white/40 text-[10px] font-bold uppercase tracking-[0.2em]">{card.stat.label}</div>
+                            <div className="text-white text-[10px] font-bold uppercase tracking-[0.2em]">{card.stat.label}</div>
                         </div>
                     </div>
                 </div>
