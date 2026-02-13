@@ -25,7 +25,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
         visible: { opacity: 1, y: 0 }
       }}
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any }}
-      className="group relative h-auto min-h-[500px] md:h-[500px] lg:h-[650px] bg-white overflow-hidden border-r border-b border-gray-200 last:border-r-0 lg:border-b-0 hover:z-10 cursor-pointer"
+      className="group relative h-auto min-h-[600px] md:h-[500px] lg:h-[650px] bg-white overflow-hidden border-r border-b border-gray-200 last:border-r-0 lg:border-b-0 hover:z-10 cursor-pointer"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -46,7 +46,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
           }}
           className="absolute inset-0 transition-colors duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
       </div>
 
       {/* Content */}
@@ -85,7 +85,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
           <motion.h3
             variants={{
               initial: { color: '#ffffff' },
-              active: { color: index === 2 ? '#ffffff' : 'var(--color-accent-green)' }
+              active: { color: '#ffffff' }
             }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold md:font-light mb-3 md:mb-4 transition-colors duration-500 leading-[1.1] tracking-tight"
           >
@@ -113,7 +113,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
             <motion.span
               variants={{
                 initial: { color: '#ffffff', borderColor: 'rgba(255,255,255,0.3)' },
-                active: { color: 'var(--color-accent-green)', borderColor: 'var(--color-accent-green)' }
+                active: { color: '#ffffff', borderColor: '#ffffff' }
               }}
               className="text-xs font-bold uppercase tracking-widest border-b pb-1 transition-all duration-500"
             >
