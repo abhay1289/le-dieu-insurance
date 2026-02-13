@@ -11,42 +11,84 @@ import SmoothScroll from '@/components/SmoothScroll';
 const coreServices = [
     {
         id: "01",
-        title: "Risk Engineering",
-        subtitle: "Precision Identification.",
-        description: "We don't just insure; we engineer resilience. Our risk management protocols involve a forensic auditing of your operational landscape to identify vulnerabilities before they manifest as losses.",
-        features: ["Forensic Risk Audits", "Loss Prevention Architecture", "Contractual Liability Analysis"],
+        title: "Risk Management",
+        subtitle: "Systematic Identification.",
+        description: "Risk management is a systematic process for the identification and evaluation of loss exposures faced by an organization or individual. We deploy forensic auditing protocols across your entire operational landscape to uncover hidden vulnerabilities before they escalate. Our methodology ensures the selection and administration of the most appropriate techniques for treating such exposures, transforming uncertainty into a structured, defensible strategy.",
+        features: ["Forensic Risk Audits", "Exposure Evaluation", "Loss Treatment Strategy"],
         color: "bg-gray-50",
         accent: "text-primary",
         image: "/images/service-risk-engineering.png"
     },
     {
         id: "02",
-        title: "Strategic Placement",
-        subtitle: "Market Leverage.",
-        description: "Leveraging two decades of relationships with 21+ insurers to architect coverage that defies standard market limitations. we negotiate from a position of data-backed strength.",
-        features: ["GAP Analysis", "Portfolio Rationalization", "Competitive Bidding"],
+        title: "Policy Placement",
+        subtitle: "Precision Placement.",
+        description: "Policy Placement is a rigorous and thorough process involving detailed risk profiling, policy analysis, portfolio rationalization, and RFQs to secure optimal coverage. We negotiate for value-based coverage across 21+ insurers, leveraging two decades of deep market relationships. Every quote undergoes meticulous evaluation and recommendation, followed by strategic placement and final scrutiny to ensure your coverage consistently defies standard market limitations.",
+        features: ["Risk Profiling", "Portfolio Rationalization", "Competitive Bidding"],
         color: "bg-white",
         accent: "text-primary",
         image: "/images/service-strategic-placement.png"
     },
     {
         id: "03",
-        title: "Claims Advocacy",
-        subtitle: "Relentless Defense.",
-        description: "The true test of insurance. We manage the entire claims lifecycle, from notification to settlement, ensuring technical nuances are interpreted in your favor.",
-        features: ["24/7 Crisis Response", "Settlement Negotiation", "Technical Arbitration"],
+        title: "Investment Strategy",
+        subtitle: "Post-Placement Vigilance.",
+        description: "Our engagement begins once your policy is scrutinized and approved — not where others end. We assist in claims management, handle endorsements, track renewals, and manage the renewal process with the same rigor as the initial policy placement. This continuous investment in your portfolio ensures that your coverage evolves alongside your business, maintaining relevance and maximum protection year after year.",
+        features: ["Claims Assistance", "Endorsement Management", "Renewal Tracking"],
         color: "bg-gray-100",
         accent: "text-primary",
         image: "/images/service-claims-advocacy.png"
     },
-];
-
-const specializedServices = [
-    { icon: "⚡", title: "Energy Audit", description: "Optimizing consumption patterns to reduce operational overhead." },
-    { icon: "🛡️", title: "Safety Protocol", description: "Workplace safety compliance ensuring zero-incident environments." },
-    { icon: "🌿", title: "Eco-Compliance", description: "Navigating the complex landscape of environmental liability." },
-    { icon: "⚙️", title: "Process Optimization", description: "Streamlining workflows to mitigate business interruption risks." },
-    { icon: "📋", title: "Claims Recovery", description: "Maximizing settlement value through technical expertise." },
+    {
+        id: "04",
+        title: "Specialized Services",
+        subtitle: "Beyond Standard Coverage.",
+        description: "We offer comprehensive specialized services including Energy Audits, Safety Reviews, Environmental and Process Audits, along with expert Claim Consultancy support. These technical assessments are designed to help optimize your operations, ensure full regulatory compliance, and support efficient claim management. Our specialized team brings deep domain expertise to identify risks that standard brokers overlook, delivering measurable value beyond the policy document.",
+        features: ["Energy Audits", "Safety Reviews", "Claim Consultancy"],
+        color: "bg-gray-50",
+        accent: "text-primary",
+        image: "/images/service-risk-new.jpg"
+    },
+    {
+        id: "05",
+        title: "Industry Domain Expertise",
+        subtitle: "Sector-Deep Knowledge.",
+        description: "We bring comprehensive insurance coverage spanning Fire, Earthquake, MBD, LOP, Burglary, Money, Fidelity, Transit, Health, PA, WC, Vehicle, Credit, Trade, and Marine lines. Our deep domain expertise across heavy industries, infrastructure, energy, healthcare, and hospitality means we understand the nuances defining each sector. We deliver coverage architectures that are precisely calibrated to your industry unique operational realities and risk profiles.",
+        features: ["Multi-Line Coverage", "Sector Specialization", "Domain Risk Mapping"],
+        color: "bg-white",
+        accent: "text-primary",
+        image: "/images/service-business.png"
+    },
+    {
+        id: "06",
+        title: "Insurance Broker Services",
+        subtitle: "IRDA-Licensed Excellence.",
+        description: "LeDieu Insurance is IRDA-licensed, offering tailored insurance solutions backed by expert risk assessment, consultancy, and claims support. As a licensed broker, we operate with the highest regulatory standards while maintaining agility to customize solutions for every client. Our brokerage framework combines institutional credibility with personalized service, ensuring that every policy placed reflects both market best practices and your specific requirements.",
+        features: ["IRDA Licensed", "Risk Consultancy", "Tailored Solutions"],
+        color: "bg-gray-100",
+        accent: "text-primary",
+        image: "/images/service-strategic-placement.png"
+    },
+    {
+        id: "07",
+        title: "Risk Management — Loss Prevention",
+        subtitle: "Proactive Defense.",
+        description: "Post-privatization, India general insurance moved to free pricing through detariffing, allowing insurers to price by risk. Brokers now play a key role in this evolved landscape, bridging technical expertise with market access. Our loss prevention protocols are engineered to reduce claim frequency and severity, transforming your risk profile from reactive to proactive — lowering premiums while strengthening your operational resilience.",
+        features: ["Loss Prevention Audits", "Risk Scoring", "Premium Optimization"],
+        color: "bg-gray-50",
+        accent: "text-primary",
+        image: "/images/service-risk-engineering.png"
+    },
+    {
+        id: "08",
+        title: "Insurance Solutions — Support Services",
+        subtitle: "End-to-End Framework.",
+        description: "Our Insurance Solutions encompass Engineering, Trade, Marine, Employee Benefits, Property and Casualty covers including CAR, MBD, Health, Credit, Marine, and much beyond. We deliver a comprehensive support framework that extends from initial risk assessment through policy servicing and claims resolution. Every solution is architected to provide seamless protection across your entire operational footprint, ensuring no exposure goes unaddressed or underinsured.",
+        features: ["Engineering & Trade", "Employee Benefits", "Property & Casualty"],
+        color: "bg-white",
+        accent: "text-primary",
+        image: "/images/service-claims-advocacy.png"
+    },
 ];
 
 const insuranceTypes = [
@@ -126,47 +168,15 @@ export default function ServicesPage() {
                 {/* Stacking Cards Section */}
                 <div ref={containerRef} className="relative mt-[10vh] mb-[10vh]">
                     <div className="container mx-auto px-6 mb-20 md:mb-32 text-center">
-                        <span className="text-primary text-xs font-bold uppercase tracking-[0.3em] block mb-6">Our Methodology</span>
+                        <span className="text-primary text-xs font-bold uppercase tracking-[0.3em] block mb-6">Our Services</span>
                         <h2 className="text-4xl md:text-7xl font-bold tracking-tighter text-primary">The Protection Matrix.</h2>
                     </div>
 
                     {coreServices.map((service, i) => {
-                        const targetScale = 1 - ((coreServices.length - i) * 0.05);
-                        return <Card key={i} index={i} card={service} range={[i * .25, 1]} targetScale={targetScale} progress={scrollYProgress} />
+                        const targetScale = 1 - ((coreServices.length - i) * 0.03);
+                        return <Card key={i} index={i} card={service} range={[i * (1 / coreServices.length), 1]} targetScale={targetScale} progress={scrollYProgress} />
                     })}
                 </div>
-
-                {/* Specialized Services - Grid */}
-                <section className="py-24 md:py-32 bg-white relative overflow-hidden border-t border-gray-100">
-                    <div className="container mx-auto px-6 md:px-12 relative z-10">
-                        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
-                            <div>
-                                <h2 className="text-4xl md:text-6xl font-bold text-primary tracking-tighter mb-4">Specialized Audits</h2>
-                                <p className="text-gray-400 max-w-md">Technical assessments designed to optimize operational efficiency and insurability.</p>
-                            </div>
-                            <div className="h-px w-full md:w-auto md:flex-1 bg-gray-100 mb-2 md:mx-12" />
-                            <div className="text-primary font-mono text-sm">05 MODULES</div>
-                        </div>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-100 border border-gray-100">
-                            {specializedServices.map((service, i) => (
-                                <div key={i} className="group relative p-10 bg-white hover:bg-gray-50 transition-colors duration-500">
-                                    <div className="text-4xl mb-6 opacity-30 group-hover:opacity-100 transition-opacity grayscale-0">{service.icon}</div>
-                                    <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-gray-700 transition-colors">{service.title}</h3>
-                                    <p className="text-sm text-gray-500 group-hover:text-gray-600 transition-colors leading-relaxed">{service.description}</p>
-                                </div>
-                            ))}
-                            {/* Empty filler for grid if needed, or join us card */}
-                            <div className="group relative p-10 bg-white hover:bg-primary hover:text-white transition-colors duration-500 flex flex-col justify-center items-center text-center cursor-pointer border border-gray-100">
-                                <h3 className="text-xl font-bold text-primary mb-2">Need Custom Analysis?</h3>
-                                <p className="text-sm text-gray-400 group-hover:text-white/90 mb-6">Contact our risk engineers.</p>
-                                <div className="w-10 h-10 rounded-full border border-gray-200 group-hover:bg-white group-hover:text-primary flex items-center justify-center transition-all">
-                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
                 {/* Ticker / Marquee for Coverage Types */}
                 <section className="py-24 bg-white border-t border-gray-100">
