@@ -69,7 +69,7 @@ const Team = () => {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
-                className="text-4xl sm:text-5xl md:text-[64px] font-bold text-primary tracking-tight leading-[1.15]"
+                className="text-4xl sm:text-5xl md:text-[64px] font-heading font-extrabold text-primary tracking-tight leading-[1.15]"
               >
                 Guided by <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent font-bold">Visionaries</span>
               </motion.h2>

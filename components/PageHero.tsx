@@ -87,7 +87,7 @@ const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, breadcrumb, backgr
                                         delay: 0.4 + i * 0.08,
                                         ease: [0.16, 1, 0.3, 1],
                                     }}
-                                    className="block text-white font-bold tracking-tighter leading-[1] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+                                    className="block text-white font-heading font-extrabold tracking-tight leading-[1] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
                                 >
                                     {word}
                                 </motion.span>

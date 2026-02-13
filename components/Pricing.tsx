@@ -66,7 +66,7 @@ const Pricing = () => {
             <div className="flex items-center gap-4 mb-8">
               <span className="uppercase tracking-[0.3em] text-xs font-bold text-accent">Pricing Plans</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-[64px] font-bold text-primary tracking-tight leading-[0.9] max-w-4xl">
+            <h2 className="text-4xl sm:text-5xl md:text-[64px] font-heading font-extrabold text-primary tracking-tight leading-[0.9] max-w-4xl">
               Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent font-bold">Insurance Plans</span>
             </h2>
           </div>

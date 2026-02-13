@@ -96,7 +96,7 @@ const Hero = () => {
               <div className="overflow-hidden">
                 <motion.h1
                   variants={textRevealVariants}
-                  className="text-white tracking-tight drop-shadow-lg block font-bold leading-[1.1] md:leading-[1.1]"
+                  className="text-white tracking-tight drop-shadow-lg block font-heading font-extrabold leading-[1.1] md:leading-[1.1]"
                   style={{ fontSize: 'clamp(2.5rem, 9vw, 5rem)' }}
                 >
                   Protecting Your
@@ -105,7 +105,7 @@ const Hero = () => {
               <div className="overflow-hidden">
                 <motion.h1
                   variants={textRevealVariants}
-                  className="font-bold text-white block leading-[1.1] md:leading-[1.1]"
+                  className="font-heading font-extrabold text-white block leading-[1.1] md:leading-[1.1]"
                   style={{ fontSize: 'clamp(2.5rem, 9vw, 5rem)' }}
                 >
                   Future & Legacy

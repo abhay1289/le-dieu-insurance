@@ -2,6 +2,7 @@
 
 @theme {
   --font-sans: var(--font-inter);
+  --font-heading: var(--font-jakarta);
 
   --color-primary: #000000;
   --color-secondary: #f8fafc;
