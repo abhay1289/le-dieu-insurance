@@ -56,8 +56,7 @@ const industrySolutions = [
         longDescription: "Our Industrial All Risk (IAR) frameworks are specifically engineered for the Indian manufacturing landscape. We don't just place policies; we conduct deep-dive technical audits to ensure that every unique operational risk—from boilerplate explosions to intricate supply chain disruptions—is accounted for and neutralized.",
         features: [
             { icon: "⚙️", title: "Asset Resilience", text: "End-to-end protection for plant, machinery, and physical assets." },
-            { icon: "📉", title: "Profit Continuity", text: "Advanced loss of profit modeling to shield your balance sheet." },
-            { icon: "🛡️", title: "Technical Audits", text: "Periodic risk engineering surveys to optimize coverage and safety." }
+            { icon: "📉", title: "Profit Continuity", text: "Advanced loss of profit modeling to shield your balance sheet." }
         ],
         coverages: ["Industrial All Risk", "Business Interruption", "Machinery Breakdown", "LOP (Loss of Profits)"],
         hexColor: "rgba(249, 115, 22, 0.08)",
@@ -72,8 +71,7 @@ const industrySolutions = [
         longDescription: "Managing the risk of a multi-billion dollar infrastructure project requires more than standard insurance. It requires an understanding of EPC contracts, geological uncertainties, and regulatory shifting. We provide the financial bedrock that allows engineers to focus on building the future of India.",
         features: [
             { icon: "🏗️", title: "CAR/EAR Mastery", text: "Comprehensive Contractor's and Erector's All Risk frameworks." },
-            { icon: "⏰", title: "ALOP Protection", text: "Shielding against financial losses due to project delays (Advanced LOP)." },
-            { icon: "⚖️", title: "Legal Liability", text: "Broad-spectrum third-party and public liability protection." }
+            { icon: "⏰", title: "ALOP Protection", text: "Shielding against financial losses due to project delays (Advanced LOP)." }
         ],
         coverages: ["Contractor's All Risk", "Marine Cargo (Daly)", "Professional Indemnity", "Third Party Liability"],
         hexColor: "rgba(34, 197, 94, 0.08)",
@@ -88,8 +86,7 @@ const industrySolutions = [
         longDescription: "As India transitions towards a greener grid, the risks associated with energy production are decoupling from traditional models. Whether it's managing the volatility of renewable assets or ensuring the stability of thermal giants, we provide specialized 'Mega Risk' policies that cover every kilowatt generated.",
         features: [
             { icon: "⚡", title: "Mega Risk Cover", text: "Custom-built frameworks for high-value power generation units." },
-            { icon: "☀️", title: "Renewable Assets", text: "Specific coverage for solar parks and wind energy installations." },
-            { icon: "🏚️", title: "NAT-CAT Resilience", text: "Protection against natural catastrophes and environmental shifts." }
+            { icon: "☀️", title: "Renewable Assets", text: "Specific coverage for solar parks and wind energy installations." }
         ],
         coverages: ["Mega Risk Policy", "Environmental Liability", "Terrorism Cover", "Grid Interruption"],
         hexColor: "rgba(234, 179, 8, 0.08)",
@@ -104,8 +101,7 @@ const industrySolutions = [
         longDescription: "In an era of rising litigation and digital warfare, corporate leaders face unprecedented personal and professional exposure. Our liability solutions act as a sophisticated shield, ensuring that board decisions and digital assets are protected by the world's leading 'A' rated underwriters.",
         features: [
             { icon: "👤", title: "D&O Shield", text: "Protecting Directors and Officers from personal liability claims." },
-            { icon: "💻", title: "Cyber Fortress", text: "Response-first coverage for data breaches and ransomware threats." },
-            { icon: "🏢", title: "E&O Coverage", text: "Shielding professional services from errors and omissions." }
+            { icon: "💻", title: "Cyber Fortress", text: "Response-first coverage for data breaches and ransomware threats." }
         ],
         coverages: ["Directors & Officers", "Cyber Liability", "Professional Indemnity", "Crime & Fraud"],
         hexColor: "rgba(168, 85, 247, 0.08)",
@@ -120,8 +116,7 @@ const industrySolutions = [
         longDescription: "The healthcare sector operates under a microscopic lens of accountability. We help medical institutions manage the duality of high-tech equipment risks and sensitive human-centric liabilities, providing a foundation for clinical excellence without the fear of crippling litigation.",
         features: [
             { icon: "🏥", title: "Medical Malpractice", text: "Dedicated coverage for healthcare professionals and entities." },
-            { icon: "🔬", title: "Equipment Safety", text: "Protection for high-value diagnostic and surgical infrastructure." },
-            { icon: "🤝", title: "Patient Liability", text: "Broad public liability and clinical trial insurance frameworks." }
+            { icon: "🔬", title: "Equipment Safety", text: "Protection for high-value diagnostic and surgical infrastructure." }
         ],
         coverages: ["Medical Malpractice", "Equipment Breakdown", "Public Liability", "Clinical Trial Cover"],
         hexColor: "rgba(100, 116, 139, 0.08)",
@@ -136,8 +131,7 @@ const industrySolutions = [
         longDescription: "A single incident can tarnish a decade of reputation building in the hospitality trade. We create a 360-degree safety net that covers the physical grandeur of your properties while ensuring that your guests' safety and your brand's integrity remain unshakeable.",
         features: [
             { icon: "🏨", title: "Property All Risk", text: "Shielding iconic hospitality assets from fire, flood, and theft." },
-            { icon: "🥂", title: "Guest Indemnity", text: "Comprehensive liability for guest accidents and hospitality errors." },
-            { icon: "🎟️", title: "Reputation Care", text: "Crisis management and business interruption following events." }
+            { icon: "🥂", title: "Guest Indemnity", text: "Comprehensive liability for guest accidents and hospitality errors." }
         ],
         coverages: ["Property All Risk", "Guest Liability", "Food & Liquor Liability", "Fidelity Guarantee"],
         hexColor: "rgba(244, 63, 94, 0.08)",
@@ -254,7 +248,7 @@ export default function SolutionsPage() {
                                                                 initial={{ opacity: 0 }}
                                                                 animate={{ opacity: 1 }}
                                                                 transition={{ delay: 0.5 }}
-                                                                className="grid grid-cols-1 gap-8"
+                                                                className="grid grid-cols-1 md:grid-cols-2 gap-8"
                                                             >
                                                                 {solution.features.map((feature, fi) => (
                                                                     <div key={fi} className="p-8 rounded-[2rem] bg-gray-50 border border-gray-100 hover:border-accent/30 hover:bg-white transition-all duration-500 group/item shadow-sm hover:shadow-xl">
@@ -342,9 +336,7 @@ export default function SolutionsPage() {
                             </motion.h2>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-12 relative">
-                            {/* Connecting Line (Desktop) */}
-                            <div className="hidden lg:block absolute top-[40px] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-transparent via-gray-100 to-transparent" />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative">
 
                             {processSteps.map((step, i) => (
                                 <motion.div
