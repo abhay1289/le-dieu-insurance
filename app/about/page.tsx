@@ -17,7 +17,7 @@ function SpotlightCard({ children, className = "", color = "rgba(255, 255, 255, 
         <motion.div
             whileHover={{ y: -8, scale: 1.01 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className={`group relative overflow-hidden rounded-[2rem] border border-gray-100 bg-white p-1 transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)] hover:border-accent/40 ${className}`}
+            className={`group relative overflow-hidden rounded-2xl md:rounded-[2rem] border border-gray-100 bg-white p-1 transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)] hover:border-accent/40 ${className}`}
             onMouseMove={handleMouseMove}
         >
             <motion.div
@@ -154,7 +154,7 @@ export default function AboutPage() {
                     <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-accent/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
                     <div className="container mx-auto px-6 md:px-12 relative z-10">
-                        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                        <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-center">
                             {/* Typography */}
                             <motion.div
                                 initial="hidden"

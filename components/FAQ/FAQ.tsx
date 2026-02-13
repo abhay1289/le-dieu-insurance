@@ -132,7 +132,7 @@ const FAQ = () => {
                                         <span className={`text-2xl md:text-3xl font-semibold transition-colors duration-300 ${activeIndex === index ? 'text-primary' : 'text-gray-900 group-hover:text-primary'}`}>
                                             {faq.question}
                                         </span>
-                                        <div className={`relative flex-shrink-0 w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center transition-all duration-300 ${activeIndex === index ? 'bg-accent border-accent rotate-45' : 'group-hover:border-accent'}`}>
+                                        <div className={`relative flex-shrink-0 w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center transition-all duration-300 ${activeIndex === index ? 'bg-accent border-accent rotate-45' : 'group-hover:border-accent'}`}>
                                             <svg
                                                 className={`w-4 h-4 transition-colors duration-300 ${activeIndex === index ? 'text-white' : 'text-primary'}`}
                                                 fill="none"

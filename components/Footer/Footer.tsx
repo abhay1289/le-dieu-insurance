@@ -121,7 +121,8 @@ const Footer = () => {
                whileInView={{ opacity: 1 }}
                viewport={{ once: true }}
                transition={{ duration: 1 }}
-               className="absolute bottom-[5%] sm:bottom-[-2%] left-0 w-full text-center font-bold text-[15vw] sm:text-[18vw] leading-none select-none text-white/[0.06] tracking-tighter pointer-events-none"
+               whileHover={{ opacity: 0.15, scale: 1.02 }}
+               className="absolute bottom-[5%] sm:bottom-[-2%] left-0 w-full text-center font-heading font-extrabold text-[15vw] sm:text-[18vw] leading-none select-none text-white/[0.06] tracking-tighter pointer-events-auto cursor-default transition-all duration-700"
             >
                Le Dieu
             </motion.div>

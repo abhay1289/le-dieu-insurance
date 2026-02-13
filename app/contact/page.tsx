@@ -65,7 +65,7 @@ function OfficeCard({ office, index }: { office: typeof offices[0]; index: numbe
             transition={{ delay: index * 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -4 }}
             onMouseMove={handleMouseMove}
-            className="group relative overflow-hidden rounded-[2rem] border border-gray-100 bg-white transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.06)] hover:border-accent/30"
+            className="group relative overflow-hidden rounded-2xl md:rounded-[2rem] border border-gray-100 bg-white transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.06)] hover:border-accent/30"
         >
             <motion.div
                 className="pointer-events-none absolute -inset-px opacity-0 transition duration-500 group-hover:opacity-100"
@@ -198,7 +198,7 @@ export default function ContactPage() {
                                         <motion.div
                                             initial={{ opacity: 0, scale: 0.95 }}
                                             animate={{ opacity: 1, scale: 1 }}
-                                            className="bg-gray-50 rounded-[2rem] p-12 md:p-20 text-center border border-gray-100"
+                                            className="bg-gray-50 rounded-2xl md:rounded-[2rem] p-8 md:p-20 text-center border border-gray-100"
                                         >
                                             <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
                                                 <svg className="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
@@ -261,7 +261,7 @@ export default function ContactPage() {
                                             </div>
                                             <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-6">
                                                 <button type="submit"
-                                                    className="bg-accent text-white px-10 py-4 rounded-full font-bold text-sm tracking-wide hover:bg-accent-hover transition-all duration-300 flex items-center gap-3 hover:scale-[1.02] transform shadow-lg shadow-accent/20">
+                                                    className="bg-accent text-white px-10 py-4 rounded-full font-bold text-sm tracking-wide hover:bg-accent-hover transition-all duration-300 flex items-center gap-3 hover:scale-[1.02] transform">
                                                     Send Message
                                                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                                                 </button>
@@ -283,7 +283,7 @@ export default function ContactPage() {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                        className="p-6 md:p-8 rounded-[2rem] bg-primary text-white relative overflow-hidden"
+                                        className="p-6 md:p-8 rounded-2xl md:rounded-[2rem] bg-primary text-white relative overflow-hidden"
                                     >
                                         <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-accent/10 rounded-full blur-[80px] pointer-events-none" />
                                         <div className="relative z-10">

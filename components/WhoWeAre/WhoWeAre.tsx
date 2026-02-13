@@ -10,7 +10,7 @@ const StatItem = ({ number, text }: { number: string; text: string }) => (
         whileInView={{ y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any }}
-        className="block text-5xl md:text-6xl font-medium text-primary tracking-tight"
+        className="block text-4xl sm:text-5xl md:text-6xl font-medium text-primary tracking-tight"
       >
         {number}
       </motion.span>
@@ -70,7 +70,7 @@ const WhoWeAre = () => {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] as any }}
-              className="relative rounded-[3rem] overflow-hidden aspect-[16/10] shadow-2xl group"
+              className="relative rounded-2xl md:rounded-[3rem] overflow-hidden aspect-[16/10] shadow-2xl group"
             >
               <motion.div style={{ scale: imageScale }} className="w-full h-full">
                 <img

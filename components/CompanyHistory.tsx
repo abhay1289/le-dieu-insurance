@@ -30,7 +30,7 @@ const ValueCard = ({ title, desc, icon, index }: { title: string, desc: string, 
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6, delay: index * 0.2 }}
-    className="bg-white p-10 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 group"
+    className="bg-white p-6 md:p-10 rounded-2xl md:rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 group"
   >
     <div className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center text-primary mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
       {icon}
@@ -101,7 +101,7 @@ const CompanyHistory = () => {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="aspect-[16/10] rounded-[3rem] overflow-hidden shadow-2xl relative z-10">
+            <div className="aspect-[16/10] rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl relative z-10">
               <img
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop"
                 alt="Strategic Meeting"
@@ -110,7 +110,7 @@ const CompanyHistory = () => {
               <div className="absolute inset-0 bg-primary/10"></div>
             </div>
             {/* Decorative Frame */}
-            <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-accent/30 rounded-[3rem] -z-0"></div>
+            <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-accent/30 rounded-2xl md:rounded-[3rem] -z-0"></div>
           </motion.div>
         </div>
 
@@ -122,7 +122,7 @@ const CompanyHistory = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="bg-primary text-white p-10 rounded-[2rem] h-full flex flex-col justify-between relative overflow-hidden"
+              className="bg-primary text-white p-6 md:p-10 rounded-2xl md:rounded-[2rem] h-full flex flex-col justify-between relative overflow-hidden"
             >
               <div className="relative z-10">
                 <h3 className="text-3xl font-bold text-primary mb-6 tracking-tight">Our Mission</h3>

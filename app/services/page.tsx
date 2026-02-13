@@ -97,7 +97,7 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
     }
 
     return (
-        <div className="h-screen flex items-center justify-center sticky top-0">
+        <div className="h-[85vh] md:h-screen flex items-center justify-center sticky top-0">
             <motion.div
                 style={{ scale, top: `calc(-5vh + ${index * 25}px)` }}
                 onMouseMove={handleMouseMove}
@@ -251,7 +251,7 @@ export default function ServicesPage() {
                                 </motion.p>
                             </div>
 
-                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 rounded-[2rem] overflow-hidden border border-gray-200">
+                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 rounded-2xl md:rounded-[2rem] overflow-hidden border border-gray-200">
                                 {[
                                     { title: "Discovery", desc: "Deep-dive workshops with your leadership to map every exposure vector, contractual obligation, and operational dependency across your enterprise." },
                                     { title: "Architecture", desc: "Quantitative stress-testing of your current risk portfolio against catastrophic scenarios, followed by custom framework design with 21+ insurers." },

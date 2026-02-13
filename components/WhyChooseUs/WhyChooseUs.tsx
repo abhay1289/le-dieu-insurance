@@ -161,7 +161,7 @@ const WhyChooseUs = () => {
                variants={{
                   visible: { transition: { staggerChildren: 0.1 } }
                }}
-               className="grid md:grid-cols-2 lg:grid-cols-4 border-l border-t border-gray-100 mb-12 md:mb-20 shadow-[0_40px_100px_rgba(0,0,0,0.02)] rounded-[2rem] overflow-hidden"
+               className="grid md:grid-cols-2 lg:grid-cols-4 border-l border-t border-gray-100 mb-12 md:mb-20 shadow-[0_40px_100px_rgba(0,0,0,0.02)] rounded-2xl md:rounded-[2rem] overflow-hidden"
             >
                {features.map((feature, index) => (
                   <FeatureCard key={index} {...feature} index={index} />

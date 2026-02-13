@@ -25,7 +25,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, index }) => {
       transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as any }}
       className="group relative"
     >
-      <div className="relative rounded-[2.5rem] overflow-hidden bg-[#F2F4F3] aspect-[3/4] shadow-sm hover:shadow-2xl transition-all duration-700">
+      <div className="relative rounded-2xl md:rounded-[2.5rem] overflow-hidden bg-[#F2F4F3] aspect-[3/4] shadow-sm hover:shadow-2xl transition-all duration-700">
         <motion.img
           src={member.image}
           alt={member.name}

@@ -249,7 +249,7 @@ export default function SolutionsPage() {
                                                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                                                         className="overflow-hidden"
                                                     >
-                                                        <div className="relative grid lg:grid-cols-2 gap-12 md:gap-20 pt-16 pb-12">
+                                                        <div className="relative grid lg:grid-cols-2 gap-8 md:gap-20 pt-8 md:pt-16 pb-8 md:pb-12">
 
                                                             {/* Left Column */}
                                                             <div className="flex flex-col justify-between h-full">
@@ -306,7 +306,7 @@ export default function SolutionsPage() {
                                                                     transition={{ delay: 0.3, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                                                                     className="relative group/img"
                                                                 >
-                                                                    <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5] shadow-2xl">
+                                                                    <div className="relative rounded-2xl md:rounded-[2rem] overflow-hidden aspect-[4/5] shadow-2xl">
                                                                         <motion.img
                                                                             initial={{ scale: 1.1 }}
                                                                             animate={{ scale: 1 }}
