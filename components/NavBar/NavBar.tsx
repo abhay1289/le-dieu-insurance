@@ -135,7 +135,7 @@ const NavBar = () => {
               <div className="h-8 md:h-9"></div> {/* Placeholder for logic */}
             </div>
 
-            <div className="flex-1 overflow-y-auto px-6 py-8 mt-20">
+            <div className="flex-1 overflow-y-auto px-6 py-8 mt-2">
               <div className="flex flex-col gap-2">
                 {[
                   { text: 'Home', href: '/' },

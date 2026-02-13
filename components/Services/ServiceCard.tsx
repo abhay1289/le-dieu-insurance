@@ -25,7 +25,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
         visible: { opacity: 1, y: 0 }
       }}
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any }}
-      className="group relative h-auto min-h-[360px] md:h-[500px] lg:h-[650px] bg-white overflow-hidden border-r border-b border-gray-200 last:border-r-0 lg:border-b-0 hover:z-10 cursor-pointer"
+      className="group relative h-auto min-h-[500px] md:h-[500px] lg:h-[650px] bg-white overflow-hidden border-r border-b border-gray-200 last:border-r-0 lg:border-b-0 hover:z-10 cursor-pointer"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -87,14 +87,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
               initial: { color: '#ffffff' },
               active: { color: index === 2 ? '#ffffff' : 'var(--color-accent-green)' }
             }}
-            className="text-3xl md:text-4xl lg:text-5xl font-light mb-3 md:mb-4 transition-colors duration-500 leading-[1.1] tracking-tight"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold md:font-light mb-3 md:mb-4 transition-colors duration-500 leading-[1.1] tracking-tight"
           >
             {service.title.split(' ')[0]} <br />
             <span className="font-bold">{service.title.split(' ').slice(1).join(' ')}</span>
           </motion.h3>
 
           {/* Mobile: always visible / Desktop: reveal on hover */}
-          <p className="text-white/80 text-sm md:text-lg font-normal leading-relaxed max-w-sm mb-4 md:mb-0 block md:hidden">
+          <p className="text-white text-sm md:text-lg font-bold leading-relaxed max-w-sm mb-4 md:mb-0 block md:hidden">
             {service.description}
           </p>
           <motion.div
