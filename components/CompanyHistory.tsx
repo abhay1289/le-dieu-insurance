@@ -32,7 +32,7 @@ const ValueCard = ({ title, desc, icon, index }: { title: string, desc: string, 
     transition={{ duration: 0.6, delay: index * 0.2 }}
     className="bg-white p-10 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 group"
   >
-    <div className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-accent transition-colors duration-300">
+    <div className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center text-primary mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
       {icon}
     </div>
     <h3 className="text-xl font-bold text-primary mb-4">{title}</h3>

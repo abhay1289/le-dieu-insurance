@@ -300,7 +300,7 @@ export default function SolutionsPage() {
                                                                         whileHover={{ y: -4, transition: { duration: 0.3 } }}
                                                                         className="p-6 md:p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:border-accent/30 hover:bg-white transition-all duration-500 group/item hover:shadow-xl"
                                                                     >
-                                                                        <div className="w-12 h-12 rounded-xl bg-white border border-gray-100 flex items-center justify-center mb-5 group-hover/item:bg-primary group-hover/item:text-white group-hover/item:border-primary transition-all duration-500 text-primary">
+                                                                        <div className="w-12 h-12 rounded-xl bg-white border border-gray-100 flex items-center justify-center mb-5 group-hover/item:bg-accent group-hover/item:text-white group-hover/item:border-accent transition-all duration-500 text-primary">
                                                                             {feature.icon}
                                                                         </div>
                                                                         <h4 className="text-lg font-bold text-primary mb-2 tracking-tight">{feature.title}</h4>
