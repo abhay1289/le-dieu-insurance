@@ -212,7 +212,7 @@ export default function SolutionsPage() {
                                         >
                                             <div className="flex items-center gap-6 md:gap-8">
                                                 <motion.span
-                                                    animate={{ color: isActive ? '#22c55e' : '#d1d5db' }}
+                                                    animate={{ color: isActive ? '#384A8D' : '#d1d5db' }}
                                                     transition={{ duration: 0.5 }}
                                                     className="text-sm font-bold tracking-widest"
                                                 >

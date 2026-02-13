@@ -70,7 +70,7 @@ function OfficeCard({ office, index }: { office: typeof offices[0]; index: numbe
             <motion.div
                 className="pointer-events-none absolute -inset-px opacity-0 transition duration-500 group-hover:opacity-100"
                 style={{
-                    background: useMotionTemplate`radial-gradient(500px circle at ${mouseX}px ${mouseY}px, rgba(34,197,94,0.08), transparent 80%)`,
+                    background: useMotionTemplate`radial-gradient(500px circle at ${mouseX}px ${mouseY}px, rgba(56,74,141,0.08), transparent 80%)`,
                 }}
             />
 

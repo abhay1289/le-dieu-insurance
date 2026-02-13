@@ -107,7 +107,7 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                 <motion.div
                     className="pointer-events-none absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-30"
                     style={{
-                        background: useMotionTemplate`radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(34,197,94,0.07), transparent 70%)`,
+                        background: useMotionTemplate`radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(56,74,141,0.07), transparent 70%)`,
                     }}
                 />
 

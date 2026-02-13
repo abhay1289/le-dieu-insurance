@@ -5,9 +5,9 @@
 
   --color-primary: #000000;
   --color-secondary: #f8fafc;
-  --color-accent: #22c55e;
-  --color-accent-green: #4ade80;
-  --color-accent-hover: #16a34a;
+  --color-accent: #384A8D;
+  --color-accent-green: #4A5FA3;
+  --color-accent-hover: #2D3D75;
   --color-light-gray: #f4f4f4;
 
   --image-hero-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
@@ -85,12 +85,12 @@ body {
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #22c55e;
+  background: #384A8D;
 }
 
 /* Smooth focus outlines */
 *:focus-visible {
-  outline: 2px solid #22c55e;
+  outline: 2px solid #384A8D;
   outline-offset: 2px;
   border-radius: 4px;
 }

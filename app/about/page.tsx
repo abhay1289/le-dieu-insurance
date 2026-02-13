@@ -88,7 +88,7 @@ const values = [
         icon: <IntegrityIcon />,
         title: "Unwavering Integrity",
         description: "We operate with radical transparency. Your best interest is our only interest — commission never dictates our counsel.",
-        color: "rgba(34, 197, 94, 0.15)",
+        color: "rgba(56, 74, 141, 0.15)",
         gridClass: "lg:col-span-2"
     },
     {
@@ -102,7 +102,7 @@ const values = [
         icon: <VelocityIcon />,
         title: "Claims Velocity",
         description: "A dedicated claims division that fights for your settlement. We measure success by the speed and fairness of every recovery.",
-        color: "rgba(34, 197, 94, 0.1)",
+        color: "rgba(56, 74, 141, 0.1)",
         gridClass: "lg:col-span-2"
     },
     {
