@@ -1,238 +1,247 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Compass, Eye, Shield, Target, Zap, Balance, Users, Heart } from 'lucide-react';
 import NavBar from '@/components/NavBar/NavBar';
 import Footer from '@/components/Footer/Footer';
-import PageHero from '@/components/PageHero';
+import FAQ from '@/components/FAQ/FAQ';
 import ScrollProgress from '@/components/ScrollProgress/ScrollProgress';
 import SmoothScroll from '@/components/SmoothScroll';
 
-const textRevealVariants = {
-    hidden: { y: "100%" },
-    visible: {
-        y: 0,
-        transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-    },
-};
-
-const fadeUpVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
-};
-
-const staggerContainer = {
-    hidden: { opacity: 0 },
+const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
     visible: {
         opacity: 1,
-        transition: { staggerChildren: 0.15, delayChildren: 0.1 },
-    },
+        y: 0,
+        transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    }
 };
 
-const milestones = [
-    { year: "2003", title: "Inception & Licensing", description: "Le Dieu established as a Direct Insurance Broking Firm with full IRDA licensing, setting a new standard for transparency." },
-    { year: "2008", title: "Corporate Expansion", description: "Rapid expansion into large industrial sectors, securing mandates for power projects and infrastructure developments." },
-    { year: "2013", title: "Pan-India Presence", description: "Established strategic corporate offices in Bhopal and New Delhi, extending service delivery across all major Indian states." },
-    { year: "2018", title: "Digital Evolution", description: "Integration of advanced risk analytics and digital policy management systems to offer real-time insights to clients." },
-    { year: "2023", title: "20 Years of Trust", description: "Celebrating two decades of excellence, protecting over 10,000 families and businesses with claims settled exceeding ₹500 Cr." },
-];
-
-const values = [
-    { icon: "🛡️", title: "Unwavering Integrity", description: "We operate with radical transparency. Your best interest is our only interest—commission never dictates our counsel." },
-    { icon: "🎯", title: "Precision Tailoring", description: "We reject off-the-shelf policies. Every solution is architected around your unique risk profile and business DNA." },
-    { icon: "⚡", title: "Claims Velocity", description: "A dedicated claims division that fights for your settlement. We measure success by the speed and fairness of your recovery." },
-    { icon: "🏢", title: "Sector Mastery", description: "Deep, specialized knowledge across manufacturing, infrastructure, and corporate risk landscapes." },
-];
-
-const stats = [
-    { number: "20+", label: "Years of Excellence" },
-    { number: "10k+", label: "Clients Protected" },
-    { number: "21+", label: "Insurer Partners" },
-    { number: "₹500Cr+", label: "Claims Settled" },
-];
+const stagger = {
+    visible: {
+        transition: { staggerChildren: 0.1 }
+    }
+};
 
 export default function AboutPage() {
-    const containerRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end end"]
-    });
-
     return (
         <SmoothScroll>
-            <div ref={containerRef} className="min-h-screen bg-primary text-white selection:bg-accent selection:text-white">
+            <div className="min-h-screen bg-white font-sans text-neutral-900 selection:bg-neutral-900 selection:text-white">
                 <ScrollProgress />
                 <NavBar />
 
-                <PageHero
-                    title="About Le Dieu"
-                    subtitle="Architecting resilience for India's most ambitious enterprises since 2003."
-                    breadcrumb="About Us"
-                    backgroundImage="/images/about-team.png"
-                />
+                <main>
+                    {/* --- Hero Section (Inspired by Image 1) --- */}
+                    <section className="relative h-screen flex items-center overflow-hidden">
+                        <div className="absolute inset-0">
+                            <img
+                                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2670&auto=format&fit=crop"
+                                alt="Modern Corporate Office"
+                                className="w-full h-full object-cover grayscale brightness-[0.3]"
+                            />
+                            <div className="absolute inset-0 bg-neutral-950/40" />
+                        </div>
 
-                {/* Strategic Vision Section - White Layout */}
-                <section className="relative py-24 md:py-40 bg-white overflow-hidden">
-                    {/* Ambient Background Elements */}
-                    <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] bg-gray-100 rounded-full blur-[100px] pointer-events-none" />
-
-                    <div className="container mx-auto px-6 md:px-12 relative z-10">
-                        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                            {/* Typography */}
+                        <div className="container mx-auto px-6 md:px-12 relative z-10 pt-20">
                             <motion.div
                                 initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                variants={staggerContainer}
+                                animate="visible"
+                                variants={stagger}
+                                className="max-w-4xl"
                             >
-                                <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mb-8">
-                                    <div className="h-px w-8 bg-accent"></div>
-                                    <span className="text-xs font-bold tracking-[0.3em] text-accent uppercase">Our Identity</span>
+                                <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-10">
+                                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70">Home</span>
+                                    <span className="text-white/30 text-[10px] tracking-[0.2em]">/</span>
+                                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white">About Us</span>
                                 </motion.div>
 
-                                <div className="space-y-4 mb-10">
-                                    <div className="overflow-hidden">
-                                        <motion.h2 variants={textRevealVariants} className="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-primary">
-                                            Beyond
-                                        </motion.h2>
-                                    </div>
-                                    <div className="overflow-hidden">
-                                        <motion.h2 variants={textRevealVariants} className="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                                            Insurance.
-                                        </motion.h2>
-                                    </div>
-                                </div>
+                                <motion.h1
+                                    variants={fadeUp}
+                                    className="text-6xl md:text-9xl font-bold tracking-tighter text-white leading-[0.85] mb-8 uppercase"
+                                >
+                                    Architecting <br />
+                                    <span className="text-white/40">Resilience</span>
+                                </motion.h1>
 
-                                <motion.p variants={fadeUpVariants} className="text-xl text-gray-500 leading-relaxed max-w-lg mb-8 font-light border-l border-gray-200 pl-6">
-                                    Le Dieu Insurance Brokers is not just an intermediary; we are your strategic risk partners. Licensed by IRDA since 2003, we bridge the gap between complex enterprise risks and optimal financial protection.
+                                <motion.p
+                                    variants={fadeUp}
+                                    className="text-lg md:text-2xl text-white/60 leading-relaxed max-w-2xl font-light"
+                                >
+                                    Building the premier platform for enterprise risk management and insurance excellence in India.
                                 </motion.p>
-
-                                <motion.div variants={fadeUpVariants}>
-                                    <a
-                                        href="/contact"
-                                        className="inline-flex items-center gap-4 group cursor-pointer"
-                                    >
-                                        <div className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all duration-300">
-                                            <svg className="w-4 h-4 text-primary group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                                        </div>
-                                        <span className="text-sm font-bold uppercase tracking-widest text-primary group-hover:text-accent transition-colors">Start the dialogue</span>
-                                    </a>
-                                </motion.div>
-                            </motion.div>
-
-                            {/* Statistical Excellence - Glass Cards */}
-                            <motion.div
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-                                className="grid gap-6"
-                            >
-                                <motion.div variants={fadeUpVariants} className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-accent/30 transition-colors duration-500 shadow-sm hover:shadow-md">
-                                    <h3 className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-4">Market Leadership</h3>
-                                    <p className="text-primary text-lg leading-relaxed">
-                                        Serving prestigious industrial houses, power projects, and infrastructure giants with a philosophy of <span className="text-accent font-medium">zero compromise</span> on coverage quality.
-                                    </p>
-                                </motion.div>
-                                <motion.div variants={fadeUpVariants} className="grid grid-cols-2 gap-6">
-                                    {stats.map((stat, i) => (
-                                        <div key={i} className="p-6 rounded-3xl bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-md transition-all duration-500">
-                                            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.number}</div>
-                                            <div className="text-gray-400 text-[10px] uppercase font-bold tracking-wider">{stat.label}</div>
-                                        </div>
-                                    ))}
-                                </motion.div>
                             </motion.div>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                {/* Bento Grid Values Section */}
-                <section className="py-24 md:py-32 bg-black/20 relative">
-                    <div className="container mx-auto px-6 md:px-12">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            className="mb-20 text-center max-w-3xl mx-auto"
-                        >
-                            <motion.h2 variants={fadeUpVariants} className="text-3xl md:text-5xl font-bold tracking-tighter mb-6 text-white">The Principles That Drive Us</motion.h2>
-                            <motion.p variants={fadeUpVariants} className="text-white/60 text-lg">Foundation of trust built over two decades of unwavering service.</motion.p>
-                        </motion.div>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {values.map((val, i) => (
+                    {/* --- Story Section (Inspired by Image 2) --- */}
+                    <section className="py-24 md:py-40 bg-white">
+                        <div className="container mx-auto px-6 md:px-12">
+                            <div className="grid lg:grid-cols-2 gap-20 items-center">
                                 <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 30 }}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true }}
+                                    variants={stagger}
+                                >
+                                    <motion.span variants={fadeUp} className="text-[11px] font-bold uppercase tracking-[0.4em] text-neutral-400 mb-6 block">
+                                        Our Legacy
+                                    </motion.span>
+                                    <motion.h2 variants={fadeUp} className="text-5xl md:text-6xl font-bold tracking-tighter leading-none mb-10 text-neutral-900 uppercase">
+                                        It Started with <br />a Vision
+                                    </motion.h2>
+
+                                    <div className="space-y-6 text-lg text-neutral-600 leading-relaxed font-light max-w-xl">
+                                        <motion.p variants={fadeUp}>
+                                            It started with a question that wouldn't let us go: Why don't we have a world-class, natural-risk consultancy right here at home? A place where the game of risk could be played the way it was meant to be played.
+                                        </motion.p>
+                                        <motion.p variants={fadeUp}>
+                                            The Indian industrial region has always had the heart. We have dedicated founders, passionate teams, and communities that believe in the power of stability to bring people together. What we were missing wasn't passion, it was a home. A true foundation.
+                                        </motion.p>
+
+                                        <motion.div variants={fadeUp} className="pt-4 border-l-4 border-neutral-900 pl-8">
+                                            <p className="text-2xl font-medium text-neutral-900 italic">"So we chose to build it."</p>
+                                        </motion.div>
+
+                                        <motion.p variants={fadeUp} className="pt-4">
+                                            With local belief, hard work, and a vision for something better. This is a project created by people who live here, work here, and refuse to settle for less than what this nation deserves.
+                                        </motion.p>
+                                    </div>
+                                </motion.div>
+
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                    className="relative aspect-square rounded-[3rem] overflow-hidden shadow-2xl"
+                                >
+                                    <img
+                                        src="https://images.unsplash.com/photo-1600880210834-4e31e5f8f203?q=80&w=2670&auto=format&fit=crop"
+                                        alt="Indian Corporate Hub"
+                                        className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-neutral-900/5" />
+                                </motion.div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* --- Purpose & Direction (Inspired by Image 3) --- */}
+                    <section className="py-24 md:py-40 bg-[#fbfbf9]">
+                        <div className="container mx-auto px-6 md:px-12">
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={stagger}
+                                className="text-center mb-24"
+                            >
+                                <motion.span variants={fadeUp} className="text-[11px] font-bold uppercase tracking-[0.4em] text-neutral-400 mb-6 block">
+                                    What Drives Us
+                                </motion.span>
+                                <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-bold tracking-tighter uppercase text-neutral-900">
+                                    Purpose & <span className="text-neutral-400">Direction</span>
+                                </motion.h2>
+                                <motion.p variants={fadeUp} className="text-lg text-neutral-500 max-w-2xl mx-auto mt-8 font-light">
+                                    Every great organization is built on a strong foundation of purpose and a clear vision for the future.
+                                </motion.p>
+                            </motion.div>
+
+                            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                                {/* Mission Card */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 40 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                    className="group relative p-8 rounded-3xl bg-gradient-to-b from-white/10 to-transparent border border-white/5 hover:border-accent/40 transition-all duration-500 overflow-hidden"
+                                    className="bg-white p-12 md:p-16 rounded-[2.5rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.04)] border border-neutral-100 flex flex-col items-start gap-8 group hover:translate-y-[-10px] transition-all duration-500"
                                 >
-                                    <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/5 transition-colors duration-500" />
-                                    <div className="relative z-10">
-                                        <div className="text-4xl mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">{val.icon}</div>
-                                        <h3 className="text-xl font-bold text-white mb-4 group-hover:text-accent transition-colors">{val.title}</h3>
-                                        <p className="text-sm text-white/50 leading-relaxed group-hover:text-white/80 transition-colors">{val.description}</p>
+                                    <div className="w-16 h-16 rounded-2xl bg-neutral-900 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-500">
+                                        <Zap className="w-8 h-8" />
+                                    </div>
+                                    <div>
+                                        <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 block mb-4">Our Mission</span>
+                                        <h3 className="text-4xl font-bold tracking-tight mb-6">Why We Exist</h3>
+                                        <p className="text-neutral-500 leading-relaxed text-lg font-light">
+                                            To inspire and develop the next generation of industrial frameworks by delivering international-standard risk audits and high-performance policy placement—empowering enterprises to reach their fullest potential.
+                                        </p>
                                     </div>
                                 </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
 
-                {/* Cinematic Timeline */}
-                <section className="py-24 md:py-40 bg-primary relative overflow-hidden">
-                    <div className="container mx-auto px-6 md:px-12">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            className="mb-24 md:mb-32"
-                        >
-                            <motion.h2 variants={textRevealVariants} className="text-4xl md:text-8xl font-bold tracking-tighter text-white/10">TIMELINE</motion.h2>
-                            <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mt-[-2rem] md:mt-[-4rem] ml-2">
-                                <div className="h-px w-12 bg-accent"></div>
-                                <span className="text-accent font-bold tracking-[0.3em] uppercase">Milestones</span>
-                            </motion.div>
-                        </motion.div>
-
-                        <div className="relative max-w-4xl mx-auto">
-                            {/* Central Line */}
-                            <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent transform md:-translate-x-1/2" />
-
-                            {milestones.map((milestone, i) => (
+                                {/* Vision Card */}
                                 <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 50 }}
+                                    initial={{ opacity: 0, y: 40 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                    className={`relative flex items-center gap-10 md:gap-20 mb-20 last:mb-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.1 }}
+                                    className="bg-white p-12 md:p-16 rounded-[2.5rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.04)] border border-neutral-100 flex flex-col items-start gap-8 group hover:translate-y-[-10px] transition-all duration-500"
                                 >
-                                    {/* Spacer for desktop alignment */}
-                                    <div className="hidden md:block flex-1" />
-
-                                    {/* Node */}
-                                    <div className="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-primary border border-accent flex items-center justify-center shadow-[0_0_20px_rgba(34,197,94,0.3)]">
-                                        <div className="w-2 h-2 rounded-full bg-accent" />
+                                    <div className="w-16 h-16 rounded-2xl bg-neutral-200 flex items-center justify-center text-neutral-900 group-hover:scale-110 transition-transform duration-500">
+                                        <Eye className="w-8 h-8" />
                                     </div>
-
-                                    {/* Content */}
-                                    <div className="flex-1 pl-4 md:pl-0">
-                                        <div className="group relative p-8 rounded-2xl bg-white/[0.02] border border-white/10 hover:bg-white/[0.04] hover:border-accent/30 transition-all duration-500">
-                                            <div className="text-accent text-xs font-bold uppercase tracking-widest mb-2">{milestone.year}</div>
-                                            <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">{milestone.title}</h3>
-                                            <p className="text-white/60 text-sm leading-relaxed">{milestone.description}</p>
-                                        </div>
+                                    <div>
+                                        <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 block mb-4">Our Vision</span>
+                                        <h3 className="text-4xl font-bold tracking-tight mb-6">Where We're Going</h3>
+                                        <p className="text-neutral-500 leading-relaxed text-lg font-light">
+                                            To be internationally recognized as India's leading center of excellence for risk management and a premier destination for world-class, multi-sector insurance strategies.
+                                        </p>
                                     </div>
                                 </motion.div>
-                            ))}
+                            </div>
                         </div>
+                    </section>
+
+                    {/* --- Values Section (Inspired by Image 4) --- */}
+                    <section className="py-24 md:py-40 bg-white">
+                        <div className="container mx-auto px-6 md:px-12">
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={stagger}
+                                className="text-center mb-24"
+                            >
+                                <motion.span variants={fadeUp} className="text-[11px] font-bold uppercase tracking-[0.4em] text-neutral-400 mb-6 block">
+                                    What We Stand For
+                                </motion.span>
+                                <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-bold tracking-tighter uppercase text-neutral-900">
+                                    Our <span className="text-neutral-400">Values</span>
+                                </motion.h2>
+                            </motion.div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                {[
+                                    { icon: <Shield className="w-6 h-6" />, title: "INTEGRITY", desc: "Foundation of transparency without compromise. We honor our heritage through ethics, not imitation." },
+                                    { icon: <Users className="w-6 h-6" />, title: "COMMUNITY", desc: "Every enterprise has a place here. From industrial giants to startups, you belong to our shield." },
+                                    { icon: <Heart className="w-6 h-6" />, title: "PASSION", desc: "Insurance isn't just numbers to us. It's how we protect growth, innovation, and the next generation." },
+                                    { icon: <Balance className="w-6 h-6" />, title: "ADVOCACY", desc: "Client advocacy matters. So does claims excellence. We hold both together for your peace of mind." }
+                                ].map((value, i) => (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: i * 0.1 }}
+                                        className="bg-white p-10 rounded-[2rem] border border-neutral-100 shadow-sm hover:shadow-xl hover:translate-y-[-5px] transition-all duration-500 text-center flex flex-col items-center gap-6"
+                                    >
+                                        <div className="w-14 h-14 rounded-full bg-neutral-50 flex items-center justify-center text-neutral-400 group-hover:text-neutral-900 transition-colors">
+                                            {value.icon}
+                                        </div>
+                                        <h3 className="text-xl font-bold tracking-widest text-neutral-900 uppercase">{value.title}</h3>
+                                        <p className="text-neutral-500 text-sm leading-relaxed font-light">
+                                            {value.desc}
+                                        </p>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* --- FAQ Section --- */}
+                    <div id="faq">
+                        <FAQ />
                     </div>
-                </section>
+                </main>
 
                 <Footer />
             </div>
