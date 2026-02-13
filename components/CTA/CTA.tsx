@@ -53,12 +53,12 @@ const CTA = () => {
               className="flex flex-col sm:flex-row justify-center gap-6"
             >
               <Magnetic strength={0.2}>
-                <a href="#team" className="bg-accent text-white px-10 py-5 rounded-full font-bold text-sm tracking-wide hover:bg-accent-hover transition-all flex items-center justify-center gap-3 hover:scale-105 transform duration-300">
-                  Chat With Advisor <ArrowIcon className="w-3 h-3" />
+                <a href="/services" className="bg-accent text-white px-10 py-5 rounded-full font-bold text-sm tracking-wide hover:bg-accent-hover transition-all flex items-center justify-center gap-3 hover:scale-105 transform duration-300">
+                  Explore Our Services <ArrowIcon className="w-3 h-3" />
                 </a>
               </Magnetic>
               <Magnetic strength={0.2}>
-                <a href="#contact" className="bg-transparent border border-gray-200 text-primary px-10 py-5 rounded-full font-bold text-sm tracking-wide hover:bg-gray-50 hover:border-gray-300 transition-all flex items-center justify-center gap-3">
+                <a href="/contact" className="bg-transparent border border-gray-200 text-primary px-10 py-5 rounded-full font-bold text-sm tracking-wide hover:bg-gray-50 hover:border-gray-300 transition-all flex items-center justify-center gap-3">
                   Contact Us <ArrowIcon className="w-3 h-3" />
                 </a>
               </Magnetic>
