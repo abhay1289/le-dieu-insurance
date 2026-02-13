@@ -15,7 +15,7 @@ const coreServices = [
         id: "01",
         title: "Risk Management",
         subtitle: "Systematic Identification.",
-        description: "Risk management is a systematic process for identification and evaluation of loss exposures faced by any organization. We deploy forensic auditing protocols across your entire operational landscape to uncover hidden vulnerabilities before they escalate into costly incidents. Our methodology ensures the selection and administration of the most appropriate techniques for treating risk.",
+        description: "Risk management is a systematic, data-driven process for the identification and evaluation of loss exposures faced by your organization. We deploy forensic auditing protocols across your entire operational landscape to uncover hidden vulnerabilities before they escalate into costly incidents. Our methodology ensures the selection and administration of the most appropriate techniques for treating risk, securing your assets against unforeseen volatility.",
         features: ["Forensic Risk Audits", "Exposure Evaluation", "Loss Treatment Strategy"],
         stat: { value: "360°", label: "Exposure Mapping" },
         image: "/images/service-risk-engineering.png"
@@ -24,7 +24,7 @@ const coreServices = [
         id: "02",
         title: "Policy Placement",
         subtitle: "Precision Placement.",
-        description: "Policy Placement is a rigorous process involving detailed risk profiling, policy analysis, portfolio rationalization, and RFQs to secure optimal coverage. We negotiate for value-based coverage across 21+ insurers, leveraging two decades of deep market relationships and proprietary benchmarking intelligence. Every quote undergoes meticulous evaluation and recommendation, followed by strategic placement and final.",
+        description: "Policy Placement is a rigorous, analytical process involving detailed risk profiling, policy wording analysis, and gap identification. We leverage two decades of deep market relationships to conduct competitive RFQs across 21+ insurers, ensuring optimum value. Every quote undergoes meticulous technical evaluation, allowing us to negotiate superior coverage terms, rationalize your portfolio, and eliminate redundancies for maximum cost-efficiency.",
         features: ["Risk Profiling", "Portfolio Rationalization", "Competitive Bidding"],
         stat: { value: "21+", label: "Insurer Partners" },
         image: "/images/service-strategic-placement.png"
@@ -33,7 +33,7 @@ const coreServices = [
         id: "03",
         title: "Investment Strategy",
         subtitle: "Post-Placement Vigilance.",
-        description: "Our engagement begins once your policy is scrutinized and approved — not where others end. We assist in claims management, handle endorsements, track renewals, and manage the entire renewal process with rigor. This continuous investment ensures that your coverage evolves alongside your business, maintaining relevance and maximum protection year after year.",
+        description: "Our engagement begins once your policy is scrutinized and approved — not where others end. We act as your dedicated post-placement guardians, assisting in complex claims management, handling endorsements, and tracking renewals with military precision. This continuous oversight ensures that your coverage evolves in lockstep with your business growth, maintaining distinct relevance and maximum protection year after year.",
         features: ["Claims Assistance", "Endorsement Management", "Renewal Tracking"],
         stat: { value: "100%", label: "Renewal Oversight" },
         image: "/images/service-claims-advocacy.png"
@@ -42,7 +42,7 @@ const coreServices = [
         id: "04",
         title: "Specialized Services",
         subtitle: "Beyond Standard Coverage.",
-        description: "We offer comprehensive specialized services including Energy Audits, Safety Reviews, Environmental and Process Audits, along with expert Claim Consultancy support. These detailed technical assessments are designed to help fully optimize your operations, ensure full regulatory compliance, and support efficient claim management. Our specialized team brings deep domain expertise to identify risks.",
+        description: "We offer a suite of comprehensive specialized services including Energy Audits, Safety Reviews, and Process Audits, along with expert Claim Consultancy. These detailed technical assessments are engineered to optimize your industrial operations, ensure full regulatory compliance, and support efficient claim management. Our specialized team brings deep domain expertise to identify and mitigate risks that standard policies often overlook.",
         features: ["Energy Audits", "Safety Reviews", "Claim Consultancy"],
         stat: { value: "5x", label: "Audit Depth" },
         image: "/images/service-risk-new.jpg"
@@ -51,7 +51,7 @@ const coreServices = [
         id: "05",
         title: "Industry Domain Expertise",
         subtitle: "Sector-Deep Knowledge.",
-        description: "We bring comprehensive insurance coverage spanning Fire, Earthquake, MBD, LOP, Burglary, Money, Fidelity, Transit, Health, PA, WC, Vehicle, Credit, Trade, and Marine lines. Our deep domain expertise across heavy industries, infrastructure, energy, healthcare, and hospitality means we understand the nuances defining each sector. We deliver coverage architectures precisely calibrated to business.",
+        description: "We bring comprehensive insurance coverage spanning Fire, Earthquake, MBD, LOP, Burglary, Money, Fidelity, Transit, and Marine lines. Our deep domain expertise across heavy industries, infrastructure, energy, healthcare, and hospitality means we understand the unique nuances defining your sector. We deliver bespoke coverage architectures precisely calibrated to your specific business risks, ensuring no exposure is left unguarded.",
         features: ["Multi-Line Coverage", "Sector Specialization", "Domain Risk Mapping"],
         stat: { value: "15+", label: "Coverage Lines" },
         image: "/images/service-business.png"
@@ -60,7 +60,7 @@ const coreServices = [
         id: "06",
         title: "Insurance Broker Services",
         subtitle: "IRDA-Licensed Excellence.",
-        description: "LeDieu Insurance is IRDA-licensed, offering tailored insurance solutions backed by expert risk assessment, consultancy, and claims support. As a licensed broker, we operate with highest regulatory standards while maintaining agility to customize solutions for every client. Our brokerage framework combines institutional credibility with personalized service, ensuring every policy placed reflects best.",
+        description: "LeDieu Insurance is IRDA-licensed, offering tailored insurance solutions backed by expert risk assessment and claims support. As a licensed broker, we operate with the highest regulatory standards while maintaining the agility to customize solutions for every client. Our brokerage framework combines institutional credibility with personalized service, ensuring every policy placed reflects the best interest of your organization.",
         features: ["IRDA Licensed", "Risk Consultancy", "Tailored Solutions"],
         stat: { value: "20+", label: "Years Licensed" },
         image: "/images/service-strategic-placement.png"
@@ -101,7 +101,7 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
             <motion.div
                 style={{ scale, top: `calc(-5vh + ${index * 25}px)` }}
                 onMouseMove={handleMouseMove}
-                className="relative w-[92vw] md:w-[1200px] h-[75vh] md:h-[580px] rounded-2xl overflow-hidden transform-gpu origin-top bg-primary group/card transition-all duration-700 shadow-[0_1px_3px_rgba(0,0,0,0.1),0_20px_60px_rgba(0,0,0,0.12)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.1),0_30px_80px_rgba(0,0,0,0.18)]"
+                className="relative w-[92vw] md:w-[1200px] h-[65vh] md:h-[580px] rounded-2xl overflow-hidden transform-gpu origin-top bg-primary group/card transition-all duration-700 shadow-[0_1px_3px_rgba(0,0,0,0.1),0_20px_60px_rgba(0,0,0,0.12)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.1),0_30px_80px_rgba(0,0,0,0.18)]"
             >
                 {/* Cursor glow */}
                 <motion.div
@@ -121,22 +121,22 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                 {/* Content layout */}
                 <div className="relative z-10 h-full flex flex-col md:flex-row">
                     {/* Left — Content */}
-                    <div className="w-full md:w-[55%] h-[68%] md:h-full flex flex-col justify-between p-7 md:p-10 lg:p-12">
-                        <div>
-                            <div className="flex items-center gap-3 mb-5">
+                    <div className="w-full md:w-[60%] h-[75%] md:h-full flex flex-col justify-between p-7 md:p-10 lg:p-12">
+                        <div className="flex flex-col h-full justify-center">
+                            <div className="flex items-center gap-3 mb-6">
                                 <span className="text-accent text-sm font-extrabold uppercase tracking-[0.3em]">{card.subtitle}</span>
                             </div>
-                            <h2 className="text-2xl sm:text-3xl md:text-[2rem] font-bold text-white leading-[1.2] tracking-tight mb-5">
+                            <h2 className="text-3xl sm:text-4xl md:text-[2.5rem] font-bold text-white leading-[1.1] tracking-tight mb-8">
                                 {card.title}
                             </h2>
-                            <p className="text-white text-[13.5px] md:text-[14px] leading-[1.6] font-medium max-w-lg">
+                            <p className="text-white text-base md:text-xl leading-relaxed font-medium max-w-2xl">
                                 {card.description}
                             </p>
                         </div>
                     </div>
 
                     {/* Right — Visual */}
-                    <div className="w-full md:w-[45%] h-[32%] md:h-full relative overflow-hidden">
+                    <div className="w-full md:w-[40%] h-[25%] md:h-full relative overflow-hidden">
                         <div className="absolute inset-0">
                             <img src={card.image} alt={card.title} className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover/card:scale-105" />
                             <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/40 to-transparent" />
