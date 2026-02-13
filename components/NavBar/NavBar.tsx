@@ -99,7 +99,7 @@ const NavBar = () => {
           className="hidden lg:flex items-center gap-8"
         >
           <a
-            href="/get-started"
+            href="/contact"
             className="bg-accent text-white px-8 py-3.5 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-accent-hover hover:text-white transition-all duration-300 shadow-lg shadow-primary/5 active:bg-accent active:text-white active:scale-95 active:shadow-none"
           >
             Connect With Us
@@ -166,18 +166,13 @@ const NavBar = () => {
                 className="mt-12"
               >
                 <a
-                  href="/get-started"
+                  href="/contact"
                   className="block w-full py-5 bg-primary text-white rounded-2xl font-bold text-center text-sm uppercase tracking-widest shadow-xl shadow-primary/10 active:scale-95 transition-transform"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Request a Consultation
+                  Connect With Us
                 </a>
 
-                <div className="mt-10 pt-10 border-t border-gray-50">
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] block mb-4">Get in touch</span>
-                  <p className="text-primary font-medium">info@ledieuinsurance.com</p>
-                  <p className="text-primary font-medium mt-1">+91 0755 425 2111</p>
-                </div>
               </motion.div>
             </div>
           </motion.div>
