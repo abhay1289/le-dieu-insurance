@@ -99,13 +99,13 @@ const Footer = () => {
 
             {/* Big Footer Text */}
             {/* Big Footer Text with Shine */}
-            <div className="relative sm:absolute bottom-auto sm:bottom-[-2%] left-0 w-full overflow-hidden select-none mt-12 sm:mt-0">
+            <div className="relative left-0 w-full overflow-hidden select-none mt-12 sm:mt-24 mb-4 sm:mb-8">
                <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1 }}
-                  className="text-center font-heading font-extrabold text-[15vw] sm:text-[18vw] leading-none tracking-tighter"
+                  className="text-center font-heading font-extrabold text-[20vw] sm:text-[25vw] leading-[0.8] tracking-tighter"
                >
                   <span className="relative inline-block text-white/[0.06] bg-clip-text hover:text-white/20 transition-colors duration-500 cursor-default">
                      Le Dieu
