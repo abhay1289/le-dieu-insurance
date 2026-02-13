@@ -121,7 +121,7 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                 {/* Content layout */}
                 <div className="relative z-10 h-full flex flex-col md:flex-row">
                     {/* Left — Content */}
-                    <div className="w-full md:w-[60%] h-[75%] md:h-full flex flex-col justify-between p-7 md:p-10 lg:p-12">
+                    <div className="w-full md:w-[60%] h-[60%] md:h-full flex flex-col justify-between p-7 md:p-10 lg:p-12">
                         <div className="flex flex-col h-full justify-center">
                             <div className="flex items-center gap-3 mb-6">
                                 <span className="text-accent text-sm font-extrabold uppercase tracking-[0.3em]">{card.subtitle}</span>
@@ -136,7 +136,7 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                     </div>
 
                     {/* Right — Visual */}
-                    <div className="w-full md:w-[40%] h-[25%] md:h-full relative overflow-hidden">
+                    <div className="w-full md:w-[40%] h-[40%] md:h-full relative overflow-hidden">
                         <div className="absolute inset-0">
                             <img src={card.image} alt={card.title} className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover/card:scale-105" />
                             <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/40 to-transparent" />
