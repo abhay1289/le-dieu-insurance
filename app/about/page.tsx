@@ -260,7 +260,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* Bento Grid Values Section - Premium Architecture */}
-                <section ref={philosophyRef} className="py-24 md:py-56 relative overflow-hidden bg-white">
+                <section ref={philosophyRef} className="py-20 md:py-32 relative overflow-hidden bg-white">
                     {/* Parallax Background Image */}
                     <div className="absolute inset-0 pointer-events-none overflow-hidden">
                         <motion.div
@@ -280,14 +280,14 @@ export default function AboutPage() {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
-                            className="mb-24 text-center max-w-4xl mx-auto"
+                            className="mb-16 text-center max-w-4xl mx-auto"
                         >
                             <motion.div variants={fadeUpVariants} className="flex items-center justify-center gap-4 mb-6">
                                 <span className="h-px w-8 bg-accent/30" />
                                 <span className="text-accent text-[10px] font-bold uppercase tracking-[0.4em]">Our Philosophy</span>
                                 <span className="h-px w-8 bg-accent/30" />
                             </motion.div>
-                            <motion.h2 variants={fadeUpVariants} className="text-5xl md:text-8xl font-bold tracking-[ -0.05em] mb-8 text-primary leading-[0.9]">
+                            <motion.h2 variants={fadeUpVariants} className="text-5xl md:text-8xl font-bold tracking-[ -0.05em] mb-6 text-primary leading-[0.9]">
                                 Principles That <br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent">Define Excellence</span>
                             </motion.h2>
@@ -296,7 +296,7 @@ export default function AboutPage() {
                             </motion.p>
                         </motion.div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[320px]">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[280px]">
                             {values.map((val, i) => (
                                 <motion.div
                                     key={i}
@@ -310,9 +310,9 @@ export default function AboutPage() {
                                         color={val.color}
                                         className="h-full group/card"
                                     >
-                                        <div className="p-10 h-full flex flex-col justify-between">
+                                        <div className="p-8 h-full flex flex-col justify-between">
                                             <div>
-                                                <div className="w-16 h-16 rounded-[1.25rem] bg-gray-50 flex items-center justify-center text-primary mb-8 group-hover/card:scale-110 group-hover/card:bg-primary group-hover/card:text-accent transition-all duration-700 ease-out shadow-sm border border-gray-100">
+                                                <div className="w-16 h-16 rounded-[1.25rem] bg-gray-50 flex items-center justify-center text-primary mb-6 group-hover/card:scale-110 group-hover/card:bg-primary group-hover/card:text-accent transition-all duration-700 ease-out shadow-sm border border-gray-100">
                                                     {val.icon}
                                                 </div>
                                                 <h3 className="text-2xl font-bold text-primary mb-4 tracking-tight group-hover/card:translate-x-2 transition-transform duration-500">
