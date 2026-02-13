@@ -53,15 +53,15 @@ const Services = () => {
           >
             <motion.div
               variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any } } }}
-              className="flex items-center gap-4 mb-2 md:mb-4"
+              className="flex items-center gap-4 mb-1"
             >
 
               <span className="text-sm font-extrabold tracking-[0.3em] text-accent uppercase">Our Expertise</span>
             </motion.div>
 
-            <div className="mb-2">
+            <div>
 
-              <div className="overflow-hidden py-2">
+              <div className="overflow-hidden">
                 <motion.div variants={textRevealVariants} className="flex flex-col">
                   <span className="text-primary text-4xl sm:text-5xl md:text-[64px] font-heading font-extrabold tracking-tight leading-[1.15]">Risk Engineering</span>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent text-4xl sm:text-5xl md:text-[64px] font-heading font-extrabold tracking-tight leading-[1.15]">Insurance Solutions</span>

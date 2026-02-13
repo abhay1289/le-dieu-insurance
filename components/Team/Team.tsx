@@ -57,7 +57,7 @@ const Team = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="flex items-center gap-4 mb-2 md:mb-4"
+              className="flex items-center gap-4 mb-1"
             >
 
               <span className="text-sm font-extrabold tracking-[0.3em] text-accent uppercase">Board of Directors</span>
