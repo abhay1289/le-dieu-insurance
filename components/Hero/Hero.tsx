@@ -42,7 +42,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative h-screen min-h-[700px] w-full overflow-hidden font-sans bg-primary">
+    <section className="relative h-[80vh] min-h-[600px] md:h-screen md:min-h-[700px] w-full overflow-hidden font-sans bg-primary">
 
       {/* Premium Background Slider */}
       <div className="absolute inset-0 z-0">
@@ -76,7 +76,7 @@ const Hero = () => {
         </AnimatePresence>
 
         {/* Premium Overlays - Subtle dark gradient for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/90 md:from-black/65 md:via-black/45 md:to-black/85 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 md:from-black/55 md:via-black/35 md:to-black/75 z-10" />
       </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-20 h-full flex flex-col justify-center">
@@ -116,7 +116,7 @@ const Hero = () => {
             <div className="overflow-hidden mb-5 md:mb-8">
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as any } } }}
-                className="text-white/90 text-lg md:text-xl leading-relaxed max-w-xl font-medium"
+                className="text-white/80 text-lg md:text-xl leading-relaxed max-w-xl font-medium"
               >
                 Your Trusted Partner for finding the right insurance solutions.
               </motion.p>

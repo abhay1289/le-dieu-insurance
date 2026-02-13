@@ -21,7 +21,7 @@ const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, breadcrumb, backgr
     const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
     const contentY = useTransform(scrollYProgress, [0, 1], [0, 80]);
     const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-    const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.55, 0.85]);
+    const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.45, 0.75]);
 
     const titleWords = title.split(' ');
 
@@ -100,7 +100,7 @@ const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, breadcrumb, backgr
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-white text-sm sm:text-base md:text-lg leading-relaxed max-w-xl font-medium mt-4 sm:mt-5"
+                        className="text-white/85 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl font-medium mt-4 sm:mt-5 tracking-wide"
                     >
                         {subtitle}
                     </motion.p>

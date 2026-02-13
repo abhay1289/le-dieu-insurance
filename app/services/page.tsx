@@ -101,7 +101,7 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
             <motion.div
                 style={{ scale, top: `calc(-5vh + ${index * 25}px)` }}
                 onMouseMove={handleMouseMove}
-                className={`relative w-[92vw] md:w-[1200px] ${index === coreServices.length - 1 ? 'h-[72vh]' : 'h-[65vh]'} md:h-[580px] rounded-2xl overflow-hidden transform-gpu origin-top bg-primary group/card transition-all duration-700 shadow-[0_1px_3px_rgba(0,0,0,0.1),0_20px_60px_rgba(0,0,0,0.12)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.1),0_30px_80px_rgba(0,0,0,0.18)]`}
+                className={`relative w-[92vw] md:w-[1200px] ${index === coreServices.length - 1 ? 'h-[72vh]' : 'h-[65vh]'} md:h-[580px] rounded-2xl overflow-hidden transform-gpu origin-top bg-[#1a1a1a] group/card transition-all duration-700 shadow-[0_1px_3px_rgba(0,0,0,0.1),0_20px_60px_rgba(0,0,0,0.12)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.1),0_30px_80px_rgba(0,0,0,0.18)]`}
             >
                 {/* Cursor glow */}
                 <motion.div
@@ -114,8 +114,8 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                 {/* Full background image */}
                 <div className="absolute inset-0 z-0">
                     <img src={card.image} alt={card.title} className="w-full h-full object-cover object-center transition-transform duration-[2s] ease-out group-hover/card:scale-105" />
-                    <div className="absolute inset-0 bg-primary/80" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/60" />
+                    <div className="absolute inset-0 bg-[#1a1a1a]/75" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a]/95 via-[#1a1a1a]/85 to-transparent" />
                 </div>
 
                 {/* Content layout */}
@@ -129,7 +129,7 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                             <h2 className="text-2xl sm:text-3xl md:text-[2.5rem] font-bold text-white leading-[1.1] tracking-tight mb-2 md:mb-8">
                                 {card.title}
                             </h2>
-                            <p className="text-white text-sm md:text-xl leading-relaxed font-medium max-w-2xl">
+                            <p className="text-white/80 text-sm md:text-xl leading-relaxed font-medium max-w-2xl">
                                 {card.description}
                             </p>
                         </div>
@@ -139,8 +139,8 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                     <div className="w-full md:w-[40%] h-[40%] md:h-full relative overflow-hidden">
                         <div className="absolute inset-0">
                             <img src={card.image} alt={card.title} className="w-full h-full object-cover object-center transition-transform duration-[2s] ease-out group-hover/card:scale-105" />
-                            <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/40 to-transparent" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-primary/20" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a] via-[#1a1a1a]/40 to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/50 via-transparent to-[#1a1a1a]/20" />
                         </div>
                     </div>
                 </div>
