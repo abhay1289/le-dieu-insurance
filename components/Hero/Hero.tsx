@@ -99,7 +99,7 @@ const Hero = () => {
                   className="text-white tracking-tight drop-shadow-lg block font-heading font-extrabold leading-[1.1] md:leading-[1.1]"
                   style={{ fontSize: 'clamp(2.5rem, 9vw, 5rem)' }}
                 >
-                  Protecting Your
+                  Helping Protect
                 </motion.h1>
               </div>
               <div className="overflow-hidden">
@@ -108,7 +108,7 @@ const Hero = () => {
                   className="font-heading font-extrabold text-white block leading-[1.1] md:leading-[1.1]"
                   style={{ fontSize: 'clamp(2.5rem, 9vw, 5rem)' }}
                 >
-                  Future & Legacy
+                  What Matters Most.
                 </motion.h1>
               </div>
             </div>
@@ -118,7 +118,7 @@ const Hero = () => {
                 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as any } } }}
                 className="text-white/90 text-lg md:text-xl leading-relaxed max-w-xl font-light drop-shadow-md"
               >
-                Expert Insurance Broking & Financial Services, Customized to Suit Your Unique Needs — Because Your Peace of Mind is Our Priority.
+                Your Trusted Partner for finding the right insurance solutions.
               </motion.p>
             </div>
 
