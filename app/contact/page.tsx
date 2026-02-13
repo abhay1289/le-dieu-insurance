@@ -165,7 +165,7 @@ export default function ContactPage() {
                             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8">
                                 <div className="max-w-2xl">
                                     <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mb-6">
-                                        <span className="text-xs font-bold tracking-[0.3em] text-accent uppercase">Reach Out</span>
+                                        <span className="text-sm font-extrabold tracking-[0.3em] text-accent uppercase">Reach Out</span>
                                     </motion.div>
                                     <div className="overflow-hidden">
                                         <motion.h2
@@ -287,7 +287,7 @@ export default function ContactPage() {
                                     >
                                         <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-accent/10 rounded-full blur-[80px] pointer-events-none" />
                                         <div className="relative z-10">
-                                            <span className="text-accent text-xs font-bold uppercase tracking-[0.3em] block mb-4">Direct Line</span>
+                                            <span className="text-accent text-sm font-extrabold uppercase tracking-[0.3em] block mb-4">Direct Line</span>
                                             <h3 className="text-2xl font-bold tracking-tight mb-6">Prefer to talk? Call us directly.</h3>
                                             <div className="space-y-4">
                                                 <a href="tel:+917554294493" className="flex items-center gap-4 group/link">
@@ -358,7 +358,7 @@ export default function ContactPage() {
                                     viewport={{ once: true }}
                                     className="flex items-center gap-4 mb-6"
                                 >
-                                    <span className="text-xs font-bold tracking-[0.3em] text-accent uppercase">Our Offices</span>
+                                    <span className="text-sm font-extrabold tracking-[0.3em] text-accent uppercase">Our Offices</span>
                                 </motion.div>
                                 <div className="overflow-hidden">
                                     <motion.h2
@@ -411,7 +411,7 @@ export default function ContactPage() {
                             className="absolute bottom-8 left-6 md:left-12 bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-lg border border-gray-100 max-w-xs"
                         >
                             <div className="flex items-center gap-3 mb-2">
-                                <span className="text-accent text-xs font-bold uppercase tracking-[0.3em]">Pan-India Coverage</span>
+                                <span className="text-accent text-sm font-extrabold uppercase tracking-[0.3em]">Pan-India Coverage</span>
                             </div>
                             <p className="text-primary text-sm font-bold tracking-tight">Bhopal · New Delhi</p>
                             <p className="text-gray-500 text-xs font-medium mt-1">Serving enterprises across all 28 states</p>

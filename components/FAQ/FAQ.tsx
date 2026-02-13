@@ -83,7 +83,7 @@ const FAQ = () => {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6 }}
                             >
-                                <span className="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
+                                <span className="text-primary text-sm font-extrabold uppercase tracking-[0.3em] mb-4 block">
                                     Knowledge Center
                                 </span>
                                 <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 leading-tight">

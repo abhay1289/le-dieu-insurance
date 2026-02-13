@@ -60,7 +60,7 @@ const Team = () => {
               className="flex items-center gap-4 mb-4 md:mb-8"
             >
 
-              <span className="text-xs font-bold tracking-[0.3em] text-accent uppercase">Board of Directors</span>
+              <span className="text-sm font-extrabold tracking-[0.3em] text-accent uppercase">Board of Directors</span>
             </motion.div>
 
             <div className="overflow-hidden">
@@ -102,35 +102,6 @@ const Team = () => {
           {teamMembers.map((member, index) => (
             <TeamMemberCard key={member.id} member={member} index={index} />
           ))}
-        </motion.div>
-
-        {/* Bottom Interactive Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12 md:mt-20 p-6 md:p-8 bg-white border border-gray-100 rounded-[1.5rem] md:rounded-[2.5rem] flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-8 shadow-sm hover:shadow-xl transition-all duration-500 group"
-        >
-          <div className="flex items-center gap-6">
-            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
-            </div>
-            <div>
-              <span className="block text-sm font-bold text-primary">Global Advisory Board</span>
-              <span className="text-[10px] text-gray-400 font-medium uppercase tracking-widest">50+ Partner Consultants</span>
-            </div>
-          </div>
-
-          <div className="hidden lg:block h-px w-32 bg-gray-100"></div>
-
-          <div className="flex gap-4">
-            <a href="#contact" className="px-8 py-4 bg-primary text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent-hover transition-colors">
-              Connect With Leadership
-            </a>
-            <button className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors">
-              <ArrowIcon className="w-4 h-4 text-primary" />
-            </button>
-          </div>
         </motion.div>
 
       </div>

@@ -163,7 +163,7 @@ export default function AboutPage() {
                                 variants={staggerContainer}
                             >
                                 <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mb-8">
-                                    <span className="text-xs font-bold tracking-[0.3em] text-accent uppercase">Our Identity</span>
+                                    <span className="text-sm font-extrabold tracking-[0.3em] text-accent uppercase">Our Identity</span>
                                 </motion.div>
 
                                 <div className="space-y-2 mb-10">
@@ -243,7 +243,7 @@ export default function AboutPage() {
                                     viewport={{ once: true }}
                                     className="flex items-center gap-4 mb-6"
                                 >
-                                    <span className="text-xs font-bold tracking-[0.3em] text-accent uppercase">Our Philosophy</span>
+                                    <span className="text-sm font-extrabold tracking-[0.3em] text-accent uppercase">Our Philosophy</span>
                                 </motion.div>
                                 <div className="overflow-hidden">
                                     <motion.h2
