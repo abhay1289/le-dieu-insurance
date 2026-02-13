@@ -206,8 +206,8 @@ export default function ServicesPage() {
                 />
 
                 {/* Stacking Cards Section */}
-                <div ref={containerRef} className="relative mt-[5vh] mb-0">
-                    <div className="container mx-auto px-6 mb-4 md:mb-6 text-center">
+                <div ref={containerRef} className="relative mt-0 mb-0">
+                    <div className="container mx-auto px-6 mb-0 text-center">
                         <span className="text-primary text-xs font-bold uppercase tracking-[0.3em] block mb-6">Our Services</span>
                         <h2 className="text-4xl md:text-7xl font-bold tracking-tighter text-primary">The Protection Matrix.</h2>
                     </div>
