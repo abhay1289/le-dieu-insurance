@@ -49,7 +49,9 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ name, role, quote, im
     </div>
 
     <p className="text-gray-700 leading-relaxed font-normal text-[17px]">
-      {quote}
+      {quote.split(/(Le Dieu)/g).map((part, i) => 
+        part === 'Le Dieu' ? <strong key={i} className="font-bold text-primary">{part}</strong> : part
+      )}
     </p>
   </div>
 );

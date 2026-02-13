@@ -105,7 +105,7 @@ const WhoWeAre = () => {
                   transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any }}
                   className="text-xl md:text-2xl text-primary font-light leading-snug"
                 >
-                  "Since 2003, Le Dieu Insurance Brokers has been a leading Indian general insurance broker, providing end-to-end risk solutions for mid to large corporates and SMEs."
+                  &ldquo;Since 2003, <strong className="font-bold">Le Dieu Insurance Brokers</strong> has been a leading Indian general insurance broker, providing end-to-end risk solutions for mid to large corporates and SMEs.&rdquo;
                 </motion.p>
               </div>
 

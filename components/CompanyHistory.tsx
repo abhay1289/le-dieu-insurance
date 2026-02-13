@@ -79,7 +79,7 @@ const CompanyHistory = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent font-bold">Built for Eternity</span>
             </h2>
             <p className="text-gray-500 leading-relaxed text-sm font-medium mb-12 max-w-lg">
-              Since 1998, Le Dieu has stood as a quiet bastion of financial security for the world's most discerning individuals. We don't just sell policies; we architect resilience.
+              Since 1998, <strong className="font-bold text-primary">Le Dieu</strong> has stood as a quiet bastion of financial security for the world&apos;s most discerning individuals. We don&apos;t just sell policies; we architect resilience.
             </p>
 
             <div className="flex gap-12 border-t border-gray-200 pt-8">
@@ -132,7 +132,7 @@ const CompanyHistory = () => {
               </div>
               <div className="mt-8 relative z-10">
 
-                <div className="italic font-medium text-white/60">Alexander Le Dieu, Founder</div>
+                <div className="italic font-medium text-white/60"><strong className="font-bold text-white/80">Le Dieu Insurance Brokers</strong>, Founder</div>
               </div>
 
               {/* Abstract Decor */}

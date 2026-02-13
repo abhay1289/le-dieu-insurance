@@ -18,10 +18,14 @@ const BlogCard = ({ category, title, summary, author, date, img, authorImg }: an
     </div>
 
     <h3 className="text-3xl font-bold text-primary mb-3 tracking-tight group-hover:text-accent transition-colors">
-      {title}
+      {title.split(/(Le Dieu Insurance Brokers|Le Dieu Insurance|Le Dieu)/g).map((part: string, i: number) => 
+        part.startsWith('Le Dieu') ? <strong key={i} className="font-extrabold">{part}</strong> : part
+      )}
     </h3>
     <p className="text-gray-600 mb-6 line-clamp-2">
-      {summary}
+      {summary.split(/(Le Dieu Insurance Brokers|Le Dieu Insurance|Le Dieu)/g).map((part: string, i: number) => 
+        part.startsWith('Le Dieu') ? <strong key={i} className="font-bold text-primary">{part}</strong> : part
+      )}
     </p>
 
     <div className="flex items-center gap-3 pt-4 border-t border-gray-100">

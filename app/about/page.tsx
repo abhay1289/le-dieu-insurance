@@ -180,7 +180,7 @@ export default function AboutPage() {
                                 </div>
 
                                 <motion.p variants={fadeUpVariants} className="text-gray-500 text-base md:text-lg leading-relaxed max-w-lg mb-8 font-medium border-l-2 border-primary/20 pl-6">
-                                    Le Dieu Insurance Brokers is not just an intermediary; we are your strategic risk partners. Licensed by IRDA since 2003, we bridge the gap between complex enterprise risks and optimal financial protection.
+                                    <strong className="text-primary font-extrabold">Le Dieu Insurance Brokers</strong> is not just an intermediary; we are your strategic risk partners. Licensed by IRDA since 2003, we bridge the gap between complex enterprise risks and optimal financial protection.
                                 </motion.p>
 
                                 <motion.div variants={fadeUpVariants}>
