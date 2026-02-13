@@ -44,32 +44,29 @@ const Services = () => {
       <div className="container mx-auto px-6 md:px-12">
 
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-4 md:mb-6 gap-6 md:gap-12 border-b border-gray-100 pb-6 md:pb-8">
+        <div className="flex flex-col items-center text-center mb-12 md:mb-16">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="max-w-4xl"
+            className="max-w-5xl mx-auto"
           >
             <motion.div
-              variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any } } }}
-              className="flex items-center gap-4 mb-1"
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any } } }}
+              className="flex items-center justify-center gap-4 mb-4"
             >
-
               <span className="text-sm font-extrabold tracking-[0.3em] text-accent uppercase">Our Expertise</span>
             </motion.div>
 
             <div>
-
               <div className="overflow-hidden">
-                <motion.div variants={textRevealVariants} className="flex flex-col">
+                <motion.div variants={textRevealVariants} className="flex flex-col items-center">
                   <span className="text-primary text-4xl sm:text-5xl md:text-[64px] font-heading font-extrabold tracking-tight leading-[1.15]">Risk Engineering</span>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent text-4xl sm:text-5xl md:text-[64px] font-heading font-extrabold tracking-tight leading-[1.15]">Insurance Solutions</span>
                 </motion.div>
               </div>
             </div>
           </motion.div>
-
         </div>
 
         {/* Services Grid */}
