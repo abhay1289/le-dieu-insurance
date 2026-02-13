@@ -90,7 +90,7 @@ const NavBar = () => {
             href="/get-started"
             className="bg-accent text-white px-8 py-3.5 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-accent-hover hover:text-white transition-all duration-300 shadow-lg shadow-primary/5 active:bg-accent active:text-white active:scale-95 active:shadow-none"
           >
-            Get Started
+            Connect With Us
           </a>
         </motion.div>
 
