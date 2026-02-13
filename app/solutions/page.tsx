@@ -228,10 +228,6 @@ export default function SolutionsPage() {
                                                     className="overflow-hidden"
                                                 >
                                                     <div className="relative grid lg:grid-cols-2 gap-12 md:gap-20 pt-16 pb-12">
-                                                        {/* Background Accent Numeral */}
-                                                        <div className="absolute top-10 right-0 text-[18rem] font-bold text-gray-50 leading-none select-none pointer-events-none -z-10 opacity-30">
-                                                            0{index + 1}
-                                                        </div>
 
                                                         {/* Left Column: Strategic Narrative */}
                                                         <div>
@@ -280,54 +276,15 @@ export default function SolutionsPage() {
                                                                 transition={{ delay: 0.4, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                                                                 className="relative group/img"
                                                             >
-                                                                {/* Image Container with Scanning Effect */}
+                                                                {/* Image Container */}
                                                                 <div className="relative rounded-[3rem] overflow-hidden aspect-[4/5] shadow-2xl border-[12px] border-white">
                                                                     <img
                                                                         src={solution.image}
                                                                         alt={solution.title}
                                                                         className="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-105"
                                                                     />
-                                                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                                                                    {/* Holographic Scan Line */}
-                                                                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/20 to-transparent h-20 w-full animate-scan pointer-events-none" />
-
-                                                                    <div className="absolute bottom-10 left-10 right-10">
-                                                                        <div className="flex items-center gap-3 mb-4">
-                                                                            <div className="px-3 py-1 bg-accent rounded text-[9px] font-bold text-white uppercase tracking-widest">Live Analysis</div>
-                                                                            <div className="h-px flex-1 bg-white/20" />
-                                                                        </div>
-                                                                        <h4 className="text-3xl font-bold text-white tracking-tighter mb-2">
-                                                                            {solution.title} <span className="text-accent underline decoration-2 underline-offset-8">Vector</span>
-                                                                        </h4>
-                                                                        <p className="text-white/60 text-xs font-medium tracking-wide">
-                                                                            Optimizing risk transfer mechanisms based on {solution.id} market volatility metrics.
-                                                                        </p>
-                                                                    </div>
                                                                 </div>
-
-                                                                {/* Floating Technical Specs Plate */}
-                                                                <motion.div
-                                                                    initial={{ x: 50, opacity: 0 }}
-                                                                    animate={{ x: 0, opacity: 1 }}
-                                                                    transition={{ delay: 0.7 }}
-                                                                    className="absolute -right-8 top-1/4 backdrop-blur-xl bg-white/90 border border-white/20 p-6 rounded-3xl shadow-2xl hidden xl:block max-w-[200px]"
-                                                                >
-                                                                    <div className="text-[10px] font-bold text-accent uppercase tracking-widest mb-4">Risk Quotient</div>
-                                                                    <div className="space-y-4">
-                                                                        {[1, 2, 3].map((i) => (
-                                                                            <div key={i} className="space-y-1">
-                                                                                <div className="flex justify-between text-[10px] font-bold text-primary/40">
-                                                                                    <span>Vector {i}</span>
-                                                                                    <span>{85 + i}%</span>
-                                                                                </div>
-                                                                                <div className="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
-                                                                                    <div className="h-full bg-primary" style={{ width: `${85 + i}%` }} />
-                                                                                </div>
-                                                                            </div>
-                                                                        ))}
-                                                                    </div>
-                                                                </motion.div>
                                                             </motion.div>
                                                         </div>
                                                     </div>
