@@ -42,19 +42,28 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative h-screen min-h-[700px] w-full overflow-hidden font-sans bg-black">
+    <section className="relative h-screen min-h-[700px] w-full overflow-hidden font-sans bg-primary">
 
       {/* Premium Background Slider */}
       <div className="absolute inset-0 z-0">
-        <AnimatePresence mode="sync">
+        {/* Static base layer — always shows current image to prevent any flash */}
+        <div className="absolute inset-0 w-full h-full">
+          <img
+            src={heroImages[currentImage]}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Crossfade layer — new image fades in on top */}
+        <AnimatePresence>
           <motion.div
             key={currentImage}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1, scale: 1.15 }}
-            exit={{ opacity: 0 }}
+            animate={{ opacity: 1, scale: 1.08 }}
             transition={{
-              opacity: { duration: 2, ease: [0.16, 1, 0.3, 1] as any },
-              scale: { duration: 12, ease: "linear" }
+              opacity: { duration: 1.8, ease: [0.16, 1, 0.3, 1] as any },
+              scale: { duration: 10, ease: "linear" }
             }}
             className="absolute inset-0 w-full h-full"
           >
