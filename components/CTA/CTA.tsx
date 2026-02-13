@@ -39,7 +39,7 @@ const CTA = () => {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary leading-[1] tracking-tighter"
+                className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary leading-[1.1] tracking-tighter"
               >
                 Ready to secure your legacy with our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary font-bold">Trusted Advisors</span>
               </motion.h2>
