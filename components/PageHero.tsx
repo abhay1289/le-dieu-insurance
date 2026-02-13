@@ -105,23 +105,15 @@ const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, breadcrumb, backgr
                         </h1>
                     </div>
 
-                    {/* Divider + Subtitle row */}
-                    <div className="flex flex-col md:flex-row md:items-end gap-5 md:gap-10 lg:gap-16">
-                        <motion.div
-                            initial={{ scaleX: 0 }}
-                            animate={{ scaleX: 1 }}
-                            transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                            className="h-[2px] w-16 md:w-20 bg-accent origin-left flex-shrink-0 hidden md:block mt-1"
-                        />
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                            className="text-white/60 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl font-medium"
-                        >
-                            {subtitle}
-                        </motion.p>
-                    </div>
+                    {/* Subtitle — directly under heading */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        className="text-white/60 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl font-medium mt-5 sm:mt-6 md:mt-8"
+                    >
+                        {subtitle}
+                    </motion.p>
                 </div>
 
                 {/* === BOTTOM BAR === */}
@@ -168,13 +160,6 @@ const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, breadcrumb, backgr
                 </motion.div>
             </motion.div>
 
-            {/* === BOTTOM ACCENT LINE === */}
-            <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 1.5, delay: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent z-30 origin-left"
-            />
         </section>
     );
 };
