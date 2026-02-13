@@ -275,14 +275,14 @@ export default function SolutionsPage() {
                                                                     <span className="text-accent text-[10px] font-bold uppercase tracking-[0.3em]">{solution.subtitle}</span>
                                                                 </motion.div>
 
-                                                                <motion.p
+                                                                <motion.h3
                                                                     initial={{ opacity: 0, y: 20 }}
                                                                     animate={{ opacity: 1, y: 0 }}
                                                                     transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                                                    className="text-gray-500 text-base md:text-lg leading-relaxed mb-10 font-medium max-w-lg"
+                                                                    className="text-lg md:text-2xl text-primary font-bold leading-[1.4] mb-10 tracking-tight max-w-lg"
                                                                 >
                                                                     {solution.description}
-                                                                </motion.p>
+                                                                </motion.h3>
                                                             </div>
 
                                                             <motion.div
