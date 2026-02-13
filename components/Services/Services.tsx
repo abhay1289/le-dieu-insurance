@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowIcon, OfferIcon1, OfferIcon2, OfferIcon3 } from '../../utils/icons';
+import { ArrowIcon, ShieldCheckIcon, FileTextIcon, ClipboardSearchIcon } from '../../utils/icons';
 import { motion } from 'framer-motion';
 import ServiceCard, { ServiceItem } from './ServiceCard';
 
@@ -8,14 +8,14 @@ const servicesData: ServiceItem[] = [
     id: 'risk-management',
     title: "Risk Management",
     description: "Systematic identification and evaluation of loss exposures using the most appropriate techniques for treating risks.",
-    icon: OfferIcon1,
+    icon: ShieldCheckIcon,
     image: "/images/service-risk-new.jpg"
   },
   {
     id: 'policy-placement',
     title: "Policy Placement",
     description: "Rigorous risk profiling and value-based negotiation across 21+ insurers to ensure optimal coverage and rationalized portfolios.",
-    icon: OfferIcon2,
+    icon: FileTextIcon,
     image: "/images/service-health.png"
   },
   {
@@ -23,7 +23,7 @@ const servicesData: ServiceItem[] = [
     title: "Engineering Audits",
     description: "Specialized services including Energy Audits, Safety Reviews, and Process Audits to optimize your industrial operations.",
     image: "/images/service-business.png",
-    icon: OfferIcon3
+    icon: ClipboardSearchIcon
   }
 ];
 

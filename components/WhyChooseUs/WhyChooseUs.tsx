@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { ExpertGuidanceIcon, OfferIcon1, OfferIcon2, OfferIcon3, ArrowIcon, PlayIcon } from '../../utils/icons';
+import { CompassIcon, RefreshCwIcon, HeadsetIcon, ShieldLockIcon, ArrowIcon, PlayIcon } from '../../utils/icons';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const FeatureCard = ({ icon, title, desc, index }: { icon: React.ReactNode, title: string, desc: string, index: number }) => {
@@ -40,7 +40,7 @@ const FeatureCard = ({ icon, title, desc, index }: { icon: React.ReactNode, titl
             <motion.div
                variants={{
                   initial: { color: '#0B1C15' },
-                  active: { color: '#0B1C15' }
+                  active: { color: '#ffffff' }
                }}
                className="transition-colors duration-500"
             >
@@ -78,22 +78,22 @@ const WhyChooseUs = () => {
 
    const features = [
       {
-         icon: <ExpertGuidanceIcon />,
+         icon: <CompassIcon />,
          title: "Strategic Advisory",
          desc: "Direct access to senior partners who navigate complex global risks with precision and market-leading expertise."
       },
       {
-         icon: <OfferIcon2 />,
+         icon: <RefreshCwIcon />,
          title: "Adaptive Evolution",
          desc: "Our policies aren't static. We utilize proprietary data to evolve your coverage in real-time as your risk profile changes."
       },
       {
-         icon: <OfferIcon3 />,
+         icon: <HeadsetIcon />,
          title: "Concierge Claims",
          desc: "A dedicated settlement officer for every claim. No call centers, no waiting—just direct, professional resolution."
       },
       {
-         icon: <OfferIcon1 />,
+         icon: <ShieldLockIcon />,
          title: "Digital Fortress",
          desc: "Integrated AI architecture that predicts liability gaps before they occur, ensuring continuous asset protection."
       }

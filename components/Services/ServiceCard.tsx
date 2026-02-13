@@ -63,19 +63,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
 
         <div className="flex justify-between items-start">
           <div className="flex flex-col gap-6">
-            <motion.span
-              variants={{
-                initial: { color: 'rgba(255,255,255,0.6)' },
-                active: { color: 'rgba(255,255,255,1)' }
-              }}
-              className="text-xs font-bold tracking-widest transition-colors duration-500"
-            >
-              {(index + 1).toString().padStart(2, '0')}
-            </motion.span>
             <motion.div
               variants={{
                 initial: { backgroundColor: 'rgba(255,255,255,0.1)', borderColor: 'rgba(255,255,255,0.1)', color: '#ffffff' },
-                active: { backgroundColor: 'var(--color-accent-green)', borderColor: 'var(--color-accent-green)', color: '#0B1C15' }
+                active: { backgroundColor: 'var(--color-accent-green)', borderColor: 'var(--color-accent-green)', color: '#ffffff' }
               }}
               className="w-14 h-14 rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-500 border"
             >
@@ -86,7 +77,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
           <motion.div
             variants={{
               initial: { backgroundColor: 'transparent', borderColor: 'rgba(255,255,255,0.2)', color: '#ffffff' },
-              active: { backgroundColor: 'var(--color-accent-green)', borderColor: 'var(--color-accent-green)', color: '#0B1C15' }
+              active: { backgroundColor: 'var(--color-accent-green)', borderColor: 'var(--color-accent-green)', color: '#ffffff' }
             }}
             className="w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-500"
           >
