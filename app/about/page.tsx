@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useMotionTemplate, useMotionValue } from 'framer-motion';
 
-function SpotlightCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+function SpotlightCard({ children, className = "", color = "rgba(255, 255, 255, 0.1)" }: { children: React.ReactNode; className?: string; color?: string }) {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
@@ -15,25 +15,60 @@ function SpotlightCard({ children, className = "" }: { children: React.ReactNode
 
     return (
         <div
-            className={`group relative border border-white/10 bg-black/40 overflow-hidden ${className}`}
+            className={`group relative overflow-hidden rounded-[2.5rem] border border-gray-100 bg-white p-1 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] ${className}`}
             onMouseMove={handleMouseMove}
         >
             <motion.div
-                className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition duration-300 group-hover:opacity-100"
+                className="pointer-events-none absolute -inset-px opacity-0 transition duration-500 group-hover:opacity-100"
                 style={{
                     background: useMotionTemplate`
                         radial-gradient(
-                            650px circle at ${mouseX}px ${mouseY}px,
-                            rgba(255, 255, 255, 0.1),
+                            400px circle at ${mouseX}px ${mouseY}px,
+                            ${color},
                             transparent 80%
                         )
                     `,
                 }}
             />
-            {children}
+            <div className="relative z-10 h-full">
+                {children}
+            </div>
         </div>
     );
 }
+
+// Premium Premium Icons
+const IntegrityIcon = () => (
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="M12 8v4" />
+        <path d="M12 16h.01" />
+    </svg>
+);
+
+const TailoringIcon = () => (
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+        <polyline points="7.5 4.21 12 6.81 16.5 4.21" />
+        <polyline points="7.5 19.79 7.5 14.6 3 12" />
+        <polyline points="21 12 16.5 14.6 16.5 19.79" />
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+        <line x1="12" y1="22.08" x2="12" y2="12" />
+    </svg>
+);
+
+const VelocityIcon = () => (
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+    </svg>
+);
+
+const MasteryIcon = () => (
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+    </svg>
+);
 import NavBar from '@/components/NavBar/NavBar';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/PageHero';
@@ -71,10 +106,34 @@ const milestones = [
 ];
 
 const values = [
-    { icon: "🛡️", title: "Unwavering Integrity", description: "We operate with radical transparency. Your best interest is our only interest—commission never dictates our counsel." },
-    { icon: "🎯", title: "Precision Tailoring", description: "We reject off-the-shelf policies. Every solution is architected around your unique risk profile and business DNA." },
-    { icon: "⚡", title: "Claims Velocity", description: "A dedicated claims division that fights for your settlement. We measure success by the speed and fairness of your recovery." },
-    { icon: "🏢", title: "Sector Mastery", description: "Deep, specialized knowledge across manufacturing, infrastructure, and corporate risk landscapes." },
+    {
+        icon: <IntegrityIcon />,
+        title: "Unwavering Integrity",
+        description: "We operate with radical transparency. Your best interest is our only interest—commission never dictates our counsel.",
+        color: "rgba(34, 197, 94, 0.15)",
+        gridClass: "lg:col-span-1"
+    },
+    {
+        icon: <TailoringIcon />,
+        title: "Precision Tailoring",
+        description: "We reject off-the-shelf policies. Every solution is architected around your unique risk profile and business DNA.",
+        color: "rgba(0, 0, 0, 0.05)",
+        gridClass: "lg:col-span-1"
+    },
+    {
+        icon: <VelocityIcon />,
+        title: "Claims Velocity",
+        description: "A dedicated claims division that fights for your settlement. We measure success by the speed and fairness of your recovery.",
+        color: "rgba(34, 197, 94, 0.1)",
+        gridClass: "lg:col-span-1"
+    },
+    {
+        icon: <MasteryIcon />,
+        title: "Sector Mastery",
+        description: "Deep, specialized knowledge across manufacturing, infrastructure, and corporate risk landscapes. We transform complex liability into clear structural security.",
+        color: "rgba(0, 0, 0, 0.08)",
+        gridClass: "lg:col-span-2 lg:row-span-1"
+    },
 ];
 
 const stats = [
@@ -181,16 +240,12 @@ export default function AboutPage() {
                     </div>
                 </section>
 
-                {/* Bento Grid Values Section - Interactive Spotlight */}
-                <section className="py-24 md:py-32 relative overflow-hidden bg-white">
-                    {/* Image Background */}
-                    <div className="absolute inset-0">
-                        <img
-                            src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2664&auto=format&fit=crop"
-                            alt="Background"
-                            className="w-full h-full object-cover opacity-5 filter grayscale"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent" />
+                {/* Bento Grid Values Section - Premium Architecture */}
+                <section className="py-24 md:py-48 relative overflow-hidden bg-white">
+                    {/* Artistic Background Elements */}
+                    <div className="absolute inset-0 pointer-events-none">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.03)_0%,transparent_70%)]" />
+                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/noise-lines.png')] opacity-[0.03]" />
                     </div>
 
                     <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -198,31 +253,60 @@ export default function AboutPage() {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
-                            className="mb-20 text-center max-w-3xl mx-auto"
+                            className="mb-24 text-center max-w-4xl mx-auto"
                         >
-                            <motion.span variants={fadeUpVariants} className="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Our Philosophy</motion.span>
-                            <motion.h2 variants={fadeUpVariants} className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 text-primary">The Principles That Drive Us</motion.h2>
-                            <motion.p variants={fadeUpVariants} className="text-gray-400 text-lg decoration-clone">Foundation of trust built over two decades of unwavering service.</motion.p>
+                            <motion.div variants={fadeUpVariants} className="flex items-center justify-center gap-4 mb-6">
+                                <span className="h-px w-8 bg-accent/30" />
+                                <span className="text-accent text-[10px] font-bold uppercase tracking-[0.4em]">Our Philosophy</span>
+                                <span className="h-px w-8 bg-accent/30" />
+                            </motion.div>
+                            <motion.h2 variants={fadeUpVariants} className="text-5xl md:text-8xl font-bold tracking-[ -0.05em] mb-8 text-primary leading-[0.9]">
+                                Principles That <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent">Define Excellence</span>
+                            </motion.h2>
+                            <motion.p variants={fadeUpVariants} className="text-gray-400 text-xl font-light max-w-2xl mx-auto leading-relaxed">
+                                A foundation of trust built over two decades of unwavering service and strategic foresight.
+                            </motion.p>
                         </motion.div>
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[320px]">
                             {values.map((val, i) => (
                                 <motion.div
                                     key={i}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                    className="h-full"
+                                    className={val.gridClass || "lg:col-span-1"}
                                 >
-                                    <SpotlightCard className="h-full p-8 rounded-3xl bg-gray-50 hover:bg-white transition-colors border-gray-100 shadow-sm hover:shadow-xl">
-                                        <div className="relative z-10 h-full flex flex-col">
-                                            <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-3xl mb-6 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
-                                                {val.icon}
+                                    <SpotlightCard
+                                        color={val.color}
+                                        className="h-full group/card"
+                                    >
+                                        <div className="p-10 h-full flex flex-col justify-between">
+                                            <div>
+                                                <div className="w-16 h-16 rounded-[1.25rem] bg-gray-50 flex items-center justify-center text-primary mb-8 group-hover/card:scale-110 group-hover/card:bg-primary group-hover/card:text-accent transition-all duration-700 ease-out shadow-sm border border-gray-100">
+                                                    {val.icon}
+                                                </div>
+                                                <h3 className="text-2xl font-bold text-primary mb-4 tracking-tight group-hover/card:translate-x-2 transition-transform duration-500">
+                                                    {val.title}
+                                                </h3>
+                                                <p className="text-gray-400 leading-relaxed font-medium text-sm group-hover/card:text-gray-600 transition-colors">
+                                                    {val.description}
+                                                </p>
                                             </div>
-                                            <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-primary transition-colors">{val.title}</h3>
-                                            <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-600 transition-colors flex-grow">{val.description}</p>
+
+                                            {/* Decorative element for larger cards */}
+                                            {val.gridClass?.includes('lg:col-span-2') && (
+                                                <div className="flex gap-4 mt-8 pt-8 border-t border-gray-100 items-baseline">
+                                                    <div className="text-4xl font-bold text-accent tracking-tighter">01</div>
+                                                    <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Industry Ranking</div>
+                                                </div>
+                                            )}
                                         </div>
+
+                                        {/* Subtle corner accent */}
+                                        <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-accent/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-1000" />
                                     </SpotlightCard>
                                 </motion.div>
                             ))}
