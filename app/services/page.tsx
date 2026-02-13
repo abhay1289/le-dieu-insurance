@@ -142,10 +142,6 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                             <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/40 to-transparent" />
                             <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-primary/20" />
                         </div>
-                        <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 z-10 text-right">
-                            <div className="text-white text-4xl md:text-5xl font-bold tracking-tighter leading-none mb-1">{card.stat.value}</div>
-                            <div className="text-white text-[10px] font-bold uppercase tracking-[0.2em]">{card.stat.label}</div>
-                        </div>
                     </div>
                 </div>
             </motion.div>
