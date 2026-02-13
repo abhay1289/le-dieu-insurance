@@ -116,7 +116,7 @@ const Pricing = () => {
                     <span className="text-6xl font-bold text-primary">{getPrice()}</span>
                     <span className="text-gray-500 text-lg">/ {billingCycle === 'monthly' ? 'Monthly' : 'Annual'}</span>
                   </div>
-                  <h3 className="text-xl font-bold mb-4">Included Services</h3>
+                  <h3 className="text-2xl font-bold mb-4">Included Services</h3>
                   <p className="text-gray-600 mb-8">{planDetails[activePlan].description}</p>
                   <ul className="space-y-4 mb-10">
                     {planDetails[activePlan].services.map((item, i) => (

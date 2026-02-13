@@ -43,7 +43,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, index }) => {
             <div className="relative z-10">
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-white tracking-tight mb-1">{member.name}</h3>
+                  <h3 className="text-2xl font-bold text-white tracking-tight mb-1">{member.name}</h3>
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] transition-colors text-primary lg:text-white/60 lg:group-hover/info:text-primary">{member.role}</p>
                 </div>
                 <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center transition-colors bg-primary lg:bg-white/10 lg:group-hover/info:bg-primary">

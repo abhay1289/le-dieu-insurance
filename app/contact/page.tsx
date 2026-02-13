@@ -91,7 +91,7 @@ function OfficeCard({ office, index }: { office: typeof offices[0]; index: numbe
 
             {/* Content */}
             <div className="p-6 md:p-8 relative z-10">
-                <h3 className="text-2xl md:text-3xl font-bold text-primary tracking-tight mb-4">{office.city}</h3>
+                <h3 className="text-3xl md:text-4xl font-bold text-primary tracking-tight mb-4">{office.city}</h3>
                 <div className="space-y-3 mb-6">
                     <div className="flex items-start gap-3">
                         <svg className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
@@ -203,7 +203,7 @@ export default function ContactPage() {
                                             <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
                                                 <svg className="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
                                             </div>
-                                            <h3 className="text-2xl font-bold text-primary tracking-tight mb-3">Message Received</h3>
+                                            <h3 className="text-3xl font-bold text-primary tracking-tight mb-3">Message Received</h3>
                                             <p className="text-gray-500 font-medium text-sm">Our team will be in touch within 24 hours.</p>
                                         </motion.div>
                                     ) : (
@@ -288,7 +288,7 @@ export default function ContactPage() {
                                         <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-accent/10 rounded-full blur-[80px] pointer-events-none" />
                                         <div className="relative z-10">
                                             <span className="text-accent text-xs font-bold uppercase tracking-[0.3em] block mb-4">Direct Line</span>
-                                            <h3 className="text-xl font-bold tracking-tight mb-6">Prefer to talk? Call us directly.</h3>
+                                            <h3 className="text-2xl font-bold tracking-tight mb-6">Prefer to talk? Call us directly.</h3>
                                             <div className="space-y-4">
                                                 <a href="tel:+917554294493" className="flex items-center gap-4 group/link">
                                                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover/link:bg-accent group-hover/link:text-white transition-colors">

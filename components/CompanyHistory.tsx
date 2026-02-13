@@ -35,7 +35,7 @@ const ValueCard = ({ title, desc, icon, index }: { title: string, desc: string, 
     <div className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center text-primary mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
       {icon}
     </div>
-    <h3 className="text-xl font-bold text-primary mb-4">{title}</h3>
+    <h3 className="text-2xl font-bold text-primary mb-4">{title}</h3>
     <p className="text-gray-600 leading-relaxed text-sm">
       {desc}
     </p>
@@ -125,7 +125,7 @@ const CompanyHistory = () => {
               className="bg-primary text-white p-10 rounded-[2rem] h-full flex flex-col justify-between relative overflow-hidden"
             >
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-6">Our Mission</h3>
+                <h3 className="text-3xl font-bold mb-6">Our Mission</h3>
                 <p className="text-white/80 leading-relaxed text-lg">
                   "To empower our clients to live fearlessly by providing unwavering financial protection and personalized risk management solutions that transcend generations."
                 </p>

@@ -296,7 +296,7 @@ export default function SolutionsPage() {
                                                                         <div className="w-12 h-12 rounded-xl bg-white border border-gray-100 flex items-center justify-center mb-5 group-hover/item:bg-accent group-hover/item:text-white group-hover/item:border-accent transition-all duration-500 text-primary">
                                                                             {feature.icon}
                                                                         </div>
-                                                                        <h4 className="text-lg font-bold text-primary mb-2 tracking-tight">{feature.title}</h4>
+                                                                        <h4 className="text-xl font-bold text-primary mb-2 tracking-tight">{feature.title}</h4>
                                                                         <p className="text-gray-500 text-sm leading-relaxed font-medium">{feature.text}</p>
                                                                     </motion.div>
                                                                 ))}

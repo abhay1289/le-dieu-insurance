@@ -48,7 +48,7 @@ const FeatureCard = ({ icon, title, desc, index }: { icon: React.ReactNode, titl
             </motion.div>
          </motion.div>
 
-         <h3 className="text-2xl font-bold text-primary mb-4 tracking-tight">{title}</h3>
+         <h3 className="text-3xl font-bold text-primary mb-4 tracking-tight">{title}</h3>
          <p className="text-gray-500 leading-relaxed font-medium text-sm md:text-base">
             {desc}
          </p>

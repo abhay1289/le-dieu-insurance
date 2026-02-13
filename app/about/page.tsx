@@ -285,7 +285,7 @@ export default function AboutPage() {
                                                 <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gray-50 flex items-center justify-center text-primary mb-5 group-hover/card:bg-accent group-hover/card:text-white transition-all duration-700 border border-gray-100">
                                                     <div className="scale-75 md:scale-90">{val.icon}</div>
                                                 </div>
-                                                <h3 className="text-xl md:text-2xl font-bold text-primary mb-3 tracking-tight">
+                                                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-3 tracking-tight">
                                                     {val.title}
                                                 </h3>
                                                 <p className="text-gray-500 leading-relaxed font-medium text-sm">

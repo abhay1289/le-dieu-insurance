@@ -129,7 +129,7 @@ const FAQ = () => {
                                         onClick={() => toggleFAQ(index)}
                                         className="w-full py-6 flex items-start justify-between gap-6 text-left group focus:outline-none"
                                     >
-                                        <span className={`text-xl md:text-2xl font-medium transition-colors duration-300 ${activeIndex === index ? 'text-primary' : 'text-gray-900 group-hover:text-primary'}`}>
+                                        <span className={`text-2xl md:text-3xl font-semibold transition-colors duration-300 ${activeIndex === index ? 'text-primary' : 'text-gray-900 group-hover:text-primary'}`}>
                                             {faq.question}
                                         </span>
                                         <div className={`relative flex-shrink-0 w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center transition-all duration-300 ${activeIndex === index ? 'bg-accent border-accent rotate-45' : 'group-hover:border-accent'}`}>

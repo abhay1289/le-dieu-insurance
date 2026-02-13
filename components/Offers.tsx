@@ -22,7 +22,7 @@ const OfferCard = ({ icon, title, desc, img, reverse = false, index }: { icon: R
     </div>
     <div className="lg:w-1/2 p-10 lg:p-12 flex flex-col justify-center">
       <div className="mb-6">{icon}</div>
-      <h3 className="text-2xl font-bold text-primary mb-4">{title}</h3>
+      <h3 className="text-3xl font-bold text-primary mb-4">{title}</h3>
       <p className="text-gray-600 mb-8 leading-relaxed">{desc}</p>
       <a href="/contact-us" className="inline-flex items-center gap-2 text-primary font-semibold border-b border-primary pb-1 hover:text-accent hover:border-accent transition-colors">
         Contact Us <ArrowIcon />

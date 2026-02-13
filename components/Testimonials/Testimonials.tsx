@@ -43,7 +43,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ name, role, quote, im
     <div className="flex items-center gap-4 mb-6">
       <img src={img} alt={name} className="w-14 h-14 rounded-full object-cover" />
       <div>
-        <h4 className="text-lg font-bold text-gray-900 leading-tight">{name}</h4>
+        <h4 className="text-xl font-bold text-gray-900 leading-tight">{name}</h4>
         <p className="text-sm text-gray-500 font-medium">{role}</p>
       </div>
     </div>
