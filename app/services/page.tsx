@@ -126,10 +126,10 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                             <div className="flex items-center gap-3 mb-6">
                                 <span className="text-accent text-sm font-extrabold uppercase tracking-[0.3em]">{card.subtitle}</span>
                             </div>
-                            <h2 className="text-3xl sm:text-4xl md:text-[2.5rem] font-bold text-white leading-[1.1] tracking-tight mb-8">
+                            <h2 className="text-2xl sm:text-3xl md:text-[2.5rem] font-bold text-white leading-[1.1] tracking-tight mb-8">
                                 {card.title}
                             </h2>
-                            <p className="text-white text-base md:text-xl leading-relaxed font-medium max-w-2xl">
+                            <p className="text-white text-sm md:text-xl leading-relaxed font-medium max-w-2xl">
                                 {card.description}
                             </p>
                         </div>
