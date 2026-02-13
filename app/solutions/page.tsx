@@ -52,7 +52,7 @@ const industrySolutions = [
         title: "Heavy Industries",
         subtitle: "Zero-Downtime Protection",
         icon: <FactoryIcon />,
-        description: "For factories where every second of downtime costs millions. In the world of heavy manufacturing, downtime isn't just an inconvenience—it's a massive financial leak. We architect comprehensive safety nets that cover everything from complex machinery breakdowns to large-scale business interruptions.",
+        description: "In the high-stakes arena of heavy manufacturing, a single second of operational downtime is more than just a logistical hurdle—it is a catastrophic financial leak that can erode years of profitability in an afternoon. We specialize in architecting multi-layered safety nets that go far beyond standard insurance placement. Our frameworks are specifically engineered to neutralize risks associated with complex primary machinery breakdowns, intricate supply chain disruptions, and large-scale business interruptions that threaten the very core of your industrial output. By conducting deep-dive technical audits and stress-testing your current risk exposure, we ensure that your factory stays resilient against both predictable failures and the black-swan events of the modern global market. We prioritize your balance sheet as much as your machinery, providing a resilient financial chassis for the industries that power the nation.",
         longDescription: "Our Industrial All Risk (IAR) frameworks are specifically engineered for the Indian manufacturing landscape. We don't just place policies; we conduct deep-dive technical audits to ensure that every unique operational risk—from boilerplate explosions to intricate supply chain disruptions—is accounted for and neutralized.",
         features: [
             { icon: "⚙️", title: "Asset Resilience", text: "End-to-end protection for plant, machinery, and physical assets." },
@@ -67,7 +67,7 @@ const industrySolutions = [
         title: "Mega Projects",
         subtitle: "Foundation to Finish",
         icon: <CraneIcon />,
-        description: "End-to-end coverage for roads, bridges, and civil engineering marvels. Protecting against delays, damage, and third-party liabilities during the entire project lifecycle.",
+        description: "Engineering mega-projects requires a risk management foundation as solid as the concrete in your bridges and tunnels. From initial ground-breaking to final ribbon-cutting, we provide surgical, end-to-end coverage for roads, highways, and civil engineering marvels that form the backbone of national progress. Our strategic focus is on protecting your enterprise against project delays, material damage, and complex third-party liabilities that arise during staggered lifecycle transitions. We understand the volatility of EPC contracts and the regulatory shifts inherent in Indian infrastructure development. By building bespoke transfer mechanisms, we shield your capital and your reputation from the unforeseen geological and financial tremors that often destabilize the world's most ambitious construction projects. We ensure that your engineers can focus on building the future, while we manage the unseen forces that threaten project completion.",
         longDescription: "Managing the risk of a multi-billion dollar infrastructure project requires more than standard insurance. It requires an understanding of EPC contracts, geological uncertainties, and regulatory shifting. We provide the financial bedrock that allows engineers to focus on building the future of India.",
         features: [
             { icon: "🏗️", title: "CAR/EAR Mastery", text: "Comprehensive Contractor's and Erector's All Risk frameworks." },
@@ -82,7 +82,7 @@ const industrySolutions = [
         title: "Power & Energy",
         subtitle: "Grid Reliability",
         icon: <BoltIcon />,
-        description: "Specialized risk transfer for thermal, solar, and hydro power plants facing unique environmental and operational threats in a rapidly evolving energy landscape.",
+        description: "As India transitions toward a more complex and decentralized energy grid, the threats facing the power sector have decoupled from traditional risk models. Whether you are managing the base-load stability of a thermal giant or the weather-dependent volatility of a sprawling solar park, your risk transfer mechanism must be as dynamic as the energy you generate. We architect specialized 'Mega Risk' policies that guard against grid interruptions, internal technical failures, and the rising frequency of natural catastrophes. Our narrative-led approach ensures that every kilowatt—from hydro-pumping stations to wind turbine arrays—is protected by a resilient financial chassis. We empower you to lead the energy transition with confidence, knowing that your operational uptime and environmental liabilities are managed by elite risk engineers who understand the intricate physics of the power sector and the evolving regulatory landscape of the Indian energy market.",
         longDescription: "As India transitions towards a greener grid, the risks associated with energy production are decoupling from traditional models. Whether it's managing the volatility of renewable assets or ensuring the stability of thermal giants, we provide specialized 'Mega Risk' policies that cover every kilowatt generated.",
         features: [
             { icon: "⚡", title: "Mega Risk Cover", text: "Custom-built frameworks for high-value power generation units." },
@@ -97,7 +97,7 @@ const industrySolutions = [
         title: "Corporate Liability",
         subtitle: "Executive Resilience",
         icon: <BriefcaseIcon />,
-        description: "Protecting the decision-makers and the balance sheet. From D&O to Cyber, we shield the organization's brain and its financial reputation from modern vectors of failure.",
+        description: "In an era of rising litigiousness and sophisticated digital warfare, corporate decision-makers face an unprecedented landscape of personal and professional exposure. We act as the strategic architect for your organization's ethical and financial reputation, shielding the collective brain of the company from modern vectors of failure. Our liability solutions are designed to protect Directors and Officers from personal ruin while simultaneously fortifying the corporate balance sheet against cyber ransomware, data breaches, and systemic errors in professional judgment. We move beyond the fine print to build a sophisticated fortress around your boardroom, ensuring that your leadership can navigate complex regulatory environments and high-stakes transitions without the paralyzing fear of crippling litigation or reputational collapse. We treat your corporate governance as an asset to be protected with the highest level of fiduciary care and elite underwriting globally.",
         longDescription: "In an era of rising litigation and digital warfare, corporate leaders face unprecedented personal and professional exposure. Our liability solutions act as a sophisticated shield, ensuring that board decisions and digital assets are protected by the world's leading 'A' rated underwriters.",
         features: [
             { icon: "👤", title: "D&O Shield", text: "Protecting Directors and Officers from personal liability claims." },
@@ -112,7 +112,7 @@ const industrySolutions = [
         title: "Healthcare",
         subtitle: "Clinical Excellence",
         icon: <StethoscopeIcon />,
-        description: "Coverage for hospitals and clinics handling delicate lives. We architect medical malpractice and equipment protection protocols that prioritize patient safety and operational continuity.",
+        description: "Operating a modern healthcare institution requires managing a delicate duality: the maintenance of cutting-edge diagnostic infrastructure and the protection of sensitive human lives. Our healthcare risk protocols are built on a foundation of clinical excellence and patient-centric safety. We design specialized medical malpractice and equipment breakdown frameworks that prioritize operational continuity above all else. In a landscape where a single clinical error can trigger a microscopic audit of your entire enterprise, we provide the financial and legal bedrock necessary to keep your facility focused on healing. From shielding your high-value MRI suites from technical failure to managing the complex liabilities of clinical trials, our bespoke solutions ensure that your hospital remains a trusted pillar of the community, safe from the volatile financial shocks of modern healthcare litigation and technological breakdown in an evolving world.",
         longDescription: "The healthcare sector operates under a microscopic lens of accountability. We help medical institutions manage the duality of high-tech equipment risks and sensitive human-centric liabilities, providing a foundation for clinical excellence without the fear of crippling litigation.",
         features: [
             { icon: "🏥", title: "Medical Malpractice", text: "Dedicated coverage for healthcare professionals and entities." },
@@ -124,10 +124,10 @@ const industrySolutions = [
     },
     {
         id: "hospitality",
-        title: "Hospitality",
-        subtitle: "Guest Assurance",
+        title: "Guest Assurance",
+        subtitle: "Elite Hospitality",
         icon: <BedIcon />,
-        description: "Protecting properties, guests, and reputation. From asset protection to guest liability, we provide comprehensive covers for premium hotel chains and boutique resorts.",
+        description: "Building a globally recognized hospitality brand takes decades of meticulous service, yet a single unforeseen incident can tarnish that reputation in a matter of hours. We specialize in creating 360-degree safety nets for premium hotel chains and boutique resorts that prioritize both guest assurance and asset resilience. Our frameworks cover the physical grandeur of your properties against fire, theft, and natural disasters while ensuring that your guests' safety and your brand's integrity remain unshakeable. We manage the intricate liabilities inherent in food services, liquor protocols, and public accessibility, providing a seamless layer of protection that operates invisibly in the background. By shielding your property from asset loss and business interruption, we allow you to focus on the art of luxury and guest satisfaction, knowing that your financial future is secured against the unique volatility of the tourism and leisure industry.",
         longDescription: "A single incident can tarnish a decade of reputation building in the hospitality trade. We create a 360-degree safety net that covers the physical grandeur of your properties while ensuring that your guests' safety and your brand's integrity remain unshakeable.",
         features: [
             { icon: "🏨", title: "Property All Risk", text: "Shielding iconic hospitality assets from fire, flood, and theft." },
