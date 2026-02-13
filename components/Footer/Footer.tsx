@@ -12,7 +12,7 @@ const Footer = () => {
          <div className="container mx-auto px-6 md:px-12 relative z-10">
 
             {/* Grid Section */}
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 mb-12 md:mb-32">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-32">
                {/* Brand Column */}
                <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -24,9 +24,6 @@ const Footer = () => {
                   <a href="/" className="block group">
                      <img src="/images/ledieuinsurance_logo1 (2).png" alt="Le Dieu Insurance" className="h-8 sm:h-10 w-auto object-contain brightness-0 invert" />
                   </a>
-                  <p className="text-white/70 leading-relaxed text-xs sm:text-sm font-medium max-w-xs">
-                     IRDA Licensed Direct Insurance Broker since 2003. Providing specialized risk identification and claims excellence across India.
-                  </p>
                   <div className="flex gap-3 sm:gap-4">
                      <a href="#" className="w-9 h-9 sm:w-10 sm:h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-accent active:bg-white active:text-accent active:scale-95 transition-all duration-300">
                         <svg width="14" height="14" viewBox="0 0 15 15" fill="currentColor"><path fillRule="evenodd" clipRule="evenodd" d="M13.0515 0.957031H2.55151C1.58639 0.957031 0.801514 1.74191 0.801514 2.70703V13.207C0.801514 14.1722 1.58639 14.957 2.55151 14.957H7.80151V10.1445H6.05151V7.95703H7.80151V6.20703C7.80151 5.51084 8.07807 4.84316 8.57036 4.35088C9.06264 3.85859 9.73032 3.58203 10.4265 3.58203H12.1765V5.76953H11.3015C10.8185 5.76953 10.4265 5.72403 10.4265 6.20703V7.95703H12.614L11.739 10.1445H10.4265V14.957H13.0515C14.0166 14.957 14.8015 14.1722 14.8015 13.207V2.70703C14.8015 1.74191 14.0166 0.957031 13.0515 0.957031Z" /></svg>
@@ -79,21 +76,6 @@ const Footer = () => {
                   </motion.div>
                ))}
 
-               {/* Hours Column */}
-               <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-               >
-                  <h4 className="text-[11px] sm:text-sm font-bold uppercase tracking-widest mb-6 sm:mb-8 text-white">Hours</h4>
-                  <ul className="space-y-2 text-white/60 text-[10px] sm:text-[11px] font-bold uppercase tracking-tight">
-                     <li>Mon–Tue: 08:00 AM – 06:00 PM</li>
-                     <li className="text-white">Wed: 02:00 PM – 08:00 PM</li>
-                     <li>Thu: 08:00 AM – 08:00 PM</li>
-                     <li>Fri: 08:00 AM – 04:00 PM</li>
-                  </ul>
-               </motion.div>
 
                {/* Headquarters Column */}
                <motion.div
@@ -116,24 +98,36 @@ const Footer = () => {
             </div>
 
             {/* Big Footer Text */}
-            <motion.div
-               initial={{ opacity: 0 }}
-               whileInView={{ opacity: 1 }}
-               viewport={{ once: true }}
-               transition={{ duration: 1 }}
-               whileHover={{ opacity: 0.15, scale: 1.02 }}
-               className="absolute bottom-[5%] sm:bottom-[-2%] left-0 w-full text-center font-heading font-extrabold text-[15vw] sm:text-[18vw] leading-none select-none text-white/[0.06] tracking-tighter pointer-events-auto cursor-default transition-all duration-700"
-            >
-               Le Dieu
-            </motion.div>
+            {/* Big Footer Text with Shine */}
+            <div className="absolute bottom-[5%] sm:bottom-[-2%] left-0 w-full overflow-hidden pointer-events-none select-none">
+               <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1 }}
+                  className="text-center font-heading font-extrabold text-[15vw] sm:text-[18vw] leading-none tracking-tighter"
+               >
+                  <span className="relative inline-block text-white/[0.06] bg-clip-text">
+                     Le Dieu
+                     <motion.span
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent bg-[length:200%_100%] bg-clip-text text-transparent"
+                        animate={{ backgroundPosition: ["100% 0", "-100% 0"] }}
+                        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                     >
+                        Le Dieu
+                     </motion.span>
+                  </span>
+               </motion.div>
+            </div>
 
 
             <div className="w-full h-px bg-white/15 my-6 sm:my-8" />
 
-            <div className="flex flex-col sm:flex-row justify-between items-center text-white/40 text-[9px] sm:text-[10px] uppercase tracking-widest gap-3 sm:gap-4 relative z-10 font-bold">
-               <div>Copyright © {new Date().getFullYear()} Le Dieu Insurance</div>
-               <div>All Rights Reserved</div>
-               <div>IRDA Licensed Broker</div>
+            <div className="flex flex-col items-center justify-center text-white/40 text-[10px] sm:text-[11px] uppercase tracking-widest gap-2 relative z-10 font-bold text-center">
+               <div>Copyright © 2027 Le Dieu Insurance All Right Reserved</div>
+               <div>
+                  Designed by <a href="https://brandingyou.co.in/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-accent transition-colors">Branding You</a>
+               </div>
             </div>
 
          </div>
