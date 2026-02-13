@@ -133,13 +133,6 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                                 {card.description}
                             </p>
                         </div>
-                        <div className="flex items-center gap-2 flex-wrap mt-6">
-                            {card.features.map((f: string, i: number) => (
-                                <span key={i} className="px-3.5 py-[5px] rounded-full border border-white/10 text-[9px] text-white/40 uppercase tracking-[0.15em] font-bold hover:border-accent/50 hover:text-accent transition-all duration-300 cursor-default backdrop-blur-sm">
-                                    {f}
-                                </span>
-                            ))}
-                        </div>
                     </div>
 
                     {/* Right — Visual */}
