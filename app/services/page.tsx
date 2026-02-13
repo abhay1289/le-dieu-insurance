@@ -13,7 +13,7 @@ const coreServices = [
         id: "01",
         title: "Risk Management",
         subtitle: "Systematic Identification.",
-        description: "Risk management is a systematic process for the identification and evaluation of loss exposures faced by an organization or individual. We deploy forensic auditing protocols across your entire operational landscape to uncover hidden vulnerabilities before they escalate. Our methodology ensures the selection and administration of the most appropriate techniques for treating such exposures, transforming uncertainty into a structured, defensible strategy.",
+        description: "Risk management is a systematic process for the careful identification and evaluation of loss exposures faced by an organization. We deploy forensic auditing protocols across your entire operational landscape to uncover hidden vulnerabilities before they escalate into costly incidents. Our methodology ensures the selection and administration of the most appropriate techniques for treating such exposures, transforming uncertainty into a structured, defensible strategy. Every assessment is backed by quantitative modeling and two decades of industrial benchmarking data.",
         features: ["Forensic Risk Audits", "Exposure Evaluation", "Loss Treatment Strategy"],
         stat: { value: "360°", label: "Exposure Mapping" },
         image: "/images/service-risk-engineering.png"
@@ -22,7 +22,7 @@ const coreServices = [
         id: "02",
         title: "Policy Placement",
         subtitle: "Precision Placement.",
-        description: "Policy Placement is a rigorous and thorough process involving detailed risk profiling, policy analysis, portfolio rationalization, and RFQs to secure optimal coverage. We negotiate for value-based coverage across 21+ insurers, leveraging two decades of deep market relationships. Every quote undergoes meticulous evaluation and recommendation, followed by strategic placement and final scrutiny to ensure your coverage consistently defies standard market limitations.",
+        description: "Policy Placement is a rigorous process involving detailed risk profiling, policy analysis, portfolio rationalization, and RFQs to secure optimal coverage. We negotiate for value-based coverage across 21+ insurers, leveraging two decades of deep market relationships and proprietary benchmarking intelligence. Every quote undergoes meticulous evaluation and recommendation, followed by strategic placement and final scrutiny to ensure your coverage consistently defies standard market limitations. Our placement discipline has secured preferential terms for enterprises managing assets exceeding ₹500 crores.",
         features: ["Risk Profiling", "Portfolio Rationalization", "Competitive Bidding"],
         stat: { value: "21+", label: "Insurer Partners" },
         image: "/images/service-strategic-placement.png"
@@ -31,7 +31,7 @@ const coreServices = [
         id: "03",
         title: "Investment Strategy",
         subtitle: "Post-Placement Vigilance.",
-        description: "Our engagement begins once your policy is scrutinized and approved — not where others end. We assist in claims management, handle endorsements, track renewals, and manage the renewal process with the same rigor as the initial policy placement. This continuous investment in your portfolio ensures that your coverage evolves alongside your business, maintaining relevance and maximum protection year after year.",
+        description: "Our engagement begins once your policy is scrutinized and approved — not where others end. We assist in claims management, handle endorsements, track renewals, and manage the entire renewal process with the same rigor as the initial policy placement. This continuous investment in your portfolio ensures that your coverage evolves alongside your business, maintaining relevance and maximum protection year after year. We proactively monitor market shifts and regulatory changes to recalibrate your coverage before gaps emerge.",
         features: ["Claims Assistance", "Endorsement Management", "Renewal Tracking"],
         stat: { value: "100%", label: "Renewal Oversight" },
         image: "/images/service-claims-advocacy.png"
@@ -40,7 +40,7 @@ const coreServices = [
         id: "04",
         title: "Specialized Services",
         subtitle: "Beyond Standard Coverage.",
-        description: "We offer comprehensive specialized services including Energy Audits, Safety Reviews, Environmental and Process Audits, along with expert Claim Consultancy support. These technical assessments are designed to help optimize your operations, ensure full regulatory compliance, and support efficient claim management. Our specialized team brings deep domain expertise to identify risks that standard brokers overlook, delivering measurable value beyond the policy document.",
+        description: "We offer comprehensive specialized services including Energy Audits, Safety Reviews, Environmental and Process Audits, along with expert Claim Consultancy support. These detailed technical assessments are designed to help fully optimize your operations, ensure full regulatory compliance, and support efficient claim management. Our specialized team brings deep domain expertise to identify risks that standard brokers overlook, delivering measurable value beyond the policy document. Each audit generates actionable insights with prioritized recommendations tied to quantifiable risk reduction outcomes.",
         features: ["Energy Audits", "Safety Reviews", "Claim Consultancy"],
         stat: { value: "5x", label: "Audit Depth" },
         image: "/images/service-risk-new.jpg"
@@ -49,7 +49,7 @@ const coreServices = [
         id: "05",
         title: "Industry Domain Expertise",
         subtitle: "Sector-Deep Knowledge.",
-        description: "We bring comprehensive insurance coverage spanning Fire, Earthquake, MBD, LOP, Burglary, Money, Fidelity, Transit, Health, PA, WC, Vehicle, Credit, Trade, and Marine lines. Our deep domain expertise across heavy industries, infrastructure, energy, healthcare, and hospitality means we understand the nuances defining each sector. We deliver coverage architectures that are precisely calibrated to your industry unique operational realities and risk profiles.",
+        description: "We bring comprehensive insurance coverage spanning Fire, Earthquake, MBD, LOP, Burglary, Money, Fidelity, Transit, Health, PA, WC, Vehicle, Credit, Trade, and Marine lines. Our deep domain expertise across heavy industries, infrastructure, energy, healthcare, and hospitality means we understand the nuances defining each sector. We deliver coverage architectures that are precisely calibrated to your industry unique operational realities and risk profiles. This sector-specific intelligence ensures that no blind spot exists between your operations and your protection framework.",
         features: ["Multi-Line Coverage", "Sector Specialization", "Domain Risk Mapping"],
         stat: { value: "15+", label: "Coverage Lines" },
         image: "/images/service-business.png"
@@ -58,7 +58,7 @@ const coreServices = [
         id: "06",
         title: "Insurance Broker Services",
         subtitle: "IRDA-Licensed Excellence.",
-        description: "LeDieu Insurance is IRDA-licensed, offering tailored insurance solutions backed by expert risk assessment, consultancy, and claims support. As a licensed broker, we operate with the highest regulatory standards while maintaining agility to customize solutions for every client. Our brokerage framework combines institutional credibility with personalized service, ensuring that every policy placed reflects both market best practices and your specific requirements.",
+        description: "LeDieu Insurance is IRDA-licensed, offering tailored insurance solutions backed by expert risk assessment, consultancy, and claims support. As a licensed broker, we operate with the highest regulatory standards while maintaining agility to customize solutions for every client. Our brokerage framework combines institutional credibility with personalized service, ensuring every policy placed reflects both market best practices and your specific requirements. We maintain direct relationships with underwriting desks at all major insurers, enabling faster turnarounds and preferential terms.",
         features: ["IRDA Licensed", "Risk Consultancy", "Tailored Solutions"],
         stat: { value: "20+", label: "Years Licensed" },
         image: "/images/service-strategic-placement.png"
@@ -67,7 +67,7 @@ const coreServices = [
         id: "07",
         title: "Risk Management — Loss Prevention",
         subtitle: "Proactive Defense.",
-        description: "Post-privatization, India general insurance moved to free pricing through detariffing, allowing insurers to price by risk. Brokers now play a key role in this evolved landscape, bridging technical expertise with market access. Our loss prevention protocols are engineered to reduce claim frequency and severity, transforming your risk profile from reactive to proactive — lowering premiums while strengthening your operational resilience.",
+        description: "Post-privatization, India general insurance moved to free pricing through detariffing, allowing insurers to price by risk. Brokers now play a key role in this evolved landscape, bridging technical expertise with market access. Our loss prevention protocols are specifically engineered to reduce claim frequency and severity, transforming your risk profile from reactive to proactive — lowering premiums while strengthening your operational resilience. We conduct thorough on-site inspections and implement corrective frameworks that demonstrably improve your insurability score.",
         features: ["Loss Prevention Audits", "Risk Scoring", "Premium Optimization"],
         stat: { value: "40%", label: "Claim Reduction" },
         image: "/images/service-risk-engineering.png"
@@ -76,7 +76,7 @@ const coreServices = [
         id: "08",
         title: "Insurance Solutions — Support Services",
         subtitle: "End-to-End Framework.",
-        description: "Our Insurance Solutions encompass Engineering, Trade, Marine, Employee Benefits, Property and Casualty covers including CAR, MBD, Health, Credit, Marine, and much beyond. We deliver a comprehensive support framework that extends from initial risk assessment through policy servicing and claims resolution. Every solution is architected to provide seamless protection across your entire operational footprint, ensuring no exposure goes unaddressed or underinsured.",
+        description: "Our Insurance Solutions encompass Engineering, Trade, Marine, Employee Benefits, Property and Casualty covers including CAR, MBD, Health, Credit, Marine, and much beyond. We deliver a comprehensive support framework that extends from initial risk assessment through policy servicing and claims resolution. Every solution is architected to provide seamless protection across your entire operational footprint, ensuring no exposure goes unaddressed or underinsured. Our dedicated support infrastructure includes assigned account managers and round-the-clock claims response for critical incident coverage.",
         features: ["Engineering & Trade", "Employee Benefits", "Property & Casualty"],
         stat: { value: "₹500Cr+", label: "Claims Settled" },
         image: "/images/service-claims-advocacy.png"
