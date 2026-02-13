@@ -17,20 +17,18 @@ const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, breadcrumb, backgr
         offset: ['start start', 'end start'],
     });
 
-    // Parallax layers
-    const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
-    const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-    const contentY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+    const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
+    const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+    const contentY = useTransform(scrollYProgress, [0, 1], [0, 80]);
     const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
     const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.55, 0.85]);
 
-    // Split title into words for staggered animation
     const titleWords = title.split(' ');
 
     return (
         <section
             ref={heroRef}
-            className="relative h-[70vh] sm:h-[75vh] md:h-[85vh] lg:h-screen w-full overflow-hidden bg-primary"
+            className="relative h-[50vh] sm:h-[50vh] md:h-[55vh] lg:h-[60vh] w-full overflow-hidden bg-primary"
         >
             {/* === PARALLAX BACKGROUND === */}
             {backgroundImage && (
@@ -49,7 +47,6 @@ const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, breadcrumb, backgr
                         />
                     </motion.div>
 
-                    {/* Multi-layer overlay for depth */}
                     <motion.div
                         style={{ opacity: overlayOpacity }}
                         className="absolute inset-0 bg-primary z-[1]"
@@ -64,102 +61,51 @@ const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, breadcrumb, backgr
                 style={{ y: contentY, opacity: contentOpacity }}
                 className="relative z-10 h-full flex flex-col justify-end"
             >
-                <div className="container mx-auto px-6 md:px-12 pb-12 sm:pb-16 md:pb-20 lg:pb-28">
+                <div className="container mx-auto px-6 md:px-12 pb-8 sm:pb-10 md:pb-12">
 
                     {/* Breadcrumb */}
                     <motion.div
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                        className="flex items-center gap-3 mb-6 sm:mb-8 md:mb-10"
+                        className="flex items-center gap-3 mb-4 sm:mb-5 md:mb-6"
                     >
                         <a href="/" className="text-white/40 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] hover:text-accent transition-colors duration-300">Home</a>
-                        <motion.span
-                            initial={{ scaleX: 0 }}
-                            animate={{ scaleX: 1 }}
-                            transition={{ duration: 0.6, delay: 0.5 }}
-                            className="h-[1px] w-6 sm:w-8 bg-accent origin-left"
-                        />
+                        <span className="text-white/20 text-[10px]">—</span>
                         <span className="text-white/80 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em]">{breadcrumb}</span>
                     </motion.div>
 
-                    {/* Title — word-by-word reveal */}
-                    <div className="mb-5 sm:mb-6 md:mb-8">
-                        <h1 className="flex flex-wrap gap-x-[0.25em]">
-                            {titleWords.map((word, i) => (
-                                <span key={i} className="overflow-hidden block">
-                                    <motion.span
-                                        initial={{ y: '110%', rotateX: -40 }}
-                                        animate={{ y: 0, rotateX: 0 }}
-                                        transition={{
-                                            duration: 1,
-                                            delay: 0.4 + i * 0.08,
-                                            ease: [0.16, 1, 0.3, 1],
-                                        }}
-                                        className="block text-white font-bold tracking-tighter leading-[1] text-[clamp(3rem,10vw,7.5rem)]"
-                                    >
-                                        {word}
-                                    </motion.span>
-                                </span>
-                            ))}
-                        </h1>
-                    </div>
+                    {/* Title */}
+                    <h1 className="flex flex-wrap gap-x-[0.2em]">
+                        {titleWords.map((word, i) => (
+                            <span key={i} className="overflow-hidden block">
+                                <motion.span
+                                    initial={{ y: '110%' }}
+                                    animate={{ y: 0 }}
+                                    transition={{
+                                        duration: 1,
+                                        delay: 0.4 + i * 0.08,
+                                        ease: [0.16, 1, 0.3, 1],
+                                    }}
+                                    className="block text-white font-bold tracking-tighter leading-[1] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+                                >
+                                    {word}
+                                </motion.span>
+                            </span>
+                        ))}
+                    </h1>
 
-                    {/* Subtitle — directly under heading */}
+                    {/* Subtitle */}
                     <motion.p
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-white/60 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl font-medium mt-5 sm:mt-6 md:mt-8"
+                        className="text-white/50 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl font-medium mt-4 sm:mt-5"
                     >
                         {subtitle}
                     </motion.p>
                 </div>
-
-                {/* === BOTTOM BAR === */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                    className="border-t border-white/[0.08]"
-                >
-                    <div className="container mx-auto px-6 md:px-12">
-                        <div className="flex items-center justify-between py-4 sm:py-5 md:py-6">
-                            {/* Mini stats */}
-                            <div className="hidden sm:flex items-center gap-6 md:gap-10 lg:gap-14">
-                                {[
-                                    { value: '20+', label: 'Years' },
-                                    { value: '10k+', label: 'Clients' },
-                                    { value: '21+', label: 'Insurers' },
-                                ].map((stat, i) => (
-                                    <div key={i} className="flex items-center gap-2 md:gap-3">
-                                        <span className="text-white font-bold text-sm sm:text-base md:text-lg tracking-tighter">{stat.value}</span>
-                                        <span className="text-white/30 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em]">{stat.label}</span>
-                                    </div>
-                                ))}
-                            </div>
-
-                            {/* Scroll indicator */}
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 1.2 }}
-                                className="flex items-center gap-3 ml-auto"
-                            >
-                                <span className="text-white/30 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] hidden sm:block">Scroll</span>
-                                <motion.div
-                                    animate={{ y: [0, 6, 0] }}
-                                    transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
-                                    className="w-5 h-8 sm:w-6 sm:h-9 rounded-full border border-white/20 flex items-start justify-center p-1.5"
-                                >
-                                    <motion.div className="w-1 h-1.5 sm:w-1.5 sm:h-2 rounded-full bg-accent" />
-                                </motion.div>
-                            </motion.div>
-                        </div>
-                    </div>
-                </motion.div>
             </motion.div>
-
         </section>
     );
 };
