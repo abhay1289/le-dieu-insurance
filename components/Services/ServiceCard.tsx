@@ -85,7 +85,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
           <motion.h3
             variants={{
               initial: { color: '#ffffff' },
-              active: { color: index === 2 ? '#ffffff' : 'var(--color-accent-green)' }
+              active: { color: '#ffffff' }
             }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold md:font-light mb-3 md:mb-4 transition-colors duration-500 leading-[1.1] tracking-tight"
           >
