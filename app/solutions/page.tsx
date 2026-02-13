@@ -210,14 +210,7 @@ export default function SolutionsPage() {
                                             onClick={() => setActiveCategory(activeCategory === solution.id ? null : solution.id)}
                                             className="w-full flex items-center justify-between group text-left"
                                         >
-                                            <div className="flex items-center gap-6 md:gap-8">
-                                                <motion.span
-                                                    animate={{ color: isActive ? '#384A8D' : '#d1d5db' }}
-                                                    transition={{ duration: 0.5 }}
-                                                    className="text-sm font-bold tracking-widest"
-                                                >
-                                                    0{index + 1}
-                                                </motion.span>
+                                            <div className="flex items-center gap-4 md:gap-6">
                                                 <div className="flex items-center gap-4 md:gap-6">
                                                     <motion.div
                                                         animate={{
