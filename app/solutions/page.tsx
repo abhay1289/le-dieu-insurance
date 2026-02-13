@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useMotionTemplate } from 'framer-motion';
 import NavBar from '@/components/NavBar/NavBar';
 import Footer from '@/components/Footer/Footer';
+import CTA from '@/components/CTA/CTA';
 import PageHero from '@/components/PageHero';
 import ScrollProgress from '@/components/ScrollProgress/ScrollProgress';
 import SmoothScroll from '@/components/SmoothScroll';
@@ -367,6 +368,7 @@ export default function SolutionsPage() {
                     </div>
                 </section>
 
+                <CTA />
                 <Footer />
             </div>
         </SmoothScroll>

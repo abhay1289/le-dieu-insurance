@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useMotionTemplate } from 'framer-motion';
 import NavBar from '@/components/NavBar/NavBar';
 import Footer from '@/components/Footer/Footer';
+import CTA from '@/components/CTA/CTA';
 import PageHero from '@/components/PageHero';
 import ScrollProgress from '@/components/ScrollProgress/ScrollProgress';
 import SmoothScroll from '@/components/SmoothScroll';
@@ -246,6 +247,149 @@ export default function ServicesPage() {
                     </div>
                 </section>
 
+                {/* How We Work — Process Section */}
+                <section className="py-20 md:py-32 bg-white relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
+                        style={{ backgroundImage: 'radial-gradient(#0B1C15 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+
+                    <div className="container mx-auto px-6 md:px-12 relative z-10">
+
+                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 md:mb-24 gap-6">
+                            <div className="max-w-2xl">
+                                <motion.div
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    className="flex items-center gap-4 mb-6"
+                                >
+                                    <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">How We Work</span>
+                                </motion.div>
+                                <motion.h2
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                    className="text-4xl md:text-[64px] font-bold text-primary tracking-tighter leading-[0.9]"
+                                >
+                                    From Discovery<br />
+                                    <span className="text-gray-300">to Defense</span>
+                                </motion.h2>
+                            </div>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 }}
+                                className="text-gray-500 font-medium leading-relaxed text-sm md:text-base max-w-md border-l-2 border-primary/20 pl-8"
+                            >
+                                A disciplined four-phase engagement protocol built on two decades of institutional risk management experience.
+                            </motion.p>
+                        </div>
+
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100 rounded-[2rem] overflow-hidden border border-gray-100 shadow-[0_40px_100px_rgba(0,0,0,0.02)]">
+                            {[
+                                { step: "01", title: "Discovery", desc: "Deep-dive workshops with your leadership to map every exposure vector, contractual obligation, and operational dependency across your enterprise.", icon: "🔍" },
+                                { step: "02", title: "Architecture", desc: "Quantitative stress-testing of your current risk portfolio against catastrophic scenarios, followed by custom framework design with 21+ insurers.", icon: "📐" },
+                                { step: "03", title: "Placement", desc: "Competitive bidding across the entire Indian insurance market to secure preferential terms, followed by meticulous policy documentation and review.", icon: "🎯" },
+                                { step: "04", title: "Stewardship", desc: "Continuous portfolio monitoring, proactive renewal management, and dedicated claims advocacy ensuring your coverage never falls behind your growth.", icon: "🛡️" },
+                            ].map((item, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                    className="bg-white p-8 md:p-10 group hover:bg-gray-50/50 transition-colors duration-500 relative overflow-hidden"
+                                >
+                                    <motion.div
+                                        initial={{ height: 0 }}
+                                        whileHover={{ height: '100%' }}
+                                        transition={{ duration: 0.7 }}
+                                        className="absolute top-0 left-0 w-1 bg-accent"
+                                    />
+                                    <div className="text-3xl mb-6 opacity-30 group-hover:opacity-100 transition-opacity duration-500">{item.icon}</div>
+                                    <span className="text-accent text-[10px] font-bold uppercase tracking-[0.3em] block mb-3">Phase {item.step}</span>
+                                    <h3 className="text-2xl font-bold text-primary mb-4 tracking-tight">{item.title}</h3>
+                                    <p className="text-gray-500 leading-relaxed font-medium text-sm">{item.desc}</p>
+                                    <motion.div
+                                        initial={{ width: '40px' }}
+                                        whileHover={{ width: '100%' }}
+                                        transition={{ duration: 0.5 }}
+                                        className="h-[2px] bg-accent mt-8"
+                                    />
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* By The Numbers — Stats Section */}
+                <section className="py-20 md:py-32 bg-primary relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
+                        style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+                    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
+                    <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-white/3 rounded-full blur-[120px] pointer-events-none" />
+
+                    <div className="container mx-auto px-6 md:px-12 relative z-10">
+
+                        <div className="text-center mb-16 md:mb-24">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className="flex items-center justify-center gap-4 mb-6"
+                            >
+                                <span className="h-px w-8 bg-accent/30" />
+                                <span className="text-accent text-[10px] font-bold uppercase tracking-[0.4em]">By The Numbers</span>
+                                <span className="h-px w-8 bg-accent/30" />
+                            </motion.div>
+                            <motion.h2
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                className="text-4xl md:text-[64px] font-bold text-white tracking-tighter leading-[0.9]"
+                            >
+                                Two Decades of<br />
+                                <span className="text-white/30">Measured Impact</span>
+                            </motion.h2>
+                        </div>
+
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                            {[
+                                { value: "20+", label: "Years of Excellence", detail: "Since 2003" },
+                                { value: "21+", label: "Insurer Partners", detail: "Pan-India Network" },
+                                { value: "₹500Cr+", label: "Claims Settled", detail: "Full Recovery" },
+                                { value: "99%", label: "Retention Rate", detail: "Client Loyalty" },
+                            ].map((stat, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                    className="group text-center p-8 md:p-10 rounded-[2rem] border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10 transition-all duration-500"
+                                >
+                                    <div className="overflow-hidden mb-3">
+                                        <motion.div
+                                            initial={{ y: "100%" }}
+                                            whileInView={{ y: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 + i * 0.1 }}
+                                            className="text-4xl md:text-6xl font-bold text-white tracking-tighter"
+                                        >
+                                            {stat.value}
+                                        </motion.div>
+                                    </div>
+                                    <div className="text-white/50 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">{stat.label}</div>
+                                    <div className="text-accent/60 text-[9px] font-bold uppercase tracking-[0.2em]">{stat.detail}</div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                <CTA />
                 <Footer />
             </div>
         </SmoothScroll>
