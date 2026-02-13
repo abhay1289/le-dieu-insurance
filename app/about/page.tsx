@@ -200,7 +200,7 @@ export default function AboutPage() {
                                     </div>
                                 </div>
 
-                                <motion.p variants={fadeUpVariants} className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-lg mb-8 font-light border-l border-gray-200 pl-6">
+                                <motion.p variants={fadeUpVariants} className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-lg mb-8 font-medium border-l border-accent/20 pl-6">
                                     Le Dieu Insurance Brokers is not just an intermediary; we are your strategic risk partners. Licensed by IRDA since 2003, we bridge the gap between complex enterprise risks and optimal financial protection.
                                 </motion.p>
 
@@ -226,16 +226,16 @@ export default function AboutPage() {
                                 className="grid gap-6"
                             >
                                 <motion.div variants={fadeUpVariants} className="p-6 md:p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-accent/30 transition-colors duration-500 shadow-sm hover:shadow-md">
-                                    <h3 className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-4">Market Leadership</h3>
-                                    <p className="text-primary text-base md:text-lg leading-relaxed">
-                                        Serving prestigious industrial houses, power projects, and infrastructure giants with a philosophy of <span className="text-accent font-medium">zero compromise</span> on coverage quality.
+                                    <h3 className="text-slate-900 text-xs font-black uppercase tracking-widest mb-4">Market Leadership</h3>
+                                    <p className="text-primary text-base md:text-lg leading-relaxed font-semibold">
+                                        Serving prestigious industrial houses, power projects, and infrastructure giants with a philosophy of <span className="text-accent font-black">zero compromise</span> on coverage quality.
                                     </p>
                                 </motion.div>
                                 <motion.div variants={fadeUpVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                                     {stats.map((stat, i) => (
                                         <div key={i} className="p-5 md:p-6 rounded-3xl bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-md transition-all duration-500 text-center sm:text-left">
                                             <div className="text-3xl md:text-4xl font-bold text-primary mb-1 md:mb-2">{stat.number}</div>
-                                            <div className="text-gray-400 text-[9px] md:text-[10px] uppercase font-bold tracking-wider">{stat.label}</div>
+                                            <div className="text-slate-900 text-[9px] md:text-[10px] uppercase font-black tracking-wider opacity-60">{stat.label}</div>
                                         </div>
                                     ))}
                                 </motion.div>
@@ -276,7 +276,7 @@ export default function AboutPage() {
                                 Principles That <br className="hidden sm:block" />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent">Define Excellence</span>
                             </motion.h2>
-                            <motion.p variants={fadeUpVariants} className="text-gray-400 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed px-4">
+                            <motion.p variants={fadeUpVariants} className="text-slate-900 text-lg md:text-xl font-bold max-w-2xl mx-auto leading-relaxed px-4 opacity-70">
                                 A foundation of trust built over two decades of unwavering service and strategic foresight.
                             </motion.p>
                         </motion.div>
@@ -300,10 +300,10 @@ export default function AboutPage() {
                                                 <div className="w-12 h-12 md:w-16 md:h-16 rounded-[1rem] md:rounded-[1.25rem] bg-gray-50 flex items-center justify-center text-primary mb-4 md:mb-6 group-hover/card:scale-110 group-hover/card:bg-primary group-hover/card:text-accent transition-all duration-700 ease-out shadow-sm border border-gray-100">
                                                     <div className="scale-75 md:scale-100">{val.icon}</div>
                                                 </div>
-                                                <h3 className="text-xl md:text-2xl font-bold text-primary mb-2 md:mb-4 tracking-tight group-hover/card:translate-x-2 transition-transform duration-500">
+                                                <h3 className="text-xl md:text-2xl font-black text-primary mb-2 md:mb-4 tracking-tighter group-hover/card:translate-x-2 transition-transform duration-500">
                                                     {val.title}
                                                 </h3>
-                                                <p className="text-gray-400 leading-relaxed font-medium text-xs md:text-sm group-hover/card:text-gray-600 transition-colors">
+                                                <p className="text-slate-900 leading-relaxed font-bold text-xs md:text-sm group-hover/card:text-black transition-colors">
                                                     {val.description}
                                                 </p>
                                             </div>

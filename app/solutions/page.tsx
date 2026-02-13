@@ -65,14 +65,14 @@ function SolutionCard({ solution }: { solution: any }) {
             onMouseMove={handleMouseMove}
             className="group relative h-[480px] rounded-[2.5rem] bg-[#FBFBFB] border border-gray-100 overflow-hidden shadow-sm hover:shadow-[0_50px_100px_rgba(0,0,0,0.08)] transition-all duration-500"
         >
-            {/* Background Image with Controlled Scale */}
+            {/* Background Image with High Visibility */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <motion.img
                     src={solution.image}
                     alt={solution.title}
-                    className="w-full h-full object-cover opacity-[0.05] transition-opacity duration-1000 group-hover:opacity-[0.12] group-hover:scale-105"
+                    className="w-full h-full object-cover opacity-[0.15] transition-opacity duration-1000 group-hover:opacity-[0.45] group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#FBFBFB] via-[#FBFBFB]/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#FBFBFB] via-[#FBFBFB]/60 to-[#FBFBFB]/10" />
             </div>
 
             {/* Spotlight Effect - Higher Contrast */}
@@ -92,21 +92,21 @@ function SolutionCard({ solution }: { solution: any }) {
             <div className="relative h-full p-10 flex flex-col justify-between z-10">
                 <div>
                     <div className="flex justify-between items-start mb-8">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary bg-white border border-gray-200 px-4 py-1.5 rounded-full shadow-[0_2px_4px_rgba(0,0,0,0.02)]">
+                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary bg-white border-2 border-primary/10 px-4 py-1.5 rounded-full shadow-sm">
                             {solution.category}
                         </span>
-                        <div className="w-14 h-14 rounded-2xl border border-gray-100 bg-white flex items-center justify-center text-primary transform group-hover:-rotate-6 transition-transform duration-700 shadow-sm group-hover:shadow-md">
-                            {solution.icon}
+                        <div className="w-16 h-16 rounded-2xl border-2 border-gray-100 bg-white flex items-center justify-center text-primary transform group-hover:-rotate-12 transition-all duration-700 shadow-md group-hover:shadow-xl group-hover:bg-primary group-hover:text-white">
+                            <div className="scale-125">{solution.icon}</div>
                         </div>
                     </div>
 
-                    <h3 className="text-3xl md:text-4xl font-bold text-primary mb-3 tracking-tighter leading-tight group-hover:text-accent transition-colors duration-500">
+                    <h3 className="text-3xl md:text-5xl font-black text-primary mb-3 tracking-tighter leading-[0.9] group-hover:text-primary transition-colors duration-500">
                         {solution.title}
                     </h3>
-                    <p className="text-slate-500 font-bold text-[11px] uppercase tracking-[0.2em] mb-6">
+                    <p className="text-primary font-black text-[11px] uppercase tracking-[0.3em] mb-6 opacity-60">
                         {solution.subtitle}
                     </p>
-                    <p className="text-slate-700 leading-relaxed text-sm md:text-base font-medium max-w-[95%]">
+                    <p className="text-slate-900 leading-relaxed text-sm md:text-lg font-bold max-w-full drop-shadow-sm group-hover:text-black transition-colors">
                         {solution.description}
                     </p>
                 </div>
@@ -115,7 +115,7 @@ function SolutionCard({ solution }: { solution: any }) {
                     <div className="h-px w-full bg-gray-100 mb-8 group-hover:bg-accent/20 transition-colors duration-500" />
                     <div className="flex flex-wrap gap-2">
                         {solution.coverages.map((c: string, ci: number) => (
-                            <span key={ci} className="text-[10px] font-bold uppercase text-slate-600 px-3 py-1.5 rounded-xl bg-white border border-gray-200 group-hover:border-accent/40 group-hover:text-primary transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.01)]">
+                            <span key={ci} className="text-[10px] font-black uppercase text-primary px-3 py-1.5 rounded-xl bg-white border-2 border-primary/5 group-hover:border-primary/20 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
                                 {c}
                             </span>
                         ))}
@@ -330,8 +330,8 @@ export default function SolutionsPage() {
                                     <div className="w-20 h-20 rounded-3xl bg-white border border-gray-100 group-hover:border-primary group-hover:bg-primary group-hover:text-white text-primary flex items-center justify-center font-bold text-2xl transition-all duration-700 relative z-10 mb-10 mx-auto md:mx-0 shadow-sm group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] group-hover:-translate-y-2">
                                         {step.step}
                                     </div>
-                                    <h3 className="text-2xl font-bold text-primary mb-4 tracking-tight group-hover:text-primary transition-colors">{step.title}</h3>
-                                    <p className="text-slate-600 text-base leading-relaxed font-semibold">
+                                    <h3 className="text-2xl font-black text-primary mb-4 tracking-tighter group-hover:text-primary transition-colors">{step.title}</h3>
+                                    <p className="text-slate-900 text-base leading-relaxed font-bold">
                                         {step.description}
                                     </p>
 
