@@ -11,6 +11,35 @@
   --color-light-gray: #f4f4f4;
 
   --image-hero-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes scan {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+
+    100% {
+      transform: translateY(500%);
+      opacity: 0;
+    }
+  }
+
+  --animation-spin-slow: spin-slow 12s linear infinite;
+  --animation-scan: scan 3s linear infinite;
 }
 
 :root {

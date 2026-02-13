@@ -224,70 +224,130 @@ export default function SolutionsPage() {
                                                     initial={{ height: 0, opacity: 0 }}
                                                     animate={{ height: "auto", opacity: 1 }}
                                                     exit={{ height: 0, opacity: 0 }}
-                                                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                                                     className="overflow-hidden"
                                                 >
-                                                    <div className="grid lg:grid-cols-2 gap-16 md:gap-24 pt-16">
-                                                        {/* Text Content */}
-                                                        <div>
-                                                            <div className="flex items-center gap-4 mb-8">
-                                                                <span className="h-px w-8 bg-accent" />
-                                                                <span className="text-accent text-[11px] font-bold uppercase tracking-[0.4em]">{solution.subtitle}</span>
-                                                            </div>
-                                                            <p className="text-2xl md:text-3xl text-primary font-bold leading-tight mb-8 tracking-tight">
-                                                                {solution.description}
-                                                            </p>
-                                                            <p className="text-slate-600 text-lg leading-relaxed mb-12 font-medium">
-                                                                {solution.longDescription}
-                                                            </p>
-
-                                                            <div className="grid sm:grid-cols-1 gap-8 mb-12">
-                                                                {solution.features.map((feature, fi) => (
-                                                                    <div key={fi} className="flex gap-6 group/feat">
-                                                                        <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-2xl group-hover/feat:bg-primary group-hover/feat:scale-110 transition-all duration-500 shadow-sm border border-gray-100">
-                                                                            {feature.icon}
-                                                                        </div>
-                                                                        <div className="flex-1">
-                                                                            <h4 className="text-lg font-bold text-primary mb-1">{feature.title}</h4>
-                                                                            <p className="text-slate-500 text-sm leading-relaxed">{feature.text}</p>
-                                                                        </div>
-                                                                    </div>
-                                                                ))}
-                                                            </div>
-
-                                                            <div className="flex flex-wrap gap-3">
-                                                                {solution.coverages.map((c, ci) => (
-                                                                    <span key={ci} className="text-[10px] font-bold uppercase text-primary border border-primary/10 px-4 py-2 rounded-xl bg-gray-50/50">
-                                                                        {c}
-                                                                    </span>
-                                                                ))}
-                                                            </div>
+                                                    <div className="relative grid lg:grid-cols-12 gap-12 md:gap-20 pt-16 pb-12">
+                                                        {/* Background Accent Numeral */}
+                                                        <div className="absolute top-10 right-0 text-[20rem] font-bold text-gray-50 leading-none select-none pointer-events-none -z-10 opacity-40">
+                                                            0{index + 1}
                                                         </div>
 
-                                                        {/* Image Content */}
-                                                        <div className="relative">
+                                                        {/* Left Column: Strategic Narrative (7 Cols) */}
+                                                        <div className="lg:col-span-7">
                                                             <motion.div
-                                                                initial={{ scale: 1.1, opacity: 0 }}
-                                                                animate={{ scale: 1, opacity: 1 }}
-                                                                transition={{ delay: 0.2, duration: 1.2 }}
-                                                                className="relative rounded-[2.5rem] md:rounded-[3rem] overflow-hidden aspect-[4/5] shadow-2xl border-4 md:border-8 border-white"
+                                                                initial={{ opacity: 0, x: -20 }}
+                                                                animate={{ opacity: 1, x: 0 }}
+                                                                transition={{ delay: 0.3 }}
+                                                                className="flex items-center gap-4 mb-10"
                                                             >
-                                                                <img
-                                                                    src={solution.image}
-                                                                    alt={solution.title}
-                                                                    className="w-full h-full object-cover"
-                                                                />
-                                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                                                                <div className="absolute bottom-8 md:bottom-10 left-8 md:left-10 text-white">
-                                                                    <div className="text-[10px] font-bold uppercase tracking-widest mb-2 opacity-60">Architecting Resilience</div>
-                                                                    <div className="text-2xl md:text-3xl font-bold tracking-tighter">Strategic {solution.title} Coverage</div>
-                                                                </div>
+                                                                <span className="h-[2px] w-12 bg-accent" />
+                                                                <span className="text-accent text-[12px] font-bold uppercase tracking-[0.5em]">{solution.subtitle}</span>
                                                             </motion.div>
 
-                                                            {/* Decorative Badge */}
-                                                            <div className="absolute -top-12 -right-12 w-48 h-48 bg-accent rounded-full hidden xl:flex items-center justify-center text-white p-8 text-center text-[10px] font-bold uppercase tracking-widest animate-spin-slow shadow-xl">
-                                                                IRDA Licensed Since 2003 • Global Placement Scale •
-                                                            </div>
+                                                            <motion.h3
+                                                                initial={{ opacity: 0, y: 20 }}
+                                                                animate={{ opacity: 1, y: 0 }}
+                                                                transition={{ delay: 0.4 }}
+                                                                className="text-3xl md:text-5xl text-primary font-bold leading-[1.1] mb-10 tracking-tighter"
+                                                            >
+                                                                {solution.description}
+                                                            </motion.h3>
+
+                                                            <motion.div
+                                                                initial={{ opacity: 0 }}
+                                                                animate={{ opacity: 1 }}
+                                                                transition={{ delay: 0.5 }}
+                                                                className="grid md:grid-cols-2 gap-8 mb-16"
+                                                            >
+                                                                {solution.features.map((feature, fi) => (
+                                                                    <div key={fi} className="p-8 rounded-[2rem] bg-gray-50 border border-gray-100 hover:border-accent/30 hover:bg-white transition-all duration-500 group/item shadow-sm hover:shadow-xl">
+                                                                        <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-3xl mb-6 group-hover/item:scale-110 group-hover/item:bg-primary group-hover/item:text-white transition-all duration-500 shadow-sm">
+                                                                            {feature.icon}
+                                                                        </div>
+                                                                        <h4 className="text-xl font-bold text-primary mb-3">{feature.title}</h4>
+                                                                        <p className="text-slate-500 text-sm leading-relaxed font-medium">{feature.text}</p>
+                                                                    </div>
+                                                                ))}
+                                                            </motion.div>
+
+                                                            <motion.div
+                                                                initial={{ opacity: 0, y: 20 }}
+                                                                animate={{ opacity: 1, y: 0 }}
+                                                                transition={{ delay: 0.6 }}
+                                                                className="space-y-6"
+                                                            >
+                                                                <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary/40">
+                                                                    <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                                                                    Global Standard Coverages
+                                                                </div>
+                                                                <div className="flex flex-wrap gap-3">
+                                                                    {solution.coverages.map((c, ci) => (
+                                                                        <span key={ci} className="text-[11px] font-bold uppercase text-primary border border-primary/10 px-5 py-2.5 rounded-full bg-white shadow-sm hover:border-accent/50 hover:text-accent transition-all duration-300">
+                                                                            {c}
+                                                                        </span>
+                                                                    ))}
+                                                                </div>
+                                                            </motion.div>
+                                                        </div>
+
+                                                        {/* Right Column: Visual & Technical (5 Cols) */}
+                                                        <div className="lg:col-span-5 relative">
+                                                            <motion.div
+                                                                initial={{ scale: 0.95, opacity: 0 }}
+                                                                animate={{ scale: 1, opacity: 1 }}
+                                                                transition={{ delay: 0.4, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                                                                className="relative group/img"
+                                                            >
+                                                                {/* Image Container with Scanning Effect */}
+                                                                <div className="relative rounded-[3rem] overflow-hidden aspect-[4/5] shadow-2xl border-[12px] border-white">
+                                                                    <img
+                                                                        src={solution.image}
+                                                                        alt={solution.title}
+                                                                        className="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-105"
+                                                                    />
+                                                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                                                                    {/* Holographic Scan Line */}
+                                                                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/20 to-transparent h-20 w-full animate-scan pointer-events-none" />
+
+                                                                    <div className="absolute bottom-10 left-10 right-10">
+                                                                        <div className="flex items-center gap-3 mb-4">
+                                                                            <div className="px-3 py-1 bg-accent rounded text-[9px] font-bold text-white uppercase tracking-widest">Live Analysis</div>
+                                                                            <div className="h-px flex-1 bg-white/20" />
+                                                                        </div>
+                                                                        <h4 className="text-3xl font-bold text-white tracking-tighter mb-2">
+                                                                            {solution.title} <span className="text-accent underline decoration-2 underline-offset-8">Vector</span>
+                                                                        </h4>
+                                                                        <p className="text-white/60 text-xs font-medium tracking-wide">
+                                                                            Optimizing risk transfer mechanisms based on {solution.id} market volatility metrics.
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+
+                                                                {/* Floating Technical Specs Plate */}
+                                                                <motion.div
+                                                                    initial={{ x: 50, opacity: 0 }}
+                                                                    animate={{ x: 0, opacity: 1 }}
+                                                                    transition={{ delay: 0.7 }}
+                                                                    className="absolute -right-8 top-1/4 backdrop-blur-xl bg-white/90 border border-white/20 p-6 rounded-3xl shadow-2xl hidden xl:block max-w-[200px]"
+                                                                >
+                                                                    <div className="text-[10px] font-bold text-accent uppercase tracking-widest mb-4">Risk Quotient</div>
+                                                                    <div className="space-y-4">
+                                                                        {[1, 2, 3].map((i) => (
+                                                                            <div key={i} className="space-y-1">
+                                                                                <div className="flex justify-between text-[10px] font-bold text-primary/40">
+                                                                                    <span>Vector {i}</span>
+                                                                                    <span>{85 + i}%</span>
+                                                                                </div>
+                                                                                <div className="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
+                                                                                    <div className="h-full bg-primary" style={{ width: `${85 + i}%` }} />
+                                                                                </div>
+                                                                            </div>
+                                                                        ))}
+                                                                    </div>
+                                                                </motion.div>
+                                                            </motion.div>
                                                         </div>
                                                     </div>
                                                 </motion.div>
