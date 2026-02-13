@@ -94,13 +94,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
           </motion.h3>
 
           {/* Mobile: always visible / Desktop: reveal on hover */}
-          <p className="text-white text-sm md:text-lg font-bold leading-relaxed max-w-sm mb-0 block md:hidden">
+          <p className="text-white text-sm md:text-lg font-bold leading-relaxed max-w-sm mb-4 md:mb-0 block md:hidden">
             {service.description}
           </p>
           <motion.div
             variants={{
               initial: { height: 0, opacity: 0, marginBottom: 0 },
-              active: { height: 'auto', opacity: 1, marginBottom: 0 }
+              active: { height: 'auto', opacity: 1, marginBottom: 24 }
             }}
             className="overflow-hidden transition-all duration-700 ease-[0.19,1,0.22,1] hidden md:block"
           >
@@ -108,6 +108,18 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
               {service.description}
             </p>
           </motion.div>
+
+          <div className="pt-2 md:pt-6">
+            <motion.span
+              variants={{
+                initial: { color: '#ffffff', borderColor: 'rgba(255,255,255,0.3)' },
+                active: { color: '#ffffff', borderColor: '#ffffff' }
+              }}
+              className="text-xs font-bold uppercase tracking-widest border-b pb-1 transition-all duration-500"
+            >
+              Explore Solution
+            </motion.span>
+          </div>
 
         </div>
       </div>
