@@ -164,12 +164,12 @@ export default function AboutPage() {
 
                                 <div className="space-y-2 mb-10">
                                     <div className="overflow-hidden">
-                                        <motion.h2 variants={textRevealVariants} className="text-4xl sm:text-5xl md:text-[73px] font-bold tracking-tighter leading-[0.9] text-primary">
+                                        <motion.h2 variants={textRevealVariants} className="text-4xl sm:text-5xl md:text-[73px] font-bold tracking-tighter leading-[1] text-primary">
                                             Beyond
                                         </motion.h2>
                                     </div>
                                     <div className="overflow-hidden">
-                                        <motion.h2 variants={textRevealVariants} className="text-4xl sm:text-5xl md:text-[73px] font-bold tracking-tighter leading-[0.9] text-gray-300">
+                                        <motion.h2 variants={textRevealVariants} className="text-4xl sm:text-5xl md:text-[73px] font-bold tracking-tighter leading-[1] text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent">
                                             Insurance.
                                         </motion.h2>
                                     </div>
@@ -247,10 +247,10 @@ export default function AboutPage() {
                                         whileInView={{ y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                        className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[0.9]"
+                                        className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[1]"
                                     >
                                         Principles That<br />
-                                        <span className="text-gray-300">Define Excellence</span>
+                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent">Define Excellence</span>
                                     </motion.h2>
                                 </div>
                             </div>

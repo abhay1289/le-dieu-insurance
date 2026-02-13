@@ -167,10 +167,10 @@ export default function ContactPage() {
                                     <div className="overflow-hidden">
                                         <motion.h2
                                             variants={textRevealVariants}
-                                            className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[0.9]"
+                                            className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[1]"
                                         >
                                             How Can We<br />
-                                            <span className="text-gray-300">Help You?</span>
+                                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent">Help You?</span>
                                         </motion.h2>
                                     </div>
                                 </div>
@@ -363,7 +363,7 @@ export default function ContactPage() {
                                         whileInView={{ y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                        className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[0.9]"
+                                        className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[1]"
                                     >
                                         Visit Us
                                     </motion.h2>
