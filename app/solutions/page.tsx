@@ -299,14 +299,14 @@ export default function SolutionsPage() {
                                                             </div>
 
                                                             {/* Right Column: Image */}
-                                                            <div className="relative">
+                                                            <div className="relative h-full">
                                                                 <motion.div
                                                                     initial={{ scale: 0.9, opacity: 0, y: 30 }}
                                                                     animate={{ scale: 1, opacity: 1, y: 0 }}
                                                                     transition={{ delay: 0.3, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                                                                    className="relative group/img"
+                                                                    className="relative group/img h-full"
                                                                 >
-                                                                    <div className="relative rounded-2xl md:rounded-[2rem] overflow-hidden aspect-[16/9] shadow-2xl">
+                                                                    <div className="relative rounded-2xl md:rounded-[2rem] overflow-hidden aspect-[16/9] lg:aspect-auto lg:h-full shadow-2xl">
                                                                         <motion.img
                                                                             initial={{ scale: 1.1 }}
                                                                             animate={{ scale: 1 }}
