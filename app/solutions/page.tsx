@@ -169,7 +169,7 @@ const processSteps = [
 ];
 
 export default function SolutionsPage() {
-    const [activeCategory, setActiveCategory] = useState("manufacturing");
+    const [activeCategory, setActiveCategory] = useState<string | null>("manufacturing");
 
     return (
         <SmoothScroll>
@@ -200,7 +200,7 @@ export default function SolutionsPage() {
                                         className={`border-b border-gray-100 transition-all duration-700 ${isActive ? 'pb-20 pt-10' : 'py-8'}`}
                                     >
                                         <button
-                                            onClick={() => setActiveCategory(solution.id)}
+                                            onClick={() => setActiveCategory(activeCategory === solution.id ? null : solution.id)}
                                             className="w-full flex items-center justify-between group text-left"
                                         >
                                             <div className="flex items-center gap-8">
