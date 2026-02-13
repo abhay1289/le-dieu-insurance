@@ -184,10 +184,29 @@ export default function ServicesPage() {
                 />
 
                 {/* Stacking Cards Section */}
-                <div ref={containerRef} className="relative mt-0 mb-0">
-                    <div className="container mx-auto px-6 mb-0 text-center">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent block mb-6">Our Services</span>
-                        <h2 className="text-4xl sm:text-5xl md:text-[73px] font-bold tracking-tighter text-primary leading-[1]">The Protection Matrix.</h2>
+                <div ref={containerRef} className="relative">
+                    <div className="container mx-auto px-6 md:px-12 pt-16 md:pt-32 pb-8 md:pb-12">
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                            className="flex items-center gap-4 mb-4 md:mb-8"
+                        >
+                            <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Our Services</span>
+                        </motion.div>
+                        <div className="overflow-hidden">
+                            <motion.h2
+                                initial={{ y: "100%" }}
+                                whileInView={{ y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                                className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[1]"
+                            >
+                                The Protection<br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent font-bold">Matrix.</span>
+                            </motion.h2>
+                        </div>
                     </div>
 
                     {coreServices.map((service, i) => {
