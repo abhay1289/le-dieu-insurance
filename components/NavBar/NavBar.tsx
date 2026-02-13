@@ -6,7 +6,7 @@ const NavLink = ({ text, href = "#", hasDropdown = false }: { text: string; href
   return (
     <a
       href={href}
-      className="text-black/70 hover:text-black transition-colors text-[13px] font-bold uppercase tracking-widest flex items-center gap-1.5"
+      className="text-primary/70 hover:text-primary transition-colors text-[13px] font-bold uppercase tracking-widest flex items-center gap-1.5"
     >
       {text}
       {hasDropdown && <ArrowIcon className="w-2 h-2 rotate-90 opacity-40" />}
@@ -88,7 +88,7 @@ const NavBar = () => {
         >
           <a
             href="/get-started"
-            className="bg-black text-white px-8 py-3.5 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-gray-900 hover:text-white transition-all duration-300 shadow-lg shadow-black/5 active:bg-black active:text-white active:scale-95 active:shadow-none"
+            className="bg-primary text-white px-8 py-3.5 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-accent hover:text-primary transition-all duration-300 shadow-lg shadow-primary/5 active:bg-accent active:text-primary active:scale-95 active:shadow-none"
           >
             Get Started
           </a>
@@ -96,7 +96,7 @@ const NavBar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden text-black"
+          className="lg:hidden text-primary"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle Menu"
         >

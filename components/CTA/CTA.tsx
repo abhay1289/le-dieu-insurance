@@ -11,7 +11,7 @@ const CTA = () => {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any }}
-          className="bg-primary rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 text-center relative overflow-hidden shadow-2xl"
+          className="bg-white rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 text-center relative overflow-hidden shadow-2xl border border-gray-100"
         >
           <div className="relative z-10 max-w-4xl mx-auto">
             <motion.div
@@ -21,7 +21,7 @@ const CTA = () => {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any, delay: 0.1 }}
               className="flex items-center justify-center gap-4 mb-4 md:mb-8"
             >
-              <span className="uppercase tracking-[0.3em] text-[10px] font-bold text-accent">Start Your Journey</span>
+              <span className="uppercase tracking-[0.3em] text-[10px] font-bold text-primary">Start Your Journey</span>
             </motion.div>
 
             <div className="overflow-hidden mb-8 md:mb-12 py-2">
@@ -30,9 +30,9 @@ const CTA = () => {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as any, delay: 0.2 }}
-                className="text-4xl sm:text-5xl md:text-[73px] font-bold text-white leading-[0.9] tracking-tighter"
+                className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary leading-[0.9] tracking-tighter"
               >
-                Ready to secure your legacy with our <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-white to-accent font-bold">Trusted Advisors</span>
+                Ready to secure your legacy with our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-gray-400 to-primary font-bold">Trusted Advisors</span>
               </motion.h2>
             </div>
 
@@ -43,18 +43,18 @@ const CTA = () => {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any, delay: 0.4 }}
               className="flex flex-col sm:flex-row justify-center gap-6"
             >
-              <a href="#team" className="bg-white text-primary px-10 py-5 rounded-full font-bold text-sm tracking-wide hover:bg-accent transition-colors flex items-center justify-center gap-3 hover:scale-105 transform duration-300">
+              <a href="#team" className="bg-primary text-white px-10 py-5 rounded-full font-bold text-sm tracking-wide hover:bg-primary/90 transition-colors flex items-center justify-center gap-3 hover:scale-105 transform duration-300 shadow-lg">
                 Chat With Advisor <ArrowIcon className="w-3 h-3" />
               </a>
-              <a href="#contact" className="bg-transparent border border-white/20 text-white px-10 py-5 rounded-full font-bold text-sm tracking-wide hover:bg-white hover:text-primary transition-all flex items-center justify-center gap-3">
+              <a href="#contact" className="bg-transparent border border-gray-200 text-primary px-10 py-5 rounded-full font-bold text-sm tracking-wide hover:bg-gray-50 transition-all flex items-center justify-center gap-3">
                 Contact Us <ArrowIcon className="w-3 h-3" />
               </a>
             </motion.div>
           </div>
 
           {/* Decorative Elements - Subtle Abstract Forms */}
-          <div className="absolute -top-40 -left-40 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none"></div>
-          <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
+          <div className="absolute -top-40 -left-40 w-96 h-96 bg-gray-100 rounded-full blur-[100px] pointer-events-none"></div>
+          <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-gray-50 rounded-full blur-[100px] pointer-events-none"></div>
         </motion.div>
       </div>
     </section>

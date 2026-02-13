@@ -8,28 +8,28 @@ const teamMembers: TeamMember[] = [
     id: 1,
     name: "Dharampal Rupal",
     role: "Chairman",
-    image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=75&w=800&auto=format&fit=crop",
+    image: "/images/team-chairman.png",
     bio: "Founding visionary driving the strategic direction and excellence of Le Dieu Insurance Brokers."
   },
   {
     id: 2,
     name: "Ashar Husain",
     role: "Vice President",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=75&w=800&auto=format&fit=crop",
+    image: "/images/team-vp.png",
     bio: "Expert risk consultant leading the PAN India brokerage operations and specialized engineering audits."
   },
   {
     id: 3,
     name: "Deepak Simhal",
     role: "Managing Partner",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=75&w=800&auto=format&fit=crop",
+    image: "/images/team-mp.png",
     bio: "Focused on client-centric policy placement and navigating complex risk portfolios for industrial giants."
   },
   {
     id: 4,
     name: "Shruti Simhal",
     role: "Strategic Partner",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=75&w=800&auto=format&fit=crop",
+    image: "/images/team-sp.png",
     bio: "Dedicated to building lasting relationships and delivering value-based insurance solutions across India."
   }
 ];
@@ -60,7 +60,7 @@ const Team = () => {
               className="flex items-center gap-4 mb-4 md:mb-8"
             >
 
-              <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Board of Directors</span>
+              <span className="text-[10px] font-bold tracking-[0.3em] text-primary uppercase">Board of Directors</span>
             </motion.div>
 
             <div className="overflow-hidden">

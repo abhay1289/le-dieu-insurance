@@ -25,14 +25,14 @@ const FeatureCard = ({ icon, title, desc, index }: { icon: React.ReactNode, titl
                active: { height: '100%' }
             }}
             transition={{ duration: 0.7 }}
-            className="absolute top-0 left-0 w-1 bg-accent"
+            className="absolute top-0 left-0 w-1 bg-primary"
          ></motion.div>
 
          {/* Icon Container */}
          <motion.div
             variants={{
                initial: { backgroundColor: '#F9FAFB', borderColor: '#F3F4F6', rotate: 0 },
-               active: { backgroundColor: '#86EFAC', borderColor: '#86EFAC', rotate: 6 }
+               active: { backgroundColor: '#111111', borderColor: '#111111', rotate: 6 }
             }}
             transition={{ duration: 0.5 }}
             className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 md:mb-8 border"
@@ -60,7 +60,7 @@ const FeatureCard = ({ icon, title, desc, index }: { icon: React.ReactNode, titl
                active: { width: '100%' }
             }}
             transition={{ duration: 0.5 }}
-            className="h-[2px] bg-accent mt-6 md:mt-8"
+            className="h-[2px] bg-primary mt-6 md:mt-8"
          />
       </motion.div>
    );
@@ -130,7 +130,7 @@ const WhyChooseUs = () => {
                      className="flex items-center gap-4 mb-4 md:mb-8"
                   >
 
-                     <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Institutional Grade</span>
+                     <span className="text-[10px] font-bold tracking-[0.3em] text-primary uppercase">Institutional Grade</span>
                   </motion.div>
 
                   <div className="overflow-hidden">
@@ -148,7 +148,7 @@ const WhyChooseUs = () => {
                </div>
 
                <div className="max-w-md pb-4">
-                  <p className="text-gray-500 font-medium leading-relaxed text-sm md:text-base border-l-2 border-accent/20 pl-8">
+                  <p className="text-gray-500 font-medium leading-relaxed text-sm md:text-base border-l-2 border-primary/20 pl-8">
                      We move beyond traditional insurance models to provide architected resilience for India's most significant family and corporate legacies.
                   </p>
                </div>
@@ -192,12 +192,12 @@ const WhyChooseUs = () => {
                   <div className="max-w-2xl">
                      <motion.div
                         whileHover={{ scale: 1.05 }}
-                        className="w-12 h-12 md:w-16 md:h-16 bg-accent rounded-full flex items-center justify-center mb-6 md:mb-10 cursor-pointer shadow-xl shadow-accent/20"
+                        className="w-12 h-12 md:w-16 md:h-16 bg-primary text-white rounded-full flex items-center justify-center mb-6 md:mb-10 cursor-pointer shadow-xl shadow-primary/20"
                      >
-                        <PlayIcon className="w-5 h-5 text-primary ml-1" />
+                        <PlayIcon className="w-5 h-5 text-white ml-1" />
                      </motion.div>
                      <h3 className="text-xl md:text-5xl font-bold text-white tracking-tight mb-3 md:mb-6 leading-tight">
-                        Watch the <span className="text-accent underline decoration-1 underline-offset-8">Standard</span> in action
+                        Watch the <span className="text-gray-100 underline decoration-1 underline-offset-8">Standard</span> in action
                      </h3>
                      <p className="text-white/70 font-medium max-w-sm text-sm md:text-base">
                         A short film on how we provide the certainty required to live and lead fearlessly.

@@ -1,7 +1,39 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionTemplate, useMotionValue } from 'framer-motion';
+
+function SpotlightCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+
+    function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+        const { left, top } = currentTarget.getBoundingClientRect();
+        mouseX.set(clientX - left);
+        mouseY.set(clientY - top);
+    }
+
+    return (
+        <div
+            className={`group relative border border-white/10 bg-black/40 overflow-hidden ${className}`}
+            onMouseMove={handleMouseMove}
+        >
+            <motion.div
+                className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition duration-300 group-hover:opacity-100"
+                style={{
+                    background: useMotionTemplate`
+                        radial-gradient(
+                            650px circle at ${mouseX}px ${mouseY}px,
+                            rgba(255, 255, 255, 0.1),
+                            transparent 80%
+                        )
+                    `,
+                }}
+            />
+            {children}
+        </div>
+    );
+}
 import NavBar from '@/components/NavBar/NavBar';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/PageHero';
@@ -60,7 +92,7 @@ export default function AboutPage() {
 
     return (
         <SmoothScroll>
-            <div ref={containerRef} className="min-h-screen bg-primary text-white selection:bg-accent selection:text-white">
+            <div ref={containerRef} className="min-h-screen bg-white text-primary selection:bg-primary selection:text-white">
                 <ScrollProgress />
                 <NavBar />
 
@@ -87,8 +119,8 @@ export default function AboutPage() {
                                 variants={staggerContainer}
                             >
                                 <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mb-8">
-                                    <div className="h-px w-8 bg-accent"></div>
-                                    <span className="text-xs font-bold tracking-[0.3em] text-accent uppercase">Our Identity</span>
+                                    <div className="h-px w-8 bg-black"></div>
+                                    <span className="text-xs font-bold tracking-[0.3em] text-black uppercase">Our Identity</span>
                                 </motion.div>
 
                                 <div className="space-y-4 mb-10">
@@ -98,7 +130,7 @@ export default function AboutPage() {
                                         </motion.h2>
                                     </div>
                                     <div className="overflow-hidden">
-                                        <motion.h2 variants={textRevealVariants} className="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                                        <motion.h2 variants={textRevealVariants} className="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-500">
                                             Insurance.
                                         </motion.h2>
                                     </div>
@@ -148,17 +180,28 @@ export default function AboutPage() {
                     </div>
                 </section>
 
-                {/* Bento Grid Values Section */}
-                <section className="py-24 md:py-32 bg-black/20 relative">
-                    <div className="container mx-auto px-6 md:px-12">
+                {/* Bento Grid Values Section - Interactive Spotlight */}
+                <section className="py-24 md:py-32 relative overflow-hidden bg-white">
+                    {/* Image Background */}
+                    <div className="absolute inset-0">
+                        <img
+                            src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2664&auto=format&fit=crop"
+                            alt="Background"
+                            className="w-full h-full object-cover opacity-5 filter grayscale"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent" />
+                    </div>
+
+                    <div className="container mx-auto px-6 md:px-12 relative z-10">
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
                             className="mb-20 text-center max-w-3xl mx-auto"
                         >
-                            <motion.h2 variants={fadeUpVariants} className="text-3xl md:text-5xl font-bold tracking-tighter mb-6 text-white">The Principles That Drive Us</motion.h2>
-                            <motion.p variants={fadeUpVariants} className="text-white/60 text-lg">Foundation of trust built over two decades of unwavering service.</motion.p>
+                            <motion.span variants={fadeUpVariants} className="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Our Philosophy</motion.span>
+                            <motion.h2 variants={fadeUpVariants} className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 text-primary">The Principles That Drive Us</motion.h2>
+                            <motion.p variants={fadeUpVariants} className="text-gray-400 text-lg decoration-clone">Foundation of trust built over two decades of unwavering service.</motion.p>
                         </motion.div>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -169,14 +212,17 @@ export default function AboutPage() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                    className="group relative p-8 rounded-3xl bg-gradient-to-b from-white/10 to-transparent border border-white/5 hover:border-accent/40 transition-all duration-500 overflow-hidden"
+                                    className="h-full"
                                 >
-                                    <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/5 transition-colors duration-500" />
-                                    <div className="relative z-10">
-                                        <div className="text-4xl mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">{val.icon}</div>
-                                        <h3 className="text-xl font-bold text-white mb-4 group-hover:text-accent transition-colors">{val.title}</h3>
-                                        <p className="text-sm text-white/50 leading-relaxed group-hover:text-white/80 transition-colors">{val.description}</p>
-                                    </div>
+                                    <SpotlightCard className="h-full p-8 rounded-3xl bg-gray-50 hover:bg-white transition-colors border-gray-100 shadow-sm hover:shadow-xl">
+                                        <div className="relative z-10 h-full flex flex-col">
+                                            <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-3xl mb-6 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
+                                                {val.icon}
+                                            </div>
+                                            <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-primary transition-colors">{val.title}</h3>
+                                            <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-600 transition-colors flex-grow">{val.description}</p>
+                                        </div>
+                                    </SpotlightCard>
                                 </motion.div>
                             ))}
                         </div>
@@ -184,7 +230,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* Cinematic Timeline */}
-                <section className="py-24 md:py-40 bg-primary relative overflow-hidden">
+                <section className="py-24 md:py-40 bg-white relative overflow-hidden border-t border-gray-100">
                     <div className="container mx-auto px-6 md:px-12">
                         <motion.div
                             initial="hidden"
@@ -192,16 +238,16 @@ export default function AboutPage() {
                             viewport={{ once: true }}
                             className="mb-24 md:mb-32"
                         >
-                            <motion.h2 variants={textRevealVariants} className="text-4xl md:text-8xl font-bold tracking-tighter text-white/10">TIMELINE</motion.h2>
+                            <motion.h2 variants={textRevealVariants} className="text-4xl md:text-8xl font-bold tracking-tighter text-gray-100">TIMELINE</motion.h2>
                             <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mt-[-2rem] md:mt-[-4rem] ml-2">
-                                <div className="h-px w-12 bg-accent"></div>
-                                <span className="text-accent font-bold tracking-[0.3em] uppercase">Milestones</span>
+                                <div className="h-px w-12 bg-primary"></div>
+                                <span className="text-primary font-bold tracking-[0.3em] uppercase">Milestones</span>
                             </motion.div>
                         </motion.div>
 
                         <div className="relative max-w-4xl mx-auto">
                             {/* Central Line */}
-                            <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent transform md:-translate-x-1/2" />
+                            <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent transform md:-translate-x-1/2" />
 
                             {milestones.map((milestone, i) => (
                                 <motion.div
@@ -216,16 +262,16 @@ export default function AboutPage() {
                                     <div className="hidden md:block flex-1" />
 
                                     {/* Node */}
-                                    <div className="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-primary border border-accent flex items-center justify-center shadow-[0_0_20px_rgba(34,197,94,0.3)]">
-                                        <div className="w-2 h-2 rounded-full bg-accent" />
+                                    <div className="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-white border border-primary flex items-center justify-center shadow-sm">
+                                        <div className="w-2 h-2 rounded-full bg-primary" />
                                     </div>
 
                                     {/* Content */}
                                     <div className="flex-1 pl-4 md:pl-0">
-                                        <div className="group relative p-8 rounded-2xl bg-white/[0.02] border border-white/10 hover:bg-white/[0.04] hover:border-accent/30 transition-all duration-500">
-                                            <div className="text-accent text-xs font-bold uppercase tracking-widest mb-2">{milestone.year}</div>
-                                            <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">{milestone.title}</h3>
-                                            <p className="text-white/60 text-sm leading-relaxed">{milestone.description}</p>
+                                        <div className="group relative p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:bg-white hover:border-primary/30 transition-all duration-500 shadow-sm hover:shadow-xl">
+                                            <div className="text-primary text-xs font-bold uppercase tracking-widest mb-2">{milestone.year}</div>
+                                            <h3 className="text-2xl font-bold text-primary mb-3 group-hover:text-primary transition-colors">{milestone.title}</h3>
+                                            <p className="text-gray-500 text-sm leading-relaxed">{milestone.description}</p>
                                         </div>
                                     </div>
                                 </motion.div>

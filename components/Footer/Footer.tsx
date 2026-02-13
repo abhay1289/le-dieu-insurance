@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Footer = () => {
    return (
-      <footer className="bg-black text-white pt-16 md:pt-32 pb-12 overflow-hidden relative">
+      <footer className="bg-primary text-white pt-16 md:pt-32 pb-12 overflow-hidden relative">
          <div className="container mx-auto px-6 md:px-12 relative z-10">
 
 
@@ -26,10 +26,10 @@ const Footer = () => {
                      IRDA Licensed Direct Insurance Broker since 2003. Providing specialized risk identification and claims excellence across India.
                   </p>
                   <div className="flex gap-4">
-                     <a href="#" className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-black active:bg-white active:text-black active:scale-95 transition-all duration-300">
+                     <a href="#" className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-primary active:bg-white active:text-primary active:scale-95 transition-all duration-300">
                         <svg width="14" height="14" viewBox="0 0 15 15" fill="currentColor"><path fillRule="evenodd" clipRule="evenodd" d="M13.0515 0.957031H2.55151C1.58639 0.957031 0.801514 1.74191 0.801514 2.70703V13.207C0.801514 14.1722 1.58639 14.957 2.55151 14.957H7.80151V10.1445H6.05151V7.95703H7.80151V6.20703C7.80151 5.51084 8.07807 4.84316 8.57036 4.35088C9.06264 3.85859 9.73032 3.58203 10.4265 3.58203H12.1765V5.76953H11.3015C10.8185 5.76953 10.4265 5.72403 10.4265 6.20703V7.95703H12.614L11.739 10.1445H10.4265V14.957H13.0515C14.0166 14.957 14.8015 14.1722 14.8015 13.207V2.70703C14.8015 1.74191 14.0166 0.957031 13.0515 0.957031Z" /></svg>
                      </a>
-                     <a href="#" className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-black active:bg-white active:text-black active:scale-95 transition-all duration-300">
+                     <a href="#" className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-primary active:bg-white active:text-primary active:scale-95 transition-all duration-300">
                         <svg width="16" height="16" viewBox="0 0 17 17" fill="none" stroke="currentColor"><path d="M2.80151 14.957L7.83378 9.92476M7.83378 9.92476L2.80151 2.95703H6.13485L9.76925 7.9893M7.83378 9.92476L11.4682 14.957H14.8015L9.76925 7.9893M14.8015 2.95703L9.76925 7.9893" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                      </a>
                   </div>
@@ -66,7 +66,7 @@ const Footer = () => {
                   <h4 className="text-sm font-bold uppercase tracking-widest mb-8">Hours</h4>
                   <ul className="space-y-2 text-white/60 text-[11px] font-bold uppercase tracking-tighter">
                      <li>Mon-Tue: 08:00AM - 06:00PM</li>
-                     <li className="text-white">Wed: 02:00PM - 08:00PM</li>
+                     <li className="text-accent">Wed: 02:00PM - 08:00PM</li>
                      <li>Thu: 08:00AM - 08:00PM</li>
                      <li>Fri: 08:00AM - 04:00PM</li>
                   </ul>

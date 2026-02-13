@@ -67,16 +67,10 @@ const FAQ = () => {
     };
 
     return (
-        <section className="py-24 md:py-32 bg-black relative overflow-hidden text-white">
-            {/* Image Background */}
-            <div className="absolute inset-0">
-                <img
-                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop"
-                    alt="FAQ Background"
-                    className="w-full h-full object-cover opacity-20 filter grayscale brightness-50"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
-            </div>
+        <section className="py-24 md:py-32 bg-white relative overflow-hidden text-primary border-t border-gray-100">
+            {/* Ambient Background */}
+            <div className="absolute top-0 left-0 w-[50vw] h-[50vw] bg-gray-100/50 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[40vw] h-[40vw] bg-gray-100/50 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="container mx-auto px-6 md:px-12 relative z-10">
                 <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
@@ -89,21 +83,21 @@ const FAQ = () => {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6 }}
                             >
-                                <span className="text-white text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
+                                <span className="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
                                     Knowledge Center
                                 </span>
                                 <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 leading-tight">
                                     Frequently Asked <br />
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-gray-400 to-primary">
                                         Questions
                                     </span>
                                 </h2>
-                                <p className="text-white/60 text-lg leading-relaxed mb-8 max-w-sm">
+                                <p className="text-gray-500 text-lg leading-relaxed mb-8 max-w-sm">
                                     Everything you need to know about insurance broking, claims, and risk management. Can't find the answer you're looking for?
                                 </p>
                                 <a
                                     href="/contact"
-                                    className="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-white hover:text-white/80 transition-colors group"
+                                    className="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-primary hover:text-gray-600 transition-colors group"
                                 >
                                     Contact Support
                                     <svg
@@ -129,18 +123,18 @@ const FAQ = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: index * 0.05 }}
-                                    className="border-b border-white/10 last:border-0"
+                                    className="border-b border-gray-100 last:border-0"
                                 >
                                     <button
                                         onClick={() => toggleFAQ(index)}
                                         className="w-full py-6 flex items-start justify-between gap-6 text-left group focus:outline-none"
                                     >
-                                        <span className={`text-xl md:text-2xl font-medium transition-colors duration-300 ${activeIndex === index ? 'text-white' : 'text-white group-hover:text-white/80'}`}>
+                                        <span className={`text-xl md:text-2xl font-medium transition-colors duration-300 ${activeIndex === index ? 'text-primary' : 'text-gray-900 group-hover:text-primary'}`}>
                                             {faq.question}
                                         </span>
-                                        <div className={`relative flex-shrink-0 w-8 h-8 rounded-full border border-white/10 flex items-center justify-center transition-all duration-300 ${activeIndex === index ? 'bg-white border-white rotate-45' : 'group-hover:border-white/30'}`}>
+                                        <div className={`relative flex-shrink-0 w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center transition-all duration-300 ${activeIndex === index ? 'bg-primary border-primary rotate-45' : 'group-hover:border-primary'}`}>
                                             <svg
-                                                className={`w-4 h-4 transition-colors duration-300 ${activeIndex === index ? 'text-black' : 'text-white'}`}
+                                                className={`w-4 h-4 transition-colors duration-300 ${activeIndex === index ? 'text-white' : 'text-primary'}`}
                                                 fill="none"
                                                 viewBox="0 0 24 24"
                                                 stroke="currentColor"
@@ -159,7 +153,7 @@ const FAQ = () => {
                                                 className="overflow-hidden"
                                             >
                                                 <div className="pb-8 pr-12">
-                                                    <p className="text-white/60 leading-relaxed text-lg font-light">
+                                                    <p className="text-gray-600 leading-relaxed text-lg font-light">
                                                         {faq.answer}
                                                     </p>
                                                 </div>
