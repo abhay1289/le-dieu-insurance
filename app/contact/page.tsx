@@ -136,292 +136,292 @@ export default function ContactPage() {
 
     return (
         <SmoothScroll>
+            <NavBar />
             <PageTransition>
-            <div className="min-h-screen bg-white text-primary selection:bg-primary selection:text-white">
-                <ScrollProgress />
-                <NavBar />
+                <div className="min-h-screen bg-white text-primary selection:bg-primary selection:text-white">
+                    <ScrollProgress />
 
-                <PageHero
-                    title="Contact"
-                    subtitle="Every great partnership begins with a conversation. We're listening."
-                    breadcrumb="Contact"
-                    backgroundImage="/images/about-team.png"
-                />
+                    <PageHero
+                        title="Contact"
+                        subtitle="Every great partnership begins with a conversation. We're listening."
+                        breadcrumb="Contact"
+                        backgroundImage="/images/about-team.png"
+                    />
 
-                {/* Main Section: Form + Sidebar */}
-                <section className="relative py-24 md:py-32 bg-white overflow-hidden">
-                    <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-accent/[0.03] rounded-full blur-[120px] pointer-events-none" />
+                    {/* Main Section: Form + Sidebar */}
+                    <section className="relative py-24 md:py-32 bg-white overflow-hidden">
+                        <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-accent/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
-                    <div className="container mx-auto px-6 md:px-12 relative z-10">
+                        <div className="container mx-auto px-6 md:px-12 relative z-10">
 
-                        {/* Section Header */}
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={staggerContainer}
-                            className="mb-16 md:mb-24"
-                        >
-                            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8">
+                            {/* Section Header */}
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={staggerContainer}
+                                className="mb-16 md:mb-24"
+                            >
+                                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8">
+                                    <div className="max-w-2xl">
+                                        <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mb-6">
+                                            <span className="text-sm font-extrabold tracking-[0.3em] text-accent uppercase">Reach Out</span>
+                                        </motion.div>
+                                        <div className="overflow-hidden">
+                                            <motion.h2
+                                                variants={textRevealVariants}
+                                                className="text-4xl sm:text-5xl md:text-[64px] font-heading font-extrabold text-primary tracking-tight leading-[1.15]"
+                                            >
+                                                How Can We<br />
+                                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent">Help You?</span>
+                                            </motion.h2>
+                                        </div>
+                                    </div>
+                                    <motion.p variants={fadeUpVariants} className="text-gray-500 font-medium leading-relaxed text-sm md:text-base max-w-md border-l-2 border-primary/20 pl-8">
+                                        Whether you need a comprehensive risk audit, want to optimize existing coverage, or simply want to understand your options — our team responds within 24 hours.
+                                    </motion.p>
+                                </div>
+                            </motion.div>
+
+                            {/* Form + Sidebar */}
+                            <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
+
+                                {/* Form */}
+                                <div className="lg:col-span-7">
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 40 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                    >
+                                        {submitted ? (
+                                            <motion.div
+                                                initial={{ opacity: 0, scale: 0.95 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                className="bg-gray-50 rounded-2xl md:rounded-[2rem] p-8 md:p-20 text-center border border-gray-100"
+                                            >
+                                                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                                    <svg className="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                                                </div>
+                                                <h3 className="text-3xl font-bold text-primary tracking-tight mb-3">Message Received</h3>
+                                                <p className="text-gray-500 font-medium text-sm">Our team will be in touch within 24 hours.</p>
+                                            </motion.div>
+                                        ) : (
+                                            <form onSubmit={handleSubmit} className="space-y-6">
+                                                <div className="grid md:grid-cols-2 gap-5">
+                                                    <div>
+                                                        <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">First Name <span className="text-accent">*</span></label>
+                                                        <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required placeholder="John"
+                                                            className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors" />
+                                                    </div>
+                                                    <div>
+                                                        <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Last Name <span className="text-accent">*</span></label>
+                                                        <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required placeholder="Doe"
+                                                            className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors" />
+                                                    </div>
+                                                </div>
+                                                <div className="grid md:grid-cols-2 gap-5">
+                                                    <div>
+                                                        <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Work Email <span className="text-accent">*</span></label>
+                                                        <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@company.com"
+                                                            className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors" />
+                                                    </div>
+                                                    <div>
+                                                        <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Phone</label>
+                                                        <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="+91 98765 43210"
+                                                            className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors" />
+                                                    </div>
+                                                </div>
+                                                <div className="grid md:grid-cols-2 gap-5">
+                                                    <div>
+                                                        <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Company</label>
+                                                        <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Company Name"
+                                                            className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors" />
+                                                    </div>
+                                                    <div>
+                                                        <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">I'm Interested In</label>
+                                                        <select name="service" value={formData.service} onChange={handleChange}
+                                                            className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium focus:outline-none focus:border-accent transition-colors appearance-none cursor-pointer">
+                                                            <option value="">Select a service</option>
+                                                            <option value="risk-management">Risk Management</option>
+                                                            <option value="policy-placement">Policy Placement & Negotiation</option>
+                                                            <option value="claims-advocacy">Claims Advocacy</option>
+                                                            <option value="specialized-audits">Specialized Risk Audits</option>
+                                                            <option value="loss-prevention">Loss Prevention Engineering</option>
+                                                            <option value="corporate-liability">Corporate Liability</option>
+                                                            <option value="employee-benefits">Employee Benefits</option>
+                                                            <option value="general-inquiry">General Inquiry</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Message <span className="text-accent">*</span></label>
+                                                    <textarea name="message" value={formData.message} onChange={handleChange} required rows={4} placeholder="Tell us about your organization and what you're looking to protect..."
+                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors resize-none" />
+                                                </div>
+                                                <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                                                    <button type="submit"
+                                                        className="bg-accent text-white px-10 py-4 rounded-full font-bold text-sm tracking-wide hover:bg-accent-hover transition-all duration-300 flex items-center gap-3 hover:scale-[1.02] transform">
+                                                        Send Message
+                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                                                    </button>
+                                                    <p className="text-gray-400 text-xs font-medium leading-relaxed max-w-[220px]">
+                                                        We typically respond within one business day.
+                                                    </p>
+                                                </div>
+                                            </form>
+                                        )}
+                                    </motion.div>
+                                </div>
+
+                                {/* Sidebar */}
+                                <div className="lg:col-span-5">
+                                    <div className="lg:sticky lg:top-32 space-y-6">
+                                        {/* Direct Contact Card */}
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                            className="p-6 md:p-8 rounded-2xl md:rounded-[2rem] bg-primary text-white relative overflow-hidden"
+                                        >
+                                            <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-accent/10 rounded-full blur-[80px] pointer-events-none" />
+                                            <div className="relative z-10">
+                                                <span className="text-accent text-sm font-extrabold uppercase tracking-[0.3em] block mb-4">Direct Line</span>
+                                                <h3 className="text-2xl font-bold tracking-tight mb-6">Prefer to talk? Call us directly.</h3>
+                                                <div className="space-y-4">
+                                                    <a href="tel:+917554294493" className="flex items-center gap-4 group/link">
+                                                        <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover/link:bg-accent group-hover/link:text-white transition-colors">
+                                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                                        </div>
+                                                        <div>
+                                                            <div className="text-white font-medium text-sm">+91 0755-4294493</div>
+                                                            <div className="text-white/40 text-[10px] font-bold uppercase tracking-[0.2em]">Bhopal HQ</div>
+                                                        </div>
+                                                    </a>
+                                                    <a href="tel:01141038988" className="flex items-center gap-4 group/link">
+                                                        <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover/link:bg-accent group-hover/link:text-white transition-colors">
+                                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                                        </div>
+                                                        <div>
+                                                            <div className="text-white font-medium text-sm">011-41038988</div>
+                                                            <div className="text-white/40 text-[10px] font-bold uppercase tracking-[0.2em]">New Delhi</div>
+                                                        </div>
+                                                    </a>
+                                                    <a href="mailto:info@ledieuinsurance.com" className="flex items-center gap-4 group/link">
+                                                        <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover/link:bg-accent group-hover/link:text-white transition-colors">
+                                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                                                        </div>
+                                                        <div>
+                                                            <div className="text-white font-medium text-sm">info@ledieuinsurance.com</div>
+                                                            <div className="text-white/40 text-[10px] font-bold uppercase tracking-[0.2em]">General Inquiries</div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </motion.div>
+
+                                        {/* Stats */}
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: 0.35, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                            className="grid grid-cols-2 gap-4"
+                                        >
+                                            {[
+                                                { value: "24hr", label: "Response Time" },
+                                                { value: "20+", label: "Years Active" },
+                                                { value: "99%", label: "Retention Rate" },
+                                                { value: "21+", label: "Insurer Partners" },
+                                            ].map((stat, i) => (
+                                                <div key={i} className="p-5 rounded-2xl bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-md hover:border-accent/20 transition-all duration-500 text-center">
+                                                    <AnimatedCounter value={stat.value} className="text-2xl font-bold text-primary tracking-tighter mb-1 block" />
+                                                    <div className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em]">{stat.label}</div>
+                                                </div>
+                                            ))}
+                                        </motion.div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Offices with Maps */}
+                    <section className="py-24 md:py-32 bg-[#FAFBFB] border-t border-gray-100 relative overflow-hidden">
+                        <div className="container mx-auto px-6 md:px-12 relative z-10">
+                            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 md:mb-24 gap-8">
                                 <div className="max-w-2xl">
-                                    <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mb-6">
-                                        <span className="text-sm font-extrabold tracking-[0.3em] text-accent uppercase">Reach Out</span>
+                                    <motion.div
+                                        initial={{ opacity: 0, x: -20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        className="flex items-center gap-4 mb-6"
+                                    >
+                                        <span className="text-sm font-extrabold tracking-[0.3em] text-accent uppercase">Our Offices</span>
                                     </motion.div>
                                     <div className="overflow-hidden">
                                         <motion.h2
-                                            variants={textRevealVariants}
+                                            initial={{ y: "100%" }}
+                                            whileInView={{ y: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                                             className="text-4xl sm:text-5xl md:text-[64px] font-heading font-extrabold text-primary tracking-tight leading-[1.15]"
                                         >
-                                            How Can We<br />
-                                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent">Help You?</span>
+                                            Visit Us
                                         </motion.h2>
                                     </div>
                                 </div>
-                                <motion.p variants={fadeUpVariants} className="text-gray-500 font-medium leading-relaxed text-sm md:text-base max-w-md border-l-2 border-primary/20 pl-8">
-                                    Whether you need a comprehensive risk audit, want to optimize existing coverage, or simply want to understand your options — our team responds within 24 hours.
-                                </motion.p>
-                            </div>
-                        </motion.div>
-
-                        {/* Form + Sidebar */}
-                        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
-
-                            {/* Form */}
-                            <div className="lg:col-span-7">
-                                <motion.div
-                                    initial={{ opacity: 0, y: 40 }}
+                                <motion.p
+                                    initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                    transition={{ delay: 0.2 }}
+                                    className="text-gray-500 font-medium leading-relaxed text-sm md:text-base max-w-sm border-l-2 border-primary/20 pl-8"
                                 >
-                                    {submitted ? (
-                                        <motion.div
-                                            initial={{ opacity: 0, scale: 0.95 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            className="bg-gray-50 rounded-2xl md:rounded-[2rem] p-8 md:p-20 text-center border border-gray-100"
-                                        >
-                                            <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                                                <svg className="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                                            </div>
-                                            <h3 className="text-3xl font-bold text-primary tracking-tight mb-3">Message Received</h3>
-                                            <p className="text-gray-500 font-medium text-sm">Our team will be in touch within 24 hours.</p>
-                                        </motion.div>
-                                    ) : (
-                                        <form onSubmit={handleSubmit} className="space-y-6">
-                                            <div className="grid md:grid-cols-2 gap-5">
-                                                <div>
-                                                    <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">First Name <span className="text-accent">*</span></label>
-                                                    <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required placeholder="John"
-                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors" />
-                                                </div>
-                                                <div>
-                                                    <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Last Name <span className="text-accent">*</span></label>
-                                                    <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required placeholder="Doe"
-                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors" />
-                                                </div>
-                                            </div>
-                                            <div className="grid md:grid-cols-2 gap-5">
-                                                <div>
-                                                    <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Work Email <span className="text-accent">*</span></label>
-                                                    <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@company.com"
-                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors" />
-                                                </div>
-                                                <div>
-                                                    <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Phone</label>
-                                                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="+91 98765 43210"
-                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors" />
-                                                </div>
-                                            </div>
-                                            <div className="grid md:grid-cols-2 gap-5">
-                                                <div>
-                                                    <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Company</label>
-                                                    <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Company Name"
-                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors" />
-                                                </div>
-                                                <div>
-                                                    <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">I'm Interested In</label>
-                                                    <select name="service" value={formData.service} onChange={handleChange}
-                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium focus:outline-none focus:border-accent transition-colors appearance-none cursor-pointer">
-                                                        <option value="">Select a service</option>
-                                                        <option value="risk-management">Risk Management</option>
-                                                        <option value="policy-placement">Policy Placement & Negotiation</option>
-                                                        <option value="claims-advocacy">Claims Advocacy</option>
-                                                        <option value="specialized-audits">Specialized Risk Audits</option>
-                                                        <option value="loss-prevention">Loss Prevention Engineering</option>
-                                                        <option value="corporate-liability">Corporate Liability</option>
-                                                        <option value="employee-benefits">Employee Benefits</option>
-                                                        <option value="general-inquiry">General Inquiry</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Message <span className="text-accent">*</span></label>
-                                                <textarea name="message" value={formData.message} onChange={handleChange} required rows={4} placeholder="Tell us about your organization and what you're looking to protect..."
-                                                    className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors resize-none" />
-                                            </div>
-                                            <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                                                <button type="submit"
-                                                    className="bg-accent text-white px-10 py-4 rounded-full font-bold text-sm tracking-wide hover:bg-accent-hover transition-all duration-300 flex items-center gap-3 hover:scale-[1.02] transform">
-                                                    Send Message
-                                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                                                </button>
-                                                <p className="text-gray-400 text-xs font-medium leading-relaxed max-w-[220px]">
-                                                    We typically respond within one business day.
-                                                </p>
-                                            </div>
-                                        </form>
-                                    )}
-                                </motion.div>
+                                    Two offices. One standard of excellence. Walk in or schedule a meeting — we'd love to meet face to face.
+                                </motion.p>
                             </div>
 
-                            {/* Sidebar */}
-                            <div className="lg:col-span-5">
-                                <div className="lg:sticky lg:top-32 space-y-6">
-                                    {/* Direct Contact Card */}
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                        className="p-6 md:p-8 rounded-2xl md:rounded-[2rem] bg-primary text-white relative overflow-hidden"
-                                    >
-                                        <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-accent/10 rounded-full blur-[80px] pointer-events-none" />
-                                        <div className="relative z-10">
-                                            <span className="text-accent text-sm font-extrabold uppercase tracking-[0.3em] block mb-4">Direct Line</span>
-                                            <h3 className="text-2xl font-bold tracking-tight mb-6">Prefer to talk? Call us directly.</h3>
-                                            <div className="space-y-4">
-                                                <a href="tel:+917554294493" className="flex items-center gap-4 group/link">
-                                                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover/link:bg-accent group-hover/link:text-white transition-colors">
-                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                                                    </div>
-                                                    <div>
-                                                        <div className="text-white font-medium text-sm">+91 0755-4294493</div>
-                                                        <div className="text-white/40 text-[10px] font-bold uppercase tracking-[0.2em]">Bhopal HQ</div>
-                                                    </div>
-                                                </a>
-                                                <a href="tel:01141038988" className="flex items-center gap-4 group/link">
-                                                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover/link:bg-accent group-hover/link:text-white transition-colors">
-                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                                                    </div>
-                                                    <div>
-                                                        <div className="text-white font-medium text-sm">011-41038988</div>
-                                                        <div className="text-white/40 text-[10px] font-bold uppercase tracking-[0.2em]">New Delhi</div>
-                                                    </div>
-                                                </a>
-                                                <a href="mailto:info@ledieuinsurance.com" className="flex items-center gap-4 group/link">
-                                                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover/link:bg-accent group-hover/link:text-white transition-colors">
-                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                                                    </div>
-                                                    <div>
-                                                        <div className="text-white font-medium text-sm">info@ledieuinsurance.com</div>
-                                                        <div className="text-white/40 text-[10px] font-bold uppercase tracking-[0.2em]">General Inquiries</div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </motion.div>
-
-                                    {/* Stats */}
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.35, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                        className="grid grid-cols-2 gap-4"
-                                    >
-                                        {[
-                                            { value: "24hr", label: "Response Time" },
-                                            { value: "20+", label: "Years Active" },
-                                            { value: "99%", label: "Retention Rate" },
-                                            { value: "21+", label: "Insurer Partners" },
-                                        ].map((stat, i) => (
-                                            <div key={i} className="p-5 rounded-2xl bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-md hover:border-accent/20 transition-all duration-500 text-center">
-                                                <AnimatedCounter value={stat.value} className="text-2xl font-bold text-primary tracking-tighter mb-1 block" />
-                                                <div className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em]">{stat.label}</div>
-                                            </div>
-                                        ))}
-                                    </motion.div>
-                                </div>
+                            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+                                {offices.map((office, i) => (
+                                    <OfficeCard key={i} office={office} index={i} />
+                                ))}
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                {/* Offices with Maps */}
-                <section className="py-24 md:py-32 bg-[#FAFBFB] border-t border-gray-100 relative overflow-hidden">
-                    <div className="container mx-auto px-6 md:px-12 relative z-10">
-                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 md:mb-24 gap-8">
-                            <div className="max-w-2xl">
-                                <motion.div
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    className="flex items-center gap-4 mb-6"
-                                >
-                                    <span className="text-sm font-extrabold tracking-[0.3em] text-accent uppercase">Our Offices</span>
-                                </motion.div>
-                                <div className="overflow-hidden">
-                                    <motion.h2
-                                        initial={{ y: "100%" }}
-                                        whileInView={{ y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                        className="text-4xl sm:text-5xl md:text-[64px] font-heading font-extrabold text-primary tracking-tight leading-[1.15]"
-                                    >
-                                        Visit Us
-                                    </motion.h2>
-                                </div>
-                            </div>
-                            <motion.p
+                    {/* Full-width Map */}
+                    <section className="relative">
+                        <div className="h-[400px] md:h-[500px] w-full relative group">
+                            <iframe
+                                src="https://www.google.com/maps?q=Le+Dieu+Insurance+Brokers+Bhopal&output=embed&z=5"
+                                className="w-full h-full border-0 grayscale-[0.3] contrast-[1.05] group-hover:grayscale-0 transition-all duration-700"
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="Le Dieu Insurance — India Presence"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent pointer-events-none opacity-60" />
+                            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-40" />
+
+                            <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: 0.2 }}
-                                className="text-gray-500 font-medium leading-relaxed text-sm md:text-base max-w-sm border-l-2 border-primary/20 pl-8"
+                                className="absolute bottom-8 left-6 md:left-12 bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-lg border border-gray-100 max-w-xs"
                             >
-                                Two offices. One standard of excellence. Walk in or schedule a meeting — we'd love to meet face to face.
-                            </motion.p>
+                                <div className="flex items-center gap-3 mb-2">
+                                    <span className="text-accent text-sm font-extrabold uppercase tracking-[0.3em]">Pan-India Coverage</span>
+                                </div>
+                                <p className="text-primary text-sm font-bold tracking-tight">Bhopal · New Delhi</p>
+                                <p className="text-gray-500 text-xs font-medium mt-1">Serving enterprises across all 28 states</p>
+                            </motion.div>
                         </div>
+                    </section>
 
-                        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-                            {offices.map((office, i) => (
-                                <OfficeCard key={i} office={office} index={i} />
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                {/* Full-width Map */}
-                <section className="relative">
-                    <div className="h-[400px] md:h-[500px] w-full relative group">
-                        <iframe
-                            src="https://www.google.com/maps?q=Le+Dieu+Insurance+Brokers+Bhopal&output=embed&z=5"
-                            className="w-full h-full border-0 grayscale-[0.3] contrast-[1.05] group-hover:grayscale-0 transition-all duration-700"
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                            title="Le Dieu Insurance — India Presence"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent pointer-events-none opacity-60" />
-                        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-40" />
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="absolute bottom-8 left-6 md:left-12 bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-lg border border-gray-100 max-w-xs"
-                        >
-                            <div className="flex items-center gap-3 mb-2">
-                                <span className="text-accent text-sm font-extrabold uppercase tracking-[0.3em]">Pan-India Coverage</span>
-                            </div>
-                            <p className="text-primary text-sm font-bold tracking-tight">Bhopal · New Delhi</p>
-                            <p className="text-gray-500 text-xs font-medium mt-1">Serving enterprises across all 28 states</p>
-                        </motion.div>
-                    </div>
-                </section>
-
-                <CTA />
-                <Footer />
-            </div>
+                    <CTA />
+                    <Footer />
+                </div>
             </PageTransition>
         </SmoothScroll>
     );

@@ -18,22 +18,22 @@ import PageTransition from '@/components/PageTransition';
 export default function Home() {
   return (
     <SmoothScroll>
+      <NavBar />
       <PageTransition>
-      <div className="min-h-screen bg-white">
-        <ScrollProgress />
-        <NavBar />
-        <main>
-          <Hero />
-          <BrandLogos />
-          <WhoWeAre />
-          <WhyChooseUs />
-          <Services />
-          <Team />
-          <Testimonials />
-          <CTA />
-        </main>
-        <Footer />
-      </div>
+        <div className="min-h-screen bg-white">
+          <ScrollProgress />
+          <main>
+            <Hero />
+            <BrandLogos />
+            <WhoWeAre />
+            <WhyChooseUs />
+            <Services />
+            <Team />
+            <Testimonials />
+            <CTA />
+          </main>
+          <Footer />
+        </div>
       </PageTransition>
     </SmoothScroll>
   );

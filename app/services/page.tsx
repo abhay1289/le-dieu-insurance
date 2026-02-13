@@ -169,10 +169,10 @@ export default function ServicesPage() {
 
     return (
         <SmoothScroll>
+            <NavBar />
             <PageTransition>
                 <div className="bg-white min-h-screen text-primary">
                     <ScrollProgress />
-                    <NavBar />
 
                     <PageHero
                         title="Expertise"

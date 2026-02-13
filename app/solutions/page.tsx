@@ -133,10 +133,10 @@ export default function SolutionsPage() {
 
     return (
         <SmoothScroll>
+            <NavBar />
             <PageTransition>
                 <div className="min-h-screen bg-white text-primary selection:bg-primary selection:text-white">
                     <ScrollProgress />
-                    <NavBar />
 
                     <PageHero
                         title="Solutions"
