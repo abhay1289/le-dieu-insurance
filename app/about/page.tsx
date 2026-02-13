@@ -255,8 +255,6 @@ export default function AboutPage() {
                                 className="w-full h-full object-cover opacity-[0.05] grayscale"
                             />
                         </motion.div>
-                        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white" />
-                        <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white" />
                     </div>
 
                     <div className="container mx-auto px-6 md:px-12 relative z-10">
