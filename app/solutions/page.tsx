@@ -227,14 +227,14 @@ export default function SolutionsPage() {
                                                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                                                     className="overflow-hidden"
                                                 >
-                                                    <div className="relative grid lg:grid-cols-12 gap-12 md:gap-20 pt-16 pb-12">
+                                                    <div className="relative grid lg:grid-cols-2 gap-12 md:gap-20 pt-16 pb-12">
                                                         {/* Background Accent Numeral */}
-                                                        <div className="absolute top-10 right-0 text-[20rem] font-bold text-gray-50 leading-none select-none pointer-events-none -z-10 opacity-40">
+                                                        <div className="absolute top-10 right-0 text-[18rem] font-bold text-gray-50 leading-none select-none pointer-events-none -z-10 opacity-30">
                                                             0{index + 1}
                                                         </div>
 
-                                                        {/* Left Column: Strategic Narrative (7 Cols) */}
-                                                        <div className="lg:col-span-7">
+                                                        {/* Left Column: Strategic Narrative */}
+                                                        <div>
                                                             <motion.div
                                                                 initial={{ opacity: 0, x: -20 }}
                                                                 animate={{ opacity: 1, x: 0 }}
@@ -258,7 +258,7 @@ export default function SolutionsPage() {
                                                                 initial={{ opacity: 0 }}
                                                                 animate={{ opacity: 1 }}
                                                                 transition={{ delay: 0.5 }}
-                                                                className="grid md:grid-cols-2 gap-8 mb-16"
+                                                                className="grid md:grid-cols-2 gap-8"
                                                             >
                                                                 {solution.features.map((feature, fi) => (
                                                                     <div key={fi} className="p-8 rounded-[2rem] bg-gray-50 border border-gray-100 hover:border-accent/30 hover:bg-white transition-all duration-500 group/item shadow-sm hover:shadow-xl">
@@ -270,29 +270,10 @@ export default function SolutionsPage() {
                                                                     </div>
                                                                 ))}
                                                             </motion.div>
-
-                                                            <motion.div
-                                                                initial={{ opacity: 0, y: 20 }}
-                                                                animate={{ opacity: 1, y: 0 }}
-                                                                transition={{ delay: 0.6 }}
-                                                                className="space-y-6"
-                                                            >
-                                                                <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary/40">
-                                                                    <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                                                                    Global Standard Coverages
-                                                                </div>
-                                                                <div className="flex flex-wrap gap-3">
-                                                                    {solution.coverages.map((c, ci) => (
-                                                                        <span key={ci} className="text-[11px] font-bold uppercase text-primary border border-primary/10 px-5 py-2.5 rounded-full bg-white shadow-sm hover:border-accent/50 hover:text-accent transition-all duration-300">
-                                                                            {c}
-                                                                        </span>
-                                                                    ))}
-                                                                </div>
-                                                            </motion.div>
                                                         </div>
 
-                                                        {/* Right Column: Visual & Technical (5 Cols) */}
-                                                        <div className="lg:col-span-5 relative">
+                                                        {/* Right Column: Visual & Technical */}
+                                                        <div className="relative">
                                                             <motion.div
                                                                 initial={{ scale: 0.95, opacity: 0 }}
                                                                 animate={{ scale: 1, opacity: 1 }}
