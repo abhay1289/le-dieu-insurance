@@ -126,15 +126,8 @@ const Hero = () => {
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.7 } } }}
               className="flex flex-wrap items-center gap-4 md:gap-6"
             >
-              <a href="/get-started" className="h-14 px-8 bg-accent text-white rounded-full font-semibold text-lg hover:bg-accent-hover active:scale-95 active:shadow-none transition-all flex items-center gap-2 hover:scale-105 transform duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-
-                Get Protected <ArrowIcon className="w-4 h-4" />
-              </a>
-
-              <a href="/services" className="group flex items-center gap-2 text-white text-lg font-medium hover:text-accent active:text-accent-green transition-colors px-4">
-
-                <span className="border-b border-white/30 pb-1 group-hover:border-accent transition-colors">Our Services</span>
-                <ArrowIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <a href="/about" className="h-14 px-8 bg-accent text-white rounded-full font-semibold text-lg hover:bg-accent-hover active:scale-95 active:shadow-none transition-all flex items-center gap-2 hover:scale-105 transform duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                Learn More <ArrowIcon className="w-4 h-4" />
               </a>
             </motion.div>
           </motion.div>
