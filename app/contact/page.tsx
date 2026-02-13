@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, useScroll, useTransform, useMotionValue, useMotionTemplate } from 'framer-motion';
 import NavBar from '@/components/NavBar/NavBar';
 import Footer from '@/components/Footer/Footer';
 import CTA from '@/components/CTA/CTA';
@@ -9,65 +9,140 @@ import PageHero from '@/components/PageHero';
 import ScrollProgress from '@/components/ScrollProgress/ScrollProgress';
 import SmoothScroll from '@/components/SmoothScroll';
 
+const textRevealVariants = {
+    hidden: { y: "100%" },
+    visible: {
+        y: 0,
+        transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
+    },
+};
+
+const fadeUpVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+};
+
+const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+    },
+};
+
 const offices = [
     {
         city: "Bhopal",
         label: "Headquarters",
         address: "B-84, Sec-B, Shahpura, Near Lifeline Hospital, Bhopal - 462016",
         phone: "+91 0755-4294493",
-        email: "bhopal@ledieuinsurance.com"
+        email: "bhopal@ledieuinsurance.com",
+        mapQuery: "B-84+Sec-B+Shahpura+Bhopal+462016",
+        hours: "Mon – Sat, 9:30 AM – 6:30 PM",
     },
     {
         city: "New Delhi",
         label: "Strategic Office",
         address: "522, 523A, Somdutt Towers-II, Bhikaji Cama Place, RK Puram, New Delhi",
         phone: "011-41038988",
-        email: "delhi@ledieuinsurance.com"
+        email: "delhi@ledieuinsurance.com",
+        mapQuery: "Somdutt+Towers+Bhikaji+Cama+Place+New+Delhi",
+        hours: "Mon – Fri, 10:00 AM – 6:00 PM",
     },
 ];
 
-const contactMethods = [
-    {
-        icon: (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
-        ),
-        label: "Call Us",
-        value: "+91 0755-4294493",
-        subtext: "Mon — Fri, 9AM to 6PM IST",
-    },
-    {
-        icon: (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" />
-            </svg>
-        ),
-        label: "Email Us",
-        value: "info@ledieuinsurance.com",
-        subtext: "We respond within 24 hours",
-    },
-    {
-        icon: (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />
-            </svg>
-        ),
-        label: "Visit Us",
-        value: "Bhopal & New Delhi",
-        subtext: "Two offices across India",
-    },
-];
+function OfficeCard({ office, index }: { office: typeof offices[0]; index: number }) {
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+
+    function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+        const { left, top } = currentTarget.getBoundingClientRect();
+        mouseX.set(clientX - left);
+        mouseY.set(clientY - top);
+    }
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ y: -4 }}
+            onMouseMove={handleMouseMove}
+            className="group relative overflow-hidden rounded-[2rem] border border-gray-100 bg-white transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.06)] hover:border-accent/30"
+        >
+            <motion.div
+                className="pointer-events-none absolute -inset-px opacity-0 transition duration-500 group-hover:opacity-100"
+                style={{
+                    background: useMotionTemplate`radial-gradient(500px circle at ${mouseX}px ${mouseY}px, rgba(34,197,94,0.08), transparent 80%)`,
+                }}
+            />
+
+            {/* Map Embed */}
+            <div className="relative h-[200px] md:h-[220px] overflow-hidden">
+                <iframe
+                    src={`https://www.google.com/maps?q=${office.mapQuery}&output=embed&z=15`}
+                    className="w-full h-full border-0 grayscale contrast-[1.1] group-hover:grayscale-0 transition-all duration-700"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title={`${office.city} Office Location`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent pointer-events-none" />
+                <div className="absolute top-4 left-4">
+                    <span className="bg-white/90 backdrop-blur-sm text-accent text-[9px] font-bold uppercase tracking-[0.3em] px-3 py-1.5 rounded-full border border-accent/20">{office.label}</span>
+                </div>
+            </div>
+
+            {/* Content */}
+            <div className="p-6 md:p-8 relative z-10">
+                <h3 className="text-2xl md:text-3xl font-bold text-primary tracking-tight mb-4">{office.city}</h3>
+
+                <div className="space-y-3 mb-6">
+                    <div className="flex items-start gap-3">
+                        <svg className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        <p className="text-gray-500 text-sm font-medium leading-relaxed">{office.address}</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                        <svg className="w-4 h-4 text-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <p className="text-gray-400 text-sm font-medium">{office.hours}</p>
+                    </div>
+                </div>
+
+                <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                    <a href={`tel:${office.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-sm text-primary font-medium hover:text-accent transition-colors group/link">
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                        {office.phone}
+                    </a>
+                    <span className="text-gray-200">|</span>
+                    <a href={`mailto:${office.email}`} className="flex items-center gap-2 text-sm text-primary font-medium hover:text-accent transition-colors">
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                        Email
+                    </a>
+                </div>
+            </div>
+        </motion.div>
+    );
+}
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
-        name: '',
+        firstName: '',
+        lastName: '',
         email: '',
         phone: '',
         company: '',
         service: '',
+        budget: '',
         message: '',
     });
+    const [submitted, setSubmitted] = useState(false);
+
+    const sectionRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start end", "end start"]
+    });
+    const bgY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -75,7 +150,8 @@ export default function ContactPage() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        alert('Thank you. Our team will be in touch within 24 hours.');
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 4000);
     };
 
     return (
@@ -86,302 +162,321 @@ export default function ContactPage() {
 
                 <PageHero
                     title="Contact"
-                    subtitle="Initiate a dialogue with India's premier risk architects."
+                    subtitle="Every great partnership begins with a conversation. We're listening."
                     breadcrumb="Contact"
-                    backgroundImage="/images/contact-bg.jpg"
+                    backgroundImage="/images/about-team.png"
                 />
 
-                {/* Contact Methods Strip */}
-                <section className="py-16 md:py-20 bg-white border-b border-gray-100">
-                    <div className="container mx-auto px-6 md:px-12">
-                        <div className="grid md:grid-cols-3 gap-px bg-gray-100 rounded-[2rem] overflow-hidden border border-gray-100 shadow-[0_40px_100px_rgba(0,0,0,0.02)]">
-                            {contactMethods.map((method, i) => (
+                {/* ─── Main Section: Form + Context ─── */}
+                <section ref={sectionRef} className="relative py-20 md:py-32 bg-white overflow-hidden">
+                    {/* Ambient Light */}
+                    <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-accent/[0.03] rounded-full blur-[120px] pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-[30vw] h-[30vw] bg-gray-100/50 rounded-full blur-[100px] pointer-events-none" />
+
+                    <div className="container mx-auto px-6 md:px-12 relative z-10">
+
+                        {/* Section Header */}
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={staggerContainer}
+                            className="mb-16 md:mb-24"
+                        >
+                            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8">
+                                <div className="max-w-2xl">
+                                    <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mb-6">
+                                        <div className="h-px w-8 bg-primary" />
+                                        <span className="text-[10px] font-bold tracking-[0.3em] text-primary uppercase">Reach Out</span>
+                                    </motion.div>
+                                    <div className="overflow-hidden">
+                                        <motion.h2
+                                            variants={textRevealVariants}
+                                            className="text-4xl sm:text-5xl md:text-[72px] font-bold text-primary tracking-tighter leading-[0.9]"
+                                        >
+                                            How Can We<br />
+                                            <span className="text-gray-300">Help You?</span>
+                                        </motion.h2>
+                                    </div>
+                                </div>
+                                <motion.p variants={fadeUpVariants} className="text-gray-500 font-medium leading-relaxed text-sm md:text-base max-w-md border-l-2 border-primary/20 pl-8">
+                                    Whether you need a comprehensive risk audit, want to optimize existing coverage, or simply want to understand your options — our team responds within 24 hours.
+                                </motion.p>
+                            </div>
+                        </motion.div>
+
+                        {/* Form + Sidebar Grid */}
+                        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
+
+                            {/* ─── Form Column ─── */}
+                            <div className="lg:col-span-7">
                                 <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 20 }}
+                                    initial={{ opacity: 0, y: 40 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                    className="bg-white p-8 md:p-10 group hover:bg-gray-50/50 transition-colors duration-500 relative overflow-hidden"
+                                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                    className="relative"
                                 >
-                                    <motion.div
-                                        initial={{ height: 0 }}
-                                        whileHover={{ height: '100%' }}
-                                        transition={{ duration: 0.7 }}
-                                        className="absolute top-0 left-0 w-1 bg-accent"
-                                    />
-                                    <div className="w-12 h-12 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center mb-6 text-primary group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-all duration-500">
-                                        {method.icon}
-                                    </div>
-                                    <span className="text-accent text-[10px] font-bold uppercase tracking-[0.3em] block mb-2">{method.label}</span>
-                                    <h3 className="text-lg font-bold text-primary mb-1 tracking-tight">{method.value}</h3>
-                                    <p className="text-gray-400 text-sm font-medium">{method.subtext}</p>
-                                    <motion.div
-                                        initial={{ width: '40px' }}
-                                        whileHover={{ width: '100%' }}
-                                        transition={{ duration: 0.5 }}
-                                        className="h-[2px] bg-accent mt-6"
-                                    />
+                                    {submitted ? (
+                                        <motion.div
+                                            initial={{ opacity: 0, scale: 0.95 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            className="bg-gray-50 rounded-[2rem] p-12 md:p-20 text-center border border-gray-100"
+                                        >
+                                            <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                                <svg className="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                                            </div>
+                                            <h3 className="text-2xl font-bold text-primary tracking-tight mb-3">Message Received</h3>
+                                            <p className="text-gray-500 font-medium text-sm">Our team will be in touch within 24 hours. We look forward to the conversation.</p>
+                                        </motion.div>
+                                    ) : (
+                                        <form onSubmit={handleSubmit} className="space-y-6">
+                                            {/* Row 1: Name */}
+                                            <div className="grid md:grid-cols-2 gap-5">
+                                                <div>
+                                                    <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">First Name <span className="text-accent">*</span></label>
+                                                    <input
+                                                        type="text" name="firstName" value={formData.firstName} onChange={handleChange} required
+                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors"
+                                                        placeholder="John"
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Last Name <span className="text-accent">*</span></label>
+                                                    <input
+                                                        type="text" name="lastName" value={formData.lastName} onChange={handleChange} required
+                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors"
+                                                        placeholder="Doe"
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            {/* Row 2: Email + Phone */}
+                                            <div className="grid md:grid-cols-2 gap-5">
+                                                <div>
+                                                    <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Work Email <span className="text-accent">*</span></label>
+                                                    <input
+                                                        type="email" name="email" value={formData.email} onChange={handleChange} required
+                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors"
+                                                        placeholder="john@company.com"
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Phone</label>
+                                                    <input
+                                                        type="tel" name="phone" value={formData.phone} onChange={handleChange}
+                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors"
+                                                        placeholder="+91 98765 43210"
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            {/* Row 3: Company + Service */}
+                                            <div className="grid md:grid-cols-2 gap-5">
+                                                <div>
+                                                    <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Company</label>
+                                                    <input
+                                                        type="text" name="company" value={formData.company} onChange={handleChange}
+                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors"
+                                                        placeholder="Company Name"
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">I'm Interested In</label>
+                                                    <select
+                                                        name="service" value={formData.service} onChange={handleChange}
+                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium focus:outline-none focus:border-accent transition-colors appearance-none cursor-pointer"
+                                                    >
+                                                        <option value="">Select a service</option>
+                                                        <option value="risk-management">Risk Management</option>
+                                                        <option value="policy-placement">Policy Placement & Negotiation</option>
+                                                        <option value="claims-advocacy">Claims Advocacy</option>
+                                                        <option value="specialized-audits">Specialized Risk Audits</option>
+                                                        <option value="loss-prevention">Loss Prevention Engineering</option>
+                                                        <option value="corporate-liability">Corporate Liability</option>
+                                                        <option value="employee-benefits">Employee Benefits</option>
+                                                        <option value="general-inquiry">General Inquiry</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            {/* Row 4: Message */}
+                                            <div>
+                                                <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Message <span className="text-accent">*</span></label>
+                                                <textarea
+                                                    name="message" value={formData.message} onChange={handleChange} required rows={4}
+                                                    className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors resize-none"
+                                                    placeholder="Tell us about your organization and what you're looking to protect..."
+                                                />
+                                            </div>
+
+                                            {/* Submit */}
+                                            <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                                                <button
+                                                    type="submit"
+                                                    className="bg-accent text-white px-10 py-4 rounded-full font-bold text-sm tracking-wide hover:bg-accent-hover transition-all duration-300 flex items-center gap-3 hover:scale-[1.02] transform shadow-lg shadow-accent/20"
+                                                >
+                                                    Send Message
+                                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                                                </button>
+                                                <p className="text-gray-400 text-xs font-medium leading-relaxed max-w-[220px]">
+                                                    We typically respond within one business day.
+                                                </p>
+                                            </div>
+                                        </form>
+                                    )}
                                 </motion.div>
+                            </div>
+
+                            {/* ─── Sidebar Column ─── */}
+                            <div className="lg:col-span-5">
+                                <div className="lg:sticky lg:top-32 space-y-6">
+                                    {/* Quick Contact */}
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                        className="p-6 md:p-8 rounded-[2rem] bg-primary text-white relative overflow-hidden"
+                                    >
+                                        <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
+                                            style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
+                                        <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-accent/10 rounded-full blur-[80px] pointer-events-none" />
+
+                                        <div className="relative z-10">
+                                            <span className="text-accent text-[9px] font-bold uppercase tracking-[0.3em] block mb-4">Direct Line</span>
+                                            <h3 className="text-xl font-bold tracking-tight mb-6">Prefer to talk? Call us directly.</h3>
+
+                                            <div className="space-y-4">
+                                                <a href="tel:+917554294493" className="flex items-center gap-4 group/link">
+                                                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover/link:bg-accent transition-colors">
+                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                                    </div>
+                                                    <div>
+                                                        <div className="text-white font-medium text-sm">+91 0755-4294493</div>
+                                                        <div className="text-white/40 text-[10px] font-bold uppercase tracking-wider">Bhopal HQ</div>
+                                                    </div>
+                                                </a>
+                                                <a href="tel:01141038988" className="flex items-center gap-4 group/link">
+                                                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover/link:bg-accent transition-colors">
+                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                                    </div>
+                                                    <div>
+                                                        <div className="text-white font-medium text-sm">011-41038988</div>
+                                                        <div className="text-white/40 text-[10px] font-bold uppercase tracking-wider">New Delhi</div>
+                                                    </div>
+                                                </a>
+                                                <a href="mailto:info@ledieuinsurance.com" className="flex items-center gap-4 group/link">
+                                                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover/link:bg-accent transition-colors">
+                                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                                                    </div>
+                                                    <div>
+                                                        <div className="text-white font-medium text-sm">info@ledieuinsurance.com</div>
+                                                        <div className="text-white/40 text-[10px] font-bold uppercase tracking-wider">General Inquiries</div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+
+                                    {/* Quick Stats */}
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: 0.35, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                        className="grid grid-cols-2 gap-4"
+                                    >
+                                        {[
+                                            { value: "24hr", label: "Response Time" },
+                                            { value: "20+", label: "Years Active" },
+                                            { value: "99%", label: "Retention Rate" },
+                                            { value: "21+", label: "Insurer Partners" },
+                                        ].map((stat, i) => (
+                                            <div key={i} className="p-5 rounded-2xl bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-md hover:border-accent/20 transition-all duration-500 text-center">
+                                                <div className="text-2xl font-bold text-primary tracking-tighter mb-1">{stat.value}</div>
+                                                <div className="text-gray-400 text-[9px] font-bold uppercase tracking-[0.2em]">{stat.label}</div>
+                                            </div>
+                                        ))}
+                                    </motion.div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* ─── Offices with Maps ─── */}
+                <section className="py-16 md:py-24 bg-[#FAFBFB] relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-[0.02] pointer-events-none"
+                        style={{ backgroundImage: 'radial-gradient(#0B1C15 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+
+                    <div className="container mx-auto px-6 md:px-12 relative z-10">
+                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 md:mb-16 gap-6">
+                            <div>
+                                <motion.div
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    className="flex items-center gap-4 mb-4"
+                                >
+                                    <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Our Offices</span>
+                                </motion.div>
+                                <motion.h2
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                    className="text-3xl md:text-5xl font-bold text-primary tracking-tighter leading-[0.9]"
+                                >
+                                    Visit Us
+                                </motion.h2>
+                            </div>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 }}
+                                className="text-gray-500 font-medium leading-relaxed text-sm max-w-sm"
+                            >
+                                Two offices. One standard of excellence. Walk in or schedule a meeting — we'd love to meet face to face.
+                            </motion.p>
+                        </div>
+
+                        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+                            {offices.map((office, i) => (
+                                <OfficeCard key={i} office={office} index={i} />
                             ))}
                         </div>
                     </div>
                 </section>
 
-                {/* Main Contact Section */}
-                <section className="py-20 md:py-28 bg-white relative overflow-hidden">
-                    <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
-                        style={{ backgroundImage: 'radial-gradient(#0B1C15 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-                    <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+                {/* ─── Full-width Map ─── */}
+                <section className="relative">
+                    <div className="h-[400px] md:h-[500px] w-full relative group">
+                        <iframe
+                            src="https://www.google.com/maps?q=Le+Dieu+Insurance+Brokers+Bhopal&output=embed&z=5"
+                            className="w-full h-full border-0 grayscale-[0.3] contrast-[1.05] group-hover:grayscale-0 transition-all duration-700"
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="Le Dieu Insurance — India Presence"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent pointer-events-none opacity-60" />
+                        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-40" />
 
-                    <div className="container mx-auto px-6 md:px-12 relative z-10">
-                        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
-
-                            {/* Left Column — Info */}
-                            <div className="lg:col-span-5">
-                                <motion.div
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    className="flex items-center gap-4 mb-6"
-                                >
-                                    <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Get In Touch</span>
-                                </motion.div>
-
-                                <motion.h2
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                    className="text-4xl md:text-[56px] font-bold text-primary tracking-tighter leading-[0.9] mb-6"
-                                >
-                                    Let's Engineer<br />
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent">Your Shield.</span>
-                                </motion.h2>
-
-                                <motion.p
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.2 }}
-                                    className="text-gray-500 font-medium leading-relaxed text-sm md:text-base mb-10 border-l-2 border-primary/20 pl-6"
-                                >
-                                    We operate at the intersection of complex risk and simple solutions. Whether you're looking for a comprehensive risk audit or specific coverage, our team is ready to architect your protection.
-                                </motion.p>
-
-                                {/* Office Cards */}
-                                <div className="space-y-4">
-                                    {offices.map((office, i) => (
-                                        <motion.div
-                                            key={i}
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: 0.3 + i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                            className="group p-6 md:p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:border-accent/30 hover:bg-white hover:shadow-lg transition-all duration-500"
-                                        >
-                                            <div className="flex justify-between items-start mb-3">
-                                                <div>
-                                                    <span className="text-accent text-[9px] font-bold uppercase tracking-[0.3em]">{office.label}</span>
-                                                    <h3 className="text-xl font-bold text-primary tracking-tight">{office.city}</h3>
-                                                </div>
-                                                <div className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all duration-500">
-                                                    <svg className="w-3.5 h-3.5 text-gray-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                                                </div>
-                                            </div>
-                                            <p className="text-gray-500 text-sm font-medium leading-relaxed mb-3">{office.address}</p>
-                                            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-sm text-gray-400 font-medium">
-                                                <span className="hover:text-primary cursor-pointer transition-colors">{office.phone}</span>
-                                                <span className="hidden sm:block text-gray-200">•</span>
-                                                <span className="hover:text-primary cursor-pointer transition-colors">{office.email}</span>
-                                            </div>
-                                        </motion.div>
-                                    ))}
-                                </div>
+                        {/* Floating Label */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="absolute bottom-8 left-6 md:left-12 bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-lg border border-gray-100 max-w-xs"
+                        >
+                            <div className="flex items-center gap-3 mb-2">
+                                <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                                <span className="text-accent text-[9px] font-bold uppercase tracking-[0.3em]">Pan-India Coverage</span>
                             </div>
-
-                            {/* Right Column — Form */}
-                            <div className="lg:col-span-7">
-                                <motion.div
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                    className="bg-white p-8 md:p-12 rounded-[2rem] border border-gray-100 shadow-[0_30px_60px_rgba(0,0,0,0.04)] relative overflow-hidden"
-                                >
-                                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-accent via-accent/30 to-transparent" />
-
-                                    <div className="mb-8">
-                                        <h3 className="text-2xl font-bold text-primary tracking-tight mb-2">Start a Conversation</h3>
-                                        <p className="text-gray-400 text-sm font-medium">Fill in your details and we'll respond within 24 hours.</p>
-                                    </div>
-
-                                    <form onSubmit={handleSubmit} className="space-y-5">
-                                        <div className="grid md:grid-cols-2 gap-5">
-                                            <div>
-                                                <label className="text-gray-500 text-[11px] font-bold uppercase tracking-[0.15em] mb-2 block">Full Name</label>
-                                                <input
-                                                    type="text"
-                                                    name="name"
-                                                    value={formData.name}
-                                                    onChange={handleChange}
-                                                    placeholder="John Doe"
-                                                    required
-                                                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-primary text-sm font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent/50 focus:bg-white focus:shadow-sm transition-all"
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="text-gray-500 text-[11px] font-bold uppercase tracking-[0.15em] mb-2 block">Email Address</label>
-                                                <input
-                                                    type="email"
-                                                    name="email"
-                                                    value={formData.email}
-                                                    onChange={handleChange}
-                                                    placeholder="john@company.com"
-                                                    required
-                                                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-primary text-sm font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent/50 focus:bg-white focus:shadow-sm transition-all"
-                                                />
-                                            </div>
-                                        </div>
-
-                                        <div className="grid md:grid-cols-2 gap-5">
-                                            <div>
-                                                <label className="text-gray-500 text-[11px] font-bold uppercase tracking-[0.15em] mb-2 block">Phone Number</label>
-                                                <input
-                                                    type="tel"
-                                                    name="phone"
-                                                    value={formData.phone}
-                                                    onChange={handleChange}
-                                                    placeholder="+91 98765 43210"
-                                                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-primary text-sm font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent/50 focus:bg-white focus:shadow-sm transition-all"
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="text-gray-500 text-[11px] font-bold uppercase tracking-[0.15em] mb-2 block">Company</label>
-                                                <input
-                                                    type="text"
-                                                    name="company"
-                                                    value={formData.company}
-                                                    onChange={handleChange}
-                                                    placeholder="Company Name"
-                                                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-primary text-sm font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent/50 focus:bg-white focus:shadow-sm transition-all"
-                                                />
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <label className="text-gray-500 text-[11px] font-bold uppercase tracking-[0.15em] mb-2 block">Service Interest</label>
-                                            <select
-                                                name="service"
-                                                value={formData.service}
-                                                onChange={handleChange}
-                                                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-primary text-sm font-medium focus:outline-none focus:border-accent/50 focus:bg-white focus:shadow-sm transition-all appearance-none cursor-pointer"
-                                            >
-                                                <option value="" className="text-gray-300">Select a service</option>
-                                                <option value="risk-management">Risk Management</option>
-                                                <option value="policy-placement">Policy Placement</option>
-                                                <option value="claims-advocacy">Claims Advocacy</option>
-                                                <option value="specialized-audits">Specialized Audits</option>
-                                                <option value="loss-prevention">Loss Prevention</option>
-                                                <option value="corporate-liability">Corporate Liability</option>
-                                                <option value="other">Other</option>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <label className="text-gray-500 text-[11px] font-bold uppercase tracking-[0.15em] mb-2 block">Message</label>
-                                            <textarea
-                                                name="message"
-                                                value={formData.message}
-                                                onChange={handleChange}
-                                                rows={5}
-                                                placeholder="Tell us about your requirements..."
-                                                required
-                                                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-primary text-sm font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent/50 focus:bg-white focus:shadow-sm transition-all resize-none"
-                                            />
-                                        </div>
-
-                                        <button
-                                            type="submit"
-                                            className="w-full bg-accent text-white py-4 rounded-full font-bold text-sm tracking-wide hover:bg-accent-hover transition-all duration-300 flex items-center justify-center gap-3 hover:shadow-lg hover:scale-[1.01] transform"
-                                        >
-                                            Send Message
-                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                                        </button>
-
-                                        <p className="text-center text-gray-300 text-[10px] font-bold uppercase tracking-[0.2em] pt-2">
-                                            Your information is secure and never shared
-                                        </p>
-                                    </form>
-                                </motion.div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Map / Global Presence Section */}
-                <section className="py-20 md:py-28 bg-primary relative overflow-hidden">
-                    <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
-                        style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-                    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
-
-                    <div className="container mx-auto px-6 md:px-12 relative z-10">
-                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-12">
-
-                            <div className="max-w-xl">
-                                <motion.div
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    className="flex items-center gap-4 mb-6"
-                                >
-                                    <span className="h-px w-8 bg-accent/30" />
-                                    <span className="text-accent text-[10px] font-bold uppercase tracking-[0.4em]">Our Presence</span>
-                                </motion.div>
-
-                                <motion.h2
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                    className="text-4xl md:text-[56px] font-bold text-white tracking-tighter leading-[0.9] mb-6"
-                                >
-                                    Two Offices,<br />
-                                    <span className="text-white/30">One Standard.</span>
-                                </motion.h2>
-
-                                <motion.p
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.2 }}
-                                    className="text-white/50 font-medium leading-relaxed text-sm md:text-base"
-                                >
-                                    From our headquarters in Bhopal to our strategic office in New Delhi, we provide seamless coverage and support for enterprises across India. Every interaction upholds the same institutional standard.
-                                </motion.p>
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-6 md:gap-8 w-full lg:w-auto">
-                                {[
-                                    { value: "2", label: "Offices" },
-                                    { value: "20+", label: "Years" },
-                                    { value: "Pan-India", label: "Coverage" },
-                                    { value: "24hr", label: "Response" },
-                                ].map((stat, i) => (
-                                    <motion.div
-                                        key={i}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.1 * i, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                        className="text-center p-6 md:p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10 transition-all duration-500"
-                                    >
-                                        <div className="text-2xl md:text-4xl font-bold text-white tracking-tighter mb-1">{stat.value}</div>
-                                        <div className="text-white/40 text-[9px] font-bold uppercase tracking-[0.25em]">{stat.label}</div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
+                            <p className="text-primary text-sm font-bold tracking-tight">Bhopal · New Delhi</p>
+                            <p className="text-gray-400 text-xs font-medium mt-1">Serving enterprises across all 28 states</p>
+                        </motion.div>
                     </div>
                 </section>
 
