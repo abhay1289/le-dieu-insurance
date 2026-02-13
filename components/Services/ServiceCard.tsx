@@ -46,7 +46,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
           }}
           className="absolute inset-0 transition-colors duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 md:from-black/80 md:via-black/30 md:to-black/10" />
       </div>
 
       {/* Content */}
@@ -85,7 +85,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
           <motion.h3
             variants={{
               initial: { color: '#ffffff' },
-              active: { color: '#ffffff' }
+              active: { color: index === 2 ? '#ffffff' : 'var(--color-accent-green)' }
             }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold md:font-light mb-3 md:mb-4 transition-colors duration-500 leading-[1.1] tracking-tight"
           >
@@ -113,7 +113,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
             <motion.span
               variants={{
                 initial: { color: '#ffffff', borderColor: 'rgba(255,255,255,0.3)' },
-                active: { color: '#ffffff', borderColor: '#ffffff' }
+                active: { color: 'var(--color-accent-green)', borderColor: 'var(--color-accent-green)' }
               }}
               className="text-xs font-bold uppercase tracking-widest border-b pb-1 transition-all duration-500"
             >
