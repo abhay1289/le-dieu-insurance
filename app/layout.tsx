@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,7 +8,7 @@ const inter = Inter({
   display: 'swap',
 });
 
-const plusJakarta = Plus_Jakarta_Sans({
+const outfit = Outfit({
   variable: "--font-jakarta",
   subsets: ["latin"],
   display: 'swap',
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`}
+        className={`${inter.variable} ${outfit.variable} font-sans antialiased`}
       >
         {children}
       </body>
