@@ -37,7 +37,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] as any }}
           src={service.image}
           alt={service.title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
         <motion.div
           variants={{

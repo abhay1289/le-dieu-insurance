@@ -113,7 +113,7 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
 
                 {/* Full background image */}
                 <div className="absolute inset-0 z-0">
-                    <img src={card.image} alt={card.title} className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover/card:scale-105" />
+                    <img src={card.image} alt={card.title} className="w-full h-full object-cover object-center transition-transform duration-[2s] ease-out group-hover/card:scale-105" />
                     <div className="absolute inset-0 bg-primary/80" />
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/60" />
                 </div>
@@ -138,7 +138,7 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                     {/* Right — Visual */}
                     <div className="w-full md:w-[40%] h-[40%] md:h-full relative overflow-hidden">
                         <div className="absolute inset-0">
-                            <img src={card.image} alt={card.title} className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover/card:scale-105" />
+                            <img src={card.image} alt={card.title} className="w-full h-full object-cover object-center transition-transform duration-[2s] ease-out group-hover/card:scale-105" />
                             <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/40 to-transparent" />
                             <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-primary/20" />
                         </div>

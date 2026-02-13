@@ -43,7 +43,7 @@ const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, breadcrumb, backgr
                             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                             src={backgroundImage}
                             alt=""
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-center"
                         />
                     </motion.div>
 

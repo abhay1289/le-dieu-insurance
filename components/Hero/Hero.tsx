@@ -51,7 +51,7 @@ const Hero = () => {
           <img
             src={heroImages[currentImage]}
             alt=""
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
         </div>
 
@@ -70,7 +70,7 @@ const Hero = () => {
             <img
               src={heroImages[currentImage]}
               alt="Background"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
           </motion.div>
         </AnimatePresence>

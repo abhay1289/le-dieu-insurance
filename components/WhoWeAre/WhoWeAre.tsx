@@ -76,7 +76,7 @@ const WhoWeAre = () => {
                 <img
                   src="/images/portrait-of-family-mom-dad-and-their-children-en-2026-01-11-09-08-26-utc.jpg"
                   alt="Multi-generational family portrait - Le Dieu Insurance Protection"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
                 />
               </motion.div>
 

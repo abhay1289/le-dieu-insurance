@@ -313,7 +313,7 @@ export default function SolutionsPage() {
                                                                             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
                                                                             src={solution.image}
                                                                             alt={solution.title}
-                                                                            className="w-full h-full object-cover transition-transform duration-[2s] group-hover/img:scale-105"
+                                                                            className="w-full h-full object-cover object-center transition-transform duration-[2s] group-hover/img:scale-105"
                                                                         />
                                                                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 

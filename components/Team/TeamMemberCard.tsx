@@ -29,7 +29,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, index }) => {
         <motion.img
           src={member.image}
           alt={member.name}
-          className="h-full w-full object-cover object-top transition-all duration-1000 ease-out grayscale-0 scale-105 lg:grayscale lg:scale-100 lg:group-hover:grayscale-0 lg:group-hover:scale-105"
+          className="h-full w-full object-cover object-center transition-all duration-1000 ease-out grayscale-0 scale-105 lg:grayscale lg:scale-100 lg:group-hover:grayscale-0 lg:group-hover:scale-105"
         />
 
         {/* Gradient overlay — only bottom portion */}
