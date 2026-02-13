@@ -87,7 +87,7 @@ const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, breadcrumb, backgr
                     <div className="overflow-hidden">
                         <motion.p
                             variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } } }}
-                            className="text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl font-light"
+                            className="text-white text-lg md:text-xl leading-relaxed max-w-2xl font-normal"
                         >
                             {subtitle}
                         </motion.p>

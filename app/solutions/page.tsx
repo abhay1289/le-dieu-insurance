@@ -92,7 +92,7 @@ function SolutionCard({ solution }: { solution: any }) {
             <div className="relative h-full p-10 flex flex-col justify-between z-10">
                 <div>
                     <div className="flex justify-between items-start mb-8">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary/60 bg-white border border-gray-100 px-4 py-1.5 rounded-full shadow-[0_2px_4px_rgba(0,0,0,0.02)]">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary bg-white border border-gray-200 px-4 py-1.5 rounded-full shadow-[0_2px_4px_rgba(0,0,0,0.02)]">
                             {solution.category}
                         </span>
                         <div className="w-14 h-14 rounded-2xl border border-gray-100 bg-white flex items-center justify-center text-primary transform group-hover:-rotate-6 transition-transform duration-700 shadow-sm group-hover:shadow-md">
@@ -103,10 +103,10 @@ function SolutionCard({ solution }: { solution: any }) {
                     <h3 className="text-3xl md:text-4xl font-bold text-primary mb-3 tracking-tighter leading-tight group-hover:text-accent transition-colors duration-500">
                         {solution.title}
                     </h3>
-                    <p className="text-gray-400 font-bold text-[10px] uppercase tracking-[0.2em] mb-6">
+                    <p className="text-slate-500 font-bold text-[11px] uppercase tracking-[0.2em] mb-6">
                         {solution.subtitle}
                     </p>
-                    <p className="text-gray-500 leading-relaxed text-sm md:text-base font-medium max-w-[95%]">
+                    <p className="text-slate-700 leading-relaxed text-sm md:text-base font-medium max-w-[95%]">
                         {solution.description}
                     </p>
                 </div>
@@ -115,7 +115,7 @@ function SolutionCard({ solution }: { solution: any }) {
                     <div className="h-px w-full bg-gray-100 mb-8 group-hover:bg-accent/20 transition-colors duration-500" />
                     <div className="flex flex-wrap gap-2">
                         {solution.coverages.map((c: string, ci: number) => (
-                            <span key={ci} className="text-[10px] font-bold uppercase text-gray-500 px-3 py-1.5 rounded-xl bg-white border border-gray-100 group-hover:border-accent/30 group-hover:text-primary transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.01)]">
+                            <span key={ci} className="text-[10px] font-bold uppercase text-slate-600 px-3 py-1.5 rounded-xl bg-white border border-gray-200 group-hover:border-accent/40 group-hover:text-primary transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.01)]">
                                 {c}
                             </span>
                         ))}
@@ -253,7 +253,7 @@ export default function SolutionsPage() {
                                 <button
                                     key={cat.id}
                                     onClick={() => setActiveCategory(cat.id)}
-                                    className={`relative px-8 py-3.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-500 z-10 whitespace-nowrap ${activeCategory === cat.id ? 'text-white' : 'text-gray-400 hover:text-primary'
+                                    className={`relative px-8 py-3.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-500 z-10 whitespace-nowrap ${activeCategory === cat.id ? 'text-white' : 'text-slate-500 hover:text-primary'
                                         }`}
                                 >
                                     {activeCategory === cat.id && (
@@ -298,7 +298,7 @@ export default function SolutionsPage() {
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                className="text-accent text-[10px] font-bold uppercase tracking-[0.4em]"
+                                className="text-accent text-[11px] font-bold uppercase tracking-[0.4em]"
                             >
                                 The Protocol
                             </motion.span>
@@ -331,7 +331,7 @@ export default function SolutionsPage() {
                                         {step.step}
                                     </div>
                                     <h3 className="text-2xl font-bold text-primary mb-4 tracking-tight group-hover:text-primary transition-colors">{step.title}</h3>
-                                    <p className="text-gray-500 text-base leading-relaxed font-medium">
+                                    <p className="text-slate-600 text-base leading-relaxed font-semibold">
                                         {step.description}
                                     </p>
 
