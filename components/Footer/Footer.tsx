@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 const Footer = () => {
    return (
-      <footer className="bg-accent text-white pt-16 md:pt-32 pb-12 overflow-hidden relative">
+      <footer className="bg-accent text-white pt-16 md:pt-32 pb-6 sm:pb-12 overflow-hidden relative">
          {/* Subtle dark overlay for depth */}
          <div className="absolute inset-0 bg-gradient-to-b from-black/[0.08] via-transparent to-black/[0.15] pointer-events-none" />
 
@@ -99,7 +99,7 @@ const Footer = () => {
 
             {/* Big Footer Text */}
             {/* Big Footer Text with Shine */}
-            <div className="absolute bottom-[5%] sm:bottom-[-2%] left-0 w-full overflow-hidden pointer-events-none select-none">
+            <div className="relative sm:absolute bottom-auto sm:bottom-[-2%] left-0 w-full overflow-hidden pointer-events-none select-none mt-12 sm:mt-0">
                <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
