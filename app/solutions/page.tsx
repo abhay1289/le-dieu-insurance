@@ -306,7 +306,7 @@ export default function SolutionsPage() {
                                                                     transition={{ delay: 0.3, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                                                                     className="relative group/img"
                                                                 >
-                                                                    <div className="relative rounded-2xl md:rounded-[2rem] overflow-hidden aspect-[4/5] shadow-2xl">
+                                                                    <div className="relative rounded-2xl md:rounded-[2rem] overflow-hidden aspect-[16/9] shadow-2xl">
                                                                         <motion.img
                                                                             initial={{ scale: 1.1 }}
                                                                             animate={{ scale: 1 }}
