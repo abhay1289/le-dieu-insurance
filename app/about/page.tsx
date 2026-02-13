@@ -146,7 +146,7 @@ export default function AboutPage() {
                 />
 
                 {/* Strategic Vision Section */}
-                <section className="relative py-16 md:py-32 bg-white overflow-hidden">
+                <section className="relative py-24 md:py-32 bg-white overflow-hidden">
                     <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-accent/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
                     <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -217,7 +217,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* Values Section */}
-                <section ref={philosophyRef} className="py-16 md:py-32 relative overflow-hidden bg-[#FAFBFB] border-t border-gray-100">
+                <section ref={philosophyRef} className="py-24 md:py-32 relative overflow-hidden bg-[#FAFBFB] border-t border-gray-100">
                     {/* Parallax Background */}
                     <div className="absolute inset-0 pointer-events-none overflow-hidden">
                         <motion.div style={{ y: philosophyY }} className="absolute inset-x-0 -top-[20%] -bottom-[20%]">
@@ -231,7 +231,7 @@ export default function AboutPage() {
 
                     <div className="container mx-auto px-6 md:px-12 relative z-10">
                         {/* Section Header */}
-                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 md:mb-20 gap-8">
+                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 md:mb-24 gap-8">
                             <div className="max-w-2xl">
                                 <motion.div
                                     initial={{ opacity: 0, x: -20 }}

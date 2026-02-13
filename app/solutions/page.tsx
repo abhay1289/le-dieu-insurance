@@ -175,11 +175,11 @@ export default function SolutionsPage() {
                 />
 
                 {/* Solutions Accordion */}
-                <section className="py-16 md:py-32 bg-white relative overflow-hidden">
+                <section className="py-24 md:py-32 bg-white relative overflow-hidden">
                     <div className="container mx-auto px-6 md:px-12 relative z-10">
 
                         {/* Section Header */}
-                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 md:mb-20 gap-8">
+                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 md:mb-24 gap-8">
                             <div className="max-w-2xl">
                                 <motion.div
                                     initial={{ opacity: 0, x: -20 }}
@@ -335,11 +335,11 @@ export default function SolutionsPage() {
                 </section>
 
                 {/* Engagement Protocol */}
-                <section className="py-16 md:py-32 bg-[#FAFBFB] border-t border-gray-100 relative overflow-hidden">
+                <section className="py-24 md:py-32 bg-[#FAFBFB] border-t border-gray-100 relative overflow-hidden">
                     <div className="container mx-auto px-6 md:px-12 relative z-10">
 
                         {/* Section Header */}
-                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 md:mb-20 gap-8">
+                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 md:mb-24 gap-8">
                             <div className="max-w-2xl">
                                 <motion.div
                                     initial={{ opacity: 0, x: -20 }}
