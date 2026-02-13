@@ -46,15 +46,15 @@ const Hero = () => {
 
       {/* Premium Background Slider */}
       <div className="absolute inset-0 z-0">
-        <AnimatePresence initial={false}>
+        <AnimatePresence mode="sync">
           <motion.div
             key={currentImage}
-            initial={{ opacity: 0, scale: 1 }}
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1, scale: 1.15 }}
-            exit={{ opacity: 0, scale: 1.2 }}
+            exit={{ opacity: 0 }}
             transition={{
-              opacity: { duration: 1.5, ease: [0.16, 1, 0.3, 1] as any },
-              scale: { duration: 10, ease: "linear" }
+              opacity: { duration: 2, ease: [0.16, 1, 0.3, 1] as any },
+              scale: { duration: 12, ease: "linear" }
             }}
             className="absolute inset-0 w-full h-full"
           >
@@ -167,20 +167,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Slider Indicators */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex items-center gap-3">
-        {heroImages.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrentImage(i)}
-            className={`h-1.5 rounded-full transition-all duration-500 ease-out ${i === currentImage
-              ? 'w-12 bg-accent shadow-[0_0_10px_rgba(255,255,255,0.5)]'
-              : 'w-2 bg-white/20 hover:bg-white/40'
-              }`}
-            aria-label={`Go to slide ${i + 1}`}
-          />
-        ))}
-      </div>
     </section>
   );
 };
