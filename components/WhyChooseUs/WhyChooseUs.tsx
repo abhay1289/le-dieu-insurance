@@ -129,7 +129,7 @@ const WhyChooseUs = () => {
                      className="flex items-center gap-4 mb-4 md:mb-8"
                   >
 
-                     <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Institutional Grade</span>
+                     <span className="text-xs font-bold tracking-[0.3em] text-accent uppercase">Institutional Grade</span>
                   </motion.div>
 
                   <div className="overflow-hidden">

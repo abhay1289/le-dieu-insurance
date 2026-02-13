@@ -125,7 +125,7 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                         <div>
                             <div className="flex items-center gap-3 mb-5">
                                 <span className="w-7 h-[1.5px] bg-accent" />
-                                <span className="text-accent text-[10px] font-bold uppercase tracking-[0.3em]">{card.subtitle}</span>
+                                <span className="text-accent text-xs font-bold uppercase tracking-[0.3em]">{card.subtitle}</span>
                             </div>
                             <h2 className="text-2xl sm:text-3xl md:text-[2.2rem] font-bold text-white leading-[1.1] tracking-tight mb-5">
                                 {card.title}
@@ -195,7 +195,7 @@ export default function ServicesPage() {
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                             className="flex items-center gap-4 mb-4 md:mb-8"
                         >
-                            <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Our Services</span>
+                            <span className="text-xs font-bold tracking-[0.3em] text-accent uppercase">Our Services</span>
                         </motion.div>
                         <div className="overflow-hidden">
                             <motion.h2
@@ -229,7 +229,7 @@ export default function ServicesPage() {
                                     viewport={{ once: true }}
                                     className="flex items-center gap-4 mb-6"
                                 >
-                                    <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">How We Work</span>
+                                    <span className="text-xs font-bold tracking-[0.3em] text-accent uppercase">How We Work</span>
                                 </motion.div>
                                 <div className="overflow-hidden">
                                     <motion.h2
@@ -276,7 +276,7 @@ export default function ServicesPage() {
                                         transition={{ duration: 0.7 }}
                                         className="absolute top-0 left-0 w-1 bg-accent"
                                     />
-                                    <span className="text-accent text-[10px] font-bold uppercase tracking-[0.3em] block mb-3">Phase {item.step}</span>
+                                    <span className="text-accent text-xs font-bold uppercase tracking-[0.3em] block mb-3">Phase {item.step}</span>
                                     <h3 className="text-2xl font-bold text-primary mb-4 tracking-tight">{item.title}</h3>
                                     <p className="text-gray-500 leading-relaxed font-medium text-sm">{item.desc}</p>
                                     <motion.div

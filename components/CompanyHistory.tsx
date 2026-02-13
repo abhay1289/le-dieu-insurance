@@ -72,7 +72,7 @@ const CompanyHistory = () => {
           >
             <div className="flex items-center gap-4 mb-8">
 
-              <span className="uppercase tracking-[0.3em] text-[10px] font-bold text-accent">Our Legacy</span>
+              <span className="uppercase tracking-[0.3em] text-xs font-bold text-accent">Our Legacy</span>
             </div>
             <h2 className="text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[0.9] mb-8">
               Founded on Trust <br />

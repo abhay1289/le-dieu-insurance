@@ -163,7 +163,7 @@ export default function AboutPage() {
                                 variants={staggerContainer}
                             >
                                 <motion.div variants={fadeUpVariants} className="flex items-center gap-4 mb-8">
-                                    <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Our Identity</span>
+                                    <span className="text-xs font-bold tracking-[0.3em] text-accent uppercase">Our Identity</span>
                                 </motion.div>
 
                                 <div className="space-y-2 mb-10">
@@ -243,7 +243,7 @@ export default function AboutPage() {
                                     viewport={{ once: true }}
                                     className="flex items-center gap-4 mb-6"
                                 >
-                                    <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Our Philosophy</span>
+                                    <span className="text-xs font-bold tracking-[0.3em] text-accent uppercase">Our Philosophy</span>
                                 </motion.div>
                                 <div className="overflow-hidden">
                                     <motion.h2
@@ -282,7 +282,7 @@ export default function AboutPage() {
                                     <SpotlightCard color={val.color} className="h-full group/card">
                                         <div className="p-6 md:p-8 h-full flex flex-col justify-between min-h-[220px]">
                                             <div>
-                                                <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gray-50 flex items-center justify-center text-primary mb-5 group-hover/card:bg-primary group-hover/card:text-accent transition-all duration-700 border border-gray-100">
+                                                <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gray-50 flex items-center justify-center text-primary mb-5 group-hover/card:bg-accent group-hover/card:text-white transition-all duration-700 border border-gray-100">
                                                     <div className="scale-75 md:scale-90">{val.icon}</div>
                                                 </div>
                                                 <h3 className="text-xl md:text-2xl font-bold text-primary mb-3 tracking-tight">

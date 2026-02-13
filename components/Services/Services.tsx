@@ -56,7 +56,7 @@ const Services = () => {
               className="flex items-center gap-4 mb-4 md:mb-8"
             >
 
-              <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Our Expertise</span>
+              <span className="text-xs font-bold tracking-[0.3em] text-accent uppercase">Our Expertise</span>
             </motion.div>
 
             <div className="mb-2">
@@ -77,7 +77,7 @@ const Services = () => {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any, delay: 0.3 }}
             className="mb-4 mt-8 lg:mt-0"
           >
-            <a href="#services" className="group flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:text-accent transition-all">
+            <a href="#services" className="group flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-primary hover:text-accent transition-all">
               <span className="border-b border-gray-200 group-hover:border-accent pb-1">View All Solutions</span>
               <ArrowIcon className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
             </a>

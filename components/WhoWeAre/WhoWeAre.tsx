@@ -46,7 +46,7 @@ const WhoWeAre = () => {
                 className="flex items-center gap-4 mb-4 md:mb-8"
               >
 
-                <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Who We Are</span>
+                <span className="text-xs font-bold tracking-[0.3em] text-accent uppercase">Who We Are</span>
               </motion.div>
 
               <div className="overflow-hidden">
@@ -120,7 +120,7 @@ const WhoWeAre = () => {
               <motion.div variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0 } }}>
                 <a href="#about" className="group inline-flex items-center gap-4 text-primary font-semibold text-lg">
                   <span className="border-b border-accent group-hover:border-primary transition-all pb-0.5">Explore Our Expertise</span>
-                  <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white group-hover:bg-primary transition-colors">
                     <ArrowIcon className="w-3 h-3 group-hover:-rotate-45 transition-transform duration-300" />
                   </div>
                 </a>
