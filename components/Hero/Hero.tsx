@@ -87,7 +87,7 @@ const Hero = () => {
                 className="inline-flex items-center gap-3 px-4 py-2 bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-full"
               >
 
-                <span className="text-white/90 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase">
+                <span className="text-accent text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase">
                   Premium Insurance
                 </span>
               </motion.div>

@@ -64,23 +64,23 @@ const Pricing = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
           <div>
             <div className="flex items-center gap-4 mb-8">
-              <span className="uppercase tracking-[0.3em] text-[10px] font-bold text-primary">Pricing Plans</span>
+              <span className="uppercase tracking-[0.3em] text-[10px] font-bold text-accent">Pricing Plans</span>
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[0.9] max-w-4xl">
-              Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-gray-400 to-primary font-bold">Insurance Plans</span>
+              Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent font-bold">Insurance Plans</span>
             </h2>
           </div>
 
           <div className="bg-gray-100 p-1.5 rounded-full flex mt-8 md:mt-0 border border-gray-200">
             <button
               onClick={() => setBillingCycle('monthly')}
-              className={`px-6 py-3 rounded-full text-sm font-semibold transition-colors ${billingCycle === 'monthly' ? 'bg-primary text-white' : 'text-primary hover:text-primary/80'}`}
+              className={`px-6 py-3 rounded-full text-sm font-semibold transition-colors ${billingCycle === 'monthly' ? 'bg-accent text-primary shadow-lg' : 'text-primary hover:text-primary/80'}`}
             >
               Monthly
             </button>
             <button
               onClick={() => setBillingCycle('annual')}
-              className={`px-6 py-3 rounded-full text-sm font-semibold transition-colors flex items-center gap-2 ${billingCycle === 'annual' ? 'bg-primary text-white' : 'text-primary hover:text-primary/80'}`}
+              className={`px-6 py-3 rounded-full text-sm font-semibold transition-colors flex items-center gap-2 ${billingCycle === 'annual' ? 'bg-accent text-primary shadow-lg' : 'text-primary hover:text-primary/80'}`}
             >
               Annual <span className="text-[10px] bg-primary text-white px-1.5 py-0.5 rounded">25% Off</span>
             </button>
@@ -94,7 +94,7 @@ const Pricing = () => {
               <button
                 key={plan}
                 onClick={() => setActivePlan(plan)}
-                className={`px-6 py-3 rounded-full text-sm font-semibold transition-all ${activePlan === plan ? 'bg-primary text-white shadow-lg' : 'bg-transparent text-gray-500 hover:bg-gray-100'}`}
+                className={`px-6 py-3 rounded-full text-sm font-semibold transition-all ${activePlan === plan ? 'bg-accent text-primary shadow-lg' : 'bg-transparent text-gray-500 hover:bg-gray-100'}`}
               >
                 {plan} Insurance
               </button>

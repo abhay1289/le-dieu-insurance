@@ -60,7 +60,7 @@ const Team = () => {
               className="flex items-center gap-4 mb-4 md:mb-8"
             >
 
-              <span className="text-[10px] font-bold tracking-[0.3em] text-primary uppercase">Board of Directors</span>
+              <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Board of Directors</span>
             </motion.div>
 
             <div className="overflow-hidden">
@@ -125,7 +125,7 @@ const Team = () => {
           <div className="hidden lg:block h-px w-32 bg-gray-100"></div>
 
           <div className="flex gap-4">
-            <a href="#contact" className="px-8 py-4 bg-primary text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent transition-colors">
+            <a href="#contact" className="px-8 py-4 bg-primary text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent-hover transition-colors">
               Connect With Leadership
             </a>
             <button className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors">

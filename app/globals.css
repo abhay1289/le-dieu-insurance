@@ -5,9 +5,9 @@
 
   --color-primary: #000000;
   --color-secondary: #f8fafc;
-  --color-accent: #ffffff;
-  --color-accent-green: #e2e8f0;
-  --color-accent-hover: #f1f5f9;
+  --color-accent: #22c55e;
+  --color-accent-green: #4ade80;
+  --color-accent-hover: #16a34a;
   --color-light-gray: #f4f4f4;
 
   --image-hero-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);

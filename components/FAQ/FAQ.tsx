@@ -88,7 +88,7 @@ const FAQ = () => {
                                 </span>
                                 <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 leading-tight">
                                     Frequently Asked <br />
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-gray-400 to-primary">
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary">
                                         Questions
                                     </span>
                                 </h2>
@@ -132,7 +132,7 @@ const FAQ = () => {
                                         <span className={`text-xl md:text-2xl font-medium transition-colors duration-300 ${activeIndex === index ? 'text-primary' : 'text-gray-900 group-hover:text-primary'}`}>
                                             {faq.question}
                                         </span>
-                                        <div className={`relative flex-shrink-0 w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center transition-all duration-300 ${activeIndex === index ? 'bg-primary border-primary rotate-45' : 'group-hover:border-primary'}`}>
+                                        <div className={`relative flex-shrink-0 w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center transition-all duration-300 ${activeIndex === index ? 'bg-accent border-accent rotate-45' : 'group-hover:border-accent'}`}>
                                             <svg
                                                 className={`w-4 h-4 transition-colors duration-300 ${activeIndex === index ? 'text-white' : 'text-primary'}`}
                                                 fill="none"
