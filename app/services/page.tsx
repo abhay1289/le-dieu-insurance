@@ -105,97 +105,83 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
             <motion.div
                 style={{ scale, top: `calc(-5vh + ${index * 25}px)` }}
                 onMouseMove={handleMouseMove}
-                className="relative w-[92vw] md:w-[1200px] h-[55vh] md:h-[440px] rounded-[1.5rem] border border-gray-200/60 shadow-xl overflow-hidden transform-gpu origin-top bg-white group/card hover:shadow-[0_40px_80px_rgba(0,0,0,0.08)] hover:border-gray-300/80 transition-all duration-700"
+                className="relative w-[92vw] md:w-[1200px] h-[55vh] md:h-[440px] rounded-2xl overflow-hidden transform-gpu origin-top bg-primary group/card transition-all duration-700 shadow-[0_1px_3px_rgba(0,0,0,0.1),0_20px_60px_rgba(0,0,0,0.12)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.1),0_30px_80px_rgba(0,0,0,0.18)]"
             >
-                {/* Cursor spotlight glow */}
+                {/* Cursor glow */}
                 <motion.div
-                    className="pointer-events-none absolute -inset-px opacity-0 transition duration-500 group-hover/card:opacity-100 z-20"
+                    className="pointer-events-none absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-30"
                     style={{
-                        background: useMotionTemplate`radial-gradient(500px circle at ${mouseX}px ${mouseY}px, rgba(34,197,94,0.06), transparent 80%)`,
+                        background: useMotionTemplate`radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(34,197,94,0.07), transparent 70%)`,
                     }}
                 />
 
-                <div className="flex flex-col md:flex-row h-full relative z-10">
+                {/* Full background image */}
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src={card.image}
+                        alt={card.title}
+                        className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover/card:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-primary/80" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/60" />
+                </div>
 
-                    {/* Left — Image Panel */}
-                    <div className="relative w-full md:w-[44%] h-[32%] md:h-full overflow-hidden bg-primary">
+                {/* Content layout */}
+                <div className="relative z-10 h-full flex flex-col md:flex-row">
+
+                    {/* Left — Content */}
+                    <div className="w-full md:w-[55%] h-[68%] md:h-full flex flex-col justify-between p-7 md:p-10 lg:p-12">
+
+                        {/* Top */}
+                        <div>
+                            <div className="flex items-center gap-3 mb-5">
+                                <span className="w-7 h-[1.5px] bg-accent" />
+                                <span className="text-accent text-[10px] font-bold uppercase tracking-[0.3em]">{card.subtitle}</span>
+                            </div>
+                            <h2 className="text-2xl sm:text-3xl md:text-[2.2rem] font-bold text-white leading-[1.1] tracking-tight mb-5">
+                                {card.title}
+                            </h2>
+                            <p className="text-white/55 text-[13px] md:text-[13.5px] leading-[1.8] font-medium max-w-lg">
+                                {card.description}
+                            </p>
+                        </div>
+
+                        {/* Bottom — Tags */}
+                        <div className="flex items-center gap-2 flex-wrap mt-6">
+                            {card.features.map((f: string, i: number) => (
+                                <span
+                                    key={i}
+                                    className="px-3.5 py-[5px] rounded-full border border-white/10 text-[9px] text-white/40 uppercase tracking-[0.15em] font-bold hover:border-accent/50 hover:text-accent transition-all duration-300 cursor-default backdrop-blur-sm"
+                                >
+                                    {f}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Right — Visual */}
+                    <div className="w-full md:w-[45%] h-[32%] md:h-full relative overflow-hidden">
+
+                        {/* Visible image portion */}
                         <div className="absolute inset-0">
                             <img
                                 src={card.image}
                                 alt={card.title}
-                                className="w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover/card:scale-110"
+                                className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover/card:scale-105"
                             />
-                        </div>
-                        <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/35 to-primary/15" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-primary/20" />
-
-                        {/* Stat block — top left */}
-                        <div className="absolute top-5 left-5 md:top-9 md:left-9 z-10">
-                            <div className="flex items-center gap-2.5 mb-2">
-                                <span className="h-[2px] w-5 bg-accent" />
-                                <span className="text-accent text-[9px] font-bold uppercase tracking-[0.3em]">{card.stat.label}</span>
-                            </div>
-                            <div className="text-white text-3xl md:text-[2.75rem] font-bold tracking-tighter leading-none">{card.stat.value}</div>
+                            <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/40 to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-primary/20" />
                         </div>
 
-                        {/* Subtitle — bottom left */}
-                        <div className="absolute bottom-5 left-5 right-5 md:bottom-9 md:left-9 md:right-9 z-10">
-                            <div className="flex items-center gap-3">
-                                <span className="h-[2px] w-8 bg-accent" />
-                                <span className="text-white/60 text-[9px] font-bold uppercase tracking-[0.4em]">{card.subtitle}</span>
-                            </div>
+                        {/* Stat overlay — bottom right */}
+                        <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 z-10 text-right">
+                            <div className="text-white text-4xl md:text-5xl font-bold tracking-tighter leading-none mb-1">{card.stat.value}</div>
+                            <div className="text-white/40 text-[9px] font-bold uppercase tracking-[0.25em]">{card.stat.label}</div>
                         </div>
-                    </div>
 
-                    {/* Right — Content Panel */}
-                    <div className="relative w-full md:w-[56%] h-[68%] md:h-full bg-white">
-
-                        {/* Accent left edge */}
-                        <div className="hidden md:block absolute top-0 bottom-0 left-0 w-[3px] bg-gradient-to-b from-accent via-accent/20 to-transparent" />
-                        {/* Accent top edge on mobile */}
-                        <div className="md:hidden absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-accent via-accent/20 to-transparent" />
-
-                        <div className="h-full flex flex-col p-6 md:pl-11 md:pr-10 md:py-9 lg:pl-12 lg:pr-11 lg:py-10">
-
-                            {/* — Top: Label + Title — */}
-                            <div>
-                                <div className="flex items-center justify-between mb-3.5">
-                                    <span className="text-accent text-[10px] font-bold uppercase tracking-[0.3em]">Service {card.id}</span>
-                                    <span className="hidden md:flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 group-hover/card:text-accent transition-colors duration-500">
-                                        {card.id} / 08
-                                    </span>
-                                </div>
-                                <h2 className="text-[1.45rem] sm:text-[1.7rem] md:text-[2rem] font-bold text-primary leading-[1.08] tracking-tighter">
-                                    {card.title}
-                                </h2>
-                            </div>
-
-                            {/* — Divider — */}
-                            <div className="my-4 md:my-5 h-[1px] bg-gradient-to-r from-gray-200 via-gray-100 to-transparent" />
-
-                            {/* — Middle: Description — */}
-                            <p className="text-gray-500 text-[13px] md:text-[14px] leading-[1.75] font-medium flex-1 border-l-2 border-gray-100 pl-5 group-hover/card:border-accent/40 transition-colors duration-500">
-                                {card.description}
-                            </p>
-
-                            {/* — Divider — */}
-                            <div className="my-4 md:my-5 h-[1px] bg-gradient-to-r from-gray-200 via-gray-100 to-transparent" />
-
-                            {/* — Bottom: Features row — */}
-                            <div className="flex items-center gap-2 flex-wrap">
-                                {card.features.map((f: string, i: number) => (
-                                    <span
-                                        key={i}
-                                        className="px-3.5 py-[6px] rounded-full border border-gray-200 text-[9px] text-gray-400 uppercase tracking-[0.15em] font-bold hover:border-primary hover:text-primary hover:bg-gray-50/80 transition-all duration-300 cursor-default"
-                                    >
-                                        {f}
-                                    </span>
-                                ))}
-                                {/* Arrow CTA */}
-                                <div className="ml-auto w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center group-hover/card:bg-accent group-hover/card:border-accent transition-all duration-500 cursor-pointer shrink-0">
-                                    <svg className="w-3.5 h-3.5 text-gray-400 group-hover/card:text-white group-hover/card:-rotate-45 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                                </div>
-                            </div>
+                        {/* Card counter — top right */}
+                        <div className="absolute top-6 right-6 md:top-10 md:right-10 z-10">
+                            <span className="text-white/20 text-[10px] font-bold uppercase tracking-[0.2em] group-hover/card:text-white/40 transition-colors duration-500">{card.id}<span className="text-white/10 mx-1">/</span>08</span>
                         </div>
                     </div>
                 </div>
