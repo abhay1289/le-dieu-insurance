@@ -100,7 +100,7 @@ const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, breadcrumb, backgr
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-white/50 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl font-medium mt-4 sm:mt-5"
+                        className="text-white text-sm sm:text-base md:text-lg leading-relaxed max-w-xl font-medium mt-4 sm:mt-5"
                     >
                         {subtitle}
                     </motion.p>

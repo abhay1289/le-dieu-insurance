@@ -49,7 +49,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, index }) => {
           </div>
 
           {/* Short bio — 2 lines max */}
-          <p className="text-white text-xs leading-relaxed mt-3 line-clamp-2 transition-opacity duration-500 delay-100 opacity-100 lg:opacity-0 lg:group-hover:opacity-100">
+          <p className="text-white text-sm leading-relaxed mt-3 line-clamp-2 transition-opacity duration-500 delay-100 opacity-100 lg:opacity-0 lg:group-hover:opacity-100">
             {member.bio.split(/(Le Dieu Insurance Brokers|Le Dieu)/g).map((part, i) =>
               part === 'Le Dieu Insurance Brokers' || part === 'Le Dieu' ? <strong key={i} className="font-bold text-white">{part}</strong> : part
             )}
