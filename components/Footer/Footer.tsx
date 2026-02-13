@@ -24,6 +24,9 @@ const Footer = () => {
                   <a href="/" className="block group">
                      <img src="/images/ledieuinsurance_logo1 (2).png" alt="Le Dieu Insurance" className="h-8 sm:h-10 w-auto object-contain brightness-0 invert" />
                   </a>
+                  <p className="text-white/60 text-xs sm:text-sm font-medium leading-relaxed max-w-sm">
+                     Since 2003, Le Dieu Insurance Brokers has been delivering expert risk management and tailored insurance architectures for India's leading industrial enterprises.
+                  </p>
                   <div className="flex gap-3 sm:gap-4">
                      <a href="#" className="w-9 h-9 sm:w-10 sm:h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-accent active:bg-white active:text-accent active:scale-95 transition-all duration-300">
                         <svg width="14" height="14" viewBox="0 0 15 15" fill="currentColor"><path fillRule="evenodd" clipRule="evenodd" d="M13.0515 0.957031H2.55151C1.58639 0.957031 0.801514 1.74191 0.801514 2.70703V13.207C0.801514 14.1722 1.58639 14.957 2.55151 14.957H7.80151V10.1445H6.05151V7.95703H7.80151V6.20703C7.80151 5.51084 8.07807 4.84316 8.57036 4.35088C9.06264 3.85859 9.73032 3.58203 10.4265 3.58203H12.1765V5.76953H11.3015C10.8185 5.76953 10.4265 5.72403 10.4265 6.20703V7.95703H12.614L11.739 10.1445H10.4265V14.957H13.0515C14.0166 14.957 14.8015 14.1722 14.8015 13.207V2.70703C14.8015 1.74191 14.0166 0.957031 13.0515 0.957031Z" /></svg>
