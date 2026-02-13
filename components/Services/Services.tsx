@@ -70,18 +70,6 @@ const Services = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any, delay: 0.3 }}
-            className="mb-4 mt-8 lg:mt-0"
-          >
-            <a href="#services" className="group flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-primary hover:text-accent transition-all">
-              <span className="border-b border-gray-200 group-hover:border-accent pb-1">View All Solutions</span>
-              <ArrowIcon className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-            </a>
-          </motion.div>
         </div>
 
         {/* Services Grid */}
