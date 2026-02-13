@@ -16,7 +16,7 @@ const servicesData: ServiceItem[] = [
     title: "Policy Placement",
     description: "Rigorous risk profiling and value-based negotiation across 21+ insurers to ensure optimal coverage and rationalized portfolios.",
     icon: FileTextIcon,
-    image: "/images/service-health.png"
+    image: "/images/service-policy-placement.png"
   },
   {
     id: 'specialized-audits',
