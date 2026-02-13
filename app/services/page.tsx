@@ -76,7 +76,7 @@ const coreServices = [
     },
     {
         id: "08",
-        title: "Insurance Solutions — Support Services",
+        title: "Insurance Solutions",
         subtitle: "End-to-End Framework.",
         description: "Our Insurance Solutions encompass Engineering, Trade, Marine, Employee Benefits, Property and Casualty covers including CAR, MBD, Health, Credit, Marine, and much beyond. We deliver a comprehensive support framework that extends from initial risk assessment through policy servicing and claims resolution. Every solution is architected to provide seamless protection across entire operations.",
         features: ["Engineering & Trade", "Employee Benefits", "Property & Casualty"],
