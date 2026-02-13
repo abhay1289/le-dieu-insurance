@@ -150,6 +150,13 @@ export default function AboutPage() {
         offset: ["start start", "end end"]
     });
 
+    const philosophyRef = useRef(null);
+    const { scrollYProgress: philosophyScroll } = useScroll({
+        target: philosophyRef,
+        offset: ["start end", "end start"]
+    });
+    const philosophyY = useTransform(philosophyScroll, [0, 1], ["-15%", "15%"]);
+
     return (
         <SmoothScroll>
             <div ref={containerRef} className="min-h-screen bg-white text-primary selection:bg-primary selection:text-white">
@@ -241,11 +248,21 @@ export default function AboutPage() {
                 </section>
 
                 {/* Bento Grid Values Section - Premium Architecture */}
-                <section className="py-24 md:py-48 relative overflow-hidden bg-white">
-                    {/* Artistic Background Elements */}
-                    <div className="absolute inset-0 pointer-events-none">
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.03)_0%,transparent_70%)]" />
-                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/noise-lines.png')] opacity-[0.03]" />
+                <section ref={philosophyRef} className="py-24 md:py-56 relative overflow-hidden bg-white">
+                    {/* Parallax Background Image */}
+                    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                        <motion.div
+                            style={{ y: philosophyY }}
+                            className="absolute inset-x-0 -top-[20%] -bottom-[20%]"
+                        >
+                            <img
+                                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+                                alt="Modern Architecture"
+                                className="w-full h-full object-cover opacity-[0.05] grayscale"
+                            />
+                        </motion.div>
+                        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white" />
                     </div>
 
                     <div className="container mx-auto px-6 md:px-12 relative z-10">
