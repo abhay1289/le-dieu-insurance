@@ -70,7 +70,7 @@ const PageHero: React.FC<PageHeroProps> = ({ title, subtitle, breadcrumb, backgr
                         transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                         className="flex items-center gap-3 mb-4 sm:mb-5 md:mb-6"
                     >
-                        <a href="/" className="text-white/40 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] hover:text-accent transition-colors duration-300">Home</a>
+                        <a href="/" className="text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] hover:text-accent transition-colors duration-300">Home</a>
                         <span className="text-white/20 text-[10px]">—</span>
                         <span className="text-white/80 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em]">{breadcrumb}</span>
                     </motion.div>
