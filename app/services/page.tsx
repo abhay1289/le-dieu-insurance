@@ -105,7 +105,7 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
             <motion.div
                 style={{ scale, top: `calc(-5vh + ${index * 25}px)` }}
                 onMouseMove={handleMouseMove}
-                className="relative w-[90vw] md:w-[1100px] h-[65vh] md:h-[520px] rounded-[1.5rem] border border-gray-200/60 shadow-xl overflow-hidden transform-gpu origin-top bg-white group/card hover:shadow-[0_40px_80px_rgba(0,0,0,0.08)] hover:border-gray-300/80 transition-all duration-700"
+                className="relative w-[92vw] md:w-[1200px] h-[65vh] md:h-[520px] rounded-[1.5rem] border border-gray-200/60 shadow-xl overflow-hidden transform-gpu origin-top bg-white group/card hover:shadow-[0_40px_80px_rgba(0,0,0,0.08)] hover:border-gray-300/80 transition-all duration-700"
             >
                 {/* Cursor spotlight glow */}
                 <motion.div
