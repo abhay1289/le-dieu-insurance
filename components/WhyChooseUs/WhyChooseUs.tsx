@@ -138,7 +138,7 @@ const WhyChooseUs = () => {
                         whileInView={{ y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any }}
-                        className="text-5xl md:text-[84px] font-bold text-primary tracking-tighter leading-[0.85] mb-6"
+                        className="text-4xl sm:text-5xl md:text-[73px] font-bold text-primary tracking-tighter leading-[0.9] mb-6"
                      >
                         Redefining <br />
                         <span className="text-gray-300">Certainty</span>
