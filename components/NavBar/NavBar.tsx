@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowIcon } from '../../utils/icons';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 
 const NavLink = ({ text, href = "#", hasDropdown = false }: { text: string; href?: string; hasDropdown?: boolean }) => {
   return (
@@ -17,16 +17,15 @@ const NavLink = ({ text, href = "#", hasDropdown = false }: { text: string; href
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { scrollY } = useScroll();
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setScrolled(latest > 20);
+  });
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-[0.16,1,0.3,1] ${scrolled
+      className={`fixed top-0 left-0 right-0 z-[999] transition-[background-color,padding,box-shadow,border-color] duration-700 ease-[0.16,1,0.3,1] ${scrolled
         ? 'bg-white backdrop-blur-xl py-4 shadow-sm border-b border-gray-100'
         : 'bg-white py-6 border-b border-gray-50'
         }`}
@@ -116,7 +115,7 @@ const NavBar = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as any }}
-            className="fixed inset-0 bg-white z-[60] flex flex-col lg:hidden"
+            className="fixed inset-0 bg-white z-[1000] flex flex-col lg:hidden"
           >
             {/* Mobile Menu Header */}
             <div className="flex items-center justify-between px-6 py-6 border-b border-gray-50">
