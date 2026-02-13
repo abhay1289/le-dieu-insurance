@@ -224,7 +224,7 @@ export default function SolutionsPage() {
                                                         >
                                                             {solution.icon}
                                                         </motion.div>
-                                                        <h2 className={`text-3xl md:text-7xl font-bold tracking-tighter transition-all duration-700 ${isActive ? 'text-primary' : 'text-gray-900/40 group-hover:text-primary group-hover:translate-x-4'}`}>
+                                                        <h2 className={`text-3xl md:text-7xl font-bold tracking-tighter transition-all duration-700 ${isActive ? 'text-primary' : 'text-gray-900/65 group-hover:text-primary group-hover:translate-x-4'}`}>
                                                             {solution.title}
                                                         </h2>
                                                     </div>
