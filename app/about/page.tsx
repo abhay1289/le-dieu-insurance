@@ -189,18 +189,18 @@ export default function AboutPage() {
 
                                 <div className="space-y-4 mb-10">
                                     <div className="overflow-hidden">
-                                        <motion.h2 variants={textRevealVariants} className="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-primary">
+                                        <motion.h2 variants={textRevealVariants} className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-none text-primary">
                                             Beyond
                                         </motion.h2>
                                     </div>
                                     <div className="overflow-hidden">
-                                        <motion.h2 variants={textRevealVariants} className="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-500">
+                                        <motion.h2 variants={textRevealVariants} className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-500">
                                             Insurance.
                                         </motion.h2>
                                     </div>
                                 </div>
 
-                                <motion.p variants={fadeUpVariants} className="text-xl text-gray-500 leading-relaxed max-w-lg mb-8 font-light border-l border-gray-200 pl-6">
+                                <motion.p variants={fadeUpVariants} className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-lg mb-8 font-light border-l border-gray-200 pl-6">
                                     Le Dieu Insurance Brokers is not just an intermediary; we are your strategic risk partners. Licensed by IRDA since 2003, we bridge the gap between complex enterprise risks and optimal financial protection.
                                 </motion.p>
 
@@ -225,17 +225,17 @@ export default function AboutPage() {
                                 variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
                                 className="grid gap-6"
                             >
-                                <motion.div variants={fadeUpVariants} className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-accent/30 transition-colors duration-500 shadow-sm hover:shadow-md">
+                                <motion.div variants={fadeUpVariants} className="p-6 md:p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-accent/30 transition-colors duration-500 shadow-sm hover:shadow-md">
                                     <h3 className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-4">Market Leadership</h3>
-                                    <p className="text-primary text-lg leading-relaxed">
+                                    <p className="text-primary text-base md:text-lg leading-relaxed">
                                         Serving prestigious industrial houses, power projects, and infrastructure giants with a philosophy of <span className="text-accent font-medium">zero compromise</span> on coverage quality.
                                     </p>
                                 </motion.div>
-                                <motion.div variants={fadeUpVariants} className="grid grid-cols-2 gap-6">
+                                <motion.div variants={fadeUpVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                                     {stats.map((stat, i) => (
-                                        <div key={i} className="p-6 rounded-3xl bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-md transition-all duration-500">
-                                            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.number}</div>
-                                            <div className="text-gray-400 text-[10px] uppercase font-bold tracking-wider">{stat.label}</div>
+                                        <div key={i} className="p-5 md:p-6 rounded-3xl bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-md transition-all duration-500 text-center sm:text-left">
+                                            <div className="text-3xl md:text-4xl font-bold text-primary mb-1 md:mb-2">{stat.number}</div>
+                                            <div className="text-gray-400 text-[9px] md:text-[10px] uppercase font-bold tracking-wider">{stat.label}</div>
                                         </div>
                                     ))}
                                 </motion.div>
@@ -272,16 +272,16 @@ export default function AboutPage() {
                                 <span className="text-accent text-[10px] font-bold uppercase tracking-[0.4em]">Our Philosophy</span>
                                 <span className="h-px w-8 bg-accent/30" />
                             </motion.div>
-                            <motion.h2 variants={fadeUpVariants} className="text-5xl md:text-8xl font-bold tracking-[ -0.05em] mb-6 text-primary leading-[0.9]">
-                                Principles That <br />
+                            <motion.h2 variants={fadeUpVariants} className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-[-0.05em] mb-6 text-primary leading-[0.9]">
+                                Principles That <br className="hidden sm:block" />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent">Define Excellence</span>
                             </motion.h2>
-                            <motion.p variants={fadeUpVariants} className="text-gray-400 text-xl font-light max-w-2xl mx-auto leading-relaxed">
+                            <motion.p variants={fadeUpVariants} className="text-gray-400 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed px-4">
                                 A foundation of trust built over two decades of unwavering service and strategic foresight.
                             </motion.p>
                         </motion.div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[250px]">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-auto lg:auto-rows-[250px]">
                             {values.map((val, i) => (
                                 <motion.div
                                     key={i}
@@ -289,21 +289,21 @@ export default function AboutPage() {
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                    className={val.gridClass || "lg:col-span-1"}
+                                    className={`${val.gridClass || "lg:col-span-1"} flex`}
                                 >
                                     <SpotlightCard
                                         color={val.color}
                                         className="h-full group/card"
                                     >
-                                        <div className="p-8 h-full flex flex-col justify-between">
+                                        <div className="p-6 md:p-8 h-full flex flex-col justify-between">
                                             <div>
-                                                <div className="w-16 h-16 rounded-[1.25rem] bg-gray-50 flex items-center justify-center text-primary mb-6 group-hover/card:scale-110 group-hover/card:bg-primary group-hover/card:text-accent transition-all duration-700 ease-out shadow-sm border border-gray-100">
-                                                    {val.icon}
+                                                <div className="w-12 h-12 md:w-16 md:h-16 rounded-[1rem] md:rounded-[1.25rem] bg-gray-50 flex items-center justify-center text-primary mb-4 md:mb-6 group-hover/card:scale-110 group-hover/card:bg-primary group-hover/card:text-accent transition-all duration-700 ease-out shadow-sm border border-gray-100">
+                                                    <div className="scale-75 md:scale-100">{val.icon}</div>
                                                 </div>
-                                                <h3 className="text-2xl font-bold text-primary mb-4 tracking-tight group-hover/card:translate-x-2 transition-transform duration-500">
+                                                <h3 className="text-xl md:text-2xl font-bold text-primary mb-2 md:mb-4 tracking-tight group-hover/card:translate-x-2 transition-transform duration-500">
                                                     {val.title}
                                                 </h3>
-                                                <p className="text-gray-400 leading-relaxed font-medium text-sm group-hover/card:text-gray-600 transition-colors">
+                                                <p className="text-gray-400 leading-relaxed font-medium text-xs md:text-sm group-hover/card:text-gray-600 transition-colors">
                                                     {val.description}
                                                 </p>
                                             </div>
