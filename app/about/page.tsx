@@ -69,6 +69,17 @@ const MasteryIcon = () => (
         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
     </svg>
 );
+
+const ForesightIcon = () => (
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <circle cx="12" cy="12" r="3" />
+        <line x1="12" y1="7" x2="12" y2="8" />
+        <line x1="12" y1="16" x2="12" y2="17" />
+        <line x1="16" y1="12" x2="17" y2="12" />
+        <line x1="7" y1="12" x2="8" y2="12" />
+    </svg>
+);
 import NavBar from '@/components/NavBar/NavBar';
 import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/PageHero';
@@ -115,18 +126,25 @@ const values = [
         gridClass: "lg:col-span-1"
     },
     {
+        icon: <MasteryIcon />,
+        title: "Sector Mastery",
+        description: "Deep, specialized knowledge across manufacturing, infrastructure, and corporate risk landscapes. We transform complex liability.",
+        color: "rgba(0, 0, 0, 0.08)",
+        gridClass: "lg:col-span-2"
+    },
+    {
         icon: <VelocityIcon />,
         title: "Claims Velocity",
         description: "A dedicated claims division that fights for your settlement. We measure success by the speed and fairness of your recovery.",
         color: "rgba(34, 197, 94, 0.1)",
-        gridClass: "lg:col-span-1"
+        gridClass: "lg:col-span-2"
     },
     {
-        icon: <MasteryIcon />,
-        title: "Sector Mastery",
-        description: "Deep, specialized knowledge across manufacturing, infrastructure, and corporate risk landscapes. We transform complex liability into clear structural security.",
-        color: "rgba(0, 0, 0, 0.08)",
-        gridClass: "lg:col-span-2 lg:row-span-1"
+        icon: <ForesightIcon />,
+        title: "Strategic Foresight",
+        description: "Proprietary risk modeling that anticipates market shifts and regulatory changes before they impact your operations.",
+        color: "rgba(0, 0, 0, 0.05)",
+        gridClass: "lg:col-span-2"
     },
 ];
 
@@ -278,7 +296,7 @@ export default function AboutPage() {
                             </motion.p>
                         </motion.div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[320px]">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[320px]">
                             {values.map((val, i) => (
                                 <motion.div
                                     key={i}
@@ -304,14 +322,6 @@ export default function AboutPage() {
                                                     {val.description}
                                                 </p>
                                             </div>
-
-                                            {/* Decorative element for larger cards */}
-                                            {val.gridClass?.includes('lg:col-span-2') && (
-                                                <div className="flex gap-4 mt-8 pt-8 border-t border-gray-100 items-baseline">
-                                                    <div className="text-4xl font-bold text-accent tracking-tighter">01</div>
-                                                    <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Industry Ranking</div>
-                                                </div>
-                                            )}
                                         </div>
 
                                         {/* Subtle corner accent */}
