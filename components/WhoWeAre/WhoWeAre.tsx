@@ -74,8 +74,8 @@ const WhoWeAre = () => {
             >
               <motion.div style={{ scale: imageScale }} className="w-full h-full">
                 <img
-                  src="/images/who-we-are.png"
-                  alt="Le Dieu Insurance Brokers high-end corporate office"
+                  src="/images/portrait-of-family-mom-dad-and-their-children-en-2026-01-11-09-08-26-utc.jpg"
+                  alt="Multi-generational family portrait - Le Dieu Insurance Protection"
                   className="w-full h-full object-cover"
                 />
               </motion.div>
