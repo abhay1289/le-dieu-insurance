@@ -112,22 +112,15 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
 
                 {/* Full background image */}
                 <div className="absolute inset-0 z-0">
-                    <img
-                        src={card.image}
-                        alt={card.title}
-                        className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover/card:scale-105"
-                    />
+                    <img src={card.image} alt={card.title} className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover/card:scale-105" />
                     <div className="absolute inset-0 bg-primary/80" />
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/60" />
                 </div>
 
                 {/* Content layout */}
                 <div className="relative z-10 h-full flex flex-col md:flex-row">
-
                     {/* Left — Content */}
                     <div className="w-full md:w-[55%] h-[68%] md:h-full flex flex-col justify-between p-7 md:p-10 lg:p-12">
-
-                        {/* Top */}
                         <div>
                             <div className="flex items-center gap-3 mb-5">
                                 <span className="w-7 h-[1.5px] bg-accent" />
@@ -140,14 +133,9 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
                                 {card.description}
                             </p>
                         </div>
-
-                        {/* Bottom — Tags */}
                         <div className="flex items-center gap-2 flex-wrap mt-6">
                             {card.features.map((f: string, i: number) => (
-                                <span
-                                    key={i}
-                                    className="px-3.5 py-[5px] rounded-full border border-white/10 text-[9px] text-white/40 uppercase tracking-[0.15em] font-bold hover:border-accent/50 hover:text-accent transition-all duration-300 cursor-default backdrop-blur-sm"
-                                >
+                                <span key={i} className="px-3.5 py-[5px] rounded-full border border-white/10 text-[9px] text-white/40 uppercase tracking-[0.15em] font-bold hover:border-accent/50 hover:text-accent transition-all duration-300 cursor-default backdrop-blur-sm">
                                     {f}
                                 </span>
                             ))}
@@ -156,25 +144,15 @@ const Card = ({ card, index, range, targetScale, progress }: any) => {
 
                     {/* Right — Visual */}
                     <div className="w-full md:w-[45%] h-[32%] md:h-full relative overflow-hidden">
-
-                        {/* Visible image portion */}
                         <div className="absolute inset-0">
-                            <img
-                                src={card.image}
-                                alt={card.title}
-                                className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover/card:scale-105"
-                            />
+                            <img src={card.image} alt={card.title} className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover/card:scale-105" />
                             <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/40 to-transparent" />
                             <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-primary/20" />
                         </div>
-
-                        {/* Stat overlay — bottom right */}
                         <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 z-10 text-right">
                             <div className="text-white text-4xl md:text-5xl font-bold tracking-tighter leading-none mb-1">{card.stat.value}</div>
-                            <div className="text-white/40 text-[9px] font-bold uppercase tracking-[0.25em]">{card.stat.label}</div>
+                            <div className="text-white/40 text-[10px] font-bold uppercase tracking-[0.2em]">{card.stat.label}</div>
                         </div>
-
-                        {/* Card counter — top right */}
                         <div className="absolute top-6 right-6 md:top-10 md:right-10 z-10">
                             <span className="text-white/20 text-[10px] font-bold uppercase tracking-[0.2em] group-hover/card:text-white/40 transition-colors duration-500">{card.id}<span className="text-white/10 mx-1">/</span>08</span>
                         </div>
@@ -208,8 +186,8 @@ export default function ServicesPage() {
                 {/* Stacking Cards Section */}
                 <div ref={containerRef} className="relative mt-0 mb-0">
                     <div className="container mx-auto px-6 mb-0 text-center">
-                        <span className="text-primary text-xs font-bold uppercase tracking-[0.3em] block mb-6">Our Services</span>
-                        <h2 className="text-4xl md:text-7xl font-bold tracking-tighter text-primary">The Protection Matrix.</h2>
+                        <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary block mb-6">Our Services</span>
+                        <h2 className="text-4xl sm:text-5xl md:text-[72px] font-bold tracking-tighter text-primary leading-[0.9]">The Protection Matrix.</h2>
                     </div>
 
                     {coreServices.map((service, i) => {
@@ -218,14 +196,11 @@ export default function ServicesPage() {
                     })}
                 </div>
 
-                {/* How We Work — Process Section */}
-                <section className="py-20 md:py-28 bg-white relative overflow-hidden">
-                    <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
-                        style={{ backgroundImage: 'radial-gradient(#0B1C15 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-
+                {/* How We Work */}
+                <section className="py-24 md:py-32 bg-white relative overflow-hidden">
                     <div className="container mx-auto px-6 md:px-12 relative z-10">
 
-                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-14 md:mb-20 gap-6">
+                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 md:mb-24 gap-8">
                             <div className="max-w-2xl">
                                 <motion.div
                                     initial={{ opacity: 0, x: -20 }}
@@ -233,18 +208,21 @@ export default function ServicesPage() {
                                     viewport={{ once: true }}
                                     className="flex items-center gap-4 mb-6"
                                 >
-                                    <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">How We Work</span>
+                                    <div className="h-px w-8 bg-primary" />
+                                    <span className="text-[10px] font-bold tracking-[0.3em] text-primary uppercase">How We Work</span>
                                 </motion.div>
-                                <motion.h2
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                    className="text-4xl md:text-[64px] font-bold text-primary tracking-tighter leading-[0.9]"
-                                >
-                                    From Discovery<br />
-                                    <span className="text-gray-300">to Defense</span>
-                                </motion.h2>
+                                <div className="overflow-hidden">
+                                    <motion.h2
+                                        initial={{ y: "100%" }}
+                                        whileInView={{ y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                        className="text-4xl sm:text-5xl md:text-[72px] font-bold text-primary tracking-tighter leading-[0.9]"
+                                    >
+                                        From Discovery<br />
+                                        <span className="text-gray-300">to Defense</span>
+                                    </motion.h2>
+                                </div>
                             </div>
                             <motion.p
                                 initial={{ opacity: 0, y: 20 }}
@@ -257,12 +235,12 @@ export default function ServicesPage() {
                             </motion.p>
                         </div>
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100 rounded-[2rem] overflow-hidden border border-gray-100 shadow-[0_40px_100px_rgba(0,0,0,0.02)]">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 rounded-[2rem] overflow-hidden border border-gray-200">
                             {[
-                                { step: "01", title: "Discovery", desc: "Deep-dive workshops with your leadership to map every exposure vector, contractual obligation, and operational dependency across your enterprise.", icon: "🔍" },
-                                { step: "02", title: "Architecture", desc: "Quantitative stress-testing of your current risk portfolio against catastrophic scenarios, followed by custom framework design with 21+ insurers.", icon: "📐" },
-                                { step: "03", title: "Placement", desc: "Competitive bidding across the entire Indian insurance market to secure preferential terms, followed by meticulous policy documentation and review.", icon: "🎯" },
-                                { step: "04", title: "Stewardship", desc: "Continuous portfolio monitoring, proactive renewal management, and dedicated claims advocacy ensuring your coverage never falls behind your growth.", icon: "🛡️" },
+                                { step: "01", title: "Discovery", desc: "Deep-dive workshops with your leadership to map every exposure vector, contractual obligation, and operational dependency across your enterprise." },
+                                { step: "02", title: "Architecture", desc: "Quantitative stress-testing of your current risk portfolio against catastrophic scenarios, followed by custom framework design with 21+ insurers." },
+                                { step: "03", title: "Placement", desc: "Competitive bidding across the entire Indian insurance market to secure preferential terms, followed by meticulous policy documentation and review." },
+                                { step: "04", title: "Stewardship", desc: "Continuous portfolio monitoring, proactive renewal management, and dedicated claims advocacy ensuring your coverage never falls behind your growth." },
                             ].map((item, i) => (
                                 <motion.div
                                     key={i}
@@ -278,7 +256,6 @@ export default function ServicesPage() {
                                         transition={{ duration: 0.7 }}
                                         className="absolute top-0 left-0 w-1 bg-accent"
                                     />
-                                    <div className="text-3xl mb-6 opacity-30 group-hover:opacity-100 transition-opacity duration-500">{item.icon}</div>
                                     <span className="text-accent text-[10px] font-bold uppercase tracking-[0.3em] block mb-3">Phase {item.step}</span>
                                     <h3 className="text-2xl font-bold text-primary mb-4 tracking-tight">{item.title}</h3>
                                     <p className="text-gray-500 leading-relaxed font-medium text-sm">{item.desc}</p>

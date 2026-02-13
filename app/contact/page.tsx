@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import { motion, useScroll, useTransform, useMotionValue, useMotionTemplate } from 'framer-motion';
+import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
 import NavBar from '@/components/NavBar/NavBar';
 import Footer from '@/components/Footer/Footer';
 import CTA from '@/components/CTA/CTA';
@@ -11,10 +11,7 @@ import SmoothScroll from '@/components/SmoothScroll';
 
 const textRevealVariants = {
     hidden: { y: "100%" },
-    visible: {
-        y: 0,
-        transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-    },
+    visible: { y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
 };
 
 const fadeUpVariants = {
@@ -24,10 +21,7 @@ const fadeUpVariants = {
 
 const staggerContainer = {
     hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.15, delayChildren: 0.1 },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
 };
 
 const offices = [
@@ -78,7 +72,7 @@ function OfficeCard({ office, index }: { office: typeof offices[0]; index: numbe
                 }}
             />
 
-            {/* Map Embed */}
+            {/* Map */}
             <div className="relative h-[200px] md:h-[220px] overflow-hidden">
                 <iframe
                     src={`https://www.google.com/maps?q=${office.mapQuery}&output=embed&z=15`}
@@ -96,7 +90,6 @@ function OfficeCard({ office, index }: { office: typeof offices[0]; index: numbe
             {/* Content */}
             <div className="p-6 md:p-8 relative z-10">
                 <h3 className="text-2xl md:text-3xl font-bold text-primary tracking-tight mb-4">{office.city}</h3>
-
                 <div className="space-y-3 mb-6">
                     <div className="flex items-start gap-3">
                         <svg className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
@@ -104,12 +97,11 @@ function OfficeCard({ office, index }: { office: typeof offices[0]; index: numbe
                     </div>
                     <div className="flex items-center gap-3">
                         <svg className="w-4 h-4 text-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        <p className="text-gray-400 text-sm font-medium">{office.hours}</p>
+                        <p className="text-gray-500 text-sm font-medium">{office.hours}</p>
                     </div>
                 </div>
-
                 <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                    <a href={`tel:${office.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-sm text-primary font-medium hover:text-accent transition-colors group/link">
+                    <a href={`tel:${office.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-sm text-primary font-medium hover:text-accent transition-colors">
                         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                         {office.phone}
                     </a>
@@ -126,23 +118,9 @@ function OfficeCard({ office, index }: { office: typeof offices[0]; index: numbe
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        company: '',
-        service: '',
-        budget: '',
-        message: '',
+        firstName: '', lastName: '', email: '', phone: '', company: '', service: '', message: '',
     });
     const [submitted, setSubmitted] = useState(false);
-
-    const sectionRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: sectionRef,
-        offset: ["start end", "end start"]
-    });
-    const bgY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -167,11 +145,9 @@ export default function ContactPage() {
                     backgroundImage="/images/about-team.png"
                 />
 
-                {/* ─── Main Section: Form + Context ─── */}
-                <section ref={sectionRef} className="relative py-20 md:py-32 bg-white overflow-hidden">
-                    {/* Ambient Light */}
+                {/* Main Section: Form + Sidebar */}
+                <section className="relative py-24 md:py-32 bg-white overflow-hidden">
                     <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-accent/[0.03] rounded-full blur-[120px] pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 w-[30vw] h-[30vw] bg-gray-100/50 rounded-full blur-[100px] pointer-events-none" />
 
                     <div className="container mx-auto px-6 md:px-12 relative z-10">
 
@@ -205,17 +181,16 @@ export default function ContactPage() {
                             </div>
                         </motion.div>
 
-                        {/* Form + Sidebar Grid */}
+                        {/* Form + Sidebar */}
                         <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
 
-                            {/* ─── Form Column ─── */}
+                            {/* Form */}
                             <div className="lg:col-span-7">
                                 <motion.div
                                     initial={{ opacity: 0, y: 40 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                    className="relative"
                                 >
                                     {submitted ? (
                                         <motion.div
@@ -227,66 +202,44 @@ export default function ContactPage() {
                                                 <svg className="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
                                             </div>
                                             <h3 className="text-2xl font-bold text-primary tracking-tight mb-3">Message Received</h3>
-                                            <p className="text-gray-500 font-medium text-sm">Our team will be in touch within 24 hours. We look forward to the conversation.</p>
+                                            <p className="text-gray-500 font-medium text-sm">Our team will be in touch within 24 hours.</p>
                                         </motion.div>
                                     ) : (
                                         <form onSubmit={handleSubmit} className="space-y-6">
-                                            {/* Row 1: Name */}
                                             <div className="grid md:grid-cols-2 gap-5">
                                                 <div>
                                                     <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">First Name <span className="text-accent">*</span></label>
-                                                    <input
-                                                        type="text" name="firstName" value={formData.firstName} onChange={handleChange} required
-                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors"
-                                                        placeholder="John"
-                                                    />
+                                                    <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required placeholder="John"
+                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors" />
                                                 </div>
                                                 <div>
                                                     <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Last Name <span className="text-accent">*</span></label>
-                                                    <input
-                                                        type="text" name="lastName" value={formData.lastName} onChange={handleChange} required
-                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors"
-                                                        placeholder="Doe"
-                                                    />
+                                                    <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required placeholder="Doe"
+                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors" />
                                                 </div>
                                             </div>
-
-                                            {/* Row 2: Email + Phone */}
                                             <div className="grid md:grid-cols-2 gap-5">
                                                 <div>
                                                     <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Work Email <span className="text-accent">*</span></label>
-                                                    <input
-                                                        type="email" name="email" value={formData.email} onChange={handleChange} required
-                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors"
-                                                        placeholder="john@company.com"
-                                                    />
+                                                    <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@company.com"
+                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors" />
                                                 </div>
                                                 <div>
                                                     <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Phone</label>
-                                                    <input
-                                                        type="tel" name="phone" value={formData.phone} onChange={handleChange}
-                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors"
-                                                        placeholder="+91 98765 43210"
-                                                    />
+                                                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="+91 98765 43210"
+                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors" />
                                                 </div>
                                             </div>
-
-                                            {/* Row 3: Company + Service */}
                                             <div className="grid md:grid-cols-2 gap-5">
                                                 <div>
                                                     <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Company</label>
-                                                    <input
-                                                        type="text" name="company" value={formData.company} onChange={handleChange}
-                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors"
-                                                        placeholder="Company Name"
-                                                    />
+                                                    <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Company Name"
+                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors" />
                                                 </div>
                                                 <div>
                                                     <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">I'm Interested In</label>
-                                                    <select
-                                                        name="service" value={formData.service} onChange={handleChange}
-                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium focus:outline-none focus:border-accent transition-colors appearance-none cursor-pointer"
-                                                    >
+                                                    <select name="service" value={formData.service} onChange={handleChange}
+                                                        className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium focus:outline-none focus:border-accent transition-colors appearance-none cursor-pointer">
                                                         <option value="">Select a service</option>
                                                         <option value="risk-management">Risk Management</option>
                                                         <option value="policy-placement">Policy Placement & Negotiation</option>
@@ -299,23 +252,14 @@ export default function ContactPage() {
                                                     </select>
                                                 </div>
                                             </div>
-
-                                            {/* Row 4: Message */}
                                             <div>
                                                 <label className="text-primary text-[11px] font-bold uppercase tracking-[0.15em] mb-2.5 block">Message <span className="text-accent">*</span></label>
-                                                <textarea
-                                                    name="message" value={formData.message} onChange={handleChange} required rows={4}
-                                                    className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors resize-none"
-                                                    placeholder="Tell us about your organization and what you're looking to protect..."
-                                                />
+                                                <textarea name="message" value={formData.message} onChange={handleChange} required rows={4} placeholder="Tell us about your organization and what you're looking to protect..."
+                                                    className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-primary text-base font-medium placeholder:text-gray-300 focus:outline-none focus:border-accent transition-colors resize-none" />
                                             </div>
-
-                                            {/* Submit */}
                                             <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                                                <button
-                                                    type="submit"
-                                                    className="bg-accent text-white px-10 py-4 rounded-full font-bold text-sm tracking-wide hover:bg-accent-hover transition-all duration-300 flex items-center gap-3 hover:scale-[1.02] transform shadow-lg shadow-accent/20"
-                                                >
+                                                <button type="submit"
+                                                    className="bg-accent text-white px-10 py-4 rounded-full font-bold text-sm tracking-wide hover:bg-accent-hover transition-all duration-300 flex items-center gap-3 hover:scale-[1.02] transform shadow-lg shadow-accent/20">
                                                     Send Message
                                                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                                                 </button>
@@ -328,10 +272,10 @@ export default function ContactPage() {
                                 </motion.div>
                             </div>
 
-                            {/* ─── Sidebar Column ─── */}
+                            {/* Sidebar */}
                             <div className="lg:col-span-5">
                                 <div className="lg:sticky lg:top-32 space-y-6">
-                                    {/* Quick Contact */}
+                                    {/* Direct Contact Card */}
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
@@ -339,14 +283,10 @@ export default function ContactPage() {
                                         transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                                         className="p-6 md:p-8 rounded-[2rem] bg-primary text-white relative overflow-hidden"
                                     >
-                                        <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
-                                            style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
                                         <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-accent/10 rounded-full blur-[80px] pointer-events-none" />
-
                                         <div className="relative z-10">
-                                            <span className="text-accent text-[9px] font-bold uppercase tracking-[0.3em] block mb-4">Direct Line</span>
+                                            <span className="text-accent text-[10px] font-bold uppercase tracking-[0.3em] block mb-4">Direct Line</span>
                                             <h3 className="text-xl font-bold tracking-tight mb-6">Prefer to talk? Call us directly.</h3>
-
                                             <div className="space-y-4">
                                                 <a href="tel:+917554294493" className="flex items-center gap-4 group/link">
                                                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover/link:bg-accent transition-colors">
@@ -354,7 +294,7 @@ export default function ContactPage() {
                                                     </div>
                                                     <div>
                                                         <div className="text-white font-medium text-sm">+91 0755-4294493</div>
-                                                        <div className="text-white/40 text-[10px] font-bold uppercase tracking-wider">Bhopal HQ</div>
+                                                        <div className="text-white/40 text-[10px] font-bold uppercase tracking-[0.2em]">Bhopal HQ</div>
                                                     </div>
                                                 </a>
                                                 <a href="tel:01141038988" className="flex items-center gap-4 group/link">
@@ -363,7 +303,7 @@ export default function ContactPage() {
                                                     </div>
                                                     <div>
                                                         <div className="text-white font-medium text-sm">011-41038988</div>
-                                                        <div className="text-white/40 text-[10px] font-bold uppercase tracking-wider">New Delhi</div>
+                                                        <div className="text-white/40 text-[10px] font-bold uppercase tracking-[0.2em]">New Delhi</div>
                                                     </div>
                                                 </a>
                                                 <a href="mailto:info@ledieuinsurance.com" className="flex items-center gap-4 group/link">
@@ -372,14 +312,14 @@ export default function ContactPage() {
                                                     </div>
                                                     <div>
                                                         <div className="text-white font-medium text-sm">info@ledieuinsurance.com</div>
-                                                        <div className="text-white/40 text-[10px] font-bold uppercase tracking-wider">General Inquiries</div>
+                                                        <div className="text-white/40 text-[10px] font-bold uppercase tracking-[0.2em]">General Inquiries</div>
                                                     </div>
                                                 </a>
                                             </div>
                                         </div>
                                     </motion.div>
 
-                                    {/* Quick Stats */}
+                                    {/* Stats */}
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
@@ -395,7 +335,7 @@ export default function ContactPage() {
                                         ].map((stat, i) => (
                                             <div key={i} className="p-5 rounded-2xl bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-md hover:border-accent/20 transition-all duration-500 text-center">
                                                 <div className="text-2xl font-bold text-primary tracking-tighter mb-1">{stat.value}</div>
-                                                <div className="text-gray-400 text-[9px] font-bold uppercase tracking-[0.2em]">{stat.label}</div>
+                                                <div className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em]">{stat.label}</div>
                                             </div>
                                         ))}
                                     </motion.div>
@@ -405,38 +345,38 @@ export default function ContactPage() {
                     </div>
                 </section>
 
-                {/* ─── Offices with Maps ─── */}
-                <section className="py-16 md:py-24 bg-[#FAFBFB] relative overflow-hidden">
-                    <div className="absolute inset-0 opacity-[0.02] pointer-events-none"
-                        style={{ backgroundImage: 'radial-gradient(#0B1C15 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-
+                {/* Offices with Maps */}
+                <section className="py-24 md:py-32 bg-[#FAFBFB] border-t border-gray-100 relative overflow-hidden">
                     <div className="container mx-auto px-6 md:px-12 relative z-10">
-                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 md:mb-16 gap-6">
-                            <div>
+                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 md:mb-24 gap-8">
+                            <div className="max-w-2xl">
                                 <motion.div
                                     initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
-                                    className="flex items-center gap-4 mb-4"
+                                    className="flex items-center gap-4 mb-6"
                                 >
-                                    <span className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">Our Offices</span>
+                                    <div className="h-px w-8 bg-primary" />
+                                    <span className="text-[10px] font-bold tracking-[0.3em] text-primary uppercase">Our Offices</span>
                                 </motion.div>
-                                <motion.h2
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                    className="text-3xl md:text-5xl font-bold text-primary tracking-tighter leading-[0.9]"
-                                >
-                                    Visit Us
-                                </motion.h2>
+                                <div className="overflow-hidden">
+                                    <motion.h2
+                                        initial={{ y: "100%" }}
+                                        whileInView={{ y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                        className="text-4xl sm:text-5xl md:text-[72px] font-bold text-primary tracking-tighter leading-[0.9]"
+                                    >
+                                        Visit Us
+                                    </motion.h2>
+                                </div>
                             </div>
                             <motion.p
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.2 }}
-                                className="text-gray-500 font-medium leading-relaxed text-sm max-w-sm"
+                                className="text-gray-500 font-medium leading-relaxed text-sm md:text-base max-w-sm border-l-2 border-primary/20 pl-8"
                             >
                                 Two offices. One standard of excellence. Walk in or schedule a meeting — we'd love to meet face to face.
                             </motion.p>
@@ -450,7 +390,7 @@ export default function ContactPage() {
                     </div>
                 </section>
 
-                {/* ─── Full-width Map ─── */}
+                {/* Full-width Map */}
                 <section className="relative">
                     <div className="h-[400px] md:h-[500px] w-full relative group">
                         <iframe
@@ -463,7 +403,6 @@ export default function ContactPage() {
                         <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent pointer-events-none opacity-60" />
                         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-40" />
 
-                        {/* Floating Label */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -472,10 +411,10 @@ export default function ContactPage() {
                         >
                             <div className="flex items-center gap-3 mb-2">
                                 <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                                <span className="text-accent text-[9px] font-bold uppercase tracking-[0.3em]">Pan-India Coverage</span>
+                                <span className="text-accent text-[10px] font-bold uppercase tracking-[0.3em]">Pan-India Coverage</span>
                             </div>
                             <p className="text-primary text-sm font-bold tracking-tight">Bhopal · New Delhi</p>
-                            <p className="text-gray-400 text-xs font-medium mt-1">Serving enterprises across all 28 states</p>
+                            <p className="text-gray-500 text-xs font-medium mt-1">Serving enterprises across all 28 states</p>
                         </motion.div>
                     </div>
                 </section>
