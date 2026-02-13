@@ -79,8 +79,8 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 md:from-black/55 md:via-black/35 md:to-black/75 z-10" />
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-20 h-full flex flex-col justify-center">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full pt-32 md:pt-20 pb-16 md:pb-0">
+      <div className="container mx-auto px-6 md:px-12 relative z-20 h-full flex items-center">
+        <div className="w-full pt-32 md:pt-20 pb-16 md:pb-0">
 
 
           {/* Left Content */}
@@ -132,39 +132,6 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Floating Stats */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
-            className="hidden lg:flex flex-col items-end justify-center h-full pr-4 relative"
-          >
-            {/* Main Glass Card */}
-            <div className="relative bg-white/5 backdrop-blur-2xl border border-white/10 p-10 rounded-[2.5rem] w-[380px] overflow-hidden shadow-2xl">
-              {/* Internal Glow */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-full blur-[60px]"></div>
-
-              <div className="relative z-10">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-6xl font-medium text-white tracking-tighter">10k+</h3>
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/10">
-                    <ArrowIcon className="w-4 h-4 text-white -rotate-45" />
-                  </div>
-                </div>
-                <p className="text-white/70 text-lg mb-8 font-light leading-snug">Indian families secured with comprehensive protection.</p>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex -space-x-4">
-                    {[1, 2, 3].map((i) => (
-                      <div key={i} className="w-12 h-12 rounded-full border-[3px] border-black bg-gray-300 overflow-hidden relative z-0 hover:z-10 hover:-translate-y-1 transition-all duration-300">
-                        <img src={`https://i.pravatar.cc/150?img=${i + 20}`} alt="User" className="w-full h-full object-cover" />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
 
         </div>
       </div>
