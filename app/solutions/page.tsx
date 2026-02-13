@@ -254,7 +254,7 @@ export default function SolutionsPage() {
                                                                 initial={{ opacity: 0 }}
                                                                 animate={{ opacity: 1 }}
                                                                 transition={{ delay: 0.5 }}
-                                                                className="grid md:grid-cols-2 gap-8"
+                                                                className="grid grid-cols-1 gap-8"
                                                             >
                                                                 {solution.features.map((feature, fi) => (
                                                                     <div key={fi} className="p-8 rounded-[2rem] bg-gray-50 border border-gray-100 hover:border-accent/30 hover:bg-white transition-all duration-500 group/item shadow-sm hover:shadow-xl">
