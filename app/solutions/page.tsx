@@ -239,7 +239,7 @@ export default function SolutionsPage() {
                                                                 initial={{ opacity: 0, y: 20 }}
                                                                 animate={{ opacity: 1, y: 0 }}
                                                                 transition={{ delay: 0.4 }}
-                                                                className="text-3xl md:text-5xl text-primary font-bold leading-[1.1] mb-10 tracking-tighter"
+                                                                className="text-xl md:text-3xl text-primary font-bold leading-[1.3] mb-8 tracking-tight"
                                                             >
                                                                 {solution.description}
                                                             </motion.h3>
