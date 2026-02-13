@@ -8,7 +8,6 @@ import WhoWeAre from '@/components/WhoWeAre/WhoWeAre';
 import Services from '@/components/Services/Services';
 import WhyChooseUs from '@/components/WhyChooseUs/WhyChooseUs';
 import Team from '@/components/Team/Team';
-import FAQ from '@/components/FAQ/FAQ';
 import Testimonials from '@/components/Testimonials/Testimonials';
 import CTA from '@/components/CTA/CTA';
 import Footer from '@/components/Footer/Footer';
@@ -29,7 +28,6 @@ export default function Home() {
           <Services />
           <Team />
           <Testimonials />
-          <FAQ /> {/* Add FAQ Section */}
           <CTA />
         </main>
         <Footer />

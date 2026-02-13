@@ -39,6 +39,7 @@ import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/PageHero';
 import ScrollProgress from '@/components/ScrollProgress/ScrollProgress';
 import SmoothScroll from '@/components/SmoothScroll';
+import FAQ from '@/components/FAQ/FAQ';
 
 const textRevealVariants = {
     hidden: { y: "100%" },
@@ -280,6 +281,7 @@ export default function AboutPage() {
                     </div>
                 </section>
 
+                <FAQ />
                 <Footer />
             </div>
         </SmoothScroll>
