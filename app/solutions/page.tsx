@@ -239,7 +239,7 @@ export default function SolutionsPage() {
                                                                 initial={{ opacity: 0, y: 20 }}
                                                                 animate={{ opacity: 1, y: 0 }}
                                                                 transition={{ delay: 0.4 }}
-                                                                className="text-xl md:text-3xl text-primary font-bold leading-[1.9] mb-10 tracking-tight max-w-lg"
+                                                                className="text-xl md:text-3xl text-primary font-bold leading-[1.1] mb-10 tracking-tight max-w-lg"
                                                             >
                                                                 {solution.description}
                                                             </motion.h3>
@@ -256,7 +256,7 @@ export default function SolutionsPage() {
                                                                             {feature.icon}
                                                                         </div>
                                                                         <h4 className="text-xl font-bold text-primary mb-3">{feature.title}</h4>
-                                                                        <p className="text-slate-500 text-sm leading-relaxed font-medium">{feature.text}</p>
+                                                                        <p className="text-slate-500 text-sm leading-tight font-medium">{feature.text}</p>
                                                                     </div>
                                                                 ))}
                                                             </motion.div>
@@ -351,7 +351,7 @@ export default function SolutionsPage() {
                                         {step.step}
                                     </div>
                                     <h3 className="text-2xl font-bold text-primary mb-4 tracking-tight group-hover:text-primary transition-colors">{step.title}</h3>
-                                    <p className="text-slate-600 text-base leading-relaxed font-semibold">
+                                    <p className="text-slate-600 text-base leading-tight font-semibold">
                                         {step.description}
                                     </p>
 
