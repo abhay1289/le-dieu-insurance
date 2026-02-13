@@ -276,14 +276,30 @@ export default function SolutionsPage() {
                                                                 transition={{ delay: 0.4, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                                                                 className="relative group/img"
                                                             >
-                                                                {/* Image Container */}
+                                                                {/* Image Container with Scanning Effect */}
                                                                 <div className="relative rounded-[3rem] overflow-hidden aspect-[4/5] shadow-2xl border-[12px] border-white">
                                                                     <img
                                                                         src={solution.image}
                                                                         alt={solution.title}
                                                                         className="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-105"
                                                                     />
+                                                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
+                                                                    {/* Holographic Scan Line */}
+                                                                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/20 to-transparent h-20 w-full animate-scan pointer-events-none" />
+
+                                                                    <div className="absolute bottom-10 left-10 right-10">
+                                                                        <div className="flex items-center gap-3 mb-4">
+                                                                            <div className="px-3 py-1 bg-accent rounded text-[9px] font-bold text-white uppercase tracking-widest">Live Analysis</div>
+                                                                            <div className="h-px flex-1 bg-white/20" />
+                                                                        </div>
+                                                                        <h4 className="text-3xl font-bold text-white tracking-tighter mb-2">
+                                                                            {solution.title} <span className="text-accent underline decoration-2 underline-offset-8">Vector</span>
+                                                                        </h4>
+                                                                        <p className="text-white/60 text-xs font-medium tracking-wide">
+                                                                            Optimizing risk transfer mechanisms based on {solution.id} market volatility metrics.
+                                                                        </p>
+                                                                    </div>
                                                                 </div>
                                                             </motion.div>
                                                         </div>
@@ -326,7 +342,7 @@ export default function SolutionsPage() {
                             </motion.h2>
                         </div>
 
-                        <div className="grid md:grid-cols-4 gap-12 relative">
+                        <div className="grid md:grid-cols-2 gap-12 relative">
                             {/* Connecting Line (Desktop) */}
                             <div className="hidden lg:block absolute top-[40px] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-transparent via-gray-100 to-transparent" />
 
