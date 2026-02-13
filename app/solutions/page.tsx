@@ -8,6 +8,42 @@ import PageHero from '@/components/PageHero';
 import ScrollProgress from '@/components/ScrollProgress/ScrollProgress';
 import SmoothScroll from '@/components/SmoothScroll';
 
+const FactoryIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 20h20" /><path d="M3 20v-8l10-4v4l7-3v11" /><path d="M8 12v3" /><path d="M11 12v3" /><path d="M14 12v3" /><path d="M17 12v3" />
+    </svg>
+);
+
+const CraneIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 22h18" /><path d="M6 22V5l12 4v3" /><path d="M9 22V7l4 2v3" /><path d="M5 10l4-2" /><path d="M17 12v10" /><path d="M12 22v-8" /><path d="M18 9l3 1" />
+    </svg>
+);
+
+const BoltIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+    </svg>
+);
+
+const BriefcaseIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+    </svg>
+);
+
+const StethoscopeIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 12v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" /><path d="M12 16v4" /><path d="M8 20h8" /><path d="M3 5h4v1.4a3 3 0 0 1-3 3H3z" /><path d="M21 5h-4v1.4a3 3 0 0 0 3 3h1z" />
+    </svg>
+);
+
+const BedIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 4v16" /><path d="M2 8h18a2 2 0 0 1 2 2v10" /><path d="M2 17h20" /><path d="M6 8v9" />
+    </svg>
+);
+
 function SolutionCard({ solution }: { solution: any }) {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
@@ -24,29 +60,29 @@ function SolutionCard({ solution }: { solution: any }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            whileHover={{ y: -10 }}
+            whileHover={{ y: -12 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             onMouseMove={handleMouseMove}
-            className="group relative h-[450px] rounded-[2.5rem] bg-white border border-gray-100 overflow-hidden shadow-sm hover:shadow-[0_40px_80px_rgba(0,0,0,0.07)] transition-all duration-500"
+            className="group relative h-[480px] rounded-[2.5rem] bg-[#FBFBFB] border border-gray-100 overflow-hidden shadow-sm hover:shadow-[0_50px_100px_rgba(0,0,0,0.08)] transition-all duration-500"
         >
-            {/* Background Image with Parallax-esque Scale */}
+            {/* Background Image with Controlled Scale */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <motion.img
                     src={solution.image}
                     alt={solution.title}
-                    className="w-full h-full object-cover opacity-[0.12] transition-opacity duration-700 group-hover:opacity-[0.25] group-hover:scale-110"
+                    className="w-full h-full object-cover opacity-[0.05] transition-opacity duration-1000 group-hover:opacity-[0.12] group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#FBFBFB] via-[#FBFBFB]/20 to-transparent" />
             </div>
 
-            {/* Spotlight Effect */}
+            {/* Spotlight Effect - Higher Contrast */}
             <motion.div
                 className="pointer-events-none absolute -inset-px opacity-0 transition duration-500 group-hover:opacity-100"
                 style={{
                     background: useMotionTemplate`
                         radial-gradient(
-                            600px circle at ${mouseX}px ${mouseY}px,
-                            ${solution.hexColor || 'rgba(34, 197, 94, 0.08)'},
+                            500px circle at ${mouseX}px ${mouseY}px,
+                            ${solution.hexColor},
                             transparent 80%
                         )
                     `,
@@ -55,33 +91,31 @@ function SolutionCard({ solution }: { solution: any }) {
 
             <div className="relative h-full p-10 flex flex-col justify-between z-10">
                 <div>
-                    <div className="flex justify-between items-start mb-6">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent bg-accent/10 px-4 py-1.5 rounded-full border border-accent/10">
+                    <div className="flex justify-between items-start mb-8">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary/60 bg-white border border-gray-100 px-4 py-1.5 rounded-full shadow-[0_2px_4px_rgba(0,0,0,0.02)]">
                             {solution.category}
                         </span>
-                        <div className="w-12 h-12 rounded-2xl border border-gray-100 bg-white flex items-center justify-center text-primary transform group-hover:rotate-12 transition-transform duration-500 shadow-sm">
-                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
+                        <div className="w-14 h-14 rounded-2xl border border-gray-100 bg-white flex items-center justify-center text-primary transform group-hover:-rotate-6 transition-transform duration-700 shadow-sm group-hover:shadow-md">
+                            {solution.icon}
                         </div>
                     </div>
 
-                    <h3 className="text-3xl md:text-4xl font-bold text-primary mb-3 tracking-tighter leading-tight">
+                    <h3 className="text-3xl md:text-4xl font-bold text-primary mb-3 tracking-tighter leading-tight group-hover:text-accent transition-colors duration-500">
                         {solution.title}
                     </h3>
                     <p className="text-gray-400 font-bold text-[10px] uppercase tracking-[0.2em] mb-6">
                         {solution.subtitle}
                     </p>
-                    <p className="text-gray-500 leading-relaxed text-sm md:text-base font-medium max-w-[90%]">
+                    <p className="text-gray-500 leading-relaxed text-sm md:text-base font-medium max-w-[95%]">
                         {solution.description}
                     </p>
                 </div>
 
                 <div>
-                    <div className="h-px w-full bg-gray-100 mb-8" />
+                    <div className="h-px w-full bg-gray-100 mb-8 group-hover:bg-accent/20 transition-colors duration-500" />
                     <div className="flex flex-wrap gap-2">
                         {solution.coverages.map((c: string, ci: number) => (
-                            <span key={ci} className="text-[10px] font-bold uppercase text-gray-500 px-3 py-1.5 rounded-lg bg-gray-50 border border-gray-100 group-hover:border-accent/20 group-hover:text-primary transition-all duration-300">
+                            <span key={ci} className="text-[10px] font-bold uppercase text-gray-500 px-3 py-1.5 rounded-xl bg-white border border-gray-100 group-hover:border-accent/30 group-hover:text-primary transition-all duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.01)]">
                                 {c}
                             </span>
                         ))}
@@ -89,9 +123,9 @@ function SolutionCard({ solution }: { solution: any }) {
                 </div>
             </div>
 
-            {/* Hover Indicator Bar */}
+            {/* Hover Indicator Bar - Animated */}
             <motion.div
-                className="absolute bottom-0 left-0 h-1.5 bg-accent w-0 group-hover:w-full transition-all duration-700 ease-in-out"
+                className="absolute bottom-0 left-0 h-2 bg-accent w-0 group-hover:w-full transition-all duration-700 ease-[0.16,1,0.3,1]"
             />
         </motion.div>
     );
@@ -110,54 +144,60 @@ const industrySolutions = [
         category: "manufacturing",
         title: "Heavy Industries",
         subtitle: "Zero-Downtime Protection",
+        icon: <FactoryIcon />,
         description: "For factories where every second of downtime costs millions. We cover machinery, assets, and profit continuity.",
         coverages: ["Industrial All Risk", "Loss of Profit", "Machinery Breakdown"],
-        hexColor: "rgba(249, 115, 22, 0.12)",
+        hexColor: "rgba(249, 115, 22, 0.08)",
         image: "/images/solutions-heavy-industries.png"
     },
     {
         category: "infrastructure",
         title: "Mega Projects",
         subtitle: "Foundation to Finish",
+        icon: <CraneIcon />,
         description: "End-to-end coverage for roads, bridges, and civil engineering marvels. Protecting against delays, damage, and third-party liabilities.",
         coverages: ["Contractor's All Risk", "Advance Loss of Profits", "Third Party Liability"],
-        hexColor: "rgba(34, 197, 94, 0.12)",
+        hexColor: "rgba(34, 197, 94, 0.08)",
         image: "/images/solutions-mega-projects.png"
     },
     {
         category: "specialized",
         title: "Power & Energy",
         subtitle: "Grid Reliability",
+        icon: <BoltIcon />,
         description: "Specialized risk transfer for thermal, solar, and hydro power plants facing unique environmental and operational threats.",
         coverages: ["Mega Risk Policies", "Business Interruption", "Terrorism Cover"],
-        hexColor: "rgba(234, 179, 8, 0.12)",
+        hexColor: "rgba(234, 179, 8, 0.08)",
         image: "/images/solutions-power-energy.png"
     },
     {
         category: "corporate",
         title: "Corporate Fleet",
         subtitle: "Executive Liability",
+        icon: <BriefcaseIcon />,
         description: "Protecting the decision-makers and the balance sheet. From D&O to Cyber, we shield the organization's brain.",
         coverages: ["Directors & Officers", "Cyber Liability", "Errors & Omissions"],
-        hexColor: "rgba(168, 85, 247, 0.12)",
+        hexColor: "rgba(168, 85, 247, 0.08)",
         image: "/images/solutions-corporate-fleet.png"
     },
     {
         category: "specialized",
         title: "Healthcare",
         subtitle: "Clinical Excellence",
+        icon: <StethoscopeIcon />,
         description: "Coverage for hospitals handling delicate lives. Medical malpractice and equipment protection protocols.",
         coverages: ["Medical Malpractice", "Equipment Breakdown", "Public Liability"],
-        hexColor: "rgba(71, 85, 105, 0.12)",
+        hexColor: "rgba(100, 116, 139, 0.08)",
         image: "/images/solutions-healthcare.png"
     },
     {
         category: "corporate",
         title: "Hospitality",
         subtitle: "Guest Assurance",
+        icon: <BedIcon />,
         description: "Protecting properties, guests, and reputation. Comprehensive covers for 5-star chains and resorts.",
         coverages: ["Property All Risk", "Guest Liability", "Fidelity Guarantee"],
-        hexColor: "rgba(244, 63, 94, 0.12)",
+        hexColor: "rgba(244, 63, 94, 0.08)",
         image: "/images/solutions-hospitality.png"
     },
 ];
