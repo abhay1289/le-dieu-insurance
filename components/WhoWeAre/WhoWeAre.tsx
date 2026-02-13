@@ -57,9 +57,9 @@ const WhoWeAre = () => {
                   transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as any }}
                   className="text-4xl sm:text-5xl md:text-[64px] font-heading font-extrabold text-primary tracking-tight leading-[1.15]"
                 >
-                  Trusted Insurance <br />
+                  About Le Dieu <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-accent font-bold relative z-10 block">
-                    Broking Excellence
+                    Insurance Brokers
                   </span>
                 </motion.h2>
               </div>

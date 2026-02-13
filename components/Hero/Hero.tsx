@@ -92,12 +92,12 @@ const Hero = () => {
           >
 
             {/* Masked Text Reveal Animation */}
-            <div className="mb-4 md:mb-8">
+            <div className="mb-3 md:mb-5">
               <div className="overflow-hidden">
                 <motion.h1
                   variants={textRevealVariants}
                   className="text-white tracking-tight drop-shadow-lg block font-heading font-extrabold leading-[1.1] md:leading-[1.1]"
-                  style={{ fontSize: 'clamp(2.5rem, 9vw, 5rem)' }}
+                  style={{ fontSize: 'clamp(2.5rem, 8vw, 4.2rem)' }}
                 >
                   Helping Protect
                 </motion.h1>
@@ -106,14 +106,14 @@ const Hero = () => {
                 <motion.h1
                   variants={textRevealVariants}
                   className="font-heading font-extrabold text-white block leading-[1.1] md:leading-[1.1]"
-                  style={{ fontSize: 'clamp(2.5rem, 9vw, 5rem)' }}
+                  style={{ fontSize: 'clamp(2.5rem, 8vw, 4.2rem)' }}
                 >
                   What Matters Most.
                 </motion.h1>
               </div>
             </div>
 
-            <div className="overflow-hidden mb-6 md:mb-12">
+            <div className="overflow-hidden mb-5 md:mb-8">
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as any } } }}
                 className="text-white/90 text-lg md:text-xl leading-relaxed max-w-xl font-light drop-shadow-md"
