@@ -3,9 +3,9 @@ import { ArrowIcon } from '../../utils/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const heroImages = [
-  "/images/cheerful-family-2026-01-07-07-06-23-utc.jpg",
-  "/images/coffee-date-bench-or-old-couple-in-park-or-nature-2026-01-09-11-19-50-utc.jpg",
-  "/images/phone-call-busy-dad-and-stress-from-kids-childre-2026-01-09-09-37-29-utc.jpg"
+  "/images/high-voltage-power-line-across-dnieper-river-khortytsia-island-zaporizhia-ukraine.jpg",
+  "/images/WhatsApp Image 2026-02-17 at 18.04.11 (1).jpeg",
+  "/images/WhatsApp Image 2026-02-17 at 18.04.11.jpeg"
 ];
 
 const Hero = () => {
