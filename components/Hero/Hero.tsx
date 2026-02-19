@@ -75,8 +75,9 @@ const Hero = () => {
           </motion.div>
         </AnimatePresence>
 
-        {/* Premium Overlays - Subtle dark gradient for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 md:from-black/55 md:via-black/35 md:to-black/75 z-10" />
+        {/* Premium Overlays - Stronger dark gradients for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/45 to-black/90 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent z-10" />
       </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-20 h-full flex items-center">
